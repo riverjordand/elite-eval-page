@@ -10,8 +10,8 @@ import LandingProcess from "@/components/landing/LandingProcess";
 import LandingCoaches from "@/components/landing/LandingCoaches";
 import LandingTestimonials from "@/components/landing/LandingTestimonials";
 import LandingCommitments from "@/components/landing/LandingCommitments";
+import LandingOutcomes from "@/components/landing/LandingOutcomes";
 import EvaluationForm from "@/components/landing/EvaluationForm";
-
 import LandingFAQ from "@/components/landing/LandingFAQ";
 import LandingFinalCTA from "@/components/landing/LandingFinalCTA";
 import LandingFooter from "@/components/landing/LandingFooter";
@@ -336,59 +336,56 @@ const Index = () => {
         onCtaClick={() => setFormOpen(true)}
       />
 
+      {/* WHAT YOU'LL WALK AWAY WITH */}
+      <LandingOutcomes
+        title="What You'll Walk Away With"
+        subtitle="Real results from day one"
+        outcomes={[
+          "Your Custom Development Roadmap showing exactly what to work on and when",
+          "Baseline Performance Metrics to track progress and showcase to recruiters",
+          "Expert Coach Recommendations from D1/Pro coaches who know what college programs want",
+          "Clear Next Steps for recruiting timeline, showcase events, and college outreach"
+        ]}
+        ctaText="Get My Roadmap Now"
+        onCtaClick={() => setFormOpen(true)}
+      />
+
       {/* FAQ */}
       <LandingFAQ
         title="Common Questions"
         faqs={[
           {
-            question: "What age athletes is this for?",
-            answer: "Our free evaluations are designed for high school athletes (ages 13-18) who are serious about playing at the college level. We occasionally evaluate younger athletes who show exceptional potential."
-          },
-          {
             question: "Is there really no cost or obligation?",
-            answer: "Absolutely zero cost. This is a genuine free evaluation with no strings attached. You'll receive the full written development plan regardless of whether you choose to train with us or not."
+            answer: "Zero cost. Zero obligation. You'll receive the full written development plan whether you train with us or not."
           },
           {
-            question: "What happens after the evaluation?",
-            answer: "You'll walk away with a complete written development plan and clear next steps. If you're interested in our training programs, we'll discuss options—but there's zero pressure. Many families use the evaluation just to understand where their athlete stands and what to focus on."
+            question: "What age athletes is this for?",
+            answer: "High school athletes (ages 13-18) serious about playing at the college level. We occasionally evaluate younger athletes with exceptional potential."
           },
           {
-            question: "Will you pressure us to sign up for training?",
-            answer: "No pressure whatsoever. We'll share information about our programs if you ask, but the evaluation is designed to provide value whether you train with us or not. Our goal is to help your athlete improve—even if that's with another program or on their own."
-          },
-          {
-            question: "What should my athlete wear and bring?",
-            answer: "Bring athletic wear, baseball cleats or turf shoes, glove, bat, and any personal training equipment your athlete uses. Pitchers should bring their regular throwing routine. We'll provide the rest—including all testing equipment and analysis tools."
-          },
-          {
-            question: "Can parents watch the evaluation?",
-            answer: "Absolutely. We encourage parents to stay for the entire evaluation. You'll see the metrics testing live, watch the video analysis session, and be part of the final consultation where we review the development plan together."
-          },
-          {
-            question: "How long does the evaluation take?",
-            answer: "Plan for 90 minutes total. This includes metrics testing, video analysis, strength assessment, facility tour, and the development plan consultation."
+            question: "What should my athlete bring?",
+            answer: "Athletic wear, cleats or turf shoes, glove, bat, and any personal training equipment. Pitchers bring your regular throwing routine."
           },
           {
             question: "What makes LPA different from other academies?",
-            answer: "LPA combines college-level coaching with professional-grade technology in a structured, focused environment. Our coaches have D1 and pro experience, and we've helped 50+ athletes earn college commitments through proven development systems."
+            answer: "D1 and pro coaching, professional-grade technology, and 50+ college commitments. We combine elite coaching with proven development systems."
           },
           {
             question: "What programs does LPA offer?",
-            answer: "We offer year-round training programs including position-specific development, pitching instruction, strength and conditioning, hitting labs, and college recruiting support. Programs range from drop-in training to full academy enrollment."
+            answer: "Year-round training including off-season development, in-season tune-ups, private lessons, small group training, and full-time prep programs for college-focused athletes."
           },
           {
-            question: "How does LPA help with college recruiting?",
-            answer: "Beyond skill development, we provide recruiting guidance, college contact support, video packages, and showcase preparation. Many of our athletes have gone on to play at D1, D2, JUCO, and NAIA programs across the country."
+            question: "Do you help with college recruiting?",
+            answer: "Yes. Recruiting support is integrated into our programs—video profiles, coach outreach, showcase planning, and direct college connections through our staff."
           }
         ]}
       />
 
       {/* FINAL CTA */}
       <LandingFinalCTA
-        title="Ready To See What Your Athlete Is Capable Of?"
-        urgency="Limited Spots Available"
-        ctaText="Book My Free Evaluation"
-        spotsLeft={0}
+        title="Your Athlete's Next Level Starts Here"
+        ctaText="Book My Free Evaluation Now"
+        guaranteeText="No credit card required. No obligation. 100% Free."
         onCtaClick={() => setFormOpen(true)}
       />
 
