@@ -179,8 +179,8 @@ const Index = () => {
 
       {/* LPA SECTION #2 - The Coaches */}
       <LandingCoaches
-        title="Meet The Coaching Staff"
-        subtitle="Learn from coaches who've played and coached at the highest levels"
+        title="Meet The Coaches Behind The Athlete Transformations"
+        subtitle="Your athlete is trained and evaluated by coaches who know exactly what it takes to reach the next level — because they've lived it."
         coaches={[
           {
             name: "Mark Karaviotis",
