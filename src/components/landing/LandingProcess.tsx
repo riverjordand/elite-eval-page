@@ -15,16 +15,16 @@ interface LandingProcessProps {
 
 const LandingProcess = ({ title, subtitle, steps, ctaText }: LandingProcessProps) => {
   return (
-    <section className="py-24 bg-secondary/30">
-      <div className="container mx-auto px-6">
+    <section className="py-12 md:py-24 bg-secondary/30">
+      <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-5xl mx-auto">
           {/* Title */}
-          <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl font-bebas font-black uppercase mb-4">
+          <div className="text-center mb-8 md:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-6xl font-bebas font-black uppercase mb-3 md:mb-4 px-4">
               {title}
             </h2>
             {subtitle && (
-              <p className="text-xl text-muted-foreground font-oswald">
+              <p className="text-sm sm:text-base md:text-xl text-muted-foreground font-oswald px-2">
                 {subtitle}
               </p>
             )}
@@ -32,10 +32,10 @@ const LandingProcess = ({ title, subtitle, steps, ctaText }: LandingProcessProps
 
           {/* Steps */}
           <div className="relative">
-            {/* Connection Line */}
+            {/* Connection Line - hidden on mobile */}
             <div className="hidden md:block absolute top-16 left-0 right-0 h-0.5 bg-primary/20" style={{ width: 'calc(100% - 8rem)', margin: '0 auto' }} />
             
-            <div className="grid md:grid-cols-4 gap-8">
+            <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
               {steps.map((step, index) => (
                 <div 
                   key={index}
@@ -43,18 +43,18 @@ const LandingProcess = ({ title, subtitle, steps, ctaText }: LandingProcessProps
                   style={{ animationDelay: `${index * 150}ms` }}
                 >
                   {/* Number Circle */}
-                  <div className="relative z-10 w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
-                    <span className="text-3xl font-bebas font-black text-primary-foreground">
+                  <div className="relative z-10 w-12 h-12 md:w-16 md:h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6 shadow-lg">
+                    <span className="text-2xl md:text-3xl font-bebas font-black text-primary-foreground">
                       {step.number}
                     </span>
                   </div>
 
                   {/* Content */}
-                  <div className="bg-card border-2 border-border rounded-lg p-6 h-full hover:border-primary/50 transition-all duration-300">
-                    <h3 className="text-xl font-bebas font-bold uppercase mb-3 text-foreground">
+                  <div className="bg-card border-2 border-border rounded-lg p-4 md:p-6 h-full hover:border-primary/50 transition-all duration-300">
+                    <h3 className="text-base md:text-xl font-bebas font-bold uppercase mb-2 md:mb-3 text-foreground">
                       {step.title}
                     </h3>
-                    <p className="text-muted-foreground font-oswald text-sm leading-relaxed">
+                    <p className="text-muted-foreground font-oswald text-xs md:text-sm leading-relaxed">
                       {step.description}
                     </p>
                   </div>
@@ -64,10 +64,10 @@ const LandingProcess = ({ title, subtitle, steps, ctaText }: LandingProcessProps
           </div>
 
           {/* CTA */}
-          <div className="text-center mt-16">
+          <div className="text-center mt-8 md:mt-16 px-4">
             <Button 
               size="lg" 
-              className="bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-wider text-2xl px-16 py-10"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-wider text-lg md:text-2xl px-8 py-6 md:px-16 md:py-10 w-full sm:w-auto"
             >
               {ctaText}
             </Button>
