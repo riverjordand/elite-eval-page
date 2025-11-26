@@ -45,10 +45,9 @@ const Index = () => {
         subtitle="Arizona's Premier Baseball Academy"
         title="Welcome To Legendary Prep Academy"
         description={[
-          "For over a decade, LPA has been the destination for Arizona's most serious high school baseball players. We've helped hundreds of athletes gain velocity, refine mechanics, build strength, and ultimately earn opportunities to play at the next level.",
-          "Our approach combines elite-level coaching from former D1 and professional players, cutting-edge technology like Rapsodo and HitTrax, and a proven development system that's produced 50+ college commitments and counting."
+          "For over a decade, LPA has been Arizona's destination for serious high school baseball players. We've helped hundreds of athletes gain velocity, refine mechanics, and earn opportunities to play at the next level.",
         ]}
-        highlight="We don't just train athletes. We build college-ready players with the skills, metrics, and recruiting support needed to compete at the next level."
+        highlight="We build college-ready players with the skills, metrics, and recruiting support needed to compete at the next level."
       />
 
       {/* OFFER SECTION #1 - What's Included */}
