@@ -43,19 +43,21 @@ const LandingPhotos = ({
     return () => cancelAnimationFrame(animationId);
   }, []);
 
-  // Auto-scroll for Row 2
+  // Auto-scroll for Row 2 (opposite direction)
   useEffect(() => {
     const scrollContainer = scrollContainer2Ref.current;
     if (!scrollContainer) return;
 
-    let scrollPos = 0;
+    // Start at the end for reverse scroll
+    let scrollPos = scrollContainer.scrollWidth / 2;
     const scrollSpeed = 0.5;
 
     const scroll = () => {
-      scrollPos += scrollSpeed;
+      scrollPos -= scrollSpeed; // Subtract instead of add for reverse
       
-      if (scrollPos >= scrollContainer.scrollWidth / 2) {
-        scrollPos = 0;
+      // Reset to middle when reaching start
+      if (scrollPos <= 0) {
+        scrollPos = scrollContainer.scrollWidth / 2;
       }
       
       scrollContainer.scrollLeft = scrollPos;
