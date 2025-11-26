@@ -1,4 +1,5 @@
 import { GraduationCap } from "lucide-react";
+import SectionDivider from "./SectionDivider";
 
 interface Commitment {
   name: string;
@@ -15,7 +16,9 @@ interface LandingCommitmentsProps {
 
 const LandingCommitments = ({ title, subtitle, commitments, totalCount }: LandingCommitmentsProps) => {
   return (
-    <section className="py-12 md:py-24 bg-[#0a0a0a] relative">
+    <>
+      <SectionDivider />
+      <section className="py-12 md:py-24 bg-[#0a0a0a] relative">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
@@ -79,6 +82,7 @@ const LandingCommitments = ({ title, subtitle, commitments, totalCount }: Landin
         </div>
       </div>
     </section>
+    </>
   );
 };
 
