@@ -229,6 +229,7 @@ const Index = () => {
       <LandingTestimonials
         title="Hear From LPA Families & Athletes"
         subtitle="Real families and athletes sharing their experience with our program"
+        onCtaClick={() => setFormOpen(true)}
         testimonials={[
           {
             videoUrl: "/testimonials/parent-testimonial-1.mp4",

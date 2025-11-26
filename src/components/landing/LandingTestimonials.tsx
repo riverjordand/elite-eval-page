@@ -12,9 +12,10 @@ interface LandingTestimonialsProps {
   title: string;
   subtitle: string;
   testimonials: Testimonial[];
+  onCtaClick?: () => void;
 }
 
-const LandingTestimonials = ({ title, subtitle, testimonials }: LandingTestimonialsProps) => {
+const LandingTestimonials = ({ title, subtitle, testimonials, onCtaClick }: LandingTestimonialsProps) => {
   return (
     <>
       <SectionDivider fromColor="#1a1a1a" toColor="#0a0a0a" />
@@ -112,6 +113,22 @@ const LandingTestimonials = ({ title, subtitle, testimonials }: LandingTestimoni
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* CTA Section */}
+          <div className="mt-12 md:mt-16 text-center max-w-3xl mx-auto px-4">
+            <p className="text-base md:text-lg text-foreground font-oswald mb-2 leading-relaxed">
+              Your athlete deserves this level of clarity, coaching, and progress.
+            </p>
+            <p className="text-sm md:text-base text-muted-foreground font-oswald mb-6 md:mb-8 leading-relaxed">
+              Every player you see here started with the same free evaluation your athlete can book today.
+            </p>
+            <button
+              onClick={onCtaClick}
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 md:px-12 py-4 md:py-5 rounded-lg font-bebas text-xl md:text-2xl uppercase tracking-wider transition-all duration-300 hover:scale-105 shadow-lg"
+            >
+              → Book Your Free Evaluation
+            </button>
           </div>
 
           {/* Swipe Indicator (Mobile Only) */}
