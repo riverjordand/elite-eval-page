@@ -24,9 +24,7 @@ const LandingVideos = ({
   const [selectedVideoIndex, setSelectedVideoIndex] = useState<number | null>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const [isUserScrolling, setIsUserScrolling] = useState(false);
   const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < 768);
-  const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   // Detect mobile devices
   useEffect(() => {
@@ -39,7 +37,7 @@ const LandingVideos = ({
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Auto-scroll on desktop only, manual scroll on mobile
+  // Continuous auto-scroll on desktop only, manual scroll on mobile
   useEffect(() => {
     const container = scrollContainerRef.current;
     if (!container || isMobile) return; // Skip auto-scroll on mobile
@@ -49,54 +47,23 @@ const LandingVideos = ({
     const scrollSpeed = 0.5; // Smooth continuous scroll
 
     const continuousScroll = () => {
-      // Only auto-scroll if user is not manually scrolling
-      if (!isUserScrolling) {
-        scrollPosition += scrollSpeed;
-        
-        // Reset when reaching halfway (seamless loop with duplicated content)
-        if (scrollPosition >= container.scrollWidth / 2) {
-          scrollPosition = 0;
-        }
-        
-        container.scrollLeft = scrollPosition;
-      } else {
-        // Sync our scroll position with user's manual scroll
-        scrollPosition = container.scrollLeft;
+      scrollPosition += scrollSpeed;
+      
+      // Reset when reaching halfway (seamless loop with duplicated content)
+      if (scrollPosition >= container.scrollWidth / 2) {
+        scrollPosition = 0;
       }
       
+      container.scrollLeft = scrollPosition;
       animationFrameId = requestAnimationFrame(continuousScroll);
     };
 
     animationFrameId = requestAnimationFrame(continuousScroll);
 
-    // Handle manual scroll interaction on desktop
-    const handleUserInteraction = () => {
-      setIsUserScrolling(true);
-      if (scrollTimeoutRef.current) {
-        clearTimeout(scrollTimeoutRef.current);
-      }
-      
-      // Resume auto-scroll after 2 seconds of no interaction
-      scrollTimeoutRef.current = setTimeout(() => {
-        setIsUserScrolling(false);
-      }, 2000);
-    };
-
-    // Only listen to actual user-initiated events (not programmatic scroll)
-    container.addEventListener('wheel', handleUserInteraction);
-    container.addEventListener('mousedown', handleUserInteraction);
-    container.addEventListener('touchstart', handleUserInteraction);
-
     return () => {
       cancelAnimationFrame(animationFrameId);
-      if (scrollTimeoutRef.current) {
-        clearTimeout(scrollTimeoutRef.current);
-      }
-      container.removeEventListener('wheel', handleUserInteraction);
-      container.removeEventListener('mousedown', handleUserInteraction);
-      container.removeEventListener('touchstart', handleUserInteraction);
     };
-  }, [isUserScrolling, isMobile]);
+  }, [isMobile]);
 
   // Play videos when they mount on mobile
   useEffect(() => {
