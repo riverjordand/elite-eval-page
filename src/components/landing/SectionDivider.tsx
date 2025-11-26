@@ -37,9 +37,9 @@ const SectionDivider = ({
         className="w-full h-auto block"
         preserveAspectRatio="none"
         style={{ 
-          minHeight: '40px',
-          maxHeight: '100px',
-          height: 'clamp(40px, 6vw, 100px)'
+          minHeight: '20px',
+          maxHeight: '40px',
+          height: 'clamp(20px, 3vw, 40px)'
         }}
       >
         {/* Main shape */}
