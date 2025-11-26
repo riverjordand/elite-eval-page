@@ -25,10 +25,20 @@ const LandingPhotos = ({
     const scrollContainer = scrollContainer1Ref.current;
     if (!scrollContainer) return;
 
+    const isDesktop = window.matchMedia('(min-width: 768px)').matches;
     let scrollPos = 0;
     const scrollSpeed = 0.15;
+    let isTouching = false;
+    let isScrolling = false;
+    let scrollTimeout: NodeJS.Timeout;
 
     const scroll = () => {
+      // Pause during touch or user scroll on mobile
+      if (!isDesktop && (isTouching || isScrolling)) {
+        requestAnimationFrame(scroll);
+        return;
+      }
+
       scrollPos += scrollSpeed;
       
       if (scrollPos >= scrollContainer.scrollWidth / 2) {
@@ -39,8 +49,42 @@ const LandingPhotos = ({
       requestAnimationFrame(scroll);
     };
 
+    const handleTouchStart = () => {
+      isTouching = true;
+      scrollPos = scrollContainer.scrollLeft;
+    };
+
+    const handleTouchEnd = () => {
+      isTouching = false;
+    };
+
+    const handleScroll = () => {
+      isScrolling = true;
+      scrollPos = scrollContainer.scrollLeft;
+      
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        isScrolling = false;
+      }, 300);
+    };
+
+    if (!isDesktop) {
+      scrollContainer.addEventListener('touchstart', handleTouchStart, { passive: true });
+      scrollContainer.addEventListener('touchend', handleTouchEnd, { passive: true });
+      scrollContainer.addEventListener('scroll', handleScroll, { passive: true });
+    }
+
     const animationId = requestAnimationFrame(scroll);
-    return () => cancelAnimationFrame(animationId);
+    
+    return () => {
+      cancelAnimationFrame(animationId);
+      clearTimeout(scrollTimeout);
+      if (!isDesktop) {
+        scrollContainer.removeEventListener('touchstart', handleTouchStart);
+        scrollContainer.removeEventListener('touchend', handleTouchEnd);
+        scrollContainer.removeEventListener('scroll', handleScroll);
+      }
+    };
   }, []);
 
   // Auto-scroll for Row 2 (opposite direction)
@@ -48,14 +92,22 @@ const LandingPhotos = ({
     const scrollContainer = scrollContainer2Ref.current;
     if (!scrollContainer) return;
 
-    // Start at the end for reverse scroll
+    const isDesktop = window.matchMedia('(min-width: 768px)').matches;
     let scrollPos = scrollContainer.scrollWidth / 2;
     const scrollSpeed = 0.15;
+    let isTouching = false;
+    let isScrolling = false;
+    let scrollTimeout: NodeJS.Timeout;
 
     const scroll = () => {
-      scrollPos -= scrollSpeed; // Subtract instead of add for reverse
+      // Pause during touch or user scroll on mobile
+      if (!isDesktop && (isTouching || isScrolling)) {
+        requestAnimationFrame(scroll);
+        return;
+      }
+
+      scrollPos -= scrollSpeed;
       
-      // Reset to middle when reaching start
       if (scrollPos <= 0) {
         scrollPos = scrollContainer.scrollWidth / 2;
       }
@@ -64,8 +116,42 @@ const LandingPhotos = ({
       requestAnimationFrame(scroll);
     };
 
+    const handleTouchStart = () => {
+      isTouching = true;
+      scrollPos = scrollContainer.scrollLeft;
+    };
+
+    const handleTouchEnd = () => {
+      isTouching = false;
+    };
+
+    const handleScroll = () => {
+      isScrolling = true;
+      scrollPos = scrollContainer.scrollLeft;
+      
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        isScrolling = false;
+      }, 300);
+    };
+
+    if (!isDesktop) {
+      scrollContainer.addEventListener('touchstart', handleTouchStart, { passive: true });
+      scrollContainer.addEventListener('touchend', handleTouchEnd, { passive: true });
+      scrollContainer.addEventListener('scroll', handleScroll, { passive: true });
+    }
+
     const animationId = requestAnimationFrame(scroll);
-    return () => cancelAnimationFrame(animationId);
+    
+    return () => {
+      cancelAnimationFrame(animationId);
+      clearTimeout(scrollTimeout);
+      if (!isDesktop) {
+        scrollContainer.removeEventListener('touchstart', handleTouchStart);
+        scrollContainer.removeEventListener('touchend', handleTouchEnd);
+        scrollContainer.removeEventListener('scroll', handleScroll);
+      }
+    };
   }, []);
 
   // Split photos into two rows and duplicate for seamless loop

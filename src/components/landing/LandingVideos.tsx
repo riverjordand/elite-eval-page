@@ -29,6 +29,9 @@ const LandingVideos = ({
   useEffect(() => {
     videoRefs.current.forEach((video) => {
       if (video) {
+        // Ensure video is muted and has playsinline for mobile
+        video.muted = true;
+        video.setAttribute('playsinline', '');
         video.play().catch(() => {
           // Ignore autoplay errors - browser may block it
         });
@@ -43,16 +46,16 @@ const LandingVideos = ({
     const isDesktop = window.matchMedia('(min-width: 768px)').matches;
     let animationFrameId: number;
     let scrollPosition = 0;
-    const scrollSpeed = 0.25; // pixels per frame
-    let isUserScrolling = false;
+    const scrollSpeed = 0.25;
+    let isTouching = false;
+    let isScrolling = false;
     let scrollTimeout: NodeJS.Timeout;
-    let lastScrollTime = Date.now();
 
     const autoScroll = () => {
       if (!container) return;
       
-      // On mobile, stop if user is scrolling
-      if (!isDesktop && isUserScrolling) return;
+      // Pause auto-scroll during touch or user scroll on mobile
+      if (!isDesktop && (isTouching || isScrolling)) return;
 
       scrollPosition += scrollSpeed;
 
@@ -65,30 +68,37 @@ const LandingVideos = ({
       animationFrameId = requestAnimationFrame(autoScroll);
     };
 
-    // Only add scroll listener on mobile
-    const handleScroll = () => {
-      const now = Date.now();
-      // Ignore programmatic scrolls (less than 16ms apart)
-      if (now - lastScrollTime < 16) {
-        lastScrollTime = now;
-        return;
+    const handleTouchStart = () => {
+      isTouching = true;
+      scrollPosition = container.scrollLeft;
+    };
+
+    const handleTouchEnd = () => {
+      isTouching = false;
+      if (!isScrolling) {
+        scrollPosition = container.scrollLeft;
       }
-      lastScrollTime = now;
-      
-      isUserScrolling = true;
+    };
+
+    const handleScroll = () => {
+      isScrolling = true;
       scrollPosition = container.scrollLeft;
       
       clearTimeout(scrollTimeout);
       
-      // Resume auto-scroll after user stops scrolling for 2 seconds
+      // Resume auto-scroll after momentum scroll stops (300ms after last scroll)
       scrollTimeout = setTimeout(() => {
-        isUserScrolling = false;
-        animationFrameId = requestAnimationFrame(autoScroll);
-      }, 2000);
+        isScrolling = false;
+        if (!isTouching) {
+          animationFrameId = requestAnimationFrame(autoScroll);
+        }
+      }, 300);
     };
 
-    // Only listen to scroll events on mobile
+    // Add touch and scroll listeners on mobile
     if (!isDesktop) {
+      container.addEventListener('touchstart', handleTouchStart, { passive: true });
+      container.addEventListener('touchend', handleTouchEnd, { passive: true });
       container.addEventListener('scroll', handleScroll, { passive: true });
     }
 
@@ -99,6 +109,8 @@ const LandingVideos = ({
       cancelAnimationFrame(animationFrameId);
       clearTimeout(scrollTimeout);
       if (!isDesktop) {
+        container.removeEventListener('touchstart', handleTouchStart);
+        container.removeEventListener('touchend', handleTouchEnd);
         container.removeEventListener('scroll', handleScroll);
       }
     };
