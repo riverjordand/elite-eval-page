@@ -48,8 +48,13 @@ const LandingVideos = ({
       animationFrameId = requestAnimationFrame(autoScroll);
     };
 
-    // Detect when user is scrolling
+    // Detect when user is manually scrolling (only on mobile/tablet)
     const handleScroll = () => {
+      const isDesktop = window.matchMedia('(min-width: 768px)').matches;
+      
+      // On desktop, never stop auto-scroll
+      if (isDesktop) return;
+      
       isUserScrolling = true;
       scrollPosition = container.scrollLeft;
       
