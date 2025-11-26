@@ -22,7 +22,7 @@ const LandingCoaches = ({ title, subtitle, coaches }: LandingCoachesProps) => {
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-8 md:mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-6xl font-bebas font-black uppercase mb-3 md:mb-4 px-4">
+            <h2 className="text-3xl sm:text-4xl md:text-6xl font-bebas font-black uppercase mb-3 md:mb-4 px-4 text-white">
               {title}
             </h2>
             <p className="text-sm sm:text-base md:text-xl text-muted-foreground font-oswald max-w-2xl mx-auto px-2">
@@ -49,18 +49,18 @@ const LandingCoaches = ({ title, subtitle, coaches }: LandingCoachesProps) => {
 
                 {/* Coach Info */}
                 <div className="p-4 md:p-6">
-                  <h3 className="text-lg md:text-2xl font-bebas font-bold uppercase mb-1 md:mb-2 text-foreground">
+                  <h3 className="text-lg md:text-2xl font-bebas font-bold uppercase mb-1 md:mb-2 text-white">
                     {coach.name}
                   </h3>
-                  <p className="text-primary font-oswald font-semibold mb-4 md:mb-6 uppercase text-xs md:text-sm tracking-wide">
+                  <p className="text-primary font-bebas font-semibold mb-4 md:mb-6 uppercase text-xs md:text-sm tracking-wider">
                     {coach.title}
                   </p>
 
                   {/* Credentials */}
-                  <ul className="space-y-1.5 md:space-y-2 text-left">
+                  <ul className="space-y-2 md:space-y-2.5 text-left">
                     {coach.credentials.map((credential, credIndex) => (
-                      <li key={credIndex} className="flex items-start gap-2">
-                        <div className="w-1 h-1 md:w-1.5 md:h-1.5 bg-primary rounded-full mt-1.5 md:mt-2 flex-shrink-0" />
+                      <li key={credIndex} className="flex items-start gap-2 md:gap-3">
+                        <span className="text-primary text-base md:text-lg mt-0.5 flex-shrink-0">•</span>
                         <span className="text-muted-foreground font-oswald text-xs md:text-sm leading-relaxed">
                           {credential}
                         </span>
