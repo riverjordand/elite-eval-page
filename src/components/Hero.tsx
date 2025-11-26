@@ -22,15 +22,15 @@ const Hero = () => {
       <div className="relative z-10 container mx-auto px-6 text-center">
         <div className="max-w-4xl mx-auto">
           <h1 className="font-bebas text-6xl md:text-8xl lg:text-9xl uppercase leading-[0.9] mb-6 animate-fade-in tracking-tight text-white">
-            Empowering
+            Developing Elite
             <br />
-            Student-Athletes
+            <span className="text-primary">Student-Athletes</span>
             <br />
-            For A <span className="text-primary">Legendary</span> Future.
+            for the Next Level
           </h1>
           
-          <p className="font-bebas text-2xl md:text-3xl lg:text-4xl text-white mb-8 animate-fade-in tracking-wide" style={{ animationDelay: "0.2s" }}>
-            "Arizona's First and Only Professional Baseball Prep Academy."
+          <p className="font-bebas text-xl md:text-2xl lg:text-3xl text-white mb-8 max-w-2xl mx-auto animate-fade-in tracking-wide" style={{ animationDelay: "0.2s" }}>
+            Get a complete evaluation of your athlete's strengths, weaknesses, and college-ready potential.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up" style={{ animationDelay: "0.4s" }}>
