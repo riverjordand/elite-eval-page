@@ -23,9 +23,9 @@ const Hero = () => {
         <div className="max-w-5xl mx-auto">
           <div className="flex items-center justify-center gap-8 mb-6">
             <h1 className="font-bebas uppercase leading-[0.9] animate-fade-in tracking-tight text-white">
-              <span className="block text-7xl md:text-9xl lg:text-[11rem]">Empowering</span>
-              <span className="block text-6xl md:text-8xl lg:text-[9rem]">Student-Athletes</span>
-              <span className="block text-5xl md:text-7xl lg:text-[7rem]">For A <span className="text-primary font-black">Legendary</span> Future.</span>
+              <span className="block text-7xl md:text-9xl lg:text-[11rem]">Developing Elite</span>
+              <span className="block text-6xl md:text-8xl lg:text-[9rem] text-primary font-black">Student-Athletes</span>
+              <span className="block text-5xl md:text-7xl lg:text-[7rem]">For The Next Level</span>
             </h1>
             <img 
               src={logoBolt} 
@@ -35,8 +35,8 @@ const Hero = () => {
             />
           </div>
           
-          <p className="font-bebas text-xl md:text-2xl lg:text-3xl text-white mb-8 max-w-5xl mx-auto animate-fade-in tracking-wide" style={{ animationDelay: "0.2s" }}>
-            "Arizona's First and Only Professional Baseball Prep Academy."
+          <p className="font-bebas text-xl md:text-2xl lg:text-3xl text-white mb-8 max-w-2xl mx-auto animate-fade-in tracking-wide" style={{ animationDelay: "0.2s" }}>
+            Get a complete evaluation of your athlete's strengths, weaknesses, and college-ready potential.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up" style={{ animationDelay: "0.4s" }}>
