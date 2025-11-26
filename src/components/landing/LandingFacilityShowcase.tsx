@@ -30,12 +30,12 @@ const LandingFacilityShowcase = ({ title, subtitle, areas }: LandingFacilityShow
           </div>
 
               {/* Mobile: Horizontal Scroll */}
-              <div className="md:hidden overflow-x-auto pb-4 -mx-4 px-4 scrollbar-hide">
+              <div className="md:hidden overflow-x-auto pb-4 -mx-4 px-4 scrollbar-hide snap-x snap-mandatory">
                 <div className="flex gap-4" style={{ width: 'max-content' }}>
                   {areas.map((area, index) => (
                     <div 
                       key={index}
-                      className="flex-shrink-0 w-[85vw] bg-card border-2 border-border rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300 animate-fade-in"
+                      className="flex-shrink-0 w-[85vw] bg-card border-2 border-border rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300 animate-fade-in snap-center"
                       style={{ animationDelay: `${index * 100}ms` }}
                     >
                       {/* Image Placeholder */}
