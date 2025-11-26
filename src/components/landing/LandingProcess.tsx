@@ -66,7 +66,7 @@ const LandingProcess = ({ title, subtitle, steps, ctaText }: LandingProcessProps
           </div>
 
           {/* CTA */}
-          <div className="text-center mt-12 md:mt-20 px-4">
+          <div className="text-center mt-16 md:mt-24 px-4">
             <Button 
               variant="cta"
               size="lg" 
