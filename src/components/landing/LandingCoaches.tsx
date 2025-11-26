@@ -30,12 +30,12 @@ const LandingCoaches = ({ title, subtitle, coaches }: LandingCoachesProps) => {
             </p>
           </div>
 
-          {/* Coaches Horizontal Scroll (Mobile) / Grid (Desktop) */}
-          <div className="flex md:grid overflow-x-auto md:overflow-x-visible md:grid-cols-3 gap-4 md:gap-8 snap-x snap-mandatory scrollbar-hide pb-4 -mx-4 px-4 md:mx-0 md:px-0">
+          {/* Coaches Horizontal Scroll (Mobile) / Single Row (Desktop) */}
+          <div className="flex overflow-x-auto gap-4 md:gap-6 snap-x snap-mandatory scrollbar-hide pb-4 -mx-4 px-4 md:mx-0 md:px-0">
             {coaches.map((coach, index) => (
               <div 
                 key={index}
-                className="bg-card border-2 border-border rounded-lg overflow-hidden text-center hover:border-primary/50 transition-all duration-300 animate-fade-in w-[75vw] sm:w-[60vw] md:w-auto snap-center flex-shrink-0"
+                className="bg-card border-2 border-border rounded-lg overflow-hidden text-center hover:border-primary/50 transition-all duration-300 animate-fade-in w-[75vw] sm:w-[60vw] md:w-[280px] snap-center flex-shrink-0"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 {/* Coach Photo */}
