@@ -3,21 +3,13 @@ import { ArrowRight } from "lucide-react";
 import lpaBolt from "@/assets/lpa-logo-bolt.webp";
 
 interface LandingHeroProps {
-  badge?: string;
-  mainHeadline: string;
-  subHeadline: string;
-  ctaPrimary: string;
-  spotsLeft?: number;
   onCtaClick?: () => void;
+  onTourClick?: () => void;
 }
 
 const LandingHero = ({ 
-  badge = "Limited Availability",
-  mainHeadline,
-  subHeadline,
-  ctaPrimary,
-  spotsLeft = 10,
-  onCtaClick
+  onCtaClick,
+  onTourClick
 }: LandingHeroProps) => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -46,40 +38,40 @@ const LandingHero = ({
             />
           </div>
 
-          {/* Main Headline - About LPA */}
-          <h1 className="text-4xl sm:text-5xl md:text-8xl font-bebas font-black uppercase mb-4 md:mb-6 leading-[0.95] px-2">
-            {mainHeadline}
+          {/* Main Headline */}
+          <h1 className="text-3xl sm:text-4xl md:text-7xl font-bebas font-black uppercase mb-4 md:mb-6 leading-tight px-2">
+            Developing Elite Student-Athletes for the Next Level
           </h1>
 
           {/* Sub Headline */}
-          <p className="text-base sm:text-xl md:text-4xl text-primary font-oswald font-semibold mb-6 md:mb-10 max-w-3xl mx-auto px-2 leading-tight uppercase">
-            {subHeadline}
+          <p className="text-base sm:text-lg md:text-2xl text-foreground font-oswald mb-8 md:mb-10 max-w-3xl mx-auto px-2 leading-relaxed">
+            Where serious baseball players come to build velocity, sharpen fundamentals, and become college-ready.
           </p>
 
-          {/* CTA */}
-          <Button 
-            size="lg" 
-            className="bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-wider text-base sm:text-xl md:text-2xl px-8 py-5 md:px-12 md:py-10 shadow-lg hover:shadow-xl transition-all duration-300 animate-scale-in w-auto"
-            onClick={onCtaClick}
-          >
-            {ctaPrimary} <ArrowRight className="ml-2 w-4 h-4 md:w-6 md:h-6" />
-          </Button>
-
-          {/* Trust indicators */}
-          <div className="mt-6 md:mt-12 pt-4 md:pt-8 border-t border-border/50">
-            <p className="text-xs md:text-lg text-muted-foreground mb-2 md:mb-4 font-oswald uppercase tracking-wide">
-              Trusted By Parents Of Athletes At
-            </p>
-            <div className="flex flex-wrap justify-center gap-2 md:gap-8 text-foreground/70 font-oswald font-semibold text-xs md:text-lg px-4">
-              <span>U of Arizona</span>
-              <span className="hidden md:inline">•</span>
-              <span>Arizona State</span>
-              <span className="hidden md:inline">•</span>
-              <span>GCU</span>
-              <span className="hidden md:inline">•</span>
-              <span>MLB Orgs</span>
-            </div>
+          {/* CTAs */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6 md:mb-8">
+            <Button 
+              size="lg" 
+              className="bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-wider text-lg sm:text-xl md:text-2xl px-8 py-5 md:px-12 md:py-8 shadow-lg hover:shadow-xl transition-all duration-300 animate-scale-in w-full sm:w-auto"
+              onClick={onCtaClick}
+            >
+              Book My Free Evaluation <ArrowRight className="ml-2 w-4 h-4 md:w-6 md:h-6" />
+            </Button>
+            
+            <Button 
+              size="lg"
+              variant="outline"
+              className="font-bebas uppercase tracking-wider text-base sm:text-lg md:text-xl px-6 py-4 md:px-8 md:py-6 border-2 w-full sm:w-auto"
+              onClick={onTourClick}
+            >
+              Schedule a Tour
+            </Button>
           </div>
+
+          {/* Bottom Tagline */}
+          <p className="text-xs sm:text-sm md:text-base text-muted-foreground font-oswald italic px-4">
+            Train in a world-class environment built for serious athletes.
+          </p>
         </div>
       </div>
     </section>

@@ -47,11 +47,8 @@ const Index = () => {
       
       {/* HERO */}
       <LandingHero
-        mainHeadline="Arizona's Premier Baseball Development Academy"
-        subHeadline="Discover exactly what's holding your athlete back—and how to fix it. Free 90-minute evaluation."
-        ctaPrimary="Claim My Free Evaluation"
-        spotsLeft={10}
         onCtaClick={() => setFormOpen(true)}
+        onTourClick={() => setFormOpen(true)}
       />
 
       {/* INTRO - About LPA */}
