@@ -30,7 +30,7 @@ const LandingHero = ({
       </video>
       
       {/* Dark overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/90 to-background/95" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/85 via-background/75 to-background/85" />
       
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
