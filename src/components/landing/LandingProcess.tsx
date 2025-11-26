@@ -19,16 +19,16 @@ const LandingProcess = ({ title, subtitle, steps, ctaText, onCtaClick }: Landing
   return (
     <>
       <SectionDivider fromColor="#0a0a0a" toColor="#1a1a1a" />
-      <section className="py-16 md:py-24 bg-[#1a1a1a] relative">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="max-w-5xl mx-auto">
+      <section className="py-16 md:py-24 lg:py-32 bg-[#1a1a1a] relative">
+      <div className="container mx-auto px-4 md:px-8 lg:px-6">
+        <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-6xl font-bebas font-black uppercase mb-4 md:mb-6 px-4">
+          <div className="text-center mb-16 md:mb-20">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bebas font-black uppercase mb-4 md:mb-6 px-4 leading-tight">
               {title}
             </h2>
             {subtitle && (
-              <p className="text-base md:text-xl text-muted-foreground font-oswald px-2">
+              <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground font-oswald px-2 leading-relaxed">
                 {subtitle}
               </p>
             )}
@@ -72,7 +72,7 @@ const LandingProcess = ({ title, subtitle, steps, ctaText, onCtaClick }: Landing
             <Button 
               variant="cta"
               size="lg" 
-              className="font-bebas uppercase tracking-wider text-lg md:text-2xl px-8 py-6 md:px-16 md:py-10 w-full sm:w-auto"
+              className="font-bebas uppercase tracking-wider text-xl md:text-2xl lg:text-3xl px-10 py-6 md:px-16 md:py-10 w-full sm:w-auto h-auto min-h-[56px]"
               onClick={onCtaClick}
             >
               {ctaText}

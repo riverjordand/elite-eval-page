@@ -66,15 +66,15 @@ const LandingValueStack = ({ onCtaClick }: LandingValueStackProps) => {
   return (
     <>
       <SectionDivider fromColor="#1a1a1a" toColor="#0a0a0a" />
-      <section className="py-8 md:py-16 lg:py-20 bg-[#0a0a0a] relative">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="max-w-6xl mx-auto">
+      <section className="py-16 md:py-24 lg:py-32 bg-[#0a0a0a] relative">
+        <div className="container mx-auto px-4 md:px-8 lg:px-6">
+          <div className="max-w-7xl mx-auto">
             {/* Section Header */}
-            <div className="text-center mb-6 md:mb-10">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bebas font-black uppercase mb-3 md:mb-4">
+            <div className="text-center mb-12 md:mb-16">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bebas font-black uppercase mb-4 md:mb-6 leading-tight">
                 What's Included in Your Free Evaluation
               </h2>
-              <p className="text-sm md:text-lg lg:text-xl text-muted-foreground font-oswald max-w-3xl mx-auto leading-relaxed">
+              <p className="text-base md:text-lg lg:text-xl text-muted-foreground font-oswald max-w-4xl mx-auto leading-relaxed">
                 These are the exact evaluations D1 coaches use to diagnose what's holding a player back — and what will finally move them forward.
               </p>
             </div>
@@ -141,15 +141,15 @@ const LandingValueStack = ({ onCtaClick }: LandingValueStackProps) => {
             </div>
 
             {/* Value Summary Box */}
-            <div className="max-w-3xl mx-auto text-center">
-              <div className="bg-card border-2 border-primary/40 rounded-2xl p-6 md:p-8 lg:p-10">
-                <p className="text-sm md:text-base lg:text-lg text-muted-foreground font-oswald mb-2 tracking-wide">
+            <div className="max-w-4xl mx-auto text-center">
+              <div className="bg-card border-2 border-primary/40 rounded-2xl p-8 md:p-12 lg:p-14">
+                <p className="text-base md:text-lg lg:text-xl text-muted-foreground font-oswald mb-3 tracking-wide">
                   Total Value:
                 </p>
-                <p className="text-5xl md:text-6xl lg:text-7xl font-bebas font-black text-foreground mb-4 md:mb-6">
+                <p className="text-6xl md:text-7xl lg:text-8xl font-bebas font-black text-foreground mb-6 md:mb-8">
                   ${totalValue}
                 </p>
-                <p className="text-2xl md:text-3xl lg:text-4xl font-bebas font-black text-primary uppercase tracking-wider">
+                <p className="text-3xl md:text-4xl lg:text-5xl font-bebas font-black text-primary uppercase tracking-wider">
                   Yours Free Today
                 </p>
               </div>
