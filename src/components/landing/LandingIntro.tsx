@@ -1,7 +1,9 @@
 import SectionDivider from "./SectionDivider";
 import welcomeImage from "@/assets/welcome-athlete-batting.jpg";
+
 const LandingIntro = () => {
-  return <>
+  return (
+    <>
       <SectionDivider fromColor="#0a0a0a" toColor="#1a1a1a" />
       <section className="py-12 md:py-24 bg-[#1a1a1a] relative">
       <div className="container mx-auto px-4 md:px-6">
@@ -17,20 +19,20 @@ const LandingIntro = () => {
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             {/* Left Column - Text Content */}
             <div className="space-y-5 md:space-y-6">
-              <p className="text-sm sm:text-base md:text-lg text-muted-foreground font-oswald leading-relaxed text-center">
+              <p className="text-sm sm:text-base md:text-lg text-muted-foreground font-oswald leading-relaxed">
                 LPA is where Arizona's most driven baseball athletes train to reach the next level — whether that's high-level varsity, college baseball, or pro development.
               </p>
               
-              <p className="text-sm sm:text-base md:text-lg text-muted-foreground font-oswald leading-relaxed text-center">
+              <p className="text-sm sm:text-base md:text-lg text-muted-foreground font-oswald leading-relaxed">
                 Our athletes train with D1-level systems, professional coaching, and the same technology used by college programs and MLB player-development.
               </p>
 
               {/* Closing Statements */}
               <div className="space-y-2 md:space-y-3 pt-4">
-                <p className="text-base sm:text-lg md:text-xl font-oswald font-semibold text-foreground text-center">
+                <p className="text-base sm:text-lg md:text-xl font-oswald font-semibold text-foreground">
                   LPA is not a casual training facility.
                 </p>
-                <p className="text-base sm:text-lg md:text-xl font-oswald font-semibold text-foreground italic text-center">
+                <p className="text-base sm:text-lg md:text-xl font-oswald font-semibold text-foreground italic">
                   It's where athletes come to commit, develop, and excel.
                 </p>
               </div>
@@ -38,12 +40,18 @@ const LandingIntro = () => {
 
             {/* Right Column - Athlete Image */}
             <div className="rounded-xl overflow-hidden border-2 border-border">
-              <img src={welcomeImage} alt="LPA athlete at bat" className="w-full h-full object-cover aspect-square" />
+              <img 
+                src={welcomeImage} 
+                alt="LPA athlete at bat"
+                className="w-full h-full object-cover aspect-square"
+              />
             </div>
           </div>
         </div>
       </div>
     </section>
-    </>;
+    </>
+  );
 };
+
 export default LandingIntro;
