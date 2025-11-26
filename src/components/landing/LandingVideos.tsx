@@ -1,5 +1,4 @@
 import { useEffect, useRef } from "react";
-import SectionDivider from "./SectionDivider";
 
 interface TrainingVideo {
   src: string;
@@ -53,9 +52,7 @@ const LandingVideos = ({
   const duplicatedVideos = [...videos, ...videos];
 
   return (
-    <>
-      <SectionDivider />
-      <section className="bg-[#0a0a0a] py-12 md:py-16">
+    <section className="bg-[#0a0a0a] py-12 md:py-16">
         {/* Header */}
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-8 md:mb-12">
@@ -90,9 +87,8 @@ const LandingVideos = ({
               </div>
             ))}
           </div>
-        </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 };
 

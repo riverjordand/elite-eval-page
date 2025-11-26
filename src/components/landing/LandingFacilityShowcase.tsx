@@ -1,5 +1,3 @@
-import SectionDivider from "./SectionDivider";
-
 interface FacilityArea {
   title: string;
   description: string;
@@ -14,9 +12,7 @@ interface LandingFacilityShowcaseProps {
 
 const LandingFacilityShowcase = ({ title, subtitle, areas }: LandingFacilityShowcaseProps) => {
   return (
-    <>
-      <SectionDivider />
-      <section className="py-12 md:py-24 bg-[#1a1a1a] relative">
+    <section className="py-12 md:py-24 bg-[#1a1a1a] relative">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
@@ -87,7 +83,6 @@ const LandingFacilityShowcase = ({ title, subtitle, areas }: LandingFacilityShow
         </div>
       </div>
     </section>
-    </>
   );
 };
 

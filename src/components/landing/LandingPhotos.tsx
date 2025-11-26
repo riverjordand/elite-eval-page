@@ -1,5 +1,3 @@
-import SectionDivider from "./SectionDivider";
-
 interface ActionPhoto {
   src: string;
   alt: string;
@@ -17,9 +15,7 @@ const LandingPhotos = ({
   photos
 }: LandingPhotosProps) => {
   return (
-    <>
-      <SectionDivider />
-      <section className="bg-[#1a1a1a] py-12 md:py-16 px-4">
+    <section className="bg-[#1a1a1a] py-12 md:py-16 px-4">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="text-center mb-8 md:mb-12">
@@ -66,9 +62,8 @@ const LandingPhotos = ({
               </div>
             ))}
           </div>
-        </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 };
 
