@@ -3,6 +3,7 @@ import LandingHero from "@/components/landing/LandingHero";
 import LandingIntro from "@/components/landing/LandingIntro";
 import LandingIncluded from "@/components/landing/LandingIncluded";
 import LandingFacilityShowcase from "@/components/landing/LandingFacilityShowcase";
+import LandingActionGallery from "@/components/landing/LandingActionGallery";
 import LandingProcess from "@/components/landing/LandingProcess";
 import LandingCoaches from "@/components/landing/LandingCoaches";
 import LandingTestimonials from "@/components/landing/LandingTestimonials";
@@ -128,6 +129,24 @@ const Index = () => {
               "Performance Recovery Plans"
             ]
           }
+        ]}
+      />
+
+      {/* ACTION GALLERY - Training Photos */}
+      <LandingActionGallery
+        title="Elite Training In Action"
+        subtitle="Real athletes. Real results. Real development."
+        photos={[
+          { src: "/action-01.jpg", alt: "LPA athlete strength training with equipment" },
+          { src: "/action-02.jpg", alt: "LPA athlete bat training session" },
+          { src: "/action-03.jpg", alt: "LPA athlete batting practice action" },
+          { src: "/action-04.jpg", alt: "LPA athlete core training with weight plate" },
+          { src: "/action-05.jpg", alt: "LPA athlete focused in dugout" },
+          { src: "/action-06.jpg", alt: "LPA athlete batting at field during golden hour" },
+          { src: "/action-07.jpg", alt: "LPA athlete pitching on mound" },
+          { src: "/action-08.jpg", alt: "LPA athletes team photo on field" },
+          { src: "/action-09.jpg", alt: "LPA athlete fielding and throwing" },
+          { src: "/action-10.jpg", alt: "LPA athlete defensive stance in outfield" }
         ]}
       />
 
