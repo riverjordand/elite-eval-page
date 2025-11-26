@@ -20,39 +20,85 @@ const LandingPhotos = ({
   const scrollContainer1Ref = useRef<HTMLDivElement>(null);
   const scrollContainer2Ref = useRef<HTMLDivElement>(null);
 
-  // Add drag-to-scroll functionality
+  // Add drag-to-scroll functionality with momentum
   useEffect(() => {
     const addDragScroll = (container: HTMLDivElement) => {
       let isDown = false;
       let startX = 0;
       let scrollLeft = 0;
+      let velocity = 0;
+      let lastX = 0;
+      let lastTime = 0;
+      let animationFrame: number;
 
       const handleMouseDown = (e: MouseEvent) => {
         isDown = true;
         container.style.cursor = 'grabbing';
+        container.style.userSelect = 'none';
         startX = e.pageX - container.offsetLeft;
         scrollLeft = container.scrollLeft;
+        lastX = e.pageX;
+        lastTime = Date.now();
+        velocity = 0;
+        cancelAnimationFrame(animationFrame);
       };
 
       const handleMouseLeave = () => {
-        isDown = false;
-        container.style.cursor = 'grab';
+        if (isDown) {
+          isDown = false;
+          container.style.cursor = 'grab';
+          container.style.userSelect = '';
+          applyMomentum();
+        }
       };
 
       const handleMouseUp = () => {
-        isDown = false;
-        container.style.cursor = 'grab';
+        if (isDown) {
+          isDown = false;
+          container.style.cursor = 'grab';
+          container.style.userSelect = '';
+          applyMomentum();
+        }
       };
 
       const handleMouseMove = (e: MouseEvent) => {
         if (!isDown) return;
         e.preventDefault();
+        
         const x = e.pageX - container.offsetLeft;
-        const walk = (x - startX) * 2;
+        const currentTime = Date.now();
+        const timeDelta = currentTime - lastTime;
+        
+        if (timeDelta > 0) {
+          velocity = (lastX - e.pageX) / timeDelta;
+        }
+        
+        const walk = (x - startX) * 1.5;
         container.scrollLeft = scrollLeft - walk;
+        
+        lastX = e.pageX;
+        lastTime = currentTime;
+      };
+
+      const applyMomentum = () => {
+        const friction = 0.92;
+        const minVelocity = 0.5;
+        
+        const animate = () => {
+          if (Math.abs(velocity) > minVelocity) {
+            container.scrollLeft += velocity * 10;
+            velocity *= friction;
+            animationFrame = requestAnimationFrame(animate);
+          }
+        };
+        
+        if (Math.abs(velocity) > minVelocity) {
+          animate();
+        }
       };
 
       container.style.cursor = 'grab';
+      container.style.scrollBehavior = 'auto';
       container.addEventListener('mousedown', handleMouseDown);
       container.addEventListener('mouseleave', handleMouseLeave);
       container.addEventListener('mouseup', handleMouseUp);
@@ -63,6 +109,7 @@ const LandingPhotos = ({
         container.removeEventListener('mouseleave', handleMouseLeave);
         container.removeEventListener('mouseup', handleMouseUp);
         container.removeEventListener('mousemove', handleMouseMove);
+        cancelAnimationFrame(animationFrame);
       };
     };
 
