@@ -152,8 +152,7 @@ const Index = () => {
             name: "Mark Karaviotis",
             title: "Head Coach",
             credentials: [
-              "D1 Oregon • Pro ball with Diamondbacks organization",
-              "Minor League batting champion & 3x All-Star"
+              "Played D1 at Oregon and pro ball with the Diamondbacks organization. Minor League batting champion and 3x All-Star who brings elite-level hitting expertise to every session."
             ],
             image: coachMarcus
           },
@@ -161,8 +160,7 @@ const Index = () => {
             name: "Joe Dunigan",
             title: "Hitting Coordinator & Astros Scout",
             credentials: [
-              "D1 Oklahoma • Drafted twice in MLB Draft",
-              "Current MLB Scout for Houston Astros"
+              "D1 player at Oklahoma who was drafted twice in the MLB Draft. Currently scouts for the Houston Astros, giving athletes a direct connection to professional opportunities."
             ],
             image: coachJoe
           },
@@ -170,8 +168,7 @@ const Index = () => {
             name: "Eric Smith",
             title: "Coordinator",
             credentials: [
-              "D1 Rhode Island • 2nd round draft pick",
-              "6 years professional baseball experience"
+              "D1 player at Rhode Island and 2nd round draft pick by the Arizona Diamondbacks. 6 years of professional baseball experience competing at the highest level."
             ],
             image: coachEric
           },
@@ -179,8 +176,7 @@ const Index = () => {
             name: "Terrell Hudson",
             title: "Assistant Coach",
             credentials: [
-              "D1 New Mexico player",
-              "Elite youth baseball development specialist"
+              "Former D1 player at the University of New Mexico. Specializes in developing elite youth baseball players for college and beyond."
             ],
             image: coachTerrell
           },
@@ -188,8 +184,7 @@ const Index = () => {
             name: "Will Armijo",
             title: "CEO & Co-Founder",
             credentials: [
-              "Former NCAA player • MBA • Built 6 companies",
-              "13+ years mentoring athletes to next level"
+              "Former NCAA player with an MBA who built 6 successful companies across four industries. Over 13 years mentoring athletes and professionals with a focus on long-term development and recruiting strategy."
             ],
             image: coachNeil
           }
