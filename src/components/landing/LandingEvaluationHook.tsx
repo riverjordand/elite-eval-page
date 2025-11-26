@@ -14,7 +14,7 @@ const LandingEvaluationHook = ({ onCtaClick }: LandingEvaluationHookProps) => {
         <div className="max-w-4xl mx-auto space-y-8 md:space-y-12">
           {/* Purple Badge */}
           <div className="flex justify-center">
-            <span className="inline-block px-6 py-2.5 bg-primary/20 border-2 border-primary/40 rounded-full text-primary font-bebas text-sm md:text-base uppercase tracking-wider">
+            <span className="inline-block px-6 py-2.5 bg-primary border-2 border-primary rounded-full text-white font-bebas text-sm md:text-base uppercase tracking-wider shadow-lg shadow-primary/50">
               The College-Ready Player Evaluation
             </span>
           </div>
