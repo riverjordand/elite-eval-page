@@ -77,7 +77,7 @@ const LandingVideos = ({
             {duplicatedVideos.map((video, index) => (
               <div
                 key={index}
-                className="flex-shrink-0 w-[70vw] md:w-[280px] aspect-[9/16] rounded-lg overflow-hidden bg-muted"
+                className="flex-shrink-0 w-[70vw] md:w-[350px] aspect-[9/16] rounded-lg overflow-hidden bg-muted"
               >
                 <video
                   src={video.src}
