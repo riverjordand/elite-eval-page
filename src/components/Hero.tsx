@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import logoBolt from "@/assets/lpa-logo-bolt.webp";
 
 const Hero = () => {
   return (
@@ -20,16 +21,16 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 text-center">
         <div className="max-w-4xl mx-auto">
-          <h1 className="font-bebas text-6xl md:text-8xl lg:text-9xl uppercase leading-[0.9] mb-6 animate-fade-in tracking-tight">
-            Developing Elite
+          <h1 className="font-bebas text-6xl md:text-8xl lg:text-9xl uppercase leading-[0.9] mb-6 animate-fade-in tracking-tight text-white">
+            Empowering
             <br />
-            <span className="text-gradient-purple glow-primary">Student-Athletes</span>
+            Student-Athletes
             <br />
-            for the Next Level
+            For A <span className="text-primary">Legendary</span> Future.
           </h1>
           
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl animate-fade-in" style={{ animationDelay: "0.2s" }}>
-            Get a complete evaluation of your athlete's strengths, weaknesses, and college-ready potential.
+          <p className="font-bebas text-2xl md:text-3xl lg:text-4xl text-white mb-8 animate-fade-in tracking-wide" style={{ animationDelay: "0.2s" }}>
+            "Arizona's First and Only Professional Baseball Prep Academy."
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up" style={{ animationDelay: "0.4s" }}>
