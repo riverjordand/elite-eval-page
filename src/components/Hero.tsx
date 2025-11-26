@@ -18,8 +18,8 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 text-center md:text-left">
-        <div className="max-w-4xl">
+      <div className="relative z-10 container mx-auto px-6 text-center">
+        <div className="max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-black uppercase leading-tight mb-6 animate-fade-in">
             Developing Elite
             <br />
@@ -32,7 +32,7 @@ const Hero = () => {
             Get a complete evaluation of your athlete's strengths, weaknesses, and college-ready potential.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 animate-slide-up" style={{ animationDelay: "0.4s" }}>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up" style={{ animationDelay: "0.4s" }}>
             <Button 
               size="lg" 
               className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold uppercase tracking-wider text-lg px-8 py-6 border-glow"
