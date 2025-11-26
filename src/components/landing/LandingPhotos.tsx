@@ -131,8 +131,8 @@ const LandingPhotos = ({
 
   // Split photos into two rows and duplicate for seamless loop
   const halfLength = Math.ceil(photos.length / 2);
-  const row1Photos = photos.slice(0, halfLength);
-  const row2Photos = photos.slice(halfLength);
+  const row1Photos = [...photos.slice(0, halfLength), ...photos.slice(0, halfLength)];
+  const row2Photos = [...photos.slice(halfLength), ...photos.slice(halfLength)];
 
   return (
     <>
