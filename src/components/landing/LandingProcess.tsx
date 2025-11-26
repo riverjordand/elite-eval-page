@@ -15,13 +15,13 @@ interface LandingProcessProps {
 
 const LandingProcess = ({ title, subtitle, steps, ctaText }: LandingProcessProps) => {
   return (
-    <section className="py-12 md:py-24 bg-[#0a0a0a] relative">
+    <section className="py-16 md:py-24 bg-[#0a0a0a] relative">
       {/* Gradient fade to next section */}
       <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-[#1a1a1a] pointer-events-none" />
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-5xl mx-auto">
           {/* Title */}
-          <div className="text-center mb-8 md:mb-16">
+          <div className="text-center mb-12 md:mb-16">
             <h2 className="text-3xl sm:text-4xl md:text-6xl font-bebas font-black uppercase mb-3 md:mb-4 px-4">
               {title}
             </h2>
@@ -33,7 +33,7 @@ const LandingProcess = ({ title, subtitle, steps, ctaText }: LandingProcessProps
           </div>
 
           {/* Steps */}
-          <div className="relative">
+          <div className="relative mb-12 md:mb-16">
             {/* Connection Line - hidden on mobile */}
             <div className="hidden md:block absolute top-16 left-0 right-0 h-0.5 bg-primary/20" style={{ width: 'calc(100% - 8rem)', margin: '0 auto' }} />
             
@@ -41,7 +41,7 @@ const LandingProcess = ({ title, subtitle, steps, ctaText }: LandingProcessProps
               {steps.map((step, index) => (
                 <div 
                   key={index}
-                  className="relative text-center animate-fade-in"
+                  className="relative text-center animate-fade-in flex flex-col"
                   style={{ animationDelay: `${index * 150}ms` }}
                 >
                   {/* Number Circle */}
@@ -52,11 +52,11 @@ const LandingProcess = ({ title, subtitle, steps, ctaText }: LandingProcessProps
                   </div>
 
                   {/* Content */}
-                  <div className="bg-card border-2 border-border rounded-lg p-4 md:p-6 h-full hover:border-primary/50 transition-all duration-300">
+                  <div className="bg-card border-2 border-border rounded-lg p-4 md:p-6 flex-1 flex flex-col hover:border-primary/50 transition-all duration-300">
                     <h3 className="text-base md:text-xl font-bebas font-bold uppercase mb-2 md:mb-3 text-foreground">
                       {step.title}
                     </h3>
-                    <p className="text-muted-foreground font-oswald text-xs md:text-sm leading-relaxed">
+                    <p className="text-muted-foreground font-oswald text-xs md:text-sm leading-relaxed flex-1">
                       {step.description}
                     </p>
                   </div>
@@ -66,7 +66,7 @@ const LandingProcess = ({ title, subtitle, steps, ctaText }: LandingProcessProps
           </div>
 
           {/* CTA */}
-          <div className="text-center mt-16 md:mt-24 px-4">
+          <div className="text-center px-4">
             <Button 
               variant="cta"
               size="lg" 
