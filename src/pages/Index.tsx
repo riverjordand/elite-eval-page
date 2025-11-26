@@ -1,3 +1,4 @@
+import Navigation from "@/components/Navigation";
 import LandingHero from "@/components/landing/LandingHero";
 import LandingIncluded from "@/components/landing/LandingIncluded";
 import LandingAuthority from "@/components/landing/LandingAuthority";
@@ -10,6 +11,7 @@ import LandingFooter from "@/components/landing/LandingFooter";
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      <Navigation />
       <LandingHero
         headline="Is Your Athlete College-Ready? Find Out in 90 Minutes"
         subheadline="Get a complete breakdown of where your athlete stands today and exactly what it takes to play at the next level—completely free."
