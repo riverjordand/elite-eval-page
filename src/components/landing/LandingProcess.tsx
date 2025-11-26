@@ -35,10 +35,10 @@ const LandingProcess = ({ title, subtitle, steps, ctaText }: LandingProcessProps
 
           {/* Steps */}
           <div className="relative mb-12 md:mb-16">
-            {/* Connection Line - hidden on mobile */}
-            <div className="hidden md:block absolute top-16 left-0 right-0 h-0.5 bg-primary/20" style={{ width: 'calc(100% - 8rem)', margin: '0 auto' }} />
+            {/* Connection Line - visible on desktop */}
+            <div className="hidden md:block absolute top-16 left-0 right-0 h-1 bg-primary/40" style={{ width: 'calc(100% - 8rem)', margin: '0 auto' }} />
             
-            <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
               {steps.map((step, index) => (
                 <div 
                   key={index}
