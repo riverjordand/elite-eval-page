@@ -11,16 +11,10 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { useToast } from "@/hooks/use-toast";
-import { Users, TrendingUp, Calendar as CalendarIcon, Target, Check, X } from "lucide-react";
+import { Users, Calendar as CalendarIcon, Target, Check } from "lucide-react";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Calendar } from "@/components/ui/calendar";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
 import { format } from "date-fns";
-import { cn } from "@/lib/utils";
+import AppointmentPicker from "@/components/admin/AppointmentPicker";
 
 interface Submission {
   id: string;
@@ -383,54 +377,10 @@ const Admin = () => {
                           </span>
                         </TableCell>
                         <TableCell className="py-5 px-6">
-                          <Popover>
-                            <PopoverTrigger asChild>
-                              <Button
-                                variant="outline"
-                                className={cn(
-                                  "w-[200px] justify-start text-left font-oswald text-xs",
-                                  !submission.appointment_date && "text-muted-foreground"
-                                )}
-                              >
-                                <CalendarIcon className="mr-2 h-4 w-4" />
-                                {submission.appointment_date ? (
-                                  format(new Date(submission.appointment_date), "PPP 'at' p")
-                                ) : (
-                                  <span>Set appointment</span>
-                                )}
-                              </Button>
-                            </PopoverTrigger>
-                            <PopoverContent className="w-auto p-0" align="start">
-                              <Calendar
-                                mode="single"
-                                selected={
-                                  submission.appointment_date
-                                    ? new Date(submission.appointment_date)
-                                    : undefined
-                                }
-                                onSelect={(date) =>
-                                  updateAppointment(submission.id, date)
-                                }
-                                initialFocus
-                                className={cn("p-3 pointer-events-auto")}
-                              />
-                              {submission.appointment_date && (
-                                <div className="p-3 border-t">
-                                  <Button
-                                    variant="ghost"
-                                    size="sm"
-                                    className="w-full font-oswald text-xs"
-                                    onClick={() =>
-                                      updateAppointment(submission.id, undefined)
-                                    }
-                                  >
-                                    <X className="w-3 h-3 mr-1" />
-                                    Clear appointment
-                                  </Button>
-                                </div>
-                              )}
-                            </PopoverContent>
-                          </Popover>
+                          <AppointmentPicker
+                            value={submission.appointment_date}
+                            onSelect={(date) => updateAppointment(submission.id, date)}
+                          />
                         </TableCell>
                       </TableRow>
                     ))}
