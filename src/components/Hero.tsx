@@ -15,12 +15,12 @@ const Hero = () => {
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-center gap-12 mb-6">
             <h1 className="font-bebas uppercase leading-[0.75] animate-fade-in tracking-tight text-white text-left font-black">
-              <span className="block text-5xl md:text-7xl lg:text-[9rem] xl:text-[11rem] whitespace-nowrap">Developing Elite</span>
-              <span className="block text-4xl md:text-6xl lg:text-[7.5rem] xl:text-[9rem] text-primary">Student-Athletes</span>
-              <span className="block text-4xl md:text-6xl lg:text-[7rem] xl:text-[8.5rem]">For The Next Level</span>
+              <span className="block text-4xl md:text-6xl lg:text-[7rem] xl:text-[8.5rem] whitespace-nowrap">Developing Elite</span>
+              <span className="block text-3xl md:text-5xl lg:text-[5.8rem] xl:text-[7rem] text-primary">Student-Athletes</span>
+              <span className="block text-3xl md:text-5xl lg:text-[5.5rem] xl:text-[6.5rem]">For The Next Level</span>
             </h1>
             
-            <img src={logoBolt} alt="LPA Logo" className="w-24 h-24 md:w-32 md:h-32 lg:w-48 lg:h-48 xl:w-56 xl:h-56 object-contain animate-fade-in" style={{
+            <img src={logoBolt} alt="LPA Logo" className="w-32 h-32 md:w-48 md:h-48 lg:w-72 lg:h-72 xl:w-80 xl:h-80 object-contain animate-fade-in" style={{
               animationDelay: "0.2s"
             }} />
           </div>
