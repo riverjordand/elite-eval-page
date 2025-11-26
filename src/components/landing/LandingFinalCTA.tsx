@@ -34,7 +34,7 @@ const LandingFinalCTA = ({
           )}
 
           {/* Title */}
-          <h2 className="text-3xl sm:text-4xl md:text-7xl font-bebas font-black uppercase mb-6 md:mb-8 leading-tight px-4">
+          <h2 className="text-3xl sm:text-4xl md:text-8xl lg:text-9xl font-bebas font-black uppercase mb-6 md:mb-10 leading-tight px-4">
             {title}
           </h2>
 

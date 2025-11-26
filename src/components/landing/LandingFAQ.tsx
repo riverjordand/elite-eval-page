@@ -25,7 +25,7 @@ const LandingFAQ = ({ title, faqs }: LandingFAQProps) => {
         <div className="max-w-4xl mx-auto">
           {/* Title */}
           <div className="text-center mb-8 md:mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-6xl font-bebas font-black uppercase px-4">
+            <h2 className="text-3xl sm:text-4xl md:text-7xl lg:text-8xl font-bebas font-black uppercase px-4">
               {title}
             </h2>
           </div>
@@ -35,10 +35,10 @@ const LandingFAQ = ({ title, faqs }: LandingFAQProps) => {
             <Accordion type="single" collapsible className="w-full">
               {faqs.map((faq, index) => (
                 <AccordionItem key={index} value={`item-${index}`}>
-                  <AccordionTrigger className="text-left font-bebas text-base md:text-xl uppercase hover:text-primary">
+                  <AccordionTrigger className="text-left font-bebas text-base md:text-2xl lg:text-3xl uppercase hover:text-primary">
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground font-oswald leading-relaxed text-sm md:text-base">
+                  <AccordionContent className="text-muted-foreground font-oswald leading-relaxed text-sm md:text-xl lg:text-2xl">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>

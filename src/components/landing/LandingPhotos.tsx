@@ -23,10 +23,10 @@ const LandingPhotos = ({
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-3xl md:text-5xl font-bebas font-black uppercase text-foreground mb-3 md:mb-4 tracking-tight">
+            <h2 className="text-3xl md:text-6xl lg:text-7xl font-bebas font-black uppercase text-foreground mb-3 md:mb-6 tracking-tight">
               {title}
             </h2>
-            <p className="text-base md:text-lg font-oswald font-semibold uppercase text-primary">
+            <p className="text-base md:text-2xl lg:text-3xl font-oswald font-semibold uppercase text-primary">
               {subtitle}
             </p>
           </div>

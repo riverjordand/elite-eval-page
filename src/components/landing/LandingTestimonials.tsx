@@ -23,10 +23,10 @@ const LandingTestimonials = ({ title, subtitle, testimonials }: LandingTestimoni
         <div className="mx-auto">
           {/* Header */}
           <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-3xl sm:text-4xl md:text-6xl font-bebas font-black uppercase mb-3 md:mb-4 px-4">
+            <h2 className="text-3xl sm:text-4xl md:text-7xl lg:text-8xl font-bebas font-black uppercase mb-3 md:mb-6 px-4">
               {title}
             </h2>
-            <p className="text-sm sm:text-base md:text-xl text-muted-foreground font-oswald max-w-2xl mx-auto px-2">
+            <p className="text-sm sm:text-base md:text-2xl lg:text-3xl text-muted-foreground font-oswald max-w-4xl mx-auto px-2">
               {subtitle}
             </p>
           </div>
@@ -97,15 +97,15 @@ const LandingTestimonials = ({ title, subtitle, testimonials }: LandingTestimoni
                 </div>
 
                 {/* Caption */}
-                <div className="p-4">
-                  <p className="text-sm text-muted-foreground font-oswald italic mb-3">
+                <div className="p-4 md:p-6">
+                  <p className="text-sm md:text-xl lg:text-2xl text-muted-foreground font-oswald italic mb-3 md:mb-4">
                     "{testimonial.quote}"
                   </p>
                   <div>
-                    <p className="text-sm font-bebas uppercase text-foreground">
+                    <p className="text-sm md:text-xl lg:text-2xl font-bebas uppercase text-foreground">
                       {testimonial.parentName}
                     </p>
-                    <p className="text-xs text-primary font-oswald">
+                    <p className="text-xs md:text-lg lg:text-xl text-primary font-oswald">
                       {testimonial.athleteName}
                     </p>
                   </div>

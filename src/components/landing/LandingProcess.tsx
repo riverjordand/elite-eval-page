@@ -23,11 +23,11 @@ const LandingProcess = ({ title, subtitle, steps, ctaText }: LandingProcessProps
         <div className="max-w-5xl mx-auto">
           {/* Title */}
           <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-6xl font-bebas font-black uppercase mb-3 md:mb-4 px-4">
+            <h2 className="text-3xl sm:text-4xl md:text-7xl lg:text-8xl font-bebas font-black uppercase mb-3 md:mb-6 px-4">
               {title}
             </h2>
             {subtitle && (
-              <p className="text-sm sm:text-base md:text-xl text-muted-foreground font-oswald px-2">
+              <p className="text-sm sm:text-base md:text-2xl lg:text-3xl text-muted-foreground font-oswald px-2">
                 {subtitle}
               </p>
             )}
@@ -53,11 +53,11 @@ const LandingProcess = ({ title, subtitle, steps, ctaText }: LandingProcessProps
                   </div>
 
                   {/* Content */}
-                  <div className="bg-card border-2 border-border rounded-lg p-4 md:p-6 flex-1 flex flex-col hover:border-primary/50 transition-all duration-300">
-                    <h3 className="text-base md:text-xl font-bebas font-bold uppercase mb-2 md:mb-3 text-foreground">
+                  <div className="bg-card border-2 border-border rounded-lg p-4 md:p-8 flex-1 flex flex-col hover:border-primary/50 transition-all duration-300">
+                    <h3 className="text-base md:text-2xl lg:text-3xl font-bebas font-bold uppercase mb-2 md:mb-4 text-foreground">
                       {step.title}
                     </h3>
-                    <p className="text-muted-foreground font-oswald text-xs md:text-sm leading-relaxed flex-1">
+                    <p className="text-muted-foreground font-oswald text-xs md:text-xl lg:text-2xl leading-relaxed flex-1">
                       {step.description}
                     </p>
                   </div>

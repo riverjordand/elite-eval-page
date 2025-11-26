@@ -22,10 +22,10 @@ const LandingCoaches = ({ title, subtitle, coaches }: LandingCoachesProps) => {
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-8 md:mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-6xl font-bebas font-black uppercase mb-3 md:mb-4 px-4 text-white">
+            <h2 className="text-3xl sm:text-4xl md:text-7xl lg:text-8xl font-bebas font-black uppercase mb-3 md:mb-6 px-4 text-white">
               {title}
             </h2>
-            <p className="text-sm sm:text-base md:text-xl text-muted-foreground font-oswald max-w-2xl mx-auto px-2">
+            <p className="text-sm sm:text-base md:text-2xl lg:text-3xl text-muted-foreground font-oswald max-w-4xl mx-auto px-2">
               {subtitle}
             </p>
           </div>
@@ -67,17 +67,17 @@ const LandingCoaches = ({ title, subtitle, coaches }: LandingCoachesProps) => {
 
                 {/* Coach Info */}
                 <div className="p-4 md:p-6">
-                  <h3 className="text-lg md:text-2xl font-bebas font-bold uppercase mb-1 md:mb-2 text-white">
+                  <h3 className="text-lg md:text-3xl lg:text-4xl font-bebas font-bold uppercase mb-1 md:mb-3 text-white">
                     {coach.name}
                   </h3>
-                  <p className="text-primary font-bebas font-semibold mb-4 md:mb-6 uppercase text-xs md:text-sm tracking-wider">
+                  <p className="text-primary font-bebas font-semibold mb-4 md:mb-6 uppercase text-xs md:text-lg lg:text-xl tracking-wider">
                     {coach.title}
                   </p>
 
                   {/* Credentials - Paragraph Format */}
                   <div className="text-left">
                     {coach.credentials.map((credential, credIndex) => (
-                      <p key={credIndex} className="text-muted-foreground font-oswald text-xs md:text-sm leading-relaxed">
+                      <p key={credIndex} className="text-muted-foreground font-oswald text-xs md:text-lg lg:text-xl leading-relaxed">
                         {credential}
                       </p>
                     ))}
