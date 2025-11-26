@@ -13,7 +13,7 @@ const LandingTransitionBridge = () => {
                 Every athlete has a limit they can't break through on their own — the key is knowing what's causing it.
               </h2>
               <p className="text-base sm:text-lg md:text-xl text-muted-foreground font-oswald leading-relaxed max-w-3xl mx-auto">
-                Most plateaus aren't effort problems. They're hidden mechanical flaws, mobility restrictions, or strength gaps no one has identified yet.
+                Most plateaus aren't effort problems. They're hidden flaws no one has identified yet.
               </p>
             </div>
           </div>

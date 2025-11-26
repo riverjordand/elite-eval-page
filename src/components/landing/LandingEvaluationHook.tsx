@@ -24,7 +24,7 @@ const LandingEvaluationHook = ({ onCtaClick }: LandingEvaluationHookProps) => {
               Most Parents Can't See What's Holding Their Athlete Back
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground font-oswald leading-relaxed max-w-3xl mx-auto">
-              You know your athlete is capable of more. But without a trained eye, you can't pinpoint the exact timing issue, mechanical flaw, or physical limitation standing in the way. And guessing costs time your athlete doesn't have.
+              You know your athlete is capable of more. But without a trained eye, you can't pinpoint what's standing in the way—and guessing costs time they don't have.
             </p>
           </div>
         </div>
