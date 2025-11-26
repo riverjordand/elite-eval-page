@@ -189,6 +189,23 @@ const Index = () => {
         ]}
       />
 
+      {/* ACTION PHOTOS SECTION */}
+      <LandingPhotos
+        title="Athletes In Action"
+        subtitle="Elite training captured at every moment"
+        photos={[
+          { src: "/action-01.jpg", alt: "LPA athlete strength training with equipment" },
+          { src: "/action-02.jpg", alt: "LPA athlete bat training session" },
+          { src: "/action-03.jpg", alt: "LPA athlete batting practice action" },
+          { src: "/action-04.jpg", alt: "LPA athlete core training with weight plate" },
+          { src: "/action-05.jpg", alt: "LPA athlete focused in dugout" },
+          { src: "/action-06.jpg", alt: "LPA athlete batting at field during golden hour" },
+          { src: "/action-07.jpg", alt: "LPA athlete pitching on mound" },
+          { src: "/action-08.jpg", alt: "LPA athletes team photo on field" },
+          { src: "/action-09.jpg", alt: "LPA athlete fielding and throwing" },
+          { src: "/action-10.jpg", alt: "LPA athlete defensive stance in outfield" }
+        ]}
+      />
 
       {/* OFFER SECTION #2 - How It Works */}
       <LandingProcess
