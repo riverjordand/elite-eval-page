@@ -72,10 +72,10 @@ const LandingCommitments = ({ title, subtitle, commitments, totalCount }: Landin
           <div className="text-center px-4">
             <div className="bg-card border-2 border-primary/30 rounded-xl p-6 md:p-10 max-w-3xl mx-auto">
               <p className="text-base sm:text-lg md:text-3xl text-foreground font-oswald font-bold leading-relaxed mb-4 md:mb-6">
-                Every one of these athletes started with the same free evaluation you're about to book.
+                Every one of these athletes started exactly where your athlete is now—with a free evaluation that showed them exactly what to fix.
               </p>
               <p className="text-sm sm:text-base md:text-xl text-muted-foreground font-oswald leading-relaxed">
-                The evaluation showed them exactly where they were—and gave them a clear roadmap to get here. Your athlete's journey starts the same way.
+                The evaluation gave them a clear roadmap, specific weaknesses to address, and the confidence to commit to their development. Your athlete's journey starts the same way.
               </p>
             </div>
           </div>

@@ -41,7 +41,7 @@ const Index = () => {
       {/* HERO */}
       <LandingHero
         mainHeadline="Arizona's Premier Baseball Development Academy"
-        subHeadline="Start with a Free College-Ready Player Evaluation"
+        subHeadline="Discover exactly what's holding your athlete back—and how to fix it. Free 90-minute evaluation."
         ctaPrimary="Claim My Free Evaluation"
         spotsLeft={10}
       />
@@ -274,59 +274,59 @@ const Index = () => {
             title: "Advanced Metrics Testing",
             value: 75,
             bullets: [
-              "Pitching or hitting velocity testing",
-              "Professional-grade tech (Rapsodo, HitTrax)",
-              "Real-time performance data"
+              "Find out your athlete's true potential and the fastest path to add velocity",
+              "Professional-grade tech shows exactly what college coaches will measure",
+              "Get real numbers to track progress and showcase to recruiters"
             ]
           },
           {
             title: "Complete Mechanics Analysis",
             value: 100,
             bullets: [
-              "Frame-by-frame video breakdown",
-              "Analyzed by D1/Pro coaches",
-              "Identify technical flaws"
+              "Discover the exact mechanical flaw holding back performance",
+              "See what D1 and pro coaches see when they evaluate your athlete",
+              "Get specific fixes that translate to immediate results"
             ]
           },
           {
             title: "Strength & Mobility Assessment",
             value: 50,
             bullets: [
-              "Certified strength coach evaluation",
-              "Identify physical weaknesses",
-              "Injury prevention insights"
+              "Identify the physical weakness limiting velocity and power",
+              "Learn which exercises will have the biggest impact on performance",
+              "Prevent the injuries that derail development and recruiting"
             ]
           },
           {
             title: "Coach-Led Development Plan",
             value: 75,
             bullets: [
-              "One-on-one coaching consultation",
-              "Personalized improvement roadmap",
-              "Specific training recommendations"
+              "Get a coach with D1/Pro experience to map out your athlete's path",
+              "Walk away knowing exactly what to work on and why it matters",
+              "No more guessing about what will actually move the needle"
             ]
           },
           {
             title: "Personalized 6-12 Month Roadmap",
             value: 50,
             bullets: [
-              "Written development plan",
-              "Tailored to athlete's goals",
-              "Clear next steps to improve"
+              "Leave with a written plan your athlete can follow immediately",
+              "See the clear path from current level to college-ready",
+              "Know exactly what milestones to hit and when to hit them"
             ]
           },
           {
             title: "Full Facility Tour & Q&A",
-            value: 0,
+            value: 50,
             bullets: [
-              "Walk through 16,000 sq ft facility",
-              "Ask questions about programs",
-              "Meet coaches and see success stories"
+              "See the 16,000 sq ft facility where college-bound athletes train daily",
+              "Ask any questions about programs, pricing, and development timeline",
+              "Meet the coaches who've sent 50+ athletes to college programs"
             ]
           }
         ]}
         ctaText="Book My Free Evaluation Now"
-        valueStatement="Normally $350 Value - Yours Free"
+        valueStatement="Normally $400 Value - Yours Free"
       />
 
       {/* FAQ */}
@@ -340,6 +340,22 @@ const Index = () => {
           {
             question: "Is there really no cost or obligation?",
             answer: "Absolutely zero cost. This is a genuine free evaluation with no strings attached. You'll receive the full written development plan regardless of whether you choose to train with us or not."
+          },
+          {
+            question: "What happens after the evaluation?",
+            answer: "You'll walk away with a complete written development plan and clear next steps. If you're interested in our training programs, we'll discuss options—but there's zero pressure. Many families use the evaluation just to understand where their athlete stands and what to focus on."
+          },
+          {
+            question: "Will you pressure us to sign up for training?",
+            answer: "No pressure whatsoever. We'll share information about our programs if you ask, but the evaluation is designed to provide value whether you train with us or not. Our goal is to help your athlete improve—even if that's with another program or on their own."
+          },
+          {
+            question: "What should my athlete wear and bring?",
+            answer: "Bring athletic wear, baseball cleats or turf shoes, glove, bat, and any personal training equipment your athlete uses. Pitchers should bring their regular throwing routine. We'll provide the rest—including all testing equipment and analysis tools."
+          },
+          {
+            question: "Can parents watch the evaluation?",
+            answer: "Absolutely. We encourage parents to stay for the entire evaluation. You'll see the metrics testing live, watch the video analysis session, and be part of the final consultation where we review the development plan together."
           },
           {
             question: "How long does the evaluation take?",
