@@ -41,8 +41,8 @@ const LandingIncluded = ({
             )}
           </div>
 
-          {/* Items Stack - Full Width */}
-          <div className="max-w-2xl mx-auto space-y-4 md:space-y-5 mb-8 md:mb-12">
+          {/* Items - Single Column Mobile, Two Columns Desktop */}
+          <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-4 md:gap-6 mb-8 md:mb-12">
             {items.map((item, index) => (
               <div 
                 key={index} 
@@ -77,7 +77,7 @@ const LandingIncluded = ({
           </div>
 
           {/* Total Value & Free Badge - Side by Side on Desktop */}
-          <div className="max-w-2xl mx-auto mb-6 md:mb-8 flex flex-col md:flex-row gap-4 md:gap-6 items-stretch">
+          <div className="max-w-4xl mx-auto mb-6 md:mb-8 flex flex-col md:flex-row gap-4 md:gap-6 items-stretch">
             {/* Total Value */}
             <div className="flex-1 p-6 md:p-8 bg-card border-2 border-border rounded-xl">
               <div className="flex items-center justify-between h-full">
