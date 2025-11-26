@@ -4,7 +4,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import SectionDivider from "./SectionDivider";
 
 interface FAQItem {
   question: string;
@@ -18,9 +17,7 @@ interface LandingFAQProps {
 
 const LandingFAQ = ({ title, faqs }: LandingFAQProps) => {
   return (
-    <>
-      <SectionDivider />
-      <section className="py-12 md:py-24 bg-[#1a1a1a] relative">
+    <section className="py-12 md:py-24 bg-[#1a1a1a] relative">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-4xl mx-auto">
           {/* Title */}
@@ -48,7 +45,6 @@ const LandingFAQ = ({ title, faqs }: LandingFAQProps) => {
         </div>
       </div>
     </section>
-    </>
   );
 };
 
