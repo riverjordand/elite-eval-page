@@ -7,7 +7,7 @@ interface LandingIntroProps {
 
 const LandingIntro = ({ title, subtitle, description, highlight }: LandingIntroProps) => {
   return (
-    <section className="py-12 md:py-24 bg-[#1a1a1a] relative">
+    <section className="py-12 md:py-24 bg-[#1a1a1a] relative" style={{ clipPath: 'polygon(0 0, 100% 5%, 100% 100%, 0 100%)' }}>
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-5xl mx-auto">
           {/* Header */}
