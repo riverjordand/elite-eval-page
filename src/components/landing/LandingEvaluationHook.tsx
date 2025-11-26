@@ -1,4 +1,5 @@
 import athleteImage from "@/assets/athlete-on-field.jpg";
+import SectionDivider from "./SectionDivider";
 
 interface LandingEvaluationHookProps {
   onCtaClick?: () => void;
@@ -6,7 +7,9 @@ interface LandingEvaluationHookProps {
 
 const LandingEvaluationHook = ({ onCtaClick }: LandingEvaluationHookProps) => {
   return (
-    <section className="py-12 md:py-20 bg-[#0a0a0a]">
+    <>
+      <SectionDivider fromColor="#1a1a1a" toColor="#0a0a0a" />
+      <section className="py-12 md:py-20 bg-[#0a0a0a]">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-4xl mx-auto space-y-8 md:space-y-12">
           {/* Purple Badge */}
@@ -47,6 +50,7 @@ const LandingEvaluationHook = ({ onCtaClick }: LandingEvaluationHookProps) => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 
