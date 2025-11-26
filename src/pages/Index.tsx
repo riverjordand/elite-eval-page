@@ -12,7 +12,7 @@ import LandingCommitments from "@/components/landing/LandingCommitments";
 import LandingEvaluationHook from "@/components/landing/LandingEvaluationHook";
 import LandingProblemAgitation from "@/components/landing/LandingProblemAgitation";
 import LandingValueStack from "@/components/landing/LandingValueStack";
-import LandingSocialProofTieIn from "@/components/landing/LandingSocialProofTieIn";
+
 import EvaluationForm from "@/components/landing/EvaluationForm";
 import LandingFAQ from "@/components/landing/LandingFAQ";
 import LandingFinalCTA from "@/components/landing/LandingFinalCTA";
@@ -252,10 +252,6 @@ const Index = () => {
       {/* SECTION C - Value Stack (What's Included) */}
       <LandingValueStack onCtaClick={() => setFormOpen(true)} />
 
-      {/* SECTION D - Social Proof Tie-In */}
-      <LandingSocialProofTieIn
-        text="Every athlete you see in our college commitment section began with this exact evaluation. It revealed the weaknesses holding them back, the adjustments they needed, and the path to get recruited. Your athlete begins the same way."
-      />
 
       {/* SECTION E - How It Works */}
       <LandingProcess
