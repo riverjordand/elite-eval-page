@@ -43,11 +43,11 @@ const LandingProcess = ({ title, subtitle, steps, ctaText, onCtaClick }: Landing
               {steps.map((step, index) => (
                 <div 
                   key={index}
-                  className="relative text-center animate-fade-in flex flex-col"
+                  className="relative animate-fade-in flex flex-row md:flex-col gap-3 md:gap-0 items-start md:items-center text-left md:text-center"
                   style={{ animationDelay: `${index * 150}ms` }}
                 >
                   {/* Number Circle */}
-                  <div className="relative z-10 w-12 h-12 md:w-16 md:h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6 shadow-lg">
+                  <div className="relative z-10 w-12 h-12 md:w-16 md:h-16 bg-primary rounded-full flex items-center justify-center shrink-0 md:mx-auto md:mb-6 shadow-lg">
                     <span className="text-2xl md:text-3xl font-bebas font-black text-primary-foreground">
                       {step.number}
                     </span>
