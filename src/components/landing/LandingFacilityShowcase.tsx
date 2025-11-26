@@ -146,15 +146,15 @@ const LandingFacilityShowcase = ({ title, subtitle, areas }: LandingFacilityShow
             <div className="grid grid-cols-3 gap-4 md:gap-8 text-center">
               <div>
                 <div className="text-3xl sm:text-4xl md:text-5xl font-bebas font-black text-primary mb-1 md:mb-2">16K+</div>
-                <p className="text-muted-foreground font-oswald uppercase text-xs md:text-sm">Square feet of elite baseball development</p>
+                <p className="text-muted-foreground font-oswald uppercase text-xs md:text-sm">Square Feet</p>
               </div>
               <div>
                 <div className="text-3xl sm:text-4xl md:text-5xl font-bebas font-black text-primary mb-1 md:mb-2">365</div>
-                <p className="text-muted-foreground font-oswald uppercase text-xs md:text-sm">Days open for year-round progress</p>
+                <p className="text-muted-foreground font-oswald uppercase text-xs md:text-sm">Days Open</p>
               </div>
               <div>
                 <div className="text-xl sm:text-2xl md:text-5xl font-bebas font-black text-primary mb-1 md:mb-2">Pro</div>
-                <p className="text-muted-foreground font-oswald uppercase text-xs md:text-sm">Technology + coaching used at D1 and MLB levels</p>
+                <p className="text-muted-foreground font-oswald uppercase text-xs md:text-sm">Grade Equipment</p>
               </div>
             </div>
           </div>
