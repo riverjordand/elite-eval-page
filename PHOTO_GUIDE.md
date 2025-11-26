@@ -114,7 +114,77 @@ All photos are optimized for mobile viewing with specific aspect ratios and plac
 
 ---
 
-## 4. HERO BACKGROUND VIDEO (Already Implemented)
+## 4. ATHLETE ACTION PHOTOS (8+ Photos Recommended)
+**Location:** LandingAthletes component (NEW!)
+**Aspect Ratio:** 1:1 (Square)
+**Mobile:** Horizontal scroll cards (~256px square)
+**Desktop:** 4-column grid (~280px square)
+
+### Photos Needed (Mix of these categories):
+
+1. **Pitching Training** (2-3 photos)
+   - Athlete mid-delivery with coach watching
+   - Close-up of mechanics work
+   - Rapsodo screen showing metrics
+
+2. **Hitting Sessions** (2-3 photos)
+   - Athlete in batting cage
+   - Contact moment with HitTrax visible
+   - Coach analyzing swing
+
+3. **Strength Training** (1-2 photos)
+   - Athletes in weight room
+   - Dynamic movement/explosive work
+   - Group training energy
+
+4. **Video Analysis** (1 photo)
+   - Athletes watching film with coach
+   - Screen showing swing/pitch analysis
+   - Learning moment
+
+5. **Team Atmosphere** (1-2 photos)
+   - Multiple athletes training together
+   - Competitive drills
+   - Team energy/camaraderie
+
+6. **Individual Coaching** (1 photo)
+   - One-on-one instruction moment
+   - Close coach-athlete interaction
+   - Focused training
+
+7. **Recovery/Mobility** (1 photo optional)
+   - Stretching/mobility work
+   - Professional care
+   - Preparation focus
+
+8. **Celebration Moments** (1 photo)
+   - Commitment announcement
+   - Achievement celebration
+   - Success/pride moment
+
+**File Format:** JPG optimized for web
+**Recommended Size:** 800x800px (will auto-resize)
+**File Names Pattern:** `athlete-01.jpg`, `athlete-02.jpg`, etc.
+
+**Photo Style Guide:**
+- Action shots preferred over posed
+- Show authentic training moments
+- Mix of close-ups and wide shots
+- Good lighting, sharp focus
+- Athletes in LPA gear (branded)
+- Show diversity of training
+- Energy and intensity visible
+- Equipment/technology visible when relevant
+
+**Mobile UX:** 
+- Scrollable horizontal gallery
+- Swipe-friendly cards
+- Quick loading with lazy load
+- Touch-optimized spacing
+
+---
+
+## 5. HERO BACKGROUND VIDEO (Already Implemented)
 **Location:** LandingHero component
 **Current:** `/hero-training.mp4`
 **Status:** ✅ Already in place
