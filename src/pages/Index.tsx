@@ -321,6 +321,10 @@ const Index = () => {
         title="Common Questions From Parents"
         faqs={[
           {
+            question: "How do I book the evaluation?",
+            answer: "Simply fill out the form and one of our staff members will reach out within 24 hours to schedule a time that works best for your family. We'll coordinate everything to make the process as easy as possible."
+          },
+          {
             question: "What exactly is the Free College-Ready Player Evaluation?",
             answer: "It's a comprehensive 90-minute assessment that includes velocity testing, mechanics analysis, strength and mobility evaluation, and a personalized development roadmap created by our D1/Pro coaching staff. You'll leave with a written plan, baseline metrics, and recruiting guidance."
           },
