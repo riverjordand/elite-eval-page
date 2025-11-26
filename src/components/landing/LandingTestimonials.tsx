@@ -63,7 +63,7 @@ const LandingTestimonials = ({ title, subtitle, testimonials }: LandingTestimoni
                           {testimonial.parentName}
                         </p>
                         <p className="text-xs text-primary font-oswald">
-                          Parent of {testimonial.athleteName}
+                          {testimonial.athleteName}
                         </p>
                       </div>
                     </div>
@@ -104,7 +104,7 @@ const LandingTestimonials = ({ title, subtitle, testimonials }: LandingTestimoni
                       {testimonial.parentName}
                     </p>
                     <p className="text-xs text-primary font-oswald">
-                      Parent of {testimonial.athleteName}
+                      {testimonial.athleteName}
                     </p>
                   </div>
                 </div>

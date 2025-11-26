@@ -236,9 +236,9 @@ const Index = () => {
           },
           {
             videoUrl: "/testimonials/parent-testimonial-2.mp4",
-            parentName: "Parent Testimonial",
-            athleteName: "Connor",
-            quote: "I was absolutely like in love with it. Everything, you know, state of the art. It's definitely eye opening to see in person. One of the big things that we were really excited about was kind of the speed and the strength and how hard that is to get outside of either another private facility, after school hours, driving him to and from. Just the way he's grown as a human here. This was just a big step above what he was used to."
+            parentName: "Adam Hayes",
+            athleteName: "2025 Graduate",
+            quote: "My name is Adam Hayes. I'm a 2025 graduate and I'm committed to Texas Tech University. I was born and raised in Berthwood, Colorado. I decided to come out here for my senior spring to really have better development and have a better chance at the MLB draft this year. Something for me that's really improved and has kind of helped become a weapon for me on the mound is my breaking ball. I throw a slider and a curveball and both were all right and being able to work with the pitching coaches every day has really made me be able to have confidence and throw each for strikes and for swinging misses. It's cool coming here and having coaches and people coming to watch my games because it shows like coming to LPA has really paid off."
           },
           {
             videoUrl: "/testimonials/parent-testimonial-3.mp4",
