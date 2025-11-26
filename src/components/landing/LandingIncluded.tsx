@@ -76,17 +76,18 @@ const LandingIncluded = ({
             ))}
           </div>
 
-          {/* Total Value */}
-          <div className="max-w-2xl mx-auto mb-6 md:mb-8 p-6 md:p-8 bg-card border-2 border-border rounded-xl">
-            <div className="flex items-center justify-between">
-              <span className="text-lg md:text-2xl font-bebas uppercase text-muted-foreground">Total Value:</span>
-              <span className="text-2xl md:text-4xl font-bebas text-foreground">${items.reduce((sum, item) => sum + item.value, 0)}</span>
+          {/* Total Value & Free Badge - Side by Side on Desktop */}
+          <div className="max-w-2xl mx-auto mb-6 md:mb-8 flex flex-col md:flex-row gap-4 md:gap-6 items-stretch">
+            {/* Total Value */}
+            <div className="flex-1 p-6 md:p-8 bg-card border-2 border-border rounded-xl">
+              <div className="flex items-center justify-between h-full">
+                <span className="text-lg md:text-2xl font-bebas uppercase text-muted-foreground">Total Value:</span>
+                <span className="text-2xl md:text-4xl font-bebas text-foreground">${items.reduce((sum, item) => sum + item.value, 0)}</span>
+              </div>
             </div>
-          </div>
-
-          {/* Value Statement */}
-          <div className="text-center mb-6 md:mb-8">
-            <div className="inline-block px-6 py-3 md:px-8 md:py-4 bg-card border-2 border-border rounded-lg">
+            
+            {/* Free Badge */}
+            <div className="flex-1 flex items-center justify-center p-6 md:p-8 bg-card border-2 border-border rounded-xl">
               <p className="text-xl sm:text-2xl md:text-3xl font-bebas text-foreground uppercase tracking-wide">
                 Yours Free Today
               </p>
