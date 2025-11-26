@@ -56,11 +56,11 @@ const LandingCommitments = ({ title, subtitle, commitments, totalCount }: Landin
                 </div>
 
                 {/* Caption */}
-                <div className="p-3 md:p-4">
-                  <p className="text-xs md:text-sm font-bebas uppercase text-primary mb-1">
+                <div className="p-4 md:p-4">
+                  <p className="text-sm md:text-sm font-bebas uppercase text-primary mb-1 md:mb-1">
                     {commitment.name}
                   </p>
-                  <p className="text-xs text-muted-foreground font-oswald leading-relaxed">
+                  <p className="text-xs md:text-xs text-muted-foreground font-oswald leading-relaxed">
                     {commitment.school}
                   </p>
                 </div>
