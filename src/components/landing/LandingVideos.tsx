@@ -28,14 +28,19 @@ const LandingVideos = ({
     const container = scrollContainerRef.current;
     if (!container) return;
 
+    const isDesktop = window.matchMedia('(min-width: 768px)').matches;
     let animationFrameId: number;
-    let scrollPosition = container.scrollLeft;
+    let scrollPosition = 0;
     const scrollSpeed = 0.25; // pixels per frame
     let isUserScrolling = false;
     let scrollTimeout: NodeJS.Timeout;
+    let lastScrollTime = Date.now();
 
     const autoScroll = () => {
-      if (!container || isUserScrolling) return;
+      if (!container) return;
+      
+      // On mobile, stop if user is scrolling
+      if (!isDesktop && isUserScrolling) return;
 
       scrollPosition += scrollSpeed;
 
@@ -48,17 +53,19 @@ const LandingVideos = ({
       animationFrameId = requestAnimationFrame(autoScroll);
     };
 
-    // Detect when user is manually scrolling (only on mobile/tablet)
+    // Only add scroll listener on mobile
     const handleScroll = () => {
-      const isDesktop = window.matchMedia('(min-width: 768px)').matches;
-      
-      // On desktop, never stop auto-scroll
-      if (isDesktop) return;
+      const now = Date.now();
+      // Ignore programmatic scrolls (less than 16ms apart)
+      if (now - lastScrollTime < 16) {
+        lastScrollTime = now;
+        return;
+      }
+      lastScrollTime = now;
       
       isUserScrolling = true;
       scrollPosition = container.scrollLeft;
       
-      // Clear existing timeout
       clearTimeout(scrollTimeout);
       
       // Resume auto-scroll after user stops scrolling for 2 seconds
@@ -68,15 +75,20 @@ const LandingVideos = ({
       }, 2000);
     };
 
-    container.addEventListener('scroll', handleScroll);
+    // Only listen to scroll events on mobile
+    if (!isDesktop) {
+      container.addEventListener('scroll', handleScroll, { passive: true });
+    }
 
-    // Start auto-scroll
+    // Start auto-scroll immediately
     animationFrameId = requestAnimationFrame(autoScroll);
 
     return () => {
       cancelAnimationFrame(animationFrameId);
       clearTimeout(scrollTimeout);
-      container.removeEventListener('scroll', handleScroll);
+      if (!isDesktop) {
+        container.removeEventListener('scroll', handleScroll);
+      }
     };
   }, []);
 
