@@ -25,7 +25,7 @@ const Hero = () => {
             }} />
           </div>
           
-          <p className="font-bebas text-xl md:text-2xl lg:text-3xl text-white mb-8 max-w-2xl mx-auto animate-fade-in tracking-wide" style={{
+          <p className="font-bebas text-xl md:text-2xl lg:text-3xl text-white mb-8 max-w-2xl mx-auto animate-fade-in tracking-wide font-black" style={{
           animationDelay: "0.2s"
         }}>
             Get a complete evaluation of your athlete's strengths, weaknesses, and college-ready potential.
