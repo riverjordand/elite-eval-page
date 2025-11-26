@@ -10,7 +10,10 @@ import LandingProcess from "@/components/landing/LandingProcess";
 import LandingCoaches from "@/components/landing/LandingCoaches";
 import LandingTestimonials from "@/components/landing/LandingTestimonials";
 import LandingCommitments from "@/components/landing/LandingCommitments";
+import LandingTransitionalHook from "@/components/landing/LandingTransitionalHook";
+import LandingEvaluationIntro from "@/components/landing/LandingEvaluationIntro";
 import LandingOutcomes from "@/components/landing/LandingOutcomes";
+import LandingSocialProofTieIn from "@/components/landing/LandingSocialProofTieIn";
 import EvaluationForm from "@/components/landing/EvaluationForm";
 import LandingFAQ from "@/components/landing/LandingFAQ";
 import LandingFinalCTA from "@/components/landing/LandingFinalCTA";
@@ -241,118 +244,139 @@ const Index = () => {
         ]}
       />
 
-      {/* OFFER SECTION #1 - How It Works */}
-      <LandingProcess
-        title="How It Works"
-        subtitle="Simple 4-step process to get your athlete evaluated"
-        steps={[
-          {
-            number: "1",
-            title: "Book Your Spot",
-            description: "Fill out the simple form and choose a time that works for your schedule"
-          },
-          {
-            number: "2",
-            title: "Come Prepared",
-            description: "Bring your athlete ready to throw/hit and any previous training history or injury information"
-          },
-          {
-            number: "3",
-            title: "Complete Evaluation",
-            description: "90-minute session with metrics testing, video analysis, and strength assessment"
-          },
-          {
-            number: "4",
-            title: "Get Your Roadmap",
-            description: "Walk away with a written development plan and clear next steps toward your athlete's goals"
-          }
-        ]}
-        ctaText="Claim Your Evaluation Now"
-        onCtaClick={() => setFormOpen(true)}
+      {/* SECTION A - Transitional Hook */}
+      <LandingTransitionalHook
+        headline="Does Your Athlete Have What It Takes to Reach the Next Level?"
+        subheadline="Most families don't actually know their athlete's true readiness — or what specific changes will unlock real improvement. College benchmarks change. Development standards evolve. And without clarity, you're guessing."
       />
 
-      {/* OFFER SECTION #2 - What's Included */}
+      {/* SECTION B - Evaluation Intro */}
+      <LandingEvaluationIntro
+        headline="The Free College-Ready Player Evaluation"
+        subheadline="A professional-grade, 90-minute evaluation used by D1 coaches and pro development programs — designed to reveal exactly what's holding your athlete back and what it will take to reach the next level."
+        body="This is not a lesson. It's a complete audit of your athlete's mechanics, mobility, metrics, and development path."
+      />
+
+      {/* SECTION C - Outcomes (What You'll Walk Away With) */}
+      <LandingOutcomes
+        title="What You'll Walk Away With"
+        subtitle="Real clarity. Real direction. Real momentum."
+        outcomes={[
+          {
+            icon: "FileText",
+            title: "Written Development Roadmap",
+            description: "Exact steps, timelines, and priorities for the next 6–12 months."
+          },
+          {
+            icon: "TrendingUp",
+            title: "Baseline Metrics That Actually Matter",
+            description: "Exit velocity, pitch velocity, movement patterns — real numbers college coaches care about."
+          },
+          {
+            icon: "Award",
+            title: "Expert Recommendations From D1/Pro Coaches",
+            description: "Specific fixes and adjustments tailored to your athlete."
+          },
+          {
+            icon: "Target",
+            title: "Next Steps for Recruiting",
+            description: "Showcase guidance, outreach strategy, and recruiting timeline."
+          }
+        ]}
+        closingText="You're walking away with the blueprint families wish they had years ago."
+      />
+
+      {/* SECTION D - What's Included (Value Stack) */}
       <LandingIncluded
         title="What's Included in Your Free Evaluation"
-        subtitle="Everything you need to know about your athlete's current level and development path"
+        subtitle="Everything your athlete needs to understand their current level and development path."
         items={[
           {
             title: "Advanced Metrics Testing",
             value: 75,
             bullets: [
-              "Find out your athlete's true potential and the fastest path to add velocity",
-              "Professional-grade tech shows exactly what college coaches will measure",
-              "Get real numbers to track progress and showcase to recruiters"
+              "Find out your athlete's true potential and the fastest path to add velocity"
             ]
           },
           {
             title: "Complete Mechanics Analysis",
             value: 100,
             bullets: [
-              "Discover the exact mechanical flaw holding back performance",
-              "See what D1 and pro coaches see when they evaluate your athlete",
-              "Get specific fixes that translate to immediate results"
+              "Discover the exact mechanical flaw holding back performance"
             ]
           },
           {
             title: "Strength & Mobility Assessment",
             value: 50,
             bullets: [
-              "Identify the physical weakness limiting velocity and power",
-              "Learn which exercises will have the biggest impact on performance",
-              "Prevent the injuries that derail development and recruiting"
+              "Identify the physical weakness limiting velocity and power"
             ]
           },
           {
             title: "Coach-Led Development Plan",
             value: 75,
             bullets: [
-              "Get a coach with D1/Pro experience to map out your athlete's path",
-              "Walk away knowing exactly what to work on and why it matters",
-              "No more guessing about what will actually move the needle"
+              "Get a coach with D1/Pro experience to map out your athlete's path"
             ]
           },
           {
-            title: "Personalized 6-12 Month Roadmap",
+            title: "Personalized 6–12 Month Roadmap",
             value: 50,
             bullets: [
-              "Leave with a written plan your athlete can follow immediately",
-              "See the clear path from current level to college-ready",
-              "Know exactly what milestones to hit and when to hit them"
+              "Leave with a written plan your athlete can follow immediately"
             ]
           },
           {
             title: "Full Facility Tour & Q&A",
             value: 50,
             bullets: [
-              "See the 16,000 sq ft facility where college-bound athletes train daily",
-              "Ask any questions about programs, pricing, and development timeline",
-              "Meet the coaches who've sent 50+ athletes to college programs"
+              "See the 16,000 sq ft facility where college-bound athletes train daily"
             ]
           }
         ]}
         ctaText="Book My Free Evaluation Now"
-        valueStatement="Normally $400 Value - Yours Free"
+        valueStatement="Yours Free Today"
         onCtaClick={() => setFormOpen(true)}
       />
 
-      {/* WHAT YOU'LL WALK AWAY WITH */}
-      <LandingOutcomes
-        title="What You'll Walk Away With"
-        subtitle="Real results from day one"
-        outcomes={[
-          "Your Custom Development Roadmap showing exactly what to work on and when",
-          "Baseline Performance Metrics to track progress and showcase to recruiters",
-          "Expert Coach Recommendations from D1/Pro coaches who know what college programs want",
-          "Clear Next Steps for recruiting timeline, showcase events, and college outreach"
+      {/* SECTION E - Social Proof Tie-In */}
+      <LandingSocialProofTieIn
+        text="Every athlete you see in our college commitment section began with this exact evaluation. It revealed the weaknesses holding them back, the adjustments they needed, and the path to get recruited. Your athlete begins the same way."
+      />
+
+      {/* SECTION F - How It Works */}
+      <LandingProcess
+        title="How the Evaluation Works"
+        subtitle="A simple, proven process for serious athletes."
+        steps={[
+          {
+            number: "1",
+            title: "Book Your Spot",
+            description: "Choose a time that works for your family."
+          },
+          {
+            number: "2",
+            title: "Show Up Ready",
+            description: "Bring your athlete prepared to throw, hit, and be evaluated."
+          },
+          {
+            number: "3",
+            title: "Complete the Evaluation",
+            description: "90 minutes of testing, mechanical analysis, and strength assessment."
+          },
+          {
+            number: "4",
+            title: "Get Your Roadmap",
+            description: "Leave with your personalized development plan and next steps."
+          }
         ]}
-        ctaText="Get My Roadmap Now"
+        ctaText="Book My Free Evaluation"
         onCtaClick={() => setFormOpen(true)}
       />
 
-      {/* FAQ */}
+      {/* SECTION G - FAQ */}
       <LandingFAQ
-        title="Common Questions"
+        title="Common Questions From Parents"
         faqs={[
           {
             question: "Is there really no cost or obligation?",
@@ -381,11 +405,10 @@ const Index = () => {
         ]}
       />
 
-      {/* FINAL CTA */}
+      {/* SECTION H - Final CTA */}
       <LandingFinalCTA
         title="Your Athlete's Next Level Starts Here"
         ctaText="Book My Free Evaluation Now"
-        guaranteeText="No credit card required. No obligation. 100% Free."
         onCtaClick={() => setFormOpen(true)}
       />
 

@@ -23,11 +23,14 @@ const LandingFAQ = ({ title, faqs }: LandingFAQProps) => {
       <section className="py-12 md:py-24 bg-[#0a0a0a] relative">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-4xl mx-auto">
-          {/* Title */}
-          <div className="text-center mb-8 md:mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-6xl font-bebas font-black uppercase px-4">
+          {/* Header */}
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-3xl sm:text-4xl md:text-6xl font-bebas font-black uppercase mb-4 md:mb-6 px-4">
               {title}
             </h2>
+            <p className="text-base md:text-lg text-muted-foreground font-oswald px-4">
+              Parents usually ask these before booking — so we answered them for you.
+            </p>
           </div>
 
           {/* FAQ Accordion */}
