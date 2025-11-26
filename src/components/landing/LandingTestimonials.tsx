@@ -1,4 +1,5 @@
 import { Play } from "lucide-react";
+import SectionDivider from "./SectionDivider";
 
 interface Testimonial {
   videoUrl: string;
@@ -15,7 +16,9 @@ interface LandingTestimonialsProps {
 
 const LandingTestimonials = ({ title, subtitle, testimonials }: LandingTestimonialsProps) => {
   return (
-    <section className="py-12 md:py-24 bg-[#1a1a1a] relative">
+    <>
+      <SectionDivider />
+      <section className="py-12 md:py-24 bg-[#1a1a1a] relative">
       {/* Gradient fade to next section */}
       <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-[#0a0a0a] pointer-events-none" />
       
@@ -121,6 +124,7 @@ const LandingTestimonials = ({ title, subtitle, testimonials }: LandingTestimoni
         </div>
       </div>
     </section>
+    </>
   );
 };
 
