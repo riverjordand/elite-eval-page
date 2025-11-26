@@ -22,17 +22,15 @@ const Hero = () => {
       <div className="relative z-10 container mx-auto px-6 text-center">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-center justify-center gap-8 mb-6">
-            <h1 className="font-bebas text-6xl md:text-8xl lg:text-9xl uppercase leading-[0.9] animate-fade-in tracking-tight text-white">
-              Developing Elite
-              <br />
-              <span className="text-primary font-black">Student-Athletes</span>
-              <br />
-              for the Next Level
+            <h1 className="font-bebas uppercase leading-[0.9] animate-fade-in tracking-tight text-white">
+              <span className="block text-7xl md:text-9xl lg:text-[12rem]">Developing Elite</span>
+              <span className="block text-6xl md:text-8xl lg:text-[10rem] text-primary font-black">Student-Athletes</span>
+              <span className="block text-5xl md:text-7xl lg:text-[8rem]">for the Next Level</span>
             </h1>
             <img 
               src={logoBolt} 
               alt="LPA Bolt" 
-              className="hidden md:block w-24 lg:w-32 h-auto animate-fade-in" 
+              className="hidden md:block w-24 lg:w-32 h-auto animate-fade-in flex-shrink-0" 
               style={{ animationDelay: "0.1s" }}
             />
           </div>
