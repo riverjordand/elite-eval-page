@@ -18,22 +18,22 @@ const LandingCommitments = ({ title, subtitle, commitments, totalCount }: Landin
   return (
     <>
       <SectionDivider fromColor="#0a0a0a" toColor="#1a1a1a" />
-      <section className="py-12 md:py-24 bg-[#1a1a1a] relative">
+      <section className="py-16 md:py-32 bg-[#1a1a1a] relative">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-[2000px] mx-auto">
           {/* Header */}
-          <div className="text-center mb-8 md:mb-16">
-            <div className="inline-flex items-center gap-2 md:gap-3 px-4 py-2 md:px-6 md:py-3 bg-primary/10 border border-primary/20 rounded-full mb-4 md:mb-6">
-              <GraduationCap className="w-4 h-4 md:w-6 md:h-6 text-primary" />
-              <span className="text-primary font-bebas uppercase tracking-wider text-xs sm:text-sm md:text-lg font-bold">
+          <div className="text-center mb-10 md:mb-20">
+            <div className="inline-flex items-center gap-2 md:gap-4 px-5 py-3 md:px-8 md:py-4 bg-primary/10 border border-primary/20 rounded-full mb-6 md:mb-10">
+              <GraduationCap className="w-5 h-5 md:w-8 md:h-8 text-primary" />
+              <span className="text-primary font-bebas uppercase tracking-wider text-xs sm:text-sm md:text-xl font-bold">
                 {totalCount} College Commitments
               </span>
             </div>
             
-            <h2 className="text-3xl sm:text-4xl md:text-7xl lg:text-8xl font-bebas font-black uppercase mb-3 md:mb-6 px-4">
+            <h2 className="text-3xl sm:text-4xl md:text-7xl lg:text-8xl font-bebas font-black uppercase mb-5 md:mb-10 px-4 leading-[0.95]">
               {title}
             </h2>
-            <p className="text-sm sm:text-base md:text-2xl lg:text-3xl text-muted-foreground font-oswald max-w-4xl mx-auto px-2">
+            <p className="text-sm sm:text-base md:text-2xl lg:text-3xl text-muted-foreground font-oswald max-w-4xl mx-auto px-2 leading-relaxed">
               {subtitle}
             </p>
           </div>
@@ -70,11 +70,11 @@ const LandingCommitments = ({ title, subtitle, commitments, totalCount }: Landin
 
           {/* CTA Context - Updated Bridge Copy */}
           <div className="text-center px-4">
-            <div className="bg-card border-2 border-primary/30 rounded-xl p-6 md:p-10 max-w-3xl mx-auto">
-              <p className="text-base sm:text-lg md:text-3xl lg:text-4xl text-foreground font-oswald font-bold leading-relaxed mb-4 md:mb-8">
+            <div className="bg-card border-2 border-primary/30 rounded-xl p-8 md:p-14 max-w-3xl mx-auto">
+              <p className="text-base sm:text-lg md:text-3xl lg:text-4xl text-foreground font-oswald font-bold leading-relaxed md:leading-relaxed mb-5 md:mb-10">
                 Every one of these athletes started with the same free evaluation you're about to book.
               </p>
-              <p className="text-sm sm:text-base md:text-2xl lg:text-3xl text-muted-foreground font-oswald leading-relaxed">
+              <p className="text-sm sm:text-base md:text-2xl lg:text-3xl text-muted-foreground font-oswald leading-relaxed md:leading-relaxed">
                 The evaluation showed them exactly where they were—and gave them a clear roadmap to get here. Your athlete's journey starts the same way.
               </p>
             </div>

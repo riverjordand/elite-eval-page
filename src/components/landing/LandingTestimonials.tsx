@@ -17,16 +17,16 @@ interface LandingTestimonialsProps {
 const LandingTestimonials = ({ title, subtitle, testimonials }: LandingTestimonialsProps) => {
   return (
     <>
-      <SectionDivider fromColor="#1a1a1a" toColor="#0a0a0a" />
-      <section className="py-12 md:py-24 bg-[#0a0a0a] relative">
+      <SectionDivider fromColor="#0a0a0a" toColor="#1a1a1a" />
+      <section className="py-16 md:py-32 bg-[#1a1a1a] relative">
       <div className="mx-auto px-4 md:px-6">
         <div className="mx-auto">
           {/* Header */}
-          <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-3xl sm:text-4xl md:text-7xl lg:text-8xl font-bebas font-black uppercase mb-3 md:mb-6 px-4">
+          <div className="text-center mb-10 md:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-7xl lg:text-8xl font-bebas font-black uppercase mb-5 md:mb-10 px-4 leading-[0.95]">
               {title}
             </h2>
-            <p className="text-sm sm:text-base md:text-2xl lg:text-3xl text-muted-foreground font-oswald max-w-4xl mx-auto px-2">
+            <p className="text-sm sm:text-base md:text-2xl lg:text-3xl text-muted-foreground font-oswald max-w-4xl mx-auto px-2 leading-relaxed">
               {subtitle}
             </p>
           </div>
@@ -98,14 +98,14 @@ const LandingTestimonials = ({ title, subtitle, testimonials }: LandingTestimoni
 
                 {/* Caption */}
                 <div className="p-4 md:p-6">
-                  <p className="text-sm md:text-xl lg:text-2xl text-muted-foreground font-oswald italic mb-3 md:mb-4">
+                  <p className="text-sm md:text-xl lg:text-2xl text-muted-foreground font-oswald italic mb-4 md:mb-6 leading-relaxed">
                     "{testimonial.quote}"
                   </p>
                   <div>
-                    <p className="text-sm md:text-xl lg:text-2xl font-bebas uppercase text-foreground">
+                    <p className="text-sm md:text-xl lg:text-2xl font-bebas uppercase text-foreground leading-tight">
                       {testimonial.parentName}
                     </p>
-                    <p className="text-xs md:text-lg lg:text-xl text-primary font-oswald">
+                    <p className="text-xs md:text-lg lg:text-xl text-primary font-oswald leading-relaxed">
                       {testimonial.athleteName}
                     </p>
                   </div>
