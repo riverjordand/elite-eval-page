@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import useEmblaCarousel from "embla-carousel-react";
 import SectionDivider from "./SectionDivider";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
@@ -24,39 +23,35 @@ const LandingVideos = ({
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
   const [selectedVideoIndex, setSelectedVideoIndex] = useState<number | null>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    loop: true,
-    dragFree: true,
-    containScroll: false
-  });
-
-  // Custom smooth auto-scroll
+  // Smooth continuous pixel scroll
   useEffect(() => {
-    if (!emblaApi) return;
+    const container = scrollContainerRef.current;
+    if (!container) return;
 
     let animationFrameId: number;
-    const scrollSpeed = 0.3; // Slow, smooth scroll
+    let scrollPosition = 0;
+    const scrollSpeed = 0.5; // Smooth continuous scroll
 
-    const autoScroll = () => {
-      if (emblaApi.canScrollNext()) {
-        emblaApi.scrollNext();
+    const continuousScroll = () => {
+      scrollPosition += scrollSpeed;
+      
+      // Reset when reaching halfway (seamless loop with duplicated content)
+      if (scrollPosition >= container.scrollWidth / 2) {
+        scrollPosition = 0;
       }
-      animationFrameId = requestAnimationFrame(autoScroll);
+      
+      container.scrollLeft = scrollPosition;
+      animationFrameId = requestAnimationFrame(continuousScroll);
     };
 
-    // Start with a delay to allow smooth continuous movement
-    const intervalId = setInterval(() => {
-      if (emblaApi.canScrollNext()) {
-        emblaApi.scrollNext();
-      }
-    }, 3000); // Move to next slide every 3 seconds
+    animationFrameId = requestAnimationFrame(continuousScroll);
 
     return () => {
-      clearInterval(intervalId);
       cancelAnimationFrame(animationFrameId);
     };
-  }, [emblaApi]);
+  }, []);
 
   // Play videos when they mount on mobile
   useEffect(() => {
@@ -110,12 +105,12 @@ const LandingVideos = ({
           </div>
         </div>
 
-        {/* Auto-scrolling container - full width */}
+        {/* Continuous auto-scrolling container */}
         <div 
-          ref={emblaRef}
-          className="overflow-hidden"
+          ref={scrollContainerRef}
+          className="overflow-x-auto scrollbar-hide"
         >
-          <div className="flex gap-3 md:gap-4">
+          <div className="flex gap-3 md:gap-4" style={{ width: 'max-content' }}>
             {duplicatedVideos.map((video, index) => (
               <div
                 key={index}
