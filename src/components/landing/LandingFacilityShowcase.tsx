@@ -5,6 +5,7 @@ interface FacilityArea {
   description: string;
   specs: string[];
   image?: string;
+  tagline?: string;
 }
 
 interface LandingFacilityShowcaseProps {
@@ -75,6 +76,11 @@ const LandingFacilityShowcase = ({ title, subtitle, areas }: LandingFacilityShow
                             </li>
                           ))}
                         </ul>
+                        {area.tagline && (
+                          <p className="text-xs font-oswald font-semibold text-foreground italic mt-4 pt-4 border-t border-border">
+                            {area.tagline}
+                          </p>
+                        )}
                       </div>
                     </div>
                   ))}
@@ -125,6 +131,11 @@ const LandingFacilityShowcase = ({ title, subtitle, areas }: LandingFacilityShow
                       </li>
                     ))}
                   </ul>
+                  {area.tagline && (
+                    <p className="text-sm font-oswald font-semibold text-foreground italic mt-6 pt-6 border-t border-border">
+                      {area.tagline}
+                    </p>
+                  )}
                 </div>
               </div>
             ))}
@@ -135,15 +146,15 @@ const LandingFacilityShowcase = ({ title, subtitle, areas }: LandingFacilityShow
             <div className="grid grid-cols-3 gap-4 md:gap-8 text-center">
               <div>
                 <div className="text-3xl sm:text-4xl md:text-5xl font-bebas font-black text-primary mb-1 md:mb-2">16K+</div>
-                <p className="text-muted-foreground font-oswald uppercase text-xs md:text-sm">Square Feet</p>
+                <p className="text-muted-foreground font-oswald uppercase text-xs md:text-sm">Square feet of elite baseball development</p>
               </div>
               <div>
                 <div className="text-3xl sm:text-4xl md:text-5xl font-bebas font-black text-primary mb-1 md:mb-2">365</div>
-                <p className="text-muted-foreground font-oswald uppercase text-xs md:text-sm">Days Open</p>
+                <p className="text-muted-foreground font-oswald uppercase text-xs md:text-sm">Days open for year-round progress</p>
               </div>
               <div>
                 <div className="text-xl sm:text-2xl md:text-5xl font-bebas font-black text-primary mb-1 md:mb-2">Pro</div>
-                <p className="text-muted-foreground font-oswald uppercase text-xs md:text-sm">Technology</p>
+                <p className="text-muted-foreground font-oswald uppercase text-xs md:text-sm">Technology + coaching used at D1 and MLB levels</p>
               </div>
             </div>
           </div>
