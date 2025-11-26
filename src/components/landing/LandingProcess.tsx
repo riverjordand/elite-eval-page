@@ -15,9 +15,9 @@ interface LandingProcessProps {
 
 const LandingProcess = ({ title, subtitle, steps, ctaText }: LandingProcessProps) => {
   return (
-    <section className="py-12 md:py-24 bg-[#0a0a0a] relative noise-texture">
+    <section className="py-12 md:py-24 bg-[#0a0a0a] relative">
       {/* Gradient fade to next section */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-[#1a1a1a] pointer-events-none z-10" />
+      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-[#1a1a1a] pointer-events-none" />
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-5xl mx-auto">
           {/* Title */}
