@@ -45,17 +45,17 @@ const LandingHero = ({
           </div>
 
           {/* Main Headline - About LPA */}
-          <h1 className="text-3xl sm:text-4xl md:text-7xl font-bebas font-black uppercase mb-3 md:mb-4 leading-tight px-2">
+          <h1 className="text-4xl sm:text-5xl md:text-8xl font-bebas font-black uppercase mb-2 md:mb-3 leading-[0.95] px-2">
             {mainHeadline}
           </h1>
 
           {/* Offer Headline - About the Evaluation */}
-          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bebas uppercase mb-4 md:mb-6 text-primary leading-tight px-2">
+          <h2 className="text-xl sm:text-2xl md:text-4xl font-bebas uppercase mb-4 md:mb-6 text-primary leading-tight px-2">
             {offerHeadline}
           </h2>
 
           {/* Description */}
-          <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-6 md:mb-10 font-oswald max-w-3xl mx-auto px-2">
+          <p className="text-sm sm:text-base md:text-lg text-muted-foreground mb-6 md:mb-10 font-oswald max-w-2xl mx-auto px-2 leading-relaxed">
             {description}
           </p>
 
