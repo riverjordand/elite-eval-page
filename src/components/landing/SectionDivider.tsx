@@ -47,27 +47,6 @@ const SectionDivider = ({
           d={config.path}
           fill={color}
         />
-        {/* White accent line - thicker and more visible */}
-        {config.line.curved ? (
-          <path
-            d={variant === "wave-down" 
-              ? "M0,80 Q480,100 960,85 T1920,30"
-              : "M0,30 Q480,85 960,80 T1920,80"
-            }
-            stroke="rgba(255, 255, 255, 0.6)"
-            strokeWidth="3"
-            fill="none"
-          />
-        ) : (
-          <line
-            x1={config.line.x1}
-            y1={config.line.y1}
-            x2={config.line.x2}
-            y2={config.line.y2}
-            stroke="rgba(255, 255, 255, 0.6)"
-            strokeWidth="3"
-          />
-        )}
       </svg>
     </div>
   );
