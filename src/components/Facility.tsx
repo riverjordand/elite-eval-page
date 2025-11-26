@@ -1,4 +1,7 @@
-import facilityImage from "@/assets/facility-interior.jpg";
+import trainingAreaImage from "@/assets/facility-training-area.jpg";
+import strengthConditioningImage from "@/assets/facility-strength-conditioning.jpg";
+import videoAnalysisImage from "@/assets/facility-video-analysis.jpg";
+import sportsMedicineImage from "@/assets/facility-sports-medicine.jpg";
 
 const facilityAreas = [
   {
@@ -10,7 +13,8 @@ const facilityAreas = [
       "High-speed cameras that reveal what the eye can't",
       "Advanced training systems that help athletes add velocity, sharpen contact, and fix flaws fast"
     ],
-    tagline: "Your athlete trains in a space designed for progress — not guesswork."
+    tagline: "Your athlete trains in a space designed for progress — not guesswork.",
+    image: trainingAreaImage
   },
   {
     title: "Strength & Conditioning",
@@ -21,7 +25,8 @@ const facilityAreas = [
       "Speed + agility training built for in-game movements",
       "Recovery zone to keep athletes training year-round"
     ],
-    tagline: "They don't just get stronger — they become more explosive, durable, and recruitable."
+    tagline: "They don't just get stronger — they become more explosive, durable, and recruitable.",
+    image: strengthConditioningImage
   },
   {
     title: "Video Analysis Room",
@@ -32,7 +37,8 @@ const facilityAreas = [
       "Pro-grade side-by-side comparisons to track improvement",
       "Personalized coaching corrections that create immediate results"
     ],
-    tagline: "This is how serious players remove the guesswork and finally break through plateaus."
+    tagline: "This is how serious players remove the guesswork and finally break through plateaus.",
+    image: videoAnalysisImage
   },
   {
     title: "Sports Medicine",
@@ -43,7 +49,8 @@ const facilityAreas = [
       "Custom recovery plans to keep athletes healthy during high-volume seasons",
       "Rehabilitation protocols to accelerate safe return-to-play"
     ],
-    tagline: "Your athlete trains harder — and stays healthier — because everything is built with longevity in mind."
+    tagline: "Your athlete trains harder — and stays healthier — because everything is built with longevity in mind.",
+    image: sportsMedicineImage
   }
 ];
 
@@ -66,44 +73,39 @@ const Facility = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {facilityAreas.map((area, index) => (
-            <div
-              key={index}
-              className="group relative animate-fade-in"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              {/* Tilted card effect */}
-              <div className="relative transform transition-all duration-300 hover:scale-105">
-                <div 
-                  className="absolute inset-0 bg-primary/10 rounded-lg transform -rotate-3 group-hover:rotate-0 transition-transform duration-300"
-                ></div>
-                
-                <div className="relative bg-card border-2 border-border rounded-lg overflow-hidden transform rotate-1 group-hover:rotate-0 transition-transform duration-300">
+        {/* Mobile: Horizontal Scroll */}
+        <div className="md:hidden overflow-x-auto scrollbar-hide -mx-6 px-6">
+          <div className="flex gap-4 pb-4">
+            {facilityAreas.map((area, index) => (
+              <div
+                key={index}
+                className="flex-shrink-0 w-[85vw] animate-fade-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="bg-card border-2 border-primary/20 rounded-lg overflow-hidden h-full">
                   {/* Image */}
-                  <div className="relative h-48 overflow-hidden">
+                  <div className="relative h-40 overflow-hidden">
                     <img 
-                      src={facilityImage}
+                      src={area.image}
                       alt={area.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      className="w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent"></div>
-                    <h3 className="absolute bottom-4 left-6 text-3xl font-bebas font-black uppercase text-primary">
-                      {area.title}
-                    </h3>
                   </div>
 
                   {/* Content */}
-                  <div className="p-6">
-                    <p className="text-muted-foreground font-oswald mb-4 leading-relaxed">
+                  <div className="p-4">
+                    <h3 className="text-2xl font-bebas font-black uppercase text-primary mb-3">
+                      {area.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground font-oswald mb-3 leading-relaxed">
                       {area.description}
                     </p>
                     
-                    <ul className="space-y-3 mb-4">
+                    <ul className="space-y-2 mb-3">
                       {area.features.map((feature, fIndex) => (
                         <li 
                           key={fIndex}
-                          className="flex items-start text-sm text-muted-foreground font-oswald"
+                          className="flex items-start text-xs text-muted-foreground font-oswald"
                         >
                           <span className="text-primary mr-2 mt-1">•</span>
                           {feature}
@@ -111,10 +113,58 @@ const Facility = () => {
                       ))}
                     </ul>
                     
-                    <p className="text-sm font-oswald font-semibold text-foreground italic mt-4 pt-4 border-t border-border">
+                    <p className="text-xs font-oswald font-semibold text-foreground italic mt-3 pt-3 border-t border-border">
                       {area.tagline}
                     </p>
                   </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop: Single Row Grid */}
+        <div className="hidden md:grid md:grid-cols-4 gap-6 max-w-7xl mx-auto">
+          {facilityAreas.map((area, index) => (
+            <div
+              key={index}
+              className="group animate-fade-in"
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              <div className="bg-card border-2 border-primary/20 rounded-lg overflow-hidden h-full transition-all duration-300 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/10">
+                {/* Image */}
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={area.image}
+                    alt={area.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                </div>
+
+                {/* Content */}
+                <div className="p-5">
+                  <h3 className="text-2xl font-bebas font-black uppercase text-primary mb-3">
+                    {area.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground font-oswald mb-4 leading-relaxed">
+                    {area.description}
+                  </p>
+                  
+                  <ul className="space-y-2 mb-4">
+                    {area.features.map((feature, fIndex) => (
+                      <li 
+                        key={fIndex}
+                        className="flex items-start text-xs text-muted-foreground font-oswald"
+                      >
+                        <span className="text-primary mr-2 mt-1">•</span>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                  
+                  <p className="text-xs font-oswald font-semibold text-foreground italic mt-4 pt-4 border-t border-border">
+                    {area.tagline}
+                  </p>
                 </div>
               </div>
             </div>
