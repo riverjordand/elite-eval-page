@@ -43,8 +43,10 @@ const LandingPhotos = ({
     return () => cancelAnimationFrame(animationId);
   }, []);
 
-  // Duplicate photos array for seamless loop
-  const duplicatedPhotos = [...photos, ...photos];
+  // Split photos into two rows and duplicate for seamless loop
+  const halfLength = Math.ceil(photos.length / 2);
+  const row1Photos = [...photos.slice(0, halfLength), ...photos.slice(0, halfLength)];
+  const row2Photos = [...photos.slice(halfLength), ...photos.slice(halfLength)];
 
   return (
     <>
@@ -61,25 +63,48 @@ const LandingPhotos = ({
             </p>
           </div>
 
-          {/* Auto-scroll 2-column grid */}
-          <div 
-            ref={scrollContainerRef}
-            className="flex overflow-x-hidden gap-4 md:gap-6"
-            style={{ scrollBehavior: 'auto' }}
-          >
-            {duplicatedPhotos.map((photo, index) => (
-              <div
-                key={index}
-                className="flex-shrink-0 w-[250px] md:w-[350px] aspect-square rounded-lg overflow-hidden bg-muted border-2 border-border shadow-lg"
-              >
-                <img
-                  src={photo.src}
-                  alt={photo.alt}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-              </div>
-            ))}
+          {/* Two-row auto-scroll layout */}
+          <div className="space-y-4 md:space-y-6">
+            {/* Row 1 */}
+            <div 
+              ref={scrollContainerRef}
+              className="flex overflow-x-hidden gap-4 md:gap-6"
+              style={{ scrollBehavior: 'auto' }}
+            >
+              {row1Photos.map((photo, index) => (
+                <div
+                  key={index}
+                  className="flex-shrink-0 w-[250px] md:w-[350px] aspect-square rounded-lg overflow-hidden bg-muted border-2 border-border shadow-lg"
+                >
+                  <img
+                    src={photo.src}
+                    alt={photo.alt}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+
+            {/* Row 2 */}
+            <div 
+              className="flex overflow-x-hidden gap-4 md:gap-6"
+              style={{ scrollBehavior: 'auto' }}
+            >
+              {row2Photos.map((photo, index) => (
+                <div
+                  key={index}
+                  className="flex-shrink-0 w-[250px] md:w-[350px] aspect-square rounded-lg overflow-hidden bg-muted border-2 border-border shadow-lg"
+                >
+                  <img
+                    src={photo.src}
+                    alt={photo.alt}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
