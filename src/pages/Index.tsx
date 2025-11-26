@@ -153,7 +153,7 @@ const Index = () => {
             title: "Certified Hitting Instructor",
             credentials: [
               "Former Division I baseball player at the University of Nevada",
-              "Drafted and played for Arizona Diamondbacks",
+              "Drafted and played for the Arizona Diamondbacks",
               "Certified Bad Ass Hitting Instructor",
               "10 years of professional baseball experience"
             ],
@@ -164,7 +164,7 @@ const Index = () => {
             title: "Bat Wizard / Head Instructor",
             credentials: [
               "Certified Bad Ass Hitting Instructor",
-              "Drafted and coached for the Westside Woolly Mammoths",
+              "Drafted for the Arizona Diamondbacks",
               "10 years of professional baseball experience",
               "Specializes in hitting and defensive development"
             ],
@@ -175,7 +175,7 @@ const Index = () => {
             title: "Pitching Coordinator",
             credentials: [
               "Former Division I baseball player at the University of Nevada-Reno",
-              "Drafted by the Arizona Diamondbacks",
+              "Drafted Bad Ass by the Arizona Diamondbacks",
               "9 years of professional baseball experience",
               "Focus on mechanics and mental game development"
             ],
@@ -186,7 +186,7 @@ const Index = () => {
             title: "Assistant Coach",
             credentials: [
               "Former Division I baseball player at the University of New Mexico",
-              "Extensive experience in coaching and developing youth/high school baseball",
+              "Extensive experience in coaching and developing youth baseball",
               "Specializes in hitting and defensive development",
               "Over 10 years in baseball instruction"
             ],
