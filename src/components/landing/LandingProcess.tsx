@@ -68,8 +68,9 @@ const LandingProcess = ({ title, subtitle, steps, ctaText }: LandingProcessProps
           {/* CTA */}
           <div className="text-center mt-8 md:mt-16 px-4">
             <Button 
+              variant="cta"
               size="lg" 
-              className="bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-wider text-lg md:text-2xl px-8 py-6 md:px-16 md:py-10 w-full sm:w-auto"
+              className="font-bebas uppercase tracking-wider text-lg md:text-2xl px-8 py-6 md:px-16 md:py-10 w-full sm:w-auto"
             >
               {ctaText}
             </Button>
