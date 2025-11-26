@@ -20,14 +20,22 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 text-center">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="font-bebas text-6xl md:text-8xl lg:text-9xl uppercase leading-[0.9] mb-6 animate-fade-in tracking-tight text-white">
-            Developing Elite
-            <br />
-            <span className="text-primary font-black">Student-Athletes</span>
-            <br />
-            for the Next Level
-          </h1>
+        <div className="max-w-5xl mx-auto">
+          <div className="flex items-center justify-center gap-8 mb-6">
+            <h1 className="font-bebas text-6xl md:text-8xl lg:text-9xl uppercase leading-[0.9] animate-fade-in tracking-tight text-white">
+              Developing Elite
+              <br />
+              <span className="text-primary font-black">Student-Athletes</span>
+              <br />
+              for the Next Level
+            </h1>
+            <img 
+              src={logoBolt} 
+              alt="LPA Bolt" 
+              className="hidden md:block w-24 lg:w-32 h-auto animate-fade-in" 
+              style={{ animationDelay: "0.1s" }}
+            />
+          </div>
           
           <p className="font-bebas text-xl md:text-2xl lg:text-3xl text-white mb-8 max-w-2xl mx-auto animate-fade-in tracking-wide" style={{ animationDelay: "0.2s" }}>
             Get a complete evaluation of your athlete's strengths, weaknesses, and college-ready potential.
