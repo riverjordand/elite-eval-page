@@ -26,7 +26,7 @@ const LandingPhotos = ({
     if (!scrollContainer) return;
 
     let scrollPos = 0;
-    const scrollSpeed = 0.5;
+    const scrollSpeed = 0.25;
 
     const scroll = () => {
       scrollPos += scrollSpeed;
@@ -50,7 +50,7 @@ const LandingPhotos = ({
 
     // Start at the end for reverse scroll
     let scrollPos = scrollContainer.scrollWidth / 2;
-    const scrollSpeed = 0.5;
+    const scrollSpeed = 0.25;
 
     const scroll = () => {
       scrollPos -= scrollSpeed; // Subtract instead of add for reverse
