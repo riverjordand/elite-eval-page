@@ -27,7 +27,7 @@ const LandingVideos = ({
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   const autoplayPlugin = useRef(
-    Autoplay({ delay: 0, stopOnInteraction: false, stopOnMouseEnter: false })
+    Autoplay({ delay: 2000, stopOnInteraction: false, stopOnMouseEnter: false })
   );
 
   const [emblaRef] = useEmblaCarousel(
