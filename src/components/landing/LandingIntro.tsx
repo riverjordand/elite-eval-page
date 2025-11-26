@@ -15,20 +15,20 @@ const LandingIntro = ({ title, subtitle, description, highlight }: LandingIntroP
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-5xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-8 md:mb-12">
-            <div className="inline-block px-3 py-1.5 md:px-4 md:py-2 bg-primary/10 border border-primary/20 rounded-full mb-3 md:mb-4">
-              <span className="text-primary font-bebas uppercase tracking-wider text-xs md:text-sm">
+          <div className="text-center mb-10 md:mb-16">
+            <div className="inline-block px-4 py-2 md:px-5 md:py-2.5 bg-primary/20 border-2 border-primary/40 rounded-full mb-4 md:mb-6">
+              <span className="text-primary font-bebas uppercase tracking-wider text-sm md:text-base font-bold">
                 {subtitle}
               </span>
             </div>
             
-            <h2 className="text-3xl sm:text-4xl md:text-6xl font-bebas font-black uppercase mb-4 md:mb-8 px-4">
+            <h2 className="text-3xl sm:text-4xl md:text-6xl font-bebas font-black uppercase mb-6 md:mb-10 px-4">
               {title}
             </h2>
           </div>
 
           {/* Description */}
-          <div className="space-y-4 md:space-y-6 mb-6 md:mb-10">
+          <div className="space-y-5 md:space-y-7 mb-10 md:mb-14">
             {description.map((paragraph, index) => (
               <p 
                 key={index} 
@@ -40,8 +40,8 @@ const LandingIntro = ({ title, subtitle, description, highlight }: LandingIntroP
           </div>
 
           {/* Highlight Box */}
-          <div className="bg-card border-2 border-primary/30 rounded-xl p-6 md:p-10 text-center">
-            <p className="text-base sm:text-lg md:text-2xl font-oswald text-foreground leading-relaxed">
+          <div className="bg-gradient-to-br from-card via-card to-primary/5 border-2 border-primary/40 rounded-xl p-6 md:p-12 text-center shadow-lg">
+            <p className="text-base sm:text-lg md:text-2xl font-oswald font-semibold text-foreground leading-relaxed">
               {highlight}
             </p>
           </div>
