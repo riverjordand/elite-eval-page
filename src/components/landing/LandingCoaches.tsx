@@ -86,6 +86,13 @@ const LandingCoaches = ({ title, subtitle, coaches }: LandingCoachesProps) => {
               </div>
             ))}
           </div>
+
+          {/* Bottom Text */}
+          <div className="mt-8 md:mt-12 text-center">
+            <p className="text-sm md:text-base text-muted-foreground font-oswald max-w-3xl mx-auto leading-relaxed px-4">
+              These are the coaches who will evaluate your athlete, identify their weaknesses, and map out the exact development plan they need. Your athlete starts working with this team on day one — beginning with the free evaluation.
+            </p>
+          </div>
         </div>
       </div>
     </section>
