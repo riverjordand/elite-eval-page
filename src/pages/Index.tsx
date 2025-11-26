@@ -155,7 +155,15 @@ const Index = () => {
           { src: "/action-17.jpg", alt: "Athlete walking on field at sunset" },
           { src: "/action-18.jpg", alt: "Batter at the plate" },
           { src: "/action-19.jpg", alt: "Pitcher follow-through" },
-          { src: "/action-20.jpg", alt: "Batter mid-swing at sunset" }
+          { src: "/action-20.jpg", alt: "Batter mid-swing at sunset" },
+          { src: "/action-21.jpg", alt: "Team huddled under stadium lights at night" },
+          { src: "/action-22.jpg", alt: "Batter watching fly ball at dusk" },
+          { src: "/action-23.jpg", alt: "Pitcher mid-delivery in red uniform" },
+          { src: "/action-24.jpg", alt: "Batter making contact in red uniform" },
+          { src: "/action-25.jpg", alt: "Pitcher ready position at sunset" },
+          { src: "/action-26.jpg", alt: "Runner sprinting to base" },
+          { src: "/action-27.jpg", alt: "Player in dugout focused before game" },
+          { src: "/action-28.jpg", alt: "Pitcher walking on field under stadium lights" }
         ]}
       />
 
