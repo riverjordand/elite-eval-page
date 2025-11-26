@@ -11,24 +11,6 @@ const Navigation = () => {
             alt="Legendary Prep Academy" 
             className="h-8 md:h-10 w-auto"
           />
-          
-          <div className="hidden md:flex items-center gap-8">
-            <a href="#home" className="text-foreground hover:text-primary transition-colors font-oswald uppercase tracking-wide">
-              Home
-            </a>
-            <a href="#advantages" className="text-foreground hover:text-primary transition-colors font-oswald uppercase tracking-wide">
-              The Academy
-            </a>
-            <a href="#staff" className="text-foreground hover:text-primary transition-colors font-oswald uppercase tracking-wide">
-              Meet The Staff
-            </a>
-            <a href="#commitments" className="text-foreground hover:text-primary transition-colors font-oswald uppercase tracking-wide">
-              Success Stories
-            </a>
-            <a href="#contact" className="text-foreground hover:text-primary transition-colors font-oswald uppercase tracking-wide">
-              Contact Us
-            </a>
-          </div>
 
           <Button 
             size="lg" 
