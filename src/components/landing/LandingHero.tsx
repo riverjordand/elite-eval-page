@@ -34,14 +34,6 @@ const LandingHero = ({
       
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-1.5 px-3 py-1.5 md:px-4 md:py-2 bg-primary/10 border border-primary/20 rounded-full mb-3 md:mb-6 animate-fade-in">
-            <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-primary rounded-full animate-pulse" />
-            <span className="text-primary font-bebas uppercase tracking-wider text-xs md:text-sm">
-              {badge} • Only {spotsLeft} Spots Left
-            </span>
-          </div>
-
           {/* Main Headline - About LPA */}
           <h1 className="text-3xl sm:text-5xl md:text-8xl font-bebas font-black uppercase mb-4 md:mb-6 leading-[0.95] px-2">
             {mainHeadline}
