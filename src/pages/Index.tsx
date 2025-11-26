@@ -57,27 +57,51 @@ const Index = () => {
         items={[
           {
             title: "Advanced Metrics Testing",
-            description: "Pitching velocity, exit velocity, or hitting metrics using professional-grade technology (Rapsodo, HitTrax)"
+            bullets: [
+              "Pitching or hitting velocity testing",
+              "Professional-grade tech (Rapsodo, HitTrax)",
+              "Real-time performance data"
+            ]
           },
           {
             title: "Complete Mechanics Analysis",
-            description: "Video breakdown of throwing or hitting mechanics with frame-by-frame analysis from D1/Pro coaches"
+            bullets: [
+              "Frame-by-frame video breakdown",
+              "Analyzed by D1/Pro coaches",
+              "Identify technical flaws"
+            ]
           },
           {
             title: "Strength & Mobility Assessment",
-            description: "Physical evaluation by certified strength coaches to identify strengths, weaknesses, and injury prevention needs"
+            bullets: [
+              "Certified strength coach evaluation",
+              "Identify physical weaknesses",
+              "Injury prevention insights"
+            ]
           },
           {
             title: "Coach-Led Development Plan",
-            description: "One-on-one consultation with our coaching staff about what your athlete needs to improve"
+            bullets: [
+              "One-on-one coaching consultation",
+              "Personalized improvement roadmap",
+              "Specific training recommendations"
+            ]
           },
           {
             title: "Personalized 6-12 Month Roadmap",
-            description: "Written development plan with specific training recommendations tailored to your athlete's goals"
+            bullets: [
+              "Written development plan",
+              "Tailored to athlete's goals",
+              "Clear next steps to improve"
+            ]
           },
           {
             title: "Full Facility Tour & Q&A",
-            description: "Walk through our 16,000 sq ft facility and ask questions about our programs, training methods, and success stories"
+            bullets: [
+              "Walk through 16,000 sq ft facility",
+              "Ask questions about programs",
+              "Meet coaches and see success stories"
+            ]
           }
         ]}
         ctaText="Book My Free Evaluation Now"

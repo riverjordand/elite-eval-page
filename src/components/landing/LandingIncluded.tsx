@@ -4,7 +4,7 @@ import SectionDivider from "./SectionDivider";
 
 interface IncludedItem {
   title: string;
-  description: string;
+  bullets: string[];
 }
 
 interface LandingIncludedProps {
@@ -53,12 +53,17 @@ const LandingIncluded = ({
                     <Check className="w-4 h-4 md:w-5 md:h-5 text-primary-foreground" />
                   </div>
                   <div>
-                    <h3 className="text-base md:text-xl font-bebas font-bold uppercase mb-1 md:mb-2 text-foreground">
+                    <h3 className="text-base md:text-xl font-bebas font-bold uppercase mb-2 md:mb-3 text-foreground">
                       {item.title}
                     </h3>
-                    <p className="text-xs sm:text-sm md:text-base text-muted-foreground font-oswald leading-relaxed">
-                      {item.description}
-                    </p>
+                    <ul className="space-y-1 md:space-y-1.5">
+                      {item.bullets.map((bullet, bulletIndex) => (
+                        <li key={bulletIndex} className="text-xs sm:text-sm md:text-base text-muted-foreground font-oswald leading-relaxed flex items-start gap-2">
+                          <span className="text-primary mt-0.5">•</span>
+                          <span>{bullet}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
               </div>
