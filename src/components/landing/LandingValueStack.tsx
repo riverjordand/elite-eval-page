@@ -80,7 +80,7 @@ const LandingValueStack = ({ onCtaClick }: LandingValueStackProps) => {
             </div>
 
             {/* Items Grid - Mobile: Collapsible, Desktop: Full Cards */}
-            <div className="space-y-3 md:space-y-0 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-4 lg:gap-6 mb-8 md:mb-12">
+            <div className="space-y-3 md:space-y-0 md:grid md:grid-cols-3 md:gap-6 lg:gap-8 mb-12 md:mb-16">
               {includedItems.map((item, index) => (
                 <Collapsible
                   key={index}
@@ -116,19 +116,19 @@ const LandingValueStack = ({ onCtaClick }: LandingValueStackProps) => {
 
                   {/* Desktop: Full Card (unchanged) */}
                   <div 
-                    className="hidden md:block bg-card border-2 border-border rounded-xl p-6 lg:p-8 hover:border-primary/50 transition-all duration-300 relative animate-fade-in"
+                    className="hidden md:block bg-card border-2 border-border rounded-2xl p-6 lg:p-8 hover:border-primary/30 transition-all duration-300 relative animate-fade-in"
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
                     {/* Value Badge */}
-                    <div className="absolute top-4 right-4">
-                      <span className="inline-block px-3 py-1 bg-background border border-border rounded-lg text-foreground font-bebas text-sm lg:text-base">
+                    <div className="absolute top-6 right-6">
+                      <span className="inline-block px-4 py-1.5 bg-background border border-border rounded-lg text-foreground font-bebas text-base lg:text-lg tracking-wide">
                         ${item.value} Value
                       </span>
                     </div>
 
                     {/* Content */}
-                    <div className="pr-20">
-                      <h3 className="text-lg lg:text-xl font-bebas uppercase text-foreground mb-3">
+                    <div className="pr-24">
+                      <h3 className="text-xl lg:text-2xl font-bebas uppercase text-foreground mb-4 leading-tight tracking-wide">
                         {item.title}
                       </h3>
                       <p className="text-sm lg:text-base text-muted-foreground font-oswald leading-relaxed">
@@ -141,15 +141,15 @@ const LandingValueStack = ({ onCtaClick }: LandingValueStackProps) => {
             </div>
 
             {/* Value Summary Box */}
-            <div className="max-w-2xl mx-auto text-center">
-              <div className="bg-card border-2 border-primary/40 rounded-2xl p-8 md:p-10">
-                <p className="text-base md:text-xl text-muted-foreground font-oswald mb-2 tracking-wide">
+            <div className="max-w-3xl mx-auto text-center">
+              <div className="bg-card border-2 border-primary/40 rounded-2xl p-10 md:p-12">
+                <p className="text-base md:text-xl text-muted-foreground font-oswald mb-3 tracking-wide">
                   Total Value:
                 </p>
-                <p className="text-5xl md:text-7xl font-bebas font-black text-foreground mb-4 md:mb-6">
+                <p className="text-6xl md:text-8xl font-bebas font-black text-foreground mb-6 md:mb-8">
                   ${totalValue}
                 </p>
-                <p className="text-2xl md:text-4xl font-bebas font-black text-primary uppercase tracking-wider">
+                <p className="text-3xl md:text-5xl font-bebas font-black text-primary uppercase tracking-wider">
                   Yours Free Today
                 </p>
               </div>
