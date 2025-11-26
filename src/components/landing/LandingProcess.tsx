@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import SectionDivider from "./SectionDivider";
 
 interface ProcessStep {
   number: string;
@@ -15,7 +16,9 @@ interface LandingProcessProps {
 
 const LandingProcess = ({ title, subtitle, steps, ctaText }: LandingProcessProps) => {
   return (
-    <section className="py-16 md:py-24 bg-[#0a0a0a] relative">
+    <>
+      <SectionDivider />
+      <section className="py-16 md:py-24 bg-[#0a0a0a] relative">
       {/* Gradient fade to next section */}
       <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-[#1a1a1a] pointer-events-none" />
       <div className="container mx-auto px-4 md:px-6">
@@ -78,6 +81,7 @@ const LandingProcess = ({ title, subtitle, steps, ctaText }: LandingProcessProps
         </div>
       </div>
     </section>
+    </>
   );
 };
 
