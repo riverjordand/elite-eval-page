@@ -152,10 +152,10 @@ const Index = () => {
             name: "Mark Karaviotis",
             title: "Head Coach",
             credentials: [
-              "Former Division 1 baseball player at Oregon",
-              "Drafted 19th round by the Arizona Diamondbacks",
-              "2016 Hillsboro Hops batting champion",
-              "3x MiLB All Star"
+              "Played D1 at Oregon—knows exactly what college scouts demand",
+              "Pro experience with the Diamondbacks—teaches real pro-level mechanics",
+              "Minor League batting champion—proven hitting development system",
+              "3x All-Star—elite performance translated into elite coaching"
             ],
             image: coachMarcus
           },
@@ -163,10 +163,10 @@ const Index = () => {
             name: "Joe Dunigan",
             title: "Hitting Coordinator & Astros Scout",
             credentials: [
-              "Former Division 1 baseball player at Oklahoma",
-              "Drafted 41st round by the Montreal Expos",
-              "Drafted 5th round by the Seattle Mariners",
-              "Current Area Scout for the Houston Astros"
+              "D1 player at Oklahoma—understands the entire college recruiting process",
+              "Drafted twice in MLB Draft—knows exactly what pro scouts look for",
+              "Current MLB scout for Houston Astros—direct pipeline to professional opportunities",
+              "Evaluates pro talent daily—trains athletes with a scout's eye"
             ],
             image: coachJoe
           },
@@ -174,9 +174,9 @@ const Index = () => {
             name: "Eric Smith",
             title: "Coordinator",
             credentials: [
-              "Former Division 1 baseball player at the University of Rhode Island",
-              "Drafted 2nd round by Arizona Diamondbacks",
-              "6 years of professional baseball experience"
+              "D1 player at Rhode Island—teaches college-level training standards",
+              "2nd round draft pick—elite talent with elite mechanical knowledge",
+              "6 years in pro ball—knows what it takes to compete at the highest level"
             ],
             image: coachEric
           },
@@ -184,8 +184,8 @@ const Index = () => {
             name: "Terrell Hudson",
             title: "Assistant Coach",
             credentials: [
-              "Former Division 1 baseball player at the University of New Mexico",
-              "Extensive experience in training and managing ELITE youth baseball"
+              "D1 player at New Mexico—brings college experience to high school development",
+              "Specializes in elite youth baseball—expert at developing younger athletes for the next level"
             ],
             image: coachTerrell
           },
@@ -193,10 +193,10 @@ const Index = () => {
             name: "Will Armijo",
             title: "CEO & Co-Founder",
             credentials: [
-              "Former NCAA baseball player with an MBA",
-              "Founder of six companies spanning across four industries",
-              "Over 13 years of experience mentoring athletes and professionals",
-              "Board member for CARE, Arizona nonprofit combating human trafficking"
+              "Former NCAA player turned business leader—combines athletic mindset with strategic systems",
+              "Built 6 successful companies—applies proven business systems to athlete development",
+              "13+ years mentoring athletes—expert in long-term player growth and recruiting strategy",
+              "Nonprofit leader—committed to building character and discipline alongside skill"
             ],
             image: coachNeil
           }
