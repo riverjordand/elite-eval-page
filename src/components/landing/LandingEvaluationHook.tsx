@@ -24,7 +24,7 @@ const LandingEvaluationHook = ({ onCtaClick }: LandingEvaluationHookProps) => {
               Most Parents Can't See What's Holding Their Athlete Back
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground font-oswald leading-relaxed max-w-3xl mx-auto">
-              You see the effort and potential—but not the mechanical flaw, mobility issue, timing problem, or strength gap slowing progress. Without professional assessment, you're guessing.
+              You know your athlete is capable of more. But without a trained eye, you can't pinpoint the exact timing issue, mechanical flaw, or physical limitation standing in the way. And guessing costs time your athlete doesn't have.
             </p>
           </div>
         </div>
