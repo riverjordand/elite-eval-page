@@ -33,11 +33,11 @@ const LandingTestimonials = ({ title, subtitle, testimonials }: LandingTestimoni
 
           {/* Mobile: Horizontal Scroll Carousel */}
           <div className="md:hidden overflow-x-auto -mx-4 px-4 pb-4">
-            <div className="flex gap-4" style={{ width: 'max-content' }}>
+            <div className="flex gap-3" style={{ width: 'max-content' }}>
               {testimonials.map((testimonial, index) => (
                 <div 
                   key={index}
-                  className="flex-shrink-0 w-[70vw] bg-card border-2 border-border rounded-lg overflow-hidden"
+                  className="flex-shrink-0 w-[60vw] bg-card border-2 border-border rounded-lg overflow-hidden"
                 >
                   {/* Video - Vertical aspect ratio */}
                   <div className="relative aspect-[9/16] bg-black">
@@ -46,6 +46,7 @@ const LandingTestimonials = ({ title, subtitle, testimonials }: LandingTestimoni
                       className="w-full h-full object-cover"
                       preload="metadata"
                       playsInline
+                      poster={testimonial.videoUrl.replace('.mp4', '-thumb.jpg')}
                     >
                       <source src={testimonial.videoUrl} type="video/mp4" />
                       Your browser does not support the video tag.
@@ -53,16 +54,16 @@ const LandingTestimonials = ({ title, subtitle, testimonials }: LandingTestimoni
                   </div>
 
                   {/* Caption */}
-                  <div className="p-4">
-                    <p className="text-base md:text-sm text-muted-foreground font-oswald italic mb-3 leading-relaxed">
+                  <div className="p-3">
+                    <p className="text-sm text-muted-foreground font-oswald italic mb-2 leading-relaxed">
                       "{testimonial.quote}"
                     </p>
                     <div className="flex items-center gap-2">
                       <div>
-                        <p className="text-base md:text-sm font-bebas uppercase text-foreground">
+                        <p className="text-sm font-bebas uppercase text-foreground">
                           {testimonial.parentName}
                         </p>
-                        <p className="text-sm md:text-xs text-primary font-oswald">
+                        <p className="text-xs text-primary font-oswald">
                           {testimonial.athleteName}
                         </p>
                       </div>
@@ -88,6 +89,7 @@ const LandingTestimonials = ({ title, subtitle, testimonials }: LandingTestimoni
                     className="w-full h-full object-cover"
                     preload="metadata"
                     playsInline
+                    poster={testimonial.videoUrl.replace('.mp4', '-thumb.jpg')}
                   >
                     <source src={testimonial.videoUrl} type="video/mp4" />
                     Your browser does not support the video tag.
