@@ -1,4 +1,5 @@
 import SectionDivider from "./SectionDivider";
+import welcomeImage from "@/assets/welcome-athlete-batting.jpg";
 
 const LandingIntro = () => {
   return (
@@ -37,11 +38,13 @@ const LandingIntro = () => {
               </div>
             </div>
 
-            {/* Right Column - Image Placeholder */}
-            <div className="bg-card border-2 border-border rounded-xl aspect-square flex items-center justify-center">
-              <div className="text-center p-8">
-                <p className="text-muted-foreground font-oswald text-sm">Image Placement</p>
-              </div>
+            {/* Right Column - Athlete Image */}
+            <div className="rounded-xl overflow-hidden border-2 border-border">
+              <img 
+                src={welcomeImage} 
+                alt="LPA athlete at bat"
+                className="w-full h-full object-cover aspect-square"
+              />
             </div>
           </div>
         </div>
