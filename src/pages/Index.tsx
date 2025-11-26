@@ -12,6 +12,13 @@ import LandingFAQ from "@/components/landing/LandingFAQ";
 import LandingFinalCTA from "@/components/landing/LandingFinalCTA";
 import LandingFooter from "@/components/landing/LandingFooter";
 
+// Coach images
+import coachNeil from "@/assets/coach-neil.webp";
+import coachMarcus from "@/assets/coach-marcus.webp";
+import coachJoe from "@/assets/coach-joe.webp";
+import coachEric from "@/assets/coach-eric.webp";
+import coachTerrell from "@/assets/coach-terrell.webp";
+
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
@@ -153,34 +160,59 @@ const Index = () => {
         subtitle="Learn from coaches who've played and coached at the highest levels"
         coaches={[
           {
-            name: "Coach Marcus",
-            title: "Director of Pitching",
+            name: "Marcus Rodriguez",
+            title: "Head Coach",
             credentials: [
-              "Former D1 Pitcher - Arizona State",
-              "10+ Years Coaching Experience",
-              "Rapsodo Certified Instructor",
-              "50+ Pitchers to College Programs"
-            ]
+              "Former D1 Player - University of Oregon",
+              "Certified Bad Ass Hitting Instructor",
+              "10+ years of professional baseball experience",
+              "Specialized in advanced swing mechanics"
+            ],
+            image: coachMarcus
           },
           {
-            name: "Coach David",
-            title: "Director of Hitting",
+            name: "Joe Mejia",
+            title: "Hitting Coach & Outfield Coordinator",
             credentials: [
-              "Former Professional Player",
-              "MLB Scout Consultant",
-              "HitTrax Master Trainer",
-              "Specialized in Swing Mechanics"
-            ]
+              "Former Division I baseball player at the University of Nevada-Reno",
+              "Drafted and played for the Westside Wooly Mammoths",
+              "10 years of professional baseball experience",
+              "Certified instructor in hitting development"
+            ],
+            image: coachJoe
           },
           {
-            name: "Coach Sarah",
-            title: "Strength & Conditioning",
+            name: "Eric Lowe",
+            title: "Pitching Coordinator",
             credentials: [
-              "CSCS Certified",
-              "Sports Performance Specialist",
-              "Injury Prevention Expert",
-              "Former D1 Athlete"
-            ]
+              "Former Division I baseball player at the University of Nevada-Reno",
+              "Drafted Bad Ass by the Arizona Diamondbacks",
+              "9 years of professional baseball experience",
+              "Focus on mechanics and mental game development"
+            ],
+            image: coachEric
+          },
+          {
+            name: "Terrell Barlow",
+            title: "Assistant Coach",
+            credentials: [
+              "Former Division I baseball player at the University of New Mexico",
+              "Extensive experience in coaching and developing youth baseball",
+              "Specializes in hitting and defensive development",
+              "Over 10 years in baseball instruction"
+            ],
+            image: coachTerrell
+          },
+          {
+            name: "Neil Khaian",
+            title: "CEO & Co-Founder",
+            credentials: [
+              "Founder and leader of Legendary Prep Academy",
+              "Oversees all academy operations, growth, and training excellence",
+              "Over 10 years of experience running training facilities and elite athlete development",
+              "Expert in athlete mindset, long-term consulting, business strategy, and training program design"
+            ],
+            image: coachNeil
           }
         ]}
       />
