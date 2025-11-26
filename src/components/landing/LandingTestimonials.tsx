@@ -98,14 +98,14 @@ const LandingTestimonials = ({ title, subtitle, testimonials }: LandingTestimoni
 
                 {/* Caption */}
                 <div className="p-4">
-                  <p className="text-sm text-muted-foreground font-oswald italic mb-3">
+                  <p className="text-sm md:text-base text-muted-foreground font-oswald italic mb-3">
                     "{testimonial.quote}"
                   </p>
                   <div>
-                    <p className="text-sm font-bebas uppercase text-foreground">
+                    <p className="text-sm md:text-lg font-bebas uppercase text-foreground">
                       {testimonial.parentName}
                     </p>
-                    <p className="text-xs text-primary font-oswald">
+                    <p className="text-xs md:text-sm text-primary font-oswald">
                       {testimonial.athleteName}
                     </p>
                   </div>

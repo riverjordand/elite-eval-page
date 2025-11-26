@@ -54,10 +54,10 @@ const LandingProcess = ({ title, subtitle, steps, ctaText }: LandingProcessProps
 
                   {/* Content */}
                   <div className="bg-card border-2 border-border rounded-lg p-4 md:p-6 flex-1 flex flex-col hover:border-primary/50 transition-all duration-300">
-                    <h3 className="text-base md:text-xl font-bebas font-bold uppercase mb-2 md:mb-3 text-foreground">
+                    <h3 className="text-base md:text-2xl font-bebas font-bold uppercase mb-2 md:mb-3 text-foreground">
                       {step.title}
                     </h3>
-                    <p className="text-muted-foreground font-oswald text-xs md:text-sm leading-relaxed flex-1">
+                    <p className="text-muted-foreground font-oswald text-xs md:text-base leading-relaxed flex-1">
                       {step.description}
                     </p>
                   </div>

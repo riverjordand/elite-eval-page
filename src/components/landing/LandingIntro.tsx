@@ -32,7 +32,7 @@ const LandingIntro = ({ title, subtitle, description, highlight }: LandingIntroP
             {description.map((paragraph, index) => (
               <p 
                 key={index} 
-                className="text-sm sm:text-base md:text-xl text-muted-foreground font-oswald leading-relaxed text-center px-2"
+                className="text-sm sm:text-base md:text-2xl text-muted-foreground font-oswald leading-relaxed text-center px-2"
               >
                 {paragraph}
               </p>
@@ -41,7 +41,7 @@ const LandingIntro = ({ title, subtitle, description, highlight }: LandingIntroP
 
           {/* Highlight Box */}
           <div className="bg-gradient-to-br from-card via-card to-primary/5 border-2 border-primary/40 rounded-xl p-6 md:p-12 text-center shadow-lg">
-            <p className="text-base sm:text-lg md:text-2xl font-oswald font-semibold text-foreground leading-relaxed">
+            <p className="text-base sm:text-lg md:text-3xl font-oswald font-semibold text-foreground leading-relaxed">
               {highlight}
             </p>
           </div>

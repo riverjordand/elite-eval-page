@@ -67,17 +67,17 @@ const LandingCoaches = ({ title, subtitle, coaches }: LandingCoachesProps) => {
 
                 {/* Coach Info */}
                 <div className="p-4 md:p-6">
-                  <h3 className="text-lg md:text-2xl font-bebas font-bold uppercase mb-1 md:mb-2 text-white">
+                  <h3 className="text-lg md:text-3xl font-bebas font-bold uppercase mb-1 md:mb-2 text-white">
                     {coach.name}
                   </h3>
-                  <p className="text-primary font-bebas font-semibold mb-4 md:mb-6 uppercase text-xs md:text-sm tracking-wider">
+                  <p className="text-primary font-bebas font-semibold mb-4 md:mb-6 uppercase text-xs md:text-base tracking-wider">
                     {coach.title}
                   </p>
 
                   {/* Credentials - Paragraph Format */}
                   <div className="text-left">
                     {coach.credentials.map((credential, credIndex) => (
-                      <p key={credIndex} className="text-muted-foreground font-oswald text-xs md:text-sm leading-relaxed">
+                      <p key={credIndex} className="text-muted-foreground font-oswald text-xs md:text-base leading-relaxed">
                         {credential}
                       </p>
                     ))}

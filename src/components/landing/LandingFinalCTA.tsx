@@ -47,7 +47,7 @@ const LandingFinalCTA = ({
           </Button>
 
           {/* Guarantee */}
-          <div className="flex flex-wrap justify-center items-center gap-2 md:gap-4 text-xs md:text-sm text-muted-foreground font-oswald px-4">
+          <div className="flex flex-wrap justify-center items-center gap-2 md:gap-4 text-xs md:text-lg text-muted-foreground font-oswald px-4">
             {guaranteeText.split('•').map((text, index) => (
               <div key={index} className="flex items-center gap-2">
                 {index > 0 && <span className="text-border hidden sm:inline">•</span>}
@@ -58,7 +58,7 @@ const LandingFinalCTA = ({
 
           {/* Final Trust Statement */}
           <div className="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-border/50">
-            <p className="text-sm md:text-base text-muted-foreground font-oswald italic px-4">
+            <p className="text-sm md:text-xl text-muted-foreground font-oswald italic px-4">
               Join hundreds of Arizona families who've used LPA to get their athletes to the next level
             </p>
           </div>
