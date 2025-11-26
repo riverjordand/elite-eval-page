@@ -46,7 +46,7 @@ const LandingIncluded = ({
             {items.map((item, index) => (
               <div 
                 key={index} 
-                className="bg-card border-2 border-border rounded-lg p-5 md:p-7 hover:border-primary/50 transition-all duration-300 animate-fade-in"
+                className="bg-card border-[3px] border-border rounded-lg p-5 md:p-7 shadow-lg hover:border-primary/60 hover:shadow-xl hover:scale-[1.02] transition-all duration-300 animate-fade-in"
                 style={{ animationDelay: `${index * 50}ms` }}
               >
                 <div className="flex gap-3 md:gap-4">
@@ -79,7 +79,7 @@ const LandingIncluded = ({
           {/* Total Value & Free Badge - Side by Side on Desktop */}
           <div className="max-w-4xl mx-auto mb-6 md:mb-8 flex flex-col md:flex-row gap-4 md:gap-6 items-stretch">
             {/* Total Value */}
-            <div className="flex-1 p-6 md:p-8 bg-card border-2 border-border rounded-xl">
+            <div className="flex-1 p-6 md:p-8 bg-card border-[3px] border-border rounded-xl shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
               <div className="flex items-center justify-between h-full">
                 <span className="text-lg md:text-2xl font-bebas uppercase text-muted-foreground">Total Value:</span>
                 <span className="text-2xl md:text-4xl font-bebas text-foreground">${items.reduce((sum, item) => sum + item.value, 0)}</span>
@@ -87,7 +87,7 @@ const LandingIncluded = ({
             </div>
             
             {/* Free Badge */}
-            <div className="flex-1 flex items-center justify-center p-6 md:p-8 bg-card border-2 border-border rounded-xl">
+            <div className="flex-1 flex items-center justify-center p-6 md:p-8 bg-card border-[3px] border-border rounded-xl shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
               <p className="text-xl sm:text-2xl md:text-3xl font-bebas text-foreground uppercase tracking-wide">
                 Yours Free Today
               </p>
