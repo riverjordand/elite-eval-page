@@ -82,11 +82,11 @@ const LandingFacilityShowcase = ({ title, subtitle, areas }: LandingFacilityShow
               </div>
 
               {/* Desktop: Single Row */}
-              <div className="hidden md:flex md:gap-6 md:justify-center">
+              <div className="hidden md:flex md:gap-8 md:justify-center">
             {areas.map((area, index) => (
               <div 
                 key={index}
-                className="group bg-card border-[3px] border-border rounded-xl overflow-hidden shadow-lg hover:border-primary/60 hover:shadow-xl hover:scale-[1.02] transition-all duration-300 animate-fade-in flex-shrink-0 w-[calc((100%-4.5rem)/4)]"
+                className="group bg-card border-[3px] border-border rounded-xl overflow-hidden shadow-lg hover:border-primary/60 hover:shadow-xl hover:scale-[1.02] transition-all duration-300 animate-fade-in flex-shrink-0 w-[420px]"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 {/* Image */}
