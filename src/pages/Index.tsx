@@ -7,6 +7,7 @@ import LandingProcess from "@/components/landing/LandingProcess";
 import LandingCoaches from "@/components/landing/LandingCoaches";
 import LandingSocialProof from "@/components/landing/LandingSocialProof";
 import LandingCommitments from "@/components/landing/LandingCommitments";
+import LandingAthletes from "@/components/landing/LandingAthletes";
 import LandingFAQ from "@/components/landing/LandingFAQ";
 import LandingFinalCTA from "@/components/landing/LandingFinalCTA";
 import LandingFooter from "@/components/landing/LandingFooter";
@@ -224,6 +225,22 @@ const Index = () => {
           { name: "Daniel Santos", position: "RHP", school: "Gonzaga University", year: "2025" },
           { name: "Connor Walsh", position: "OF", school: "Santa Clara University", year: "2024" },
           { name: "Isaiah Brown", position: "1B", school: "University of San Diego", year: "2025" }
+        ]}
+      />
+
+      {/* ATHLETES IN ACTION - Photo Gallery */}
+      <LandingAthletes
+        title="See LPA Athletes in Action"
+        subtitle="Real athletes, real training, real results"
+        photos={[
+          { category: "Pitching Training", caption: "Working on mechanics with velocity tech" },
+          { category: "Hitting Sessions", caption: "Dialing in swing path with HitTrax" },
+          { category: "Strength Training", caption: "Building explosive power in the weight room" },
+          { category: "Video Analysis", caption: "Breaking down mechanics frame by frame" },
+          { category: "Team Workouts", caption: "Competitive training environment" },
+          { category: "Individual Focus", caption: "One-on-one coaching attention" },
+          { category: "Recovery Work", caption: "Mobility and injury prevention" },
+          { category: "Celebration", caption: "Commitment day at LPA" }
         ]}
       />
 
