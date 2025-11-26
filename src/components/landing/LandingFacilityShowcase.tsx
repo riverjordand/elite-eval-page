@@ -12,9 +12,10 @@ interface LandingFacilityShowcaseProps {
   title: string;
   subtitle: string;
   areas: FacilityArea[];
+  onCtaClick?: () => void;
 }
 
-const LandingFacilityShowcase = ({ title, subtitle, areas }: LandingFacilityShowcaseProps) => {
+const LandingFacilityShowcase = ({ title, subtitle, areas, onCtaClick }: LandingFacilityShowcaseProps) => {
   return (
     <>
       <SectionDivider fromColor="#0a0a0a" toColor="#1a1a1a" />
@@ -157,6 +158,22 @@ const LandingFacilityShowcase = ({ title, subtitle, areas }: LandingFacilityShow
                 <p className="text-muted-foreground font-oswald uppercase text-xs md:text-sm">Grade Equipment</p>
               </div>
             </div>
+          </div>
+
+          {/* CTA Section */}
+          <div className="mt-12 md:mt-16 text-center max-w-3xl mx-auto px-4">
+            <p className="text-base md:text-lg text-foreground font-oswald mb-2 leading-relaxed">
+              Ready to see this level of development in person?
+            </p>
+            <p className="text-sm md:text-base text-muted-foreground font-oswald mb-6 md:mb-8 leading-relaxed">
+              Your athlete's free evaluation includes a full walkthrough of the facility, a breakdown of their performance, and a personalized development plan built by our coaching staff.
+            </p>
+            <button
+              onClick={onCtaClick}
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 md:px-12 py-4 md:py-5 rounded-lg font-bebas text-xl md:text-2xl uppercase tracking-wider transition-all duration-300 hover:scale-105 shadow-lg"
+            >
+              → Book Your Free Evaluation
+            </button>
           </div>
         </div>
       </div>

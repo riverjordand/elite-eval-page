@@ -62,6 +62,7 @@ const Index = () => {
       <LandingFacilityShowcase
         title="Where Elite Athletes Train"
         subtitle="16,000 square feet of professional-grade development built for one thing — turning serious players into college-ready athletes."
+        onCtaClick={() => setFormOpen(true)}
         areas={[
           {
             title: "Training Area",
