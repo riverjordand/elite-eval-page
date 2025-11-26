@@ -25,7 +25,7 @@ const LandingVideos = ({
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [isUserScrolling, setIsUserScrolling] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < 768);
   const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   // Detect mobile devices
@@ -34,7 +34,6 @@ const LandingVideos = ({
       setIsMobile(window.innerWidth < 768);
     };
     
-    checkMobile();
     window.addEventListener('resize', checkMobile);
     
     return () => window.removeEventListener('resize', checkMobile);
@@ -71,32 +70,31 @@ const LandingVideos = ({
     animationFrameId = requestAnimationFrame(continuousScroll);
 
     // Handle manual scroll interaction on desktop
-    const handleInteractionStart = () => {
+    const handleUserInteraction = () => {
       setIsUserScrolling(true);
       if (scrollTimeoutRef.current) {
         clearTimeout(scrollTimeoutRef.current);
       }
-    };
-
-    const handleInteractionEnd = () => {
+      
       // Resume auto-scroll after 2 seconds of no interaction
       scrollTimeoutRef.current = setTimeout(() => {
         setIsUserScrolling(false);
       }, 2000);
     };
 
-    container.addEventListener('mousedown', handleInteractionStart);
-    container.addEventListener('mouseup', handleInteractionEnd);
-    container.addEventListener('scroll', handleInteractionStart);
+    // Only listen to actual user-initiated events (not programmatic scroll)
+    container.addEventListener('wheel', handleUserInteraction);
+    container.addEventListener('mousedown', handleUserInteraction);
+    container.addEventListener('touchstart', handleUserInteraction);
 
     return () => {
       cancelAnimationFrame(animationFrameId);
       if (scrollTimeoutRef.current) {
         clearTimeout(scrollTimeoutRef.current);
       }
-      container.removeEventListener('mousedown', handleInteractionStart);
-      container.removeEventListener('mouseup', handleInteractionEnd);
-      container.removeEventListener('scroll', handleInteractionStart);
+      container.removeEventListener('wheel', handleUserInteraction);
+      container.removeEventListener('mousedown', handleUserInteraction);
+      container.removeEventListener('touchstart', handleUserInteraction);
     };
   }, [isUserScrolling, isMobile]);
 
