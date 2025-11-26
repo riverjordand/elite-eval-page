@@ -25,7 +25,7 @@ const LandingVideos = ({
 
     let animationFrameId: number;
     let scrollPosition = 0;
-    const scrollSpeed = 0.5; // pixels per frame
+    const scrollSpeed = 0.25; // pixels per frame
 
     const autoScroll = () => {
       if (!container) return;
