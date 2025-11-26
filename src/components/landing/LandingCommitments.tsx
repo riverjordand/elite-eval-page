@@ -72,10 +72,10 @@ const LandingCommitments = ({ title, subtitle, commitments, totalCount, onCtaCli
           {/* CTA Section */}
           <div className="mt-12 md:mt-16 text-center max-w-3xl mx-auto px-4">
             <p className="text-base md:text-lg text-foreground font-oswald mb-2 leading-relaxed">
-              Every committed athlete you see here started exactly where your athlete is now — with the free evaluation that revealed what they needed to fix and how to get to the next level.
+              Every committed athlete you see here started with the same free evaluation your athlete can book today.
             </p>
             <p className="text-sm md:text-base text-muted-foreground font-oswald mb-6 md:mb-8 leading-relaxed">
-              The evaluation gives your athlete a clear development roadmap, specific weaknesses to correct, and the confidence to chase the future they want.
+              Get a clear development roadmap and the confidence to reach the next level.
             </p>
             <button
               onClick={onCtaClick}
