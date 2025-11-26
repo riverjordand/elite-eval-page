@@ -38,39 +38,8 @@ const LandingCommitments = ({ title, subtitle, commitments, totalCount }: Landin
             </p>
           </div>
 
-          {/* Mobile: Horizontal Scroll Gallery | Desktop: Grid */}
-          <div className="md:hidden overflow-x-auto -mx-4 px-4 pb-4 mb-8">
-            <div className="flex gap-3" style={{ width: 'max-content' }}>
-              {commitments.map((commitment, index) => (
-                <div 
-                  key={index}
-                  className="flex-shrink-0 w-72 bg-card border-2 border-border rounded-lg overflow-hidden hover:border-primary/50 transition-all duration-300"
-                >
-                  {/* Commitment Photo */}
-                  <div className="w-full aspect-square relative overflow-hidden">
-                    <img 
-                      src={commitment.image} 
-                      alt={`${commitment.name} - ${commitment.school}`}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-
-                  {/* Caption */}
-                  <div className="p-3">
-                    <p className="text-sm font-bebas uppercase text-primary mb-1">
-                      {commitment.name}
-                    </p>
-                    <p className="text-xs text-muted-foreground font-oswald leading-relaxed">
-                      {commitment.school}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Desktop: Grid Layout */}
-          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8 md:mb-12">
+          {/* Mobile & Desktop: Grid Layout */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 mb-8 md:mb-12">
             {commitments.map((commitment, index) => (
               <div 
                 key={index}
@@ -87,8 +56,8 @@ const LandingCommitments = ({ title, subtitle, commitments, totalCount }: Landin
                 </div>
 
                 {/* Caption */}
-                <div className="p-4">
-                  <p className="text-sm font-bebas uppercase text-primary mb-1">
+                <div className="p-3 md:p-4">
+                  <p className="text-xs md:text-sm font-bebas uppercase text-primary mb-1">
                     {commitment.name}
                   </p>
                   <p className="text-xs text-muted-foreground font-oswald leading-relaxed">
@@ -97,13 +66,6 @@ const LandingCommitments = ({ title, subtitle, commitments, totalCount }: Landin
                 </div>
               </div>
             ))}
-          </div>
-
-          {/* Swipe Indicator (Mobile Only) */}
-          <div className="md:hidden text-center mb-8">
-            <p className="text-xs text-muted-foreground font-oswald italic">
-              ← Swipe to see more →
-            </p>
           </div>
 
           {/* CTA Context */}
