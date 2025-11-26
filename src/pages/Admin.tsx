@@ -10,11 +10,13 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/hooks/use-toast";
-import { Users, Calendar as CalendarIcon, Target, Check } from "lucide-react";
+import { Users, Calendar as CalendarIcon, Target, Check, LayoutList, CalendarDays } from "lucide-react";
 import { Checkbox } from "@/components/ui/checkbox";
 import { format } from "date-fns";
 import AppointmentPicker from "@/components/admin/AppointmentPicker";
+import WeeklyCalendar from "@/components/admin/WeeklyCalendar";
 
 interface Submission {
   id: string;
@@ -195,6 +197,10 @@ const Admin = () => {
     );
   }
 
+  const appointmentsWithDates = submissions.filter(
+    (s) => s.appointment_date !== null
+  );
+
   return (
     <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 md:px-6 py-6 md:py-8">
@@ -265,7 +271,20 @@ const Admin = () => {
         </div>
 
         {/* Submissions Table */}
-        <div className="bg-card border-2 border-border rounded-xl overflow-hidden shadow-lg">
+        <Tabs defaultValue="list" className="w-full">
+          <TabsList className="grid w-full max-w-md grid-cols-2 mb-6">
+            <TabsTrigger value="list" className="font-oswald gap-2">
+              <LayoutList className="w-4 h-4" />
+              List View
+            </TabsTrigger>
+            <TabsTrigger value="calendar" className="font-oswald gap-2">
+              <CalendarDays className="w-4 h-4" />
+              Calendar View
+            </TabsTrigger>
+          </TabsList>
+
+          <TabsContent value="list" className="mt-0">
+            <div className="bg-card border-2 border-border rounded-xl overflow-hidden shadow-lg">
           <div className="px-6 py-5 border-b-2 border-border bg-secondary/30">
             <div className="flex items-center justify-between">
               <div>
@@ -390,6 +409,12 @@ const Admin = () => {
             )}
           </div>
         </div>
+      </TabsContent>
+
+      <TabsContent value="calendar" className="mt-0">
+        <WeeklyCalendar appointments={appointmentsWithDates} />
+      </TabsContent>
+    </Tabs>
       </div>
     </div>
   );
