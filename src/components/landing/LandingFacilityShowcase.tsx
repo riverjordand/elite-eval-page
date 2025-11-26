@@ -4,6 +4,7 @@ interface FacilityArea {
   title: string;
   description: string;
   specs: string[];
+  image?: string;
 }
 
 interface LandingFacilityShowcaseProps {
@@ -38,14 +39,24 @@ const LandingFacilityShowcase = ({ title, subtitle, areas }: LandingFacilityShow
                       className="flex-shrink-0 w-[85vw] bg-card border-2 border-border rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300 animate-fade-in snap-center"
                       style={{ animationDelay: `${index * 100}ms` }}
                     >
-                      {/* Image Placeholder */}
+                      {/* Image */}
                       <div className="w-full aspect-video bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center relative overflow-hidden">
-                        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDUpIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-30" />
-                        <div className="relative z-10 text-center p-4">
-                          <p className="text-primary/60 font-bebas text-sm uppercase tracking-wider">
-                            {area.title} Photo
-                          </p>
-                        </div>
+                        {area.image ? (
+                          <img 
+                            src={area.image} 
+                            alt={`${area.title} at LPA`}
+                            className="w-full h-full object-cover"
+                          />
+                        ) : (
+                          <>
+                            <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDUpIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-30" />
+                            <div className="relative z-10 text-center p-4">
+                              <p className="text-primary/60 font-bebas text-sm uppercase tracking-wider">
+                                {area.title} Photo
+                              </p>
+                            </div>
+                          </>
+                        )}
                       </div>
                       
                       {/* Content */}
@@ -78,14 +89,24 @@ const LandingFacilityShowcase = ({ title, subtitle, areas }: LandingFacilityShow
                 className="bg-card border-2 border-border rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300 animate-fade-in"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                {/* Image Placeholder */}
+                {/* Image */}
                 <div className="w-full aspect-video bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center relative overflow-hidden">
-                  <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDUpIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-30" />
-                  <div className="relative z-10 text-center p-4">
-                    <p className="text-primary/60 font-bebas text-base uppercase tracking-wider">
-                      {area.title} Photo
-                    </p>
-                  </div>
+                  {area.image ? (
+                    <img 
+                      src={area.image} 
+                      alt={`${area.title} at LPA`}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <>
+                      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDUpIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-30" />
+                      <div className="relative z-10 text-center p-4">
+                        <p className="text-primary/60 font-bebas text-base uppercase tracking-wider">
+                          {area.title} Photo
+                        </p>
+                      </div>
+                    </>
+                  )}
                 </div>
                 
                 {/* Content */}

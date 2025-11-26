@@ -21,6 +21,12 @@ import coachJoe from "@/assets/coach-joe.webp";
 import coachEric from "@/assets/coach-eric.webp";
 import coachTerrell from "@/assets/coach-terrell.webp";
 
+// Facility images
+import facilityTraining from "@/assets/facility-training-area.jpg";
+import facilityStrength from "@/assets/facility-strength-conditioning.jpg";
+import facilityVideo from "@/assets/facility-video-analysis.jpg";
+import facilitySports from "@/assets/facility-sports-medicine.jpg";
+
 // Athlete commitment images
 import prestonGlendale from "@/assets/athletes/preston-francis-glendale.jpg";
 import brayanSouthwestern from "@/assets/athletes/brayan-moreno-southwestern.jpg";
@@ -122,6 +128,7 @@ const Index = () => {
           {
             title: "Training Area",
             description: "State-of-the-art hitting and pitching areas with the latest technology for real-time data analysis.",
+            image: facilityTraining,
             specs: [
               "Rapsodo Pitching & Hitting Units",
               "HitTrax Motion Capture System",
@@ -132,6 +139,7 @@ const Index = () => {
           {
             title: "Strength & Conditioning",
             description: "Fully equipped performance center focused on baseball-specific strength, power, and injury prevention.",
+            image: facilityStrength,
             specs: [
               "Olympic Lifting Platforms",
               "Plyometric Training Equipment",
@@ -142,6 +150,7 @@ const Index = () => {
           {
             title: "Video Analysis Room",
             description: "Dedicated space for detailed video breakdown and athlete education using professional software.",
+            image: facilityVideo,
             specs: [
               "Multi-Angle Video Capture",
               "Frame-by-Frame Analysis Tools",
@@ -152,6 +161,7 @@ const Index = () => {
           {
             title: "Sports Medicine",
             description: "On-site partnership with certified physical therapists and athletic trainers for injury prevention and recovery.",
+            image: facilitySports,
             specs: [
               "Pre-Season Screenings",
               "Injury Prevention Programs",
