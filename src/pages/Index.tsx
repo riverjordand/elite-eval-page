@@ -18,6 +18,12 @@ import coachJoe from "@/assets/coach-joe.webp";
 import coachEric from "@/assets/coach-eric.webp";
 import coachTerrell from "@/assets/coach-terrell.webp";
 
+// Athlete commitment images
+import prestonGlendale from "@/assets/athletes/preston-francis-glendale.jpg";
+import brayanSouthwestern from "@/assets/athletes/brayan-moreno-southwestern.jpg";
+import prestonSigned from "@/assets/athletes/preston-francis-signed.jpg";
+import milesCoastal from "@/assets/athletes/miles-keogh-coastal.jpg";
+
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
@@ -236,17 +242,13 @@ const Index = () => {
 
       {/* ATHLETES IN ACTION - Photo Gallery */}
       <LandingAthletes
-        title="See LPA Athletes in Action"
-        subtitle="Real athletes, real training, real results"
+        title="Where Our Athletes Go"
+        subtitle="LPA athletes signing with top college programs"
         photos={[
-          { category: "Pitching Training", caption: "Working on mechanics with velocity tech" },
-          { category: "Hitting Sessions", caption: "Dialing in swing path with HitTrax" },
-          { category: "Strength Training", caption: "Building explosive power in the weight room" },
-          { category: "Video Analysis", caption: "Breaking down mechanics frame by frame" },
-          { category: "Team Workouts", caption: "Competitive training environment" },
-          { category: "Individual Focus", caption: "One-on-one coaching attention" },
-          { category: "Recovery Work", caption: "Mobility and injury prevention" },
-          { category: "Celebration", caption: "Commitment day at LPA" }
+          { category: "Commitment", caption: "Preston Francis - Glendale Community College", image: prestonGlendale },
+          { category: "Commitment", caption: "Brayan Paredes Moreno - Southwestern Community College", image: brayanSouthwestern },
+          { category: "Signed", caption: "Preston Francis - Glendale Community College", image: prestonSigned },
+          { category: "Signed", caption: "Miles Keogh - Coastal Carolina", image: milesCoastal }
         ]}
       />
 
