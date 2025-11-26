@@ -37,14 +37,15 @@ const LandingTestimonials = ({ title, subtitle, testimonials }: LandingTestimoni
               {testimonials.map((testimonial, index) => (
                 <div 
                   key={index}
-                  className="flex-shrink-0 w-[85vw] bg-card border-2 border-border rounded-lg overflow-hidden"
+                  className="flex-shrink-0 w-[70vw] bg-card border-2 border-border rounded-lg overflow-hidden"
                 >
-                  {/* Video */}
-                  <div className="relative aspect-video bg-black">
+                  {/* Video - Vertical aspect ratio */}
+                  <div className="relative aspect-[9/16] bg-black">
                     <video 
                       controls
-                      className="w-full h-full"
+                      className="w-full h-full object-cover"
                       preload="metadata"
+                      playsInline
                     >
                       <source src={testimonial.videoUrl} type="video/mp4" />
                       Your browser does not support the video tag.
@@ -80,12 +81,13 @@ const LandingTestimonials = ({ title, subtitle, testimonials }: LandingTestimoni
                 className="bg-card border-2 border-border rounded-lg overflow-hidden hover:border-primary/50 transition-all duration-300 animate-fade-in"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                {/* Video */}
-                <div className="relative aspect-video bg-black">
+                {/* Video - Vertical aspect ratio */}
+                <div className="relative aspect-[9/16] bg-black">
                   <video 
                     controls
-                    className="w-full h-full"
+                    className="w-full h-full object-cover"
                     preload="metadata"
+                    playsInline
                   >
                     <source src={testimonial.videoUrl} type="video/mp4" />
                     Your browser does not support the video tag.
