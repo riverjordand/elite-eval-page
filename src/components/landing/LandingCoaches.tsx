@@ -35,7 +35,7 @@ const LandingCoaches = ({ title, subtitle, coaches }: LandingCoachesProps) => {
             {coaches.map((coach, index) => (
               <div 
                 key={index}
-                className="bg-card border-2 border-border rounded-lg overflow-hidden text-center hover:border-primary/50 transition-all duration-300 animate-fade-in w-[75vw] sm:w-[60vw] md:w-[calc((100%-6*1.5rem)/5)] md:max-w-[240px] snap-center flex-shrink-0"
+                className="bg-card border-2 border-border rounded-lg overflow-hidden text-center hover:border-primary/50 transition-all duration-300 animate-fade-in w-[75vw] sm:w-[60vw] md:w-[calc((100%-4*1.5rem)/5)] md:min-w-[280px] snap-center flex-shrink-0"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 {/* Coach Photo */}
