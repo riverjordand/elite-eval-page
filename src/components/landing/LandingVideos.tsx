@@ -56,8 +56,8 @@ const LandingVideos = ({
     <>
       <SectionDivider />
       <section className="bg-[#0a0a0a] py-12 md:py-16">
+        {/* Header */}
         <div className="max-w-7xl mx-auto px-4">
-          {/* Header */}
           <div className="text-center mb-8 md:mb-12">
             <h2 className="text-3xl md:text-5xl font-bebas font-black uppercase text-foreground mb-3 md:mb-4 tracking-tight">
               {title}
@@ -66,29 +66,29 @@ const LandingVideos = ({
               {subtitle}
             </p>
           </div>
+        </div>
 
-          {/* Auto-scrolling container */}
-          <div 
-            ref={scrollContainerRef}
-            className="overflow-x-hidden pb-4 scrollbar-hide"
-          >
-            <div className="flex gap-3 md:gap-4" style={{ width: 'max-content' }}>
-              {duplicatedVideos.map((video, index) => (
-                <div
-                  key={index}
-                  className="flex-shrink-0 w-[70vw] md:w-[280px] aspect-[9/16] rounded-lg overflow-hidden bg-muted"
-                >
-                  <video
-                    src={video.src}
-                    className="w-full h-full object-cover"
-                    loop
-                    muted
-                    playsInline
-                    autoPlay
-                  />
-                </div>
-              ))}
-            </div>
+        {/* Auto-scrolling container - full width */}
+        <div 
+          ref={scrollContainerRef}
+          className="overflow-x-hidden pb-4 scrollbar-hide"
+        >
+          <div className="flex gap-3 md:gap-4" style={{ width: 'max-content' }}>
+            {duplicatedVideos.map((video, index) => (
+              <div
+                key={index}
+                className="flex-shrink-0 w-[70vw] md:w-[280px] aspect-[9/16] rounded-lg overflow-hidden bg-muted"
+              >
+                <video
+                  src={video.src}
+                  className="w-full h-full object-cover"
+                  loop
+                  muted
+                  playsInline
+                  autoPlay
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>
