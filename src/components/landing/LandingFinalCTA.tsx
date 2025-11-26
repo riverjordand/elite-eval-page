@@ -23,13 +23,15 @@ const LandingFinalCTA = ({
       <section className="py-16 md:py-32 bg-[#1a1a1a] relative overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-4xl mx-auto text-center">
-          {/* Urgency Badge */}
-          <div className="inline-flex items-center gap-1.5 md:gap-2 px-4 py-2 md:px-6 md:py-3 bg-destructive/10 border-2 border-destructive/30 rounded-full mb-6 md:mb-8 animate-pulse">
-            <Clock className="w-4 h-4 md:w-5 md:h-5 text-destructive" />
-            <span className="text-destructive font-bebas uppercase tracking-wider text-sm md:text-lg font-bold">
-              {urgency} • {spotsLeft} Spots Left
-            </span>
-          </div>
+          {/* Urgency Badge - Only show if spotsLeft > 0 */}
+          {spotsLeft > 0 && (
+            <div className="inline-flex items-center gap-1.5 md:gap-2 px-4 py-2 md:px-6 md:py-3 bg-destructive/10 border-2 border-destructive/30 rounded-full mb-6 md:mb-8 animate-pulse">
+              <Clock className="w-4 h-4 md:w-5 md:h-5 text-destructive" />
+              <span className="text-destructive font-bebas uppercase tracking-wider text-sm md:text-lg font-bold">
+                {urgency} • {spotsLeft} Spots Left
+              </span>
+            </div>
+          )}
 
           {/* Title */}
           <h2 className="text-3xl sm:text-4xl md:text-7xl font-bebas font-black uppercase mb-6 md:mb-8 leading-tight px-4">
