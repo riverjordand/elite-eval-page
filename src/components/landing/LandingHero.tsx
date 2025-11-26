@@ -17,7 +17,7 @@ const LandingHero = ({
   spotsLeft = 10
 }: LandingHeroProps) => {
   return (
-    <section className="relative min-h-[70vh] md:min-h-[90vh] flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[70vh] md:min-h-[90vh] flex items-center justify-center overflow-hidden noise-texture">
       {/* Background Video */}
       <video
         autoPlay
