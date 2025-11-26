@@ -17,7 +17,7 @@ const Hero = () => {
           <img 
             src={logoBolt} 
             alt="LPA Logo" 
-            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] md:w-[700px] md:h-[700px] lg:w-[900px] lg:h-[900px] object-contain opacity-10 animate-fade-in pointer-events-none" 
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] md:w-[800px] md:h-[800px] lg:w-[1000px] lg:h-[1000px] object-contain opacity-15 animate-fade-in pointer-events-none" 
             style={{ animationDelay: "0.1s" }}
           />
           
