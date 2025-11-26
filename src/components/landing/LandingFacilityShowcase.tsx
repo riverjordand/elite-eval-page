@@ -25,28 +25,40 @@ const LandingFacilityShowcase = ({ title, subtitle, areas }: LandingFacilityShow
             </p>
           </div>
 
-          {/* Facility Areas Grid */}
-          <div className="grid md:grid-cols-2 gap-4 md:gap-8">
+              <div className="grid md:grid-cols-2 gap-4 md:gap-8">
             {areas.map((area, index) => (
               <div 
                 key={index}
-                className="bg-card border-2 border-border rounded-xl p-4 md:p-8 hover:border-primary/50 transition-all duration-300 animate-fade-in"
+                className="bg-card border-2 border-border rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300 animate-fade-in"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <h3 className="text-xl sm:text-2xl md:text-3xl font-bebas font-black uppercase mb-2 md:mb-4 text-primary">
-                  {area.title}
-                </h3>
-                <p className="text-xs sm:text-sm md:text-base text-foreground font-oswald mb-4 md:mb-6 leading-relaxed">
-                  {area.description}
-                </p>
-                <ul className="space-y-2 md:space-y-3">
-                  {area.specs.map((spec, specIndex) => (
-                    <li key={specIndex} className="flex items-start gap-2 md:gap-3">
-                      <div className="w-1 h-1 md:w-1.5 md:h-1.5 bg-primary rounded-full mt-1.5 md:mt-2 flex-shrink-0" />
-                      <span className="text-muted-foreground font-oswald text-xs md:text-sm">{spec}</span>
-                    </li>
-                  ))}
-                </ul>
+                {/* Image Placeholder */}
+                <div className="w-full aspect-video bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center relative overflow-hidden">
+                  <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDUpIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-30" />
+                  <div className="relative z-10 text-center p-4">
+                    <p className="text-primary/60 font-bebas text-sm md:text-base uppercase tracking-wider">
+                      {area.title} Photo
+                    </p>
+                  </div>
+                </div>
+                
+                {/* Content */}
+                <div className="p-4 md:p-8">
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bebas font-black uppercase mb-2 md:mb-4 text-primary">
+                    {area.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm md:text-base text-foreground font-oswald mb-4 md:mb-6 leading-relaxed">
+                    {area.description}
+                  </p>
+                  <ul className="space-y-2 md:space-y-3">
+                    {area.specs.map((spec, specIndex) => (
+                      <li key={specIndex} className="flex items-start gap-2 md:gap-3">
+                        <div className="w-1 h-1 md:w-1.5 md:h-1.5 bg-primary rounded-full mt-1.5 md:mt-2 flex-shrink-0" />
+                        <span className="text-muted-foreground font-oswald text-xs md:text-sm">{spec}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             ))}
           </div>
