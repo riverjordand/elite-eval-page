@@ -5,6 +5,7 @@ import LandingIncluded from "@/components/landing/LandingIncluded";
 import LandingFacilityShowcase from "@/components/landing/LandingFacilityShowcase";
 import LandingProcess from "@/components/landing/LandingProcess";
 import LandingCoaches from "@/components/landing/LandingCoaches";
+import LandingTestimonials from "@/components/landing/LandingTestimonials";
 import LandingCommitments from "@/components/landing/LandingCommitments";
 
 import LandingFAQ from "@/components/landing/LandingFAQ";
@@ -218,6 +219,32 @@ const Index = () => {
               "Expert in athlete mindset, long-term consulting, business strategy, and training program design"
             ],
             image: coachNeil
+          }
+        ]}
+      />
+
+      {/* PARENT TESTIMONIALS - Video Carousel */}
+      <LandingTestimonials
+        title="Hear From LPA Parents"
+        subtitle="Real families sharing their experience with our program"
+        testimonials={[
+          {
+            videoUrl: "/testimonials/parent-testimonial-1.mp4",
+            parentName: "Parent Testimonial",
+            athleteName: "Will",
+            quote: "Through this first year, we've seen incredible gains with Will, not only on the baseball side, but just the physical on the strength side. The confidence and authority that is taught here by the coaches has helped him outside LPA."
+          },
+          {
+            videoUrl: "/testimonials/parent-testimonial-2.mp4",
+            parentName: "Parent Testimonial",
+            athleteName: "Connor",
+            quote: "I was absolutely like in love with it. Everything, you know, state of the art. It's definitely eye opening to see in person. Just the way he's grown as a human here was a big step above what he was used to."
+          },
+          {
+            videoUrl: "/testimonials/parent-testimonial-3.mp4",
+            parentName: "Parent Testimonial",
+            athleteName: "Jett",
+            quote: "Jett has really excelled in the school portion of it. He's being pushed every day in the classroom. For young kids that love baseball and are trying to make this what they do in college, to see the progress they're making is great."
           }
         ]}
       />
