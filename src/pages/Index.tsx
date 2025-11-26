@@ -61,51 +61,55 @@ const Index = () => {
       {/* LPA SECTION #1 - The Facility */}
       <LandingFacilityShowcase
         title="Where Elite Athletes Train"
-        subtitle="16,000 square feet of professional-grade training space designed for maximum development"
+        subtitle="16,000 square feet of professional-grade development built for one thing — turning serious players into college-ready athletes."
         areas={[
           {
             title: "Training Area",
-            description: "State-of-the-art hitting and pitching areas with the latest technology for real-time data analysis.",
+            description: "The same hitting and pitching environment used by college programs — built to speed up development.",
             image: facilityTraining,
             specs: [
-              "Rapsodo Pitching & Hitting Units",
-              "HitTrax Motion Capture System",
-              "Edgertronic High-Speed Cameras",
-              "Professional Turf Surfaces"
-            ]
+              "Real-time ball flight and data so athletes instantly see what's working",
+              "Indoor turf + full-size spacing that mirrors game environments",
+              "High-speed cameras that reveal what the eye can't",
+              "Advanced training systems that help athletes add velocity, sharpen contact, and fix flaws fast"
+            ],
+            tagline: "Your athlete trains in a space designed for progress — not guesswork."
           },
           {
             title: "Strength & Conditioning",
-            description: "Fully equipped performance center focused on baseball-specific strength, power, and injury prevention.",
+            description: "A complete baseball-specific strength system designed to build power, health, and longevity.",
             image: facilityStrength,
             specs: [
-              "Olympic Lifting Platforms",
-              "Plyometric Training Equipment",
-              "Speed & Agility Stations",
-              "Recovery & Mobility Zone"
-            ]
+              "Olympic lifting platforms for explosive power",
+              "Mobility + stability work to protect joints and prevent injuries",
+              "Speed + agility training built for in-game movements",
+              "Recovery zone to keep athletes training year-round"
+            ],
+            tagline: "They don't just get stronger — they become more explosive, durable, and recruitable."
           },
           {
             title: "Video Analysis Room",
-            description: "Dedicated space for detailed video breakdown and athlete education using professional software.",
+            description: "College-level breakdowns that reveal EXACTLY what's holding your athlete back.",
             image: facilityVideo,
             specs: [
-              "Multi-Angle Video Capture",
-              "Frame-by-Frame Analysis Tools",
-              "Side-by-Side Comparison Tech",
-              "Individual Video Libraries"
-            ]
+              "Multi-angle video capture so nothing goes unnoticed",
+              "Frame-by-frame analysis to isolate mechanical flaws",
+              "Pro-grade side-by-side comparisons to track improvement",
+              "Personalized coaching corrections that create immediate results"
+            ],
+            tagline: "This is how serious players remove the guesswork and finally break through plateaus."
           },
           {
             title: "Sports Medicine",
-            description: "On-site partnership with certified physical therapists and athletic trainers for injury prevention and recovery.",
+            description: "Injury prevention and recovery support built directly into development — so progress never stops.",
             image: facilitySports,
             specs: [
-              "Pre-Season Screenings",
-              "Injury Prevention Programs",
-              "Rehabilitation Protocols",
-              "Performance Recovery Plans"
-            ]
+              "Physical therapists and athletic trainers overseeing movement quality",
+              "Preventative screenings to catch issues early",
+              "Custom recovery plans to keep athletes healthy during high-volume seasons",
+              "Rehabilitation protocols to accelerate safe return-to-play"
+            ],
+            tagline: "Your athlete trains harder — and stays healthier — because everything is built with longevity in mind."
           }
         ]}
       />
