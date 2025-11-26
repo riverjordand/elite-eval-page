@@ -261,9 +261,10 @@ const Index = () => {
 
       {/* LPA SECTION #3 - Player Commitments */}
       <LandingCommitments
-        title="Where Our Athletes Go"
-        subtitle="LPA athletes signing with top college programs"
+        title="WHERE LPA ATHLETES GO NEXT"
+        subtitle="The athletes who train here don't just get better — they earn opportunities at top college programs. This is the path your athlete can take, too."
         totalCount="50+"
+        onCtaClick={() => setFormOpen(true)}
         commitments={[
           { name: "Preston Francis", school: "Glendale Community College", image: prestonGlendale },
           { name: "Brayan Paredes Moreno", school: "Southwestern Community College", image: brayanSouthwestern },

@@ -12,9 +12,10 @@ interface LandingCommitmentsProps {
   subtitle: string;
   commitments: Commitment[];
   totalCount: string;
+  onCtaClick?: () => void;
 }
 
-const LandingCommitments = ({ title, subtitle, commitments, totalCount }: LandingCommitmentsProps) => {
+const LandingCommitments = ({ title, subtitle, commitments, totalCount, onCtaClick }: LandingCommitmentsProps) => {
   return (
     <>
       <SectionDivider fromColor="#0a0a0a" toColor="#1a1a1a" />
@@ -68,15 +69,21 @@ const LandingCommitments = ({ title, subtitle, commitments, totalCount }: Landin
             ))}
           </div>
 
-          {/* CTA Context - Updated Bridge Copy */}
+          {/* CTA Box */}
           <div className="text-center px-4">
             <div className="bg-card border-2 border-primary/30 rounded-xl p-6 md:p-10 max-w-3xl mx-auto">
-              <p className="text-base sm:text-lg md:text-3xl text-foreground font-oswald font-bold leading-relaxed mb-4 md:mb-6">
-                Every one of these athletes started exactly where your athlete is now—with a free evaluation that showed them exactly what to fix.
+              <p className="text-sm sm:text-base md:text-lg text-foreground font-oswald leading-relaxed mb-4 md:mb-6">
+                Every committed athlete you see here started exactly where your athlete is now — with the free evaluation that revealed what they needed to fix and how to get to the next level.
               </p>
-              <p className="text-sm sm:text-base md:text-xl text-muted-foreground font-oswald leading-relaxed">
-                The evaluation gave them a clear roadmap, specific weaknesses to address, and the confidence to commit to their development. Your athlete's journey starts the same way.
+              <p className="text-sm sm:text-base md:text-lg text-muted-foreground font-oswald leading-relaxed mb-6 md:mb-8">
+                The evaluation gives your athlete a clear development roadmap, specific weaknesses to correct, and the confidence to chase the future they want.
               </p>
+              <button
+                onClick={onCtaClick}
+                className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 md:px-12 py-4 md:py-5 rounded-lg font-bebas text-xl md:text-2xl uppercase tracking-wider transition-all duration-300 hover:scale-105 shadow-lg"
+              >
+                → Book Your Free Evaluation
+              </button>
             </div>
           </div>
         </div>
