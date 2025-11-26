@@ -42,7 +42,7 @@ const LandingIncluded = ({
           </div>
 
           {/* Items - Single Column Mobile, Two Columns Desktop */}
-          <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-4 md:gap-6 mb-8 md:mb-12">
+          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-4 md:gap-6 mb-8 md:mb-12">
             {items.map((item, index) => (
               <div 
                 key={index} 
@@ -77,7 +77,7 @@ const LandingIncluded = ({
           </div>
 
           {/* Total Value & Free Badge - Side by Side on Desktop */}
-          <div className="max-w-4xl mx-auto mb-6 md:mb-8 flex flex-col md:flex-row gap-4 md:gap-6 items-stretch">
+          <div className="max-w-6xl mx-auto mb-6 md:mb-8 flex flex-col md:flex-row gap-4 md:gap-6 items-stretch">
             {/* Total Value */}
             <div className="flex-1 p-6 md:p-8 bg-card border-[3px] border-border rounded-xl shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
               <div className="flex items-center justify-between h-full">
