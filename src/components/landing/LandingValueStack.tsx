@@ -14,32 +14,32 @@ const LandingValueStack = ({ onCtaClick }: LandingValueStackProps) => {
   const includedItems: IncludedItem[] = [
     {
       title: "Advanced Metrics Testing",
-      description: "Find out your athlete's true potential and the fastest path to add velocity",
+      description: "Find out your athlete's real velocity ceiling — and exactly what number they need to reach to be considered college-ready. No more guessing where they stand.",
       value: 75
     },
     {
       title: "Complete Mechanics Analysis",
-      description: "Discover the exact mechanical flaw holding back performance",
+      description: "Discover the mechanical flaw that's secretly costing them power, consistency, or velocity — and the specific change that will immediately unlock performance.",
       value: 100
     },
     {
       title: "Strength & Mobility Assessment",
-      description: "Identify the physical weakness limiting velocity and power",
+      description: "Identify the physical weakness (ankle, hip, core, shoulder) limiting speed or power. You'll finally know whether the issue is strength, mobility, or mechanics.",
       value: 50
     },
     {
       title: "Coach-Led Development Plan",
-      description: "Get a coach with D1/Pro experience to map out your athlete's path",
+      description: "A D1/pro coach maps out a clear step-by-step plan so your athlete knows exactly what to work on this month, next month, and in-season — removing all uncertainty.",
       value: 75
     },
     {
       title: "Personalized 6–12 Month Roadmap",
-      description: "Leave with a written plan your athlete can follow immediately",
+      description: "Leave with a written plan that tells you the milestones to hit, the order to train them in, and the timeline to reach \"college-ready\" standards.",
       value: 50
     },
     {
       title: "Full Facility Tour & Q&A",
-      description: "See the 16,000 sq ft facility where college-bound athletes train daily",
+      description: "See the 16,000 sq ft development space where serious players train — and get answers to anything about recruiting, development, or next-level expectations.",
       value: 50
     }
   ];
@@ -57,8 +57,8 @@ const LandingValueStack = ({ onCtaClick }: LandingValueStackProps) => {
               <h2 className="text-3xl sm:text-4xl md:text-6xl font-bebas font-black uppercase mb-3 md:mb-4">
                 What's Included in Your Free Evaluation
               </h2>
-              <p className="text-base md:text-xl text-muted-foreground font-oswald max-w-2xl mx-auto">
-                Everything your athlete needs to understand their current level and development path.
+              <p className="text-base md:text-xl text-muted-foreground font-oswald max-w-3xl mx-auto">
+                These are the exact evaluations D1 coaches use to diagnose what's holding a player back — and what will finally move them forward.
               </p>
             </div>
 
