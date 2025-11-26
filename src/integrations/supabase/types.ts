@@ -16,6 +16,8 @@ export type Database = {
     Tables: {
       lead_submissions: {
         Row: {
+          appointment_date: string | null
+          contacted: boolean
           created_at: string
           email: string
           id: string
@@ -27,6 +29,8 @@ export type Database = {
           primary_goal: string
         }
         Insert: {
+          appointment_date?: string | null
+          contacted?: boolean
           created_at?: string
           email: string
           id?: string
@@ -38,6 +42,8 @@ export type Database = {
           primary_goal: string
         }
         Update: {
+          appointment_date?: string | null
+          contacted?: boolean
           created_at?: string
           email?: string
           id?: string

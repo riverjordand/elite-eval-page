@@ -11,7 +11,16 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { useToast } from "@/hooks/use-toast";
-import { Users, TrendingUp, Calendar, Target } from "lucide-react";
+import { Users, TrendingUp, Calendar as CalendarIcon, Target, Check, X } from "lucide-react";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Calendar } from "@/components/ui/calendar";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { format } from "date-fns";
+import { cn } from "@/lib/utils";
 
 interface Submission {
   id: string;
@@ -23,6 +32,8 @@ interface Submission {
   primary_goal: string;
   lead_magnet_source: string;
   created_at: string;
+  contacted: boolean;
+  appointment_date: string | null;
 }
 
 const Admin = () => {
@@ -124,6 +135,64 @@ const Admin = () => {
     navigate("/auth");
   };
 
+  const updateContacted = async (id: string, contacted: boolean) => {
+    try {
+      const { error } = await supabase
+        .from("lead_submissions")
+        .update({ contacted })
+        .eq("id", id);
+
+      if (error) throw error;
+
+      setSubmissions(
+        submissions.map((s) => (s.id === id ? { ...s, contacted } : s))
+      );
+
+      toast({
+        title: "Updated",
+        description: `Marked as ${contacted ? "contacted" : "not contacted"}.`,
+      });
+    } catch (error) {
+      console.error("Error updating contacted status:", error);
+      toast({
+        title: "Error",
+        description: "Failed to update status.",
+        variant: "destructive",
+      });
+    }
+  };
+
+  const updateAppointment = async (id: string, date: Date | undefined) => {
+    try {
+      const { error } = await supabase
+        .from("lead_submissions")
+        .update({ appointment_date: date?.toISOString() || null })
+        .eq("id", id);
+
+      if (error) throw error;
+
+      setSubmissions(
+        submissions.map((s) =>
+          s.id === id ? { ...s, appointment_date: date?.toISOString() || null } : s
+        )
+      );
+
+      toast({
+        title: "Updated",
+        description: date
+          ? `Appointment set for ${format(date, "PPP 'at' p")}`
+          : "Appointment cleared.",
+      });
+    } catch (error) {
+      console.error("Error updating appointment:", error);
+      toast({
+        title: "Error",
+        description: "Failed to update appointment.",
+        variant: "destructive",
+      });
+    }
+  };
+
   if (!isAdmin || isLoading) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
@@ -179,7 +248,7 @@ const Admin = () => {
                 </p>
               </div>
               <div className="p-3 bg-secondary rounded-lg">
-                <Calendar className="w-6 h-6 text-foreground" />
+                <CalendarIcon className="w-6 h-6 text-foreground" />
               </div>
             </div>
           </div>
@@ -229,12 +298,13 @@ const Admin = () => {
                 <Table>
                   <TableHeader>
                     <TableRow className="border-b-2 border-border hover:bg-transparent bg-secondary/20">
+                      <TableHead className="font-bebas text-sm uppercase tracking-wider py-4 px-6">Status</TableHead>
                       <TableHead className="font-bebas text-sm uppercase tracking-wider py-4 px-6">Date</TableHead>
                       <TableHead className="font-bebas text-sm uppercase tracking-wider py-4 px-6">Parent</TableHead>
                       <TableHead className="font-bebas text-sm uppercase tracking-wider py-4 px-6">Player Info</TableHead>
                       <TableHead className="font-bebas text-sm uppercase tracking-wider py-4 px-6">Contact</TableHead>
                       <TableHead className="font-bebas text-sm uppercase tracking-wider py-4 px-6">Goal</TableHead>
-                      <TableHead className="font-bebas text-sm uppercase tracking-wider py-4 px-6">Source</TableHead>
+                      <TableHead className="font-bebas text-sm uppercase tracking-wider py-4 px-6">Appointment</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
@@ -245,6 +315,26 @@ const Admin = () => {
                           index % 2 === 0 ? 'bg-background' : 'bg-secondary/10'
                         }`}
                       >
+                        <TableCell className="py-5 px-6">
+                          <div className="flex items-center gap-2">
+                            <Checkbox
+                              checked={submission.contacted}
+                              onCheckedChange={(checked) =>
+                                updateContacted(submission.id, checked as boolean)
+                              }
+                              className="cursor-pointer"
+                            />
+                            <span className="text-xs font-oswald uppercase">
+                              {submission.contacted ? (
+                                <span className="text-green-600 font-semibold flex items-center gap-1">
+                                  <Check className="w-3 h-3" /> Contacted
+                                </span>
+                              ) : (
+                                <span className="text-muted-foreground">Pending</span>
+                              )}
+                            </span>
+                          </div>
+                        </TableCell>
                         <TableCell className="font-oswald py-5 px-6">
                           <div className="flex flex-col">
                             <span className="font-semibold">
@@ -292,8 +382,55 @@ const Admin = () => {
                             {submission.primary_goal.replace(/-/g, " ")}
                           </span>
                         </TableCell>
-                        <TableCell className="font-oswald text-sm capitalize py-5 px-6 text-muted-foreground">
-                          {submission.lead_magnet_source.replace(/-/g, " ")}
+                        <TableCell className="py-5 px-6">
+                          <Popover>
+                            <PopoverTrigger asChild>
+                              <Button
+                                variant="outline"
+                                className={cn(
+                                  "w-[200px] justify-start text-left font-oswald text-xs",
+                                  !submission.appointment_date && "text-muted-foreground"
+                                )}
+                              >
+                                <CalendarIcon className="mr-2 h-4 w-4" />
+                                {submission.appointment_date ? (
+                                  format(new Date(submission.appointment_date), "PPP 'at' p")
+                                ) : (
+                                  <span>Set appointment</span>
+                                )}
+                              </Button>
+                            </PopoverTrigger>
+                            <PopoverContent className="w-auto p-0" align="start">
+                              <Calendar
+                                mode="single"
+                                selected={
+                                  submission.appointment_date
+                                    ? new Date(submission.appointment_date)
+                                    : undefined
+                                }
+                                onSelect={(date) =>
+                                  updateAppointment(submission.id, date)
+                                }
+                                initialFocus
+                                className={cn("p-3 pointer-events-auto")}
+                              />
+                              {submission.appointment_date && (
+                                <div className="p-3 border-t">
+                                  <Button
+                                    variant="ghost"
+                                    size="sm"
+                                    className="w-full font-oswald text-xs"
+                                    onClick={() =>
+                                      updateAppointment(submission.id, undefined)
+                                    }
+                                  >
+                                    <X className="w-3 h-3 mr-1" />
+                                    Clear appointment
+                                  </Button>
+                                </div>
+                              )}
+                            </PopoverContent>
+                          </Popover>
                         </TableCell>
                       </TableRow>
                     ))}
