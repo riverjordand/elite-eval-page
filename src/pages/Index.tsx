@@ -294,7 +294,7 @@ const Index = () => {
           {
             number: "1",
             title: "Book Your Spot",
-            description: "Choose a time that works for your family."
+            description: "Fill out the form and we'll reach out to schedule your evaluation."
           },
           {
             number: "2",
