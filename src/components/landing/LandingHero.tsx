@@ -50,7 +50,7 @@ const LandingHero = ({
           </h1>
 
           {/* Sub Headline */}
-          <p className="text-base sm:text-xl md:text-3xl text-primary font-oswald font-semibold mb-6 md:mb-10 max-w-3xl mx-auto px-2 leading-tight uppercase">
+          <p className="text-base sm:text-xl md:text-4xl text-primary font-oswald font-semibold mb-6 md:mb-10 max-w-3xl mx-auto px-2 leading-tight uppercase">
             {subHeadline}
           </p>
 
@@ -64,10 +64,10 @@ const LandingHero = ({
 
           {/* Trust indicators */}
           <div className="mt-6 md:mt-12 pt-4 md:pt-8 border-t border-border/50">
-            <p className="text-xs md:text-sm text-muted-foreground mb-2 md:mb-4 font-oswald uppercase tracking-wide">
+            <p className="text-xs md:text-lg text-muted-foreground mb-2 md:mb-4 font-oswald uppercase tracking-wide">
               Trusted By Parents Of Athletes At
             </p>
-            <div className="flex flex-wrap justify-center gap-2 md:gap-8 text-foreground/70 font-oswald font-semibold text-xs md:text-sm px-4">
+            <div className="flex flex-wrap justify-center gap-2 md:gap-8 text-foreground/70 font-oswald font-semibold text-xs md:text-lg px-4">
               <span>U of Arizona</span>
               <span className="hidden md:inline">•</span>
               <span>Arizona State</span>

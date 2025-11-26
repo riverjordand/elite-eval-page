@@ -55,16 +55,16 @@ const LandingIncluded = ({
                   </div>
                   <div className="flex-1">
                     <div className="flex items-start justify-between gap-3 mb-2 md:mb-3">
-                      <h3 className="text-base md:text-xl font-bebas font-bold uppercase text-foreground">
+                      <h3 className="text-base md:text-2xl font-bebas font-bold uppercase text-foreground">
                         {item.title}
                       </h3>
-                      <span className="text-primary font-bebas text-base md:text-lg whitespace-nowrap">
+                      <span className="text-primary font-bebas text-base md:text-xl whitespace-nowrap">
                         ${item.value}
                       </span>
                     </div>
                     <ul className="space-y-1 md:space-y-1.5">
                       {item.bullets.map((bullet, bulletIndex) => (
-                        <li key={bulletIndex} className="text-xs sm:text-sm md:text-base text-muted-foreground font-oswald leading-relaxed flex items-start gap-2">
+                        <li key={bulletIndex} className="text-xs sm:text-sm md:text-lg text-muted-foreground font-oswald leading-relaxed flex items-start gap-2">
                           <span className="text-primary mt-0.5">•</span>
                           <span>{bullet}</span>
                         </li>

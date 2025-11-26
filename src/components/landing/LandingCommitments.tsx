@@ -57,10 +57,10 @@ const LandingCommitments = ({ title, subtitle, commitments, totalCount }: Landin
 
                 {/* Caption */}
                 <div className="p-3 md:p-8">
-                  <p className="text-sm md:text-xl font-bebas uppercase text-primary mb-1 md:mb-2">
+                  <p className="text-sm md:text-2xl font-bebas uppercase text-primary mb-1 md:mb-2">
                     {commitment.name}
                   </p>
-                  <p className="text-xs md:text-base text-muted-foreground font-oswald leading-relaxed">
+                  <p className="text-xs md:text-lg text-muted-foreground font-oswald leading-relaxed">
                     {commitment.school}
                   </p>
                 </div>
@@ -71,10 +71,10 @@ const LandingCommitments = ({ title, subtitle, commitments, totalCount }: Landin
           {/* CTA Context - Updated Bridge Copy */}
           <div className="text-center px-4">
             <div className="bg-card border-2 border-primary/30 rounded-xl p-6 md:p-10 max-w-3xl mx-auto">
-              <p className="text-base sm:text-lg md:text-2xl text-foreground font-oswald font-bold leading-relaxed mb-4 md:mb-6">
+              <p className="text-base sm:text-lg md:text-3xl text-foreground font-oswald font-bold leading-relaxed mb-4 md:mb-6">
                 Every one of these athletes started with the same free evaluation you're about to book.
               </p>
-              <p className="text-sm sm:text-base md:text-lg text-muted-foreground font-oswald leading-relaxed">
+              <p className="text-sm sm:text-base md:text-xl text-muted-foreground font-oswald leading-relaxed">
                 The evaluation showed them exactly where they were—and gave them a clear roadmap to get here. Your athlete's journey starts the same way.
               </p>
             </div>
