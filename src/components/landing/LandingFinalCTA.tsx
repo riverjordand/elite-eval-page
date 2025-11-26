@@ -1,8 +1,6 @@
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Clock, ArrowRight } from "lucide-react";
 import SectionDivider from "./SectionDivider";
-import EvaluationForm from "./EvaluationForm";
 
 interface LandingFinalCTAProps {
   title: string;
@@ -10,6 +8,7 @@ interface LandingFinalCTAProps {
   ctaText: string;
   spotsLeft?: number;
   guaranteeText?: string;
+  onCtaClick?: () => void;
 }
 
 const LandingFinalCTA = ({ 
@@ -17,10 +16,9 @@ const LandingFinalCTA = ({
   urgency, 
   ctaText, 
   spotsLeft = 10,
-  guaranteeText = "No credit card required • No obligation • 100% Free"
+  guaranteeText = "No credit card required • No obligation • 100% Free",
+  onCtaClick
 }: LandingFinalCTAProps) => {
-  const [formOpen, setFormOpen] = useState(false);
-  
   return (
     <>
       <SectionDivider fromColor="#0a0a0a" toColor="#1a1a1a" />
@@ -46,7 +44,7 @@ const LandingFinalCTA = ({
           <Button 
             size="lg" 
             className="bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-wider text-lg sm:text-xl md:text-3xl px-10 py-8 md:px-20 md:py-12 mb-6 md:mb-8 shadow-2xl hover:shadow-primary/50 transition-all duration-300 animate-scale-in w-full sm:w-auto"
-            onClick={() => setFormOpen(true)}
+            onClick={onCtaClick}
           >
             {ctaText} <ArrowRight className="ml-2 md:ml-3 w-6 h-6 md:w-8 md:h-8" />
           </Button>
@@ -70,7 +68,6 @@ const LandingFinalCTA = ({
         </div>
       </div>
 
-      <EvaluationForm open={formOpen} onOpenChange={setFormOpen} />
     </section>
     </>
   );

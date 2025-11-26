@@ -12,9 +12,10 @@ interface LandingProcessProps {
   subtitle?: string;
   steps: ProcessStep[];
   ctaText: string;
+  onCtaClick?: () => void;
 }
 
-const LandingProcess = ({ title, subtitle, steps, ctaText }: LandingProcessProps) => {
+const LandingProcess = ({ title, subtitle, steps, ctaText, onCtaClick }: LandingProcessProps) => {
   return (
     <>
       <SectionDivider fromColor="#1a1a1a" toColor="#0a0a0a" />
@@ -72,6 +73,7 @@ const LandingProcess = ({ title, subtitle, steps, ctaText }: LandingProcessProps
               variant="cta"
               size="lg" 
               className="font-bebas uppercase tracking-wider text-lg md:text-2xl px-8 py-6 md:px-16 md:py-10 w-full sm:w-auto"
+              onClick={onCtaClick}
             >
               {ctaText}
             </Button>

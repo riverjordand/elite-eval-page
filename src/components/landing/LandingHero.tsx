@@ -8,6 +8,7 @@ interface LandingHeroProps {
   subHeadline: string;
   ctaPrimary: string;
   spotsLeft?: number;
+  onCtaClick?: () => void;
 }
 
 const LandingHero = ({ 
@@ -15,7 +16,8 @@ const LandingHero = ({
   mainHeadline,
   subHeadline,
   ctaPrimary,
-  spotsLeft = 10
+  spotsLeft = 10,
+  onCtaClick
 }: LandingHeroProps) => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -58,6 +60,7 @@ const LandingHero = ({
           <Button 
             size="lg" 
             className="bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-wider text-base sm:text-xl md:text-2xl px-8 py-5 md:px-12 md:py-10 shadow-lg hover:shadow-xl transition-all duration-300 animate-scale-in w-auto"
+            onClick={onCtaClick}
           >
             {ctaPrimary} <ArrowRight className="ml-2 w-4 h-4 md:w-6 md:h-6" />
           </Button>

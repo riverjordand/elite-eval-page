@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Navigation from "@/components/Navigation";
 import LandingHero from "@/components/landing/LandingHero";
 import LandingIntro from "@/components/landing/LandingIntro";
@@ -9,6 +10,7 @@ import LandingProcess from "@/components/landing/LandingProcess";
 import LandingCoaches from "@/components/landing/LandingCoaches";
 import LandingTestimonials from "@/components/landing/LandingTestimonials";
 import LandingCommitments from "@/components/landing/LandingCommitments";
+import EvaluationForm from "@/components/landing/EvaluationForm";
 
 import LandingFAQ from "@/components/landing/LandingFAQ";
 import LandingFinalCTA from "@/components/landing/LandingFinalCTA";
@@ -34,6 +36,8 @@ import prestonSigned from "@/assets/athletes/preston-francis-signed.jpg";
 import milesCoastal from "@/assets/athletes/miles-keogh-coastal.jpg";
 
 const Index = () => {
+  const [formOpen, setFormOpen] = useState(false);
+  
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -44,6 +48,7 @@ const Index = () => {
         subHeadline="Discover exactly what's holding your athlete back—and how to fix it. Free 90-minute evaluation."
         ctaPrimary="Claim My Free Evaluation"
         spotsLeft={10}
+        onCtaClick={() => setFormOpen(true)}
       />
 
       {/* INTRO - About LPA */}
@@ -263,6 +268,7 @@ const Index = () => {
           }
         ]}
         ctaText="Claim Your Evaluation Now"
+        onCtaClick={() => setFormOpen(true)}
       />
 
       {/* OFFER SECTION #2 - What's Included */}
@@ -327,6 +333,7 @@ const Index = () => {
         ]}
         ctaText="Book My Free Evaluation Now"
         valueStatement="Normally $400 Value - Yours Free"
+        onCtaClick={() => setFormOpen(true)}
       />
 
       {/* FAQ */}
@@ -382,9 +389,13 @@ const Index = () => {
         urgency="Limited Spots Available"
         ctaText="Book My Free Evaluation"
         spotsLeft={0}
+        onCtaClick={() => setFormOpen(true)}
       />
 
       <LandingFooter />
+
+      {/* Evaluation Form Modal */}
+      <EvaluationForm open={formOpen} onOpenChange={setFormOpen} />
     </div>
   );
 };
