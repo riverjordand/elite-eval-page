@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import SectionDivider from "./SectionDivider";
 
 interface ActionPhoto {
@@ -16,13 +17,42 @@ const LandingPhotos = ({
   subtitle = "Elite training captured at every moment",
   photos
 }: LandingPhotosProps) => {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const scrollContainer = scrollContainerRef.current;
+    if (!scrollContainer) return;
+
+    let scrollPos = 0;
+    const scrollSpeed = 0.5; // Pixels per frame
+
+    const scroll = () => {
+      scrollPos += scrollSpeed;
+      
+      // Reset scroll position for seamless loop
+      if (scrollPos >= scrollContainer.scrollWidth / 2) {
+        scrollPos = 0;
+      }
+      
+      scrollContainer.scrollLeft = scrollPos;
+      requestAnimationFrame(scroll);
+    };
+
+    const animationId = requestAnimationFrame(scroll);
+
+    return () => cancelAnimationFrame(animationId);
+  }, []);
+
+  // Duplicate photos array for seamless loop
+  const duplicatedPhotos = [...photos, ...photos];
+
   return (
     <>
       <SectionDivider fromColor="#1a1a1a" toColor="#0a0a0a" />
-      <section className="bg-[#0a0a0a] py-12 md:py-16 px-4">
-        <div className="max-w-7xl mx-auto">
+      <section className="bg-[#0a0a0a] py-12 md:py-16 overflow-hidden">
+        <div className="mx-auto">
           {/* Header */}
-          <div className="text-center mb-8 md:mb-12">
+          <div className="text-center mb-8 md:mb-12 px-4">
             <h2 className="text-3xl md:text-6xl font-bebas font-black uppercase text-foreground mb-3 md:mb-4 tracking-tight">
               {title}
             </h2>
@@ -31,43 +61,28 @@ const LandingPhotos = ({
             </p>
           </div>
 
-          {/* Mobile: Horizontal Scroll */}
-          <div className="md:hidden overflow-x-auto pb-4 -mx-4 px-4 scrollbar-hide">
-            <div className="flex gap-4" style={{ width: 'max-content' }}>
-              {photos.map((photo, index) => (
-                <div
-                  key={index}
-                  className="group flex-shrink-0 w-[75vw] aspect-square rounded-lg overflow-hidden bg-muted border-[3px] border-border shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300"
-                >
-                  <img
-                    src={photo.src}
-                    alt={photo.alt}
-                    className="w-full h-full object-cover transition-all duration-300 group-hover:brightness-110 group-hover:scale-110"
-                    loading="lazy"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Desktop: Grid */}
-          <div className="hidden md:grid md:grid-cols-3 lg:grid-cols-5 gap-6">
-            {photos.map((photo, index) => (
+          {/* Auto-scroll 2-column grid */}
+          <div 
+            ref={scrollContainerRef}
+            className="flex overflow-x-hidden gap-4 md:gap-6"
+            style={{ scrollBehavior: 'auto' }}
+          >
+            {duplicatedPhotos.map((photo, index) => (
               <div
                 key={index}
-                className="group aspect-square rounded-lg overflow-hidden bg-muted border-[3px] border-border shadow-lg hover:shadow-xl hover:scale-[1.03] transition-all duration-300"
+                className="flex-shrink-0 w-[250px] md:w-[350px] aspect-square rounded-lg overflow-hidden bg-muted border-2 border-border shadow-lg"
               >
                 <img
                   src={photo.src}
                   alt={photo.alt}
-                  className="w-full h-full object-cover transition-all duration-300 group-hover:brightness-110 group-hover:scale-110"
+                  className="w-full h-full object-cover"
                   loading="lazy"
                 />
               </div>
             ))}
           </div>
-      </div>
-    </section>
+        </div>
+      </section>
     </>
   );
 };
