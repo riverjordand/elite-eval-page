@@ -19,14 +19,14 @@ const LandingPhotos = ({
   return (
     <>
       <SectionDivider fromColor="#1a1a1a" toColor="#0a0a0a" />
-      <section className="bg-[#0a0a0a] py-16 md:py-32 px-4">
+      <section className="bg-[#0a0a0a] py-12 md:py-16 px-4">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-10 md:mb-16">
-            <h2 className="text-3xl md:text-6xl lg:text-7xl font-bebas font-black uppercase text-foreground mb-4 md:mb-8 tracking-tight leading-tight">
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-3xl md:text-5xl font-bebas font-black uppercase text-foreground mb-3 md:mb-4 tracking-tight">
               {title}
             </h2>
-            <p className="text-base md:text-2xl lg:text-3xl font-oswald font-semibold uppercase text-primary leading-relaxed">
+            <p className="text-base md:text-lg font-oswald font-semibold uppercase text-primary">
               {subtitle}
             </p>
           </div>

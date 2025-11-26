@@ -45,25 +45,25 @@ const LandingHero = ({
           </div>
 
           {/* Main Headline - About LPA */}
-          <h1 className="text-4xl sm:text-5xl md:text-9xl lg:text-[10rem] font-bebas font-black uppercase mb-6 md:mb-12 leading-[0.9] px-2">
+          <h1 className="text-4xl sm:text-5xl md:text-8xl font-bebas font-black uppercase mb-4 md:mb-6 leading-[0.95] px-2">
             {mainHeadline}
           </h1>
 
           {/* Sub Headline */}
-          <p className="text-base sm:text-xl md:text-4xl lg:text-5xl text-primary font-oswald font-semibold mb-8 md:mb-16 max-w-5xl mx-auto px-2 leading-tight uppercase">
+          <p className="text-base sm:text-xl md:text-3xl text-primary font-oswald font-semibold mb-6 md:mb-10 max-w-3xl mx-auto px-2 leading-tight uppercase">
             {subHeadline}
           </p>
 
           {/* CTA */}
           <Button 
             size="lg" 
-            className="bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-wider text-base sm:text-xl md:text-2xl px-8 py-5 md:px-16 md:py-12 shadow-lg hover:shadow-xl transition-all duration-300 animate-scale-in w-auto"
+            className="bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-wider text-base sm:text-xl md:text-2xl px-8 py-5 md:px-12 md:py-10 shadow-lg hover:shadow-xl transition-all duration-300 animate-scale-in w-auto"
           >
-            {ctaPrimary} <ArrowRight className="ml-2 w-4 h-4 md:w-8 md:h-8" />
+            {ctaPrimary} <ArrowRight className="ml-2 w-4 h-4 md:w-6 md:h-6" />
           </Button>
 
           {/* Trust indicators */}
-          <div className="mt-8 md:mt-16 pt-6 md:pt-12 border-t border-border/50">
+          <div className="mt-6 md:mt-12 pt-4 md:pt-8 border-t border-border/50">
             <p className="text-xs md:text-sm text-muted-foreground mb-2 md:mb-4 font-oswald uppercase tracking-wide">
               Trusted By Parents Of Athletes At
             </p>
