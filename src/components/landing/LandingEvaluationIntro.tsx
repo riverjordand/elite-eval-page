@@ -14,15 +14,8 @@ const LandingEvaluationIntro = () => {
           <div className="max-w-6xl mx-auto">
             {/* Mobile-First Stacked Layout */}
             <div className="space-y-6 md:space-y-0 md:grid md:grid-cols-2 md:gap-12 md:items-center">
-              {/* Headline - Full Width on Mobile, Left Column on Desktop */}
-              <div className="text-center md:text-left">
-                <h3 className="text-3xl sm:text-4xl md:text-5xl font-bebas font-black uppercase mb-6 md:mb-6 leading-tight text-primary">
-                  The Free College-Ready Player Evaluation
-                </h3>
-              </div>
-
               {/* Large Hero Image on Mobile - Right Column on Desktop */}
-              <div className="order-2 md:order-none rounded-xl overflow-hidden border-2 border-primary/30 md:row-span-2">
+              <div className="rounded-xl overflow-hidden border-2 border-primary/30">
                 <img 
                   src={evaluationImage} 
                   alt="Athlete training at LPA facility"
@@ -30,8 +23,8 @@ const LandingEvaluationIntro = () => {
                 />
               </div>
 
-              {/* Text Content Below Image on Mobile, Below Headline on Desktop */}
-              <div className="order-3 text-center md:text-left space-y-4">
+              {/* Text Content */}
+              <div className="text-center md:text-left space-y-4">
                 <p className="text-base sm:text-lg md:text-xl text-muted-foreground font-oswald leading-relaxed">
                   A professional-grade, 90-minute evaluation used by D1 coaches — designed to reveal exactly what's holding your athlete back.
                 </p>
