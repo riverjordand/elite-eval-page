@@ -46,7 +46,7 @@ const LandingVideos = ({
     if (!container) return;
 
     let animationFrameId: number;
-    let scrollPosition = container.scrollLeft;
+    let scrollPosition = 0; // Start from 0 for consistent behavior
     const scrollSpeed = 0.25;
 
     const autoScroll = () => {
@@ -63,7 +63,7 @@ const LandingVideos = ({
       animationFrameId = requestAnimationFrame(autoScroll);
     };
 
-    // Start auto-scroll
+    // Start auto-scroll immediately
     animationFrameId = requestAnimationFrame(autoScroll);
 
     return () => {
