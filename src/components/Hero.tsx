@@ -24,7 +24,7 @@ const Hero = () => {
           <h1 className="font-bebas text-6xl md:text-8xl lg:text-9xl uppercase leading-[0.9] mb-6 animate-fade-in tracking-tight text-white">
             Developing Elite
             <br />
-            <span className="text-primary">Student-Athletes</span>
+            <span className="text-primary font-black">Student-Athletes</span>
             <br />
             for the Next Level
           </h1>
