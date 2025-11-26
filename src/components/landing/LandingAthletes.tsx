@@ -1,6 +1,7 @@
 interface AthletePhoto {
   caption: string;
   category: string;
+  image: string;
 }
 
 interface LandingAthletesProps {
@@ -34,14 +35,13 @@ const LandingAthletes = ({ title, subtitle, photos }: LandingAthletesProps) => {
                   key={index}
                   className="flex-shrink-0 w-64 bg-card border-2 border-border rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300"
                 >
-                  {/* Photo Placeholder - Square for mobile scroll */}
-                  <div className="w-full aspect-square bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center relative overflow-hidden">
-                    <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDUpIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-30" />
-                    <div className="relative z-10 text-center p-4">
-                      <p className="text-primary/60 font-bebas text-sm uppercase tracking-wider">
-                        Athlete Photo {index + 1}
-                      </p>
-                    </div>
+                  {/* Athlete Photo */}
+                  <div className="w-full aspect-square relative overflow-hidden">
+                    <img 
+                      src={photo.image} 
+                      alt={photo.caption}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
 
                   {/* Caption */}
@@ -66,14 +66,13 @@ const LandingAthletes = ({ title, subtitle, photos }: LandingAthletesProps) => {
                 className="bg-card border-2 border-border rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300 animate-fade-in"
                 style={{ animationDelay: `${index * 50}ms` }}
               >
-                {/* Photo Placeholder - Square */}
-                <div className="w-full aspect-square bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center relative overflow-hidden">
-                  <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDUpIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-30" />
-                  <div className="relative z-10 text-center p-4">
-                    <p className="text-primary/60 font-bebas text-xs uppercase tracking-wider">
-                      Athlete Photo
-                    </p>
-                  </div>
+                {/* Athlete Photo */}
+                <div className="w-full aspect-square relative overflow-hidden">
+                  <img 
+                    src={photo.image} 
+                    alt={photo.caption}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
 
                 {/* Caption */}
