@@ -186,7 +186,7 @@ const Index = () => {
             name: "Mark Karaviotis",
             title: "Head Coach",
             credentials: [
-              "Played D1 at Oregon and pro ball with the Diamondbacks organization. Minor League batting champion and 3x All-Star who brings elite-level hitting expertise to every session."
+              "Former D1 and pro player known for elite-level hitting development. Mark helps athletes sharpen mechanics, build plate confidence, and develop the habits required to compete at the next level."
             ],
             image: coachMarcus
           },
@@ -194,7 +194,7 @@ const Index = () => {
             name: "Joe Dunigan",
             title: "Hitting Coordinator & Astros Scout",
             credentials: [
-              "D1 player at Oklahoma who was drafted twice in the MLB Draft. Currently scouts for the Houston Astros, giving athletes a direct connection to professional opportunities."
+              "Drafted twice and active MLB scout for the Houston Astros. Joe brings pro-level insight into how college and MLB programs evaluate talent — giving your athlete a real competitive advantage."
             ],
             image: coachJoe
           },
@@ -202,7 +202,7 @@ const Index = () => {
             name: "Eric Smith",
             title: "Coordinator",
             credentials: [
-              "D1 player at Rhode Island and 2nd round draft pick by the Arizona Diamondbacks. 6 years of professional baseball experience competing at the highest level."
+              "D1 athlete at Rhode Island and 2nd-round MLB draft pick. Eric helps athletes build baseball-specific strength, athleticism, and game-ready mechanics using proven pro-development systems."
             ],
             image: coachEric
           },
@@ -210,7 +210,7 @@ const Index = () => {
             name: "Terrell Hudson",
             title: "Assistant Coach",
             credentials: [
-              "Former D1 player at the University of New Mexico. Specializes in developing elite youth baseball players for college and beyond."
+              "D1 player specializing in youth and high-school development. Terrell focuses on building clean fundamentals, proper movement patterns, and early college-ready habits for long-term success."
             ],
             image: coachTerrell
           },
@@ -218,7 +218,7 @@ const Index = () => {
             name: "Will Armijo",
             title: "CEO & Co-Founder",
             credentials: [
-              "Former NCAA player with an MBA who built 6 successful companies across four industries. Over 13 years mentoring athletes and professionals with a focus on long-term development and recruiting strategy."
+              "Former NCAA athlete with 13+ years mentoring players and building high-performance programs. Will leads long-term development strategy, recruiting support, and family guidance to help athletes navigate the path to the next level."
             ],
             image: coachNeil
           }
