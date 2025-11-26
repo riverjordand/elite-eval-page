@@ -5,6 +5,7 @@ import SectionDivider from "./SectionDivider";
 interface IncludedItem {
   title: string;
   bullets: string[];
+  value: number;
 }
 
 interface LandingIncludedProps {
@@ -53,9 +54,14 @@ const LandingIncluded = ({
                     <Check className="w-4 h-4 md:w-4.5 md:h-4.5 text-primary-foreground" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-base md:text-xl font-bebas font-bold uppercase mb-2 md:mb-3 text-foreground">
-                      {item.title}
-                    </h3>
+                    <div className="flex items-start justify-between gap-3 mb-2 md:mb-3">
+                      <h3 className="text-base md:text-xl font-bebas font-bold uppercase text-foreground">
+                        {item.title}
+                      </h3>
+                      <span className="text-primary font-bebas text-base md:text-lg whitespace-nowrap">
+                        ${item.value}
+                      </span>
+                    </div>
                     <ul className="space-y-1 md:space-y-1.5">
                       {item.bullets.map((bullet, bulletIndex) => (
                         <li key={bulletIndex} className="text-xs sm:text-sm md:text-base text-muted-foreground font-oswald leading-relaxed flex items-start gap-2">
@@ -70,11 +76,19 @@ const LandingIncluded = ({
             ))}
           </div>
 
+          {/* Total Value */}
+          <div className="max-w-3xl mx-auto mb-6 md:mb-8 p-6 md:p-8 bg-gradient-to-br from-primary/20 via-primary/10 to-transparent border-2 border-primary rounded-xl">
+            <div className="flex items-center justify-between">
+              <span className="text-lg md:text-2xl font-bebas uppercase text-foreground">Total Value:</span>
+              <span className="text-2xl md:text-4xl font-bebas text-primary">${items.reduce((sum, item) => sum + item.value, 0)}</span>
+            </div>
+          </div>
+
           {/* Value Statement */}
           <div className="text-center mb-6 md:mb-8">
-            <div className="inline-block px-4 py-2 md:px-6 md:py-3 bg-primary/10 border-2 border-primary/30 rounded-lg">
-              <p className="text-base sm:text-lg md:text-2xl font-bebas text-primary uppercase tracking-wide">
-                {valueStatement}
+            <div className="inline-block px-6 py-3 md:px-8 md:py-4 bg-primary/10 border-2 border-primary/30 rounded-lg">
+              <p className="text-xl sm:text-2xl md:text-3xl font-bebas text-primary uppercase tracking-wide">
+                Yours Free Today
               </p>
             </div>
           </div>

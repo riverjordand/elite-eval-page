@@ -57,6 +57,7 @@ const Index = () => {
         items={[
           {
             title: "Advanced Metrics Testing",
+            value: 75,
             bullets: [
               "Pitching or hitting velocity testing",
               "Professional-grade tech (Rapsodo, HitTrax)",
@@ -65,6 +66,7 @@ const Index = () => {
           },
           {
             title: "Complete Mechanics Analysis",
+            value: 100,
             bullets: [
               "Frame-by-frame video breakdown",
               "Analyzed by D1/Pro coaches",
@@ -73,6 +75,7 @@ const Index = () => {
           },
           {
             title: "Strength & Mobility Assessment",
+            value: 50,
             bullets: [
               "Certified strength coach evaluation",
               "Identify physical weaknesses",
@@ -81,6 +84,7 @@ const Index = () => {
           },
           {
             title: "Coach-Led Development Plan",
+            value: 75,
             bullets: [
               "One-on-one coaching consultation",
               "Personalized improvement roadmap",
@@ -89,6 +93,7 @@ const Index = () => {
           },
           {
             title: "Personalized 6-12 Month Roadmap",
+            value: 50,
             bullets: [
               "Written development plan",
               "Tailored to athlete's goals",
@@ -97,6 +102,7 @@ const Index = () => {
           },
           {
             title: "Full Facility Tour & Q&A",
+            value: 0,
             bullets: [
               "Walk through 16,000 sq ft facility",
               "Ask questions about programs",
