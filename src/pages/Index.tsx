@@ -308,19 +308,19 @@ const Index = () => {
             videoUrl: "/testimonials/parent-testimonial-1.mp4",
             parentName: "Austin Smith",
             athleteName: "3B/C/RHP • Crowdettys",
-            quote: "Leaving IMG Academy was tough, but for my recruiting process and development, it was crucial to come to LPA. The environment is everything. I've never had a real pitching coach until Terrell - the mechanics work has increased my velocity and taken strain off my arm."
+            quote: "Leaving IMG Academy to come to LPA was crucial for my development. The mechanics work with Terrell has increased my velocity and taken strain off my arm."
           },
           {
             videoUrl: "/testimonials/parent-testimonial-2.mp4",
             parentName: "Adam Hayes",
             athleteName: "2025 Graduate",
-            quote: "I'm committed to Texas Tech University. I came to LPA for my senior spring to have better development and a better chance at the MLB draft. Working with the pitching coaches every day has made my breaking ball a weapon - I can throw both my slider and curveball for strikes and swinging misses."
+            quote: "I came to LPA for my senior spring to improve my MLB draft chances. Working with the pitching coaches every day made my breaking ball a weapon."
           },
           {
             videoUrl: "/testimonials/parent-testimonial-3.mp4",
             parentName: "LPA Parents",
             athleteName: "Multiple Families",
-            quote: "We've seen incredible gains - not only on the baseball side, but on strength and development. The schools that were interested started calling to learn about what kind of program this is. Everything here is state of the art. For young kids that love baseball and are trying to play in college or professionally, seeing those little gains every day is amazing."
+            quote: "We've seen incredible gains in baseball, strength, and development. Everything here is state of the art, and seeing those gains every day is amazing."
           }
         ]}
       />
