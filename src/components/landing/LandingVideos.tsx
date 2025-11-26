@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState } from "react";
+import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
 import SectionDivider from "./SectionDivider";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
@@ -20,12 +22,22 @@ const LandingVideos = ({
   subtitle = "See our elite development program in action",
   videos
 }: LandingVideosProps) => {
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
   const [selectedVideoIndex, setSelectedVideoIndex] = useState<number | null>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [isUserInteracting, setIsUserInteracting] = useState(false);
-  const interactionTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const autoplayPlugin = useRef(
+    Autoplay({ delay: 0, stopOnInteraction: false, stopOnMouseEnter: false })
+  );
+
+  const [emblaRef] = useEmblaCarousel(
+    { 
+      loop: true, 
+      dragFree: true,
+      containScroll: false
+    },
+    [autoplayPlugin.current]
+  );
 
   // Play videos when they mount on mobile
   useEffect(() => {
@@ -39,75 +51,6 @@ const LandingVideos = ({
         });
       }
     });
-  }, []);
-
-  useEffect(() => {
-    const container = scrollContainerRef.current;
-    if (!container) return;
-
-    let animationFrameId: number;
-    let scrollPosition = 0; // Start from 0 for consistent behavior
-    const scrollSpeed = 0.25;
-
-    const autoScroll = () => {
-      if (!container || isUserInteracting) return;
-
-      scrollPosition += scrollSpeed;
-
-      // Reset scroll position when reaching the end (seamless loop)
-      if (scrollPosition >= container.scrollWidth / 2) {
-        scrollPosition = 0;
-      }
-
-      container.scrollLeft = scrollPosition;
-      animationFrameId = requestAnimationFrame(autoScroll);
-    };
-
-    // Start auto-scroll immediately
-    animationFrameId = requestAnimationFrame(autoScroll);
-
-    return () => {
-      cancelAnimationFrame(animationFrameId);
-    };
-  }, [isUserInteracting]);
-
-  // Handle user interaction
-  useEffect(() => {
-    const container = scrollContainerRef.current;
-    if (!container) return;
-
-    const handleInteractionStart = () => {
-      setIsUserInteracting(true);
-      if (interactionTimeoutRef.current) {
-        clearTimeout(interactionTimeoutRef.current);
-      }
-    };
-
-    const handleInteractionEnd = () => {
-      if (interactionTimeoutRef.current) {
-        clearTimeout(interactionTimeoutRef.current);
-      }
-      interactionTimeoutRef.current = setTimeout(() => {
-        setIsUserInteracting(false);
-      }, 1500);
-    };
-
-    container.addEventListener('touchstart', handleInteractionStart);
-    container.addEventListener('touchend', handleInteractionEnd);
-    container.addEventListener('scroll', handleInteractionStart);
-    container.addEventListener('mousedown', handleInteractionStart);
-    container.addEventListener('mouseup', handleInteractionEnd);
-
-    return () => {
-      container.removeEventListener('touchstart', handleInteractionStart);
-      container.removeEventListener('touchend', handleInteractionEnd);
-      container.removeEventListener('scroll', handleInteractionStart);
-      container.removeEventListener('mousedown', handleInteractionStart);
-      container.removeEventListener('mouseup', handleInteractionEnd);
-      if (interactionTimeoutRef.current) {
-        clearTimeout(interactionTimeoutRef.current);
-      }
-    };
   }, []);
 
   // Duplicate videos for seamless loop
@@ -148,17 +91,17 @@ const LandingVideos = ({
           </div>
         </div>
 
-        {/* Auto-scrolling container with manual scroll override - full width */}
+        {/* Auto-scrolling container - full width */}
         <div 
-          ref={scrollContainerRef}
-          className="overflow-x-auto pb-4 scrollbar-hide"
+          ref={emblaRef}
+          className="overflow-hidden"
         >
-          <div className="flex gap-3 md:gap-4" style={{ width: 'max-content' }}>
+          <div className="flex gap-3 md:gap-4">
             {duplicatedVideos.map((video, index) => (
               <div
                 key={index}
                 onClick={() => handleVideoClick(index)}
-                className="flex-shrink-0 w-[70vw] md:w-[350px] aspect-[9/16] rounded-lg overflow-hidden bg-muted cursor-pointer hover:opacity-90 transition-opacity"
+                className="flex-[0_0_70vw] md:flex-[0_0_350px] aspect-[9/16] rounded-lg overflow-hidden bg-muted cursor-pointer hover:opacity-90 transition-opacity"
               >
                 <video
                   ref={(el) => { videoRefs.current[index] = el; }}
@@ -174,7 +117,7 @@ const LandingVideos = ({
               </div>
             ))}
           </div>
-      </div>
+        </div>
 
       {/* Video Modal */}
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
