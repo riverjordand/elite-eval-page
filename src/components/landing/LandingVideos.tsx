@@ -25,12 +25,25 @@ const LandingVideos = ({
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [isUserScrolling, setIsUserScrolling] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Smooth continuous pixel scroll with manual scroll support
+  // Detect mobile devices
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Auto-scroll on desktop only, manual scroll on mobile
   useEffect(() => {
     const container = scrollContainerRef.current;
-    if (!container) return;
+    if (!container || isMobile) return; // Skip auto-scroll on mobile
 
     let animationFrameId: number;
     let scrollPosition = container.scrollLeft;
@@ -57,7 +70,7 @@ const LandingVideos = ({
 
     animationFrameId = requestAnimationFrame(continuousScroll);
 
-    // Handle manual scroll/touch interaction
+    // Handle manual scroll interaction on desktop
     const handleInteractionStart = () => {
       setIsUserScrolling(true);
       if (scrollTimeoutRef.current) {
@@ -72,8 +85,6 @@ const LandingVideos = ({
       }, 2000);
     };
 
-    container.addEventListener('touchstart', handleInteractionStart);
-    container.addEventListener('touchend', handleInteractionEnd);
     container.addEventListener('mousedown', handleInteractionStart);
     container.addEventListener('mouseup', handleInteractionEnd);
     container.addEventListener('scroll', handleInteractionStart);
@@ -83,13 +94,11 @@ const LandingVideos = ({
       if (scrollTimeoutRef.current) {
         clearTimeout(scrollTimeoutRef.current);
       }
-      container.removeEventListener('touchstart', handleInteractionStart);
-      container.removeEventListener('touchend', handleInteractionEnd);
       container.removeEventListener('mousedown', handleInteractionStart);
       container.removeEventListener('mouseup', handleInteractionEnd);
       container.removeEventListener('scroll', handleInteractionStart);
     };
-  }, [isUserScrolling]);
+  }, [isUserScrolling, isMobile]);
 
   // Play videos when they mount on mobile
   useEffect(() => {
