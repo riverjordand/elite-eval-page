@@ -10,6 +10,7 @@ import LandingCoaches from "@/components/landing/LandingCoaches";
 import LandingTestimonials from "@/components/landing/LandingTestimonials";
 import LandingCommitments from "@/components/landing/LandingCommitments";
 import LandingEvaluationHook from "@/components/landing/LandingEvaluationHook";
+import LandingProblemAgitation from "@/components/landing/LandingProblemAgitation";
 import LandingValueStack from "@/components/landing/LandingValueStack";
 import LandingSocialProofTieIn from "@/components/landing/LandingSocialProofTieIn";
 import EvaluationForm from "@/components/landing/EvaluationForm";
@@ -242,18 +243,21 @@ const Index = () => {
         ]}
       />
 
-      {/* SECTIONS A + B - Evaluation Hook (Combined Transitional Hook + Evaluation Intro) */}
+      {/* SECTION A - Evaluation Hook (Performance Gaps Transition) */}
       <LandingEvaluationHook onCtaClick={() => setFormOpen(true)} />
 
-      {/* SECTIONS C + D - Value Stack (Combined Outcomes + What's Included) */}
+      {/* SECTION B - Problem Agitation */}
+      <LandingProblemAgitation />
+
+      {/* SECTION C - Value Stack (What's Included) */}
       <LandingValueStack onCtaClick={() => setFormOpen(true)} />
 
-      {/* SECTION E - Social Proof Tie-In */}
+      {/* SECTION D - Social Proof Tie-In */}
       <LandingSocialProofTieIn
         text="Every athlete you see in our college commitment section began with this exact evaluation. It revealed the weaknesses holding them back, the adjustments they needed, and the path to get recruited. Your athlete begins the same way."
       />
 
-      {/* SECTION F - How It Works */}
+      {/* SECTION E - How It Works */}
       <LandingProcess
         title="How the Evaluation Works"
         subtitle="A simple, proven process for serious athletes."
@@ -283,38 +287,42 @@ const Index = () => {
         onCtaClick={() => setFormOpen(true)}
       />
 
-      {/* SECTION G - FAQ */}
+      {/* SECTION F - FAQ */}
       <LandingFAQ
         title="Common Questions From Parents"
         faqs={[
           {
-            question: "Is there really no cost or obligation?",
-            answer: "Zero cost. Zero obligation. You'll receive the full written development plan whether you train with us or not."
+            question: "What exactly is the Free College-Ready Player Evaluation?",
+            answer: "It's a comprehensive 90-minute assessment that includes velocity testing, mechanics analysis, strength and mobility evaluation, and a personalized development roadmap created by our D1/Pro coaching staff. You'll leave with a written plan, baseline metrics, and recruiting guidance."
           },
           {
-            question: "What age athletes is this for?",
-            answer: "High school athletes (ages 13-18) serious about playing at the college level. We occasionally evaluate younger athletes with exceptional potential."
+            question: "How long does the evaluation take?",
+            answer: "The full evaluation takes approximately 90 minutes. This includes testing, video analysis, coach consultation, and facility walkthrough. We also provide time for Q&A so you can ask our coaches anything about your athlete's development path."
           },
           {
-            question: "What should my athlete bring?",
-            answer: "Athletic wear, cleats or turf shoes, glove, bat, and any personal training equipment. Pitchers bring your regular throwing routine."
+            question: "Is this really free? What's the catch?",
+            answer: "Yes, it's 100% free with no obligation. We offer this evaluation because we believe every athlete and family should have access to professional assessment before making development decisions. There's no pressure to join our program afterward."
           },
           {
-            question: "What makes LPA different from other academies?",
-            answer: "D1 and pro coaching, professional-grade technology, and 50+ college commitments. We combine elite coaching with proven development systems."
+            question: "What happens after the evaluation?",
+            answer: "You'll receive a written development plan, recorded metrics, and recruiting guidance. If you're interested in training at LPA, we'll discuss program options. But there's zero pressure — the evaluation results are yours to use however you choose."
           },
           {
-            question: "What programs does LPA offer?",
-            answer: "Year-round training including off-season development, in-season tune-ups, private lessons, small group training, and full-time prep programs for college-focused athletes."
+            question: "Who conducts the evaluation?",
+            answer: "All evaluations are conducted by our D1 and professional coaching staff with 50+ combined years of experience. You'll work directly with coaches who have developed hundreds of college-bound athletes."
           },
           {
-            question: "Do you help with college recruiting?",
-            answer: "Yes. Recruiting support is integrated into our programs—video profiles, coach outreach, showcase planning, and direct college connections through our staff."
+            question: "What does LPA's training program include?",
+            answer: "Our program includes professional coaching, velocity development, mechanics training, strength and conditioning, mental performance work, and recruiting support. Programs are customized based on your athlete's position, age, and goals."
+          },
+          {
+            question: "How much does the training program cost?",
+            answer: "We offer several program options at different investment levels. Pricing and program details are discussed after your evaluation once we understand your athlete's specific needs and development timeline."
           }
         ]}
       />
 
-      {/* SECTION H - Final CTA */}
+      {/* SECTION G - Final CTA */}
       <LandingFinalCTA
         title="Your Athlete's Next Level Starts Here"
         ctaText="Book My Free Evaluation Now"

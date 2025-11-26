@@ -8,15 +8,15 @@ const LandingEvaluationHook = ({ onCtaClick }: LandingEvaluationHookProps) => {
   return (
     <>
       <SectionDivider fromColor="#1a1a1a" toColor="#0a0a0a" />
-      <section className="py-12 md:py-24 bg-[#0a0a0a]">
+      <section className="py-16 md:py-24 bg-[#0a0a0a]">
         <div className="container mx-auto px-4 md:px-6">
-          {/* Hook Section */}
-          <div className="max-w-4xl mx-auto text-center mb-12 md:mb-20">
-            <h2 className="text-3xl sm:text-4xl md:text-6xl font-bebas font-black uppercase mb-6 md:mb-8 leading-tight">
-              Does Your Athlete Have What It Takes to Reach the Next Level?
+          {/* Main Headline - Performance Gaps Angle */}
+          <div className="max-w-4xl mx-auto text-center mb-12 md:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-6xl font-bebas font-black uppercase mb-4 md:mb-6 leading-tight px-4">
+              Most Parents Can't See What's Holding Their Athlete Back
             </h2>
-            <p className="text-base md:text-xl text-muted-foreground font-oswald leading-relaxed">
-              Most families don't actually know their athlete's true readiness — or what specific changes will unlock real improvement. College benchmarks change. Development standards evolve. And without clarity, you're guessing.
+            <p className="text-base md:text-xl text-muted-foreground font-oswald leading-relaxed px-4">
+              You see the effort. You see the potential. But you can't identify the mechanical flaw limiting velocity, the physical weakness preventing explosiveness, or the exact skills college coaches are looking for. Without professional assessment, you're guessing — and every season without clarity is a season lost.
             </p>
           </div>
 
