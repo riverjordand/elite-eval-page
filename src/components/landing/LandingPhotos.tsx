@@ -18,8 +18,8 @@ const LandingPhotos = ({
 }: LandingPhotosProps) => {
   return (
     <>
-      <SectionDivider fromColor="#0a0a0a" toColor="#1a1a1a" />
-      <section className="bg-[#1a1a1a] py-12 md:py-16 px-4">
+      <SectionDivider fromColor="#1a1a1a" toColor="#0a0a0a" />
+      <section className="bg-[#0a0a0a] py-12 md:py-16 px-4">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="text-center mb-8 md:mb-12">
