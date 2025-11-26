@@ -1,4 +1,11 @@
+import { useState } from "react";
+import { ChevronDown } from "lucide-react";
 import SectionDivider from "./SectionDivider";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
 
 interface IncludedItem {
   title: string;
@@ -11,6 +18,16 @@ interface LandingValueStackProps {
 }
 
 const LandingValueStack = ({ onCtaClick }: LandingValueStackProps) => {
+  const [openItems, setOpenItems] = useState<number[]>([]);
+
+  const toggleItem = (index: number) => {
+    setOpenItems(prev =>
+      prev.includes(index)
+        ? prev.filter(i => i !== index)
+        : [...prev, index]
+    );
+  };
+
   const includedItems: IncludedItem[] = [
     {
       title: "Advanced Metrics Testing",
@@ -62,31 +79,64 @@ const LandingValueStack = ({ onCtaClick }: LandingValueStackProps) => {
               </p>
             </div>
 
-            {/* Items Grid - 3x2 Layout */}
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-8 md:mb-12">
+            {/* Items Grid - Mobile: Collapsible, Desktop: Full Cards */}
+            <div className="space-y-3 md:space-y-0 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-4 lg:gap-6 mb-8 md:mb-12">
               {includedItems.map((item, index) => (
-                <div 
+                <Collapsible
                   key={index}
-                  className="bg-card border-2 border-border rounded-xl p-6 md:p-8 hover:border-primary/50 transition-all duration-300 relative animate-fade-in"
-                  style={{ animationDelay: `${index * 100}ms` }}
+                  open={openItems.includes(index)}
+                  onOpenChange={() => toggleItem(index)}
+                  className="md:contents"
                 >
-                  {/* Value Badge */}
-                  <div className="absolute top-4 right-4">
-                    <span className="inline-block px-3 py-1 bg-background border border-border rounded-lg text-foreground font-bebas text-sm md:text-base">
-                      ${item.value} Value
-                    </span>
+                  {/* Mobile: Collapsible Card */}
+                  <div className="md:hidden bg-card border-2 border-border rounded-xl overflow-hidden animate-fade-in">
+                    <CollapsibleTrigger className="w-full p-4 flex items-center justify-between gap-3 text-left">
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-base font-bebas uppercase text-foreground leading-tight">
+                          {item.title}
+                        </h3>
+                      </div>
+                      <div className="flex items-center gap-2 shrink-0">
+                        <span className="inline-block px-2.5 py-0.5 bg-background border border-border rounded-lg text-foreground font-bebas text-sm">
+                          ${item.value}
+                        </span>
+                        <ChevronDown 
+                          className={`h-5 w-5 text-muted-foreground transition-transform duration-200 ${
+                            openItems.includes(index) ? 'rotate-180' : ''
+                          }`}
+                        />
+                      </div>
+                    </CollapsibleTrigger>
+                    <CollapsibleContent className="px-4 pb-4">
+                      <p className="text-sm text-muted-foreground font-oswald leading-relaxed">
+                        {item.description}
+                      </p>
+                    </CollapsibleContent>
                   </div>
 
-                  {/* Content */}
-                  <div className="pr-20">
-                    <h3 className="text-lg md:text-xl font-bebas uppercase text-foreground mb-3">
-                      {item.title}
-                    </h3>
-                    <p className="text-sm md:text-base text-muted-foreground font-oswald leading-relaxed">
-                      {item.description}
-                    </p>
+                  {/* Desktop: Full Card (unchanged) */}
+                  <div 
+                    className="hidden md:block bg-card border-2 border-border rounded-xl p-6 lg:p-8 hover:border-primary/50 transition-all duration-300 relative animate-fade-in"
+                    style={{ animationDelay: `${index * 100}ms` }}
+                  >
+                    {/* Value Badge */}
+                    <div className="absolute top-4 right-4">
+                      <span className="inline-block px-3 py-1 bg-background border border-border rounded-lg text-foreground font-bebas text-sm lg:text-base">
+                        ${item.value} Value
+                      </span>
+                    </div>
+
+                    {/* Content */}
+                    <div className="pr-20">
+                      <h3 className="text-lg lg:text-xl font-bebas uppercase text-foreground mb-3">
+                        {item.title}
+                      </h3>
+                      <p className="text-sm lg:text-base text-muted-foreground font-oswald leading-relaxed">
+                        {item.description}
+                      </p>
+                    </div>
                   </div>
-                </div>
+                </Collapsible>
               ))}
             </div>
 
