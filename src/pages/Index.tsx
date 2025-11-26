@@ -236,7 +236,36 @@ const Index = () => {
         ]}
       />
 
-      {/* OFFER SECTION #1 - What's Included */}
+      {/* OFFER SECTION #1 - How It Works */}
+      <LandingProcess
+        title="How It Works"
+        subtitle="Simple 4-step process to get your athlete evaluated"
+        steps={[
+          {
+            number: "1",
+            title: "Book Your Spot",
+            description: "Fill out the simple form and choose a time that works for your schedule"
+          },
+          {
+            number: "2",
+            title: "Come Prepared",
+            description: "Bring your athlete ready to throw/hit and any previous training history or injury information"
+          },
+          {
+            number: "3",
+            title: "Complete Evaluation",
+            description: "90-minute session with metrics testing, video analysis, and strength assessment"
+          },
+          {
+            number: "4",
+            title: "Get Your Roadmap",
+            description: "Walk away with a written development plan and clear next steps toward your athlete's goals"
+          }
+        ]}
+        ctaText="Claim Your Evaluation Now"
+      />
+
+      {/* OFFER SECTION #2 - What's Included */}
       <LandingIncluded
         title="What's Included in Your Free Evaluation"
         subtitle="Everything you need to know about your athlete's current level and development path"
@@ -300,35 +329,6 @@ const Index = () => {
         valueStatement="Normally $350 Value - Yours Free"
       />
 
-      {/* OFFER SECTION #2 - How It Works */}
-      <LandingProcess
-        title="How It Works"
-        subtitle="Simple 4-step process to get your athlete evaluated"
-        steps={[
-          {
-            number: "1",
-            title: "Book Your Spot",
-            description: "Fill out the simple form and choose a time that works for your schedule"
-          },
-          {
-            number: "2",
-            title: "Come Prepared",
-            description: "Bring your athlete ready to throw/hit and any previous training history or injury information"
-          },
-          {
-            number: "3",
-            title: "Complete Evaluation",
-            description: "90-minute session with metrics testing, video analysis, and strength assessment"
-          },
-          {
-            number: "4",
-            title: "Get Your Roadmap",
-            description: "Walk away with a written development plan and clear next steps toward your athlete's goals"
-          }
-        ]}
-        ctaText="Claim Your Evaluation Now"
-      />
-
       {/* FAQ */}
       <LandingFAQ
         title="Common Questions"
@@ -362,10 +362,10 @@ const Index = () => {
 
       {/* FINAL CTA */}
       <LandingFinalCTA
-        title="Only 10 Spots Available This Week"
-        urgency="Filling Fast"
+        title="Ready To See What Your Athlete Is Capable Of?"
+        urgency="Limited Spots Available"
         ctaText="Book My Free Evaluation"
-        spotsLeft={10}
+        spotsLeft={0}
       />
 
       <LandingFooter />
