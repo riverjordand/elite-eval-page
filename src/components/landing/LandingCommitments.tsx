@@ -38,8 +38,8 @@ const LandingCommitments = ({ title, subtitle, commitments, totalCount }: Landin
             </p>
           </div>
 
-          {/* Mobile: 2 Columns / Desktop: Single Row with Larger Images */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 mb-8 md:mb-12 max-w-7xl mx-auto">
+          {/* Mobile: 2 Columns / Desktop: Single Row with Much Larger Images */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-8 mb-8 md:mb-12 max-w-[1800px] mx-auto">
             {commitments.map((commitment, index) => (
               <div 
                 key={index}
@@ -56,11 +56,11 @@ const LandingCommitments = ({ title, subtitle, commitments, totalCount }: Landin
                 </div>
 
                 {/* Caption */}
-                <div className="p-3 md:p-5">
-                  <p className="text-sm md:text-base font-bebas uppercase text-primary mb-1">
+                <div className="p-3 md:p-6">
+                  <p className="text-sm md:text-lg font-bebas uppercase text-primary mb-1">
                     {commitment.name}
                   </p>
-                  <p className="text-xs md:text-sm text-muted-foreground font-oswald leading-relaxed">
+                  <p className="text-xs md:text-base text-muted-foreground font-oswald leading-relaxed">
                     {commitment.school}
                   </p>
                 </div>
