@@ -1,4 +1,5 @@
 import SectionDivider from "./SectionDivider";
+import athleteImage from "@/assets/athlete-on-field.jpg";
 
 interface LandingEvaluationHookProps {
   onCtaClick?: () => void;
@@ -12,11 +13,13 @@ const LandingEvaluationHook = ({ onCtaClick }: LandingEvaluationHookProps) => {
         <div className="container mx-auto px-4 md:px-6">
           {/* Two Column Layout - Image Left, Text Right */}
           <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-            {/* Left Column - Image Placeholder */}
-            <div className="bg-card border-2 border-border rounded-xl aspect-square flex items-center justify-center">
-              <div className="text-center p-8">
-                <p className="text-muted-foreground font-oswald text-sm">Image Placement</p>
-              </div>
+            {/* Left Column - Athlete Image */}
+            <div className="rounded-xl overflow-hidden border-2 border-border">
+              <img 
+                src={athleteImage} 
+                alt="Baseball player on field"
+                className="w-full h-full object-cover aspect-square"
+              />
             </div>
 
             {/* Right Column - Text Content */}
