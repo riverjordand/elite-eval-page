@@ -46,6 +46,7 @@ const LandingTestimonials = ({ title, subtitle, testimonials }: LandingTestimoni
                       className="w-full h-full object-cover"
                       preload="auto"
                       playsInline
+                      poster={`${testimonial.videoUrl}#t=0.1`}
                     >
                       <source src={testimonial.videoUrl} type="video/mp4" />
                       Your browser does not support the video tag.
@@ -88,6 +89,7 @@ const LandingTestimonials = ({ title, subtitle, testimonials }: LandingTestimoni
                     className="w-full h-full object-cover"
                     preload="auto"
                     playsInline
+                    poster={`${testimonial.videoUrl}#t=0.1`}
                   >
                     <source src={testimonial.videoUrl} type="video/mp4" />
                     Your browser does not support the video tag.
