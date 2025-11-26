@@ -20,7 +20,7 @@ const LandingCommitments = ({ title, subtitle, commitments, totalCount }: Landin
       <SectionDivider fromColor="#0a0a0a" toColor="#1a1a1a" />
       <section className="py-12 md:py-24 bg-[#1a1a1a] relative">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-[2000px] mx-auto">
           {/* Header */}
           <div className="text-center mb-8 md:mb-16">
             <div className="inline-flex items-center gap-2 md:gap-3 px-4 py-2 md:px-6 md:py-3 bg-primary/10 border border-primary/20 rounded-full mb-4 md:mb-6">
@@ -38,8 +38,8 @@ const LandingCommitments = ({ title, subtitle, commitments, totalCount }: Landin
             </p>
           </div>
 
-          {/* Mobile: 2 Columns / Desktop: Single Row with Much Larger Images */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-8 mb-8 md:mb-12 max-w-[1800px] mx-auto">
+          {/* Mobile: 2 Columns / Desktop: Single Row with Massive Images */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-10 mb-8 md:mb-12">
             {commitments.map((commitment, index) => (
               <div 
                 key={index}
@@ -56,8 +56,8 @@ const LandingCommitments = ({ title, subtitle, commitments, totalCount }: Landin
                 </div>
 
                 {/* Caption */}
-                <div className="p-3 md:p-6">
-                  <p className="text-sm md:text-lg font-bebas uppercase text-primary mb-1">
+                <div className="p-3 md:p-8">
+                  <p className="text-sm md:text-xl font-bebas uppercase text-primary mb-1 md:mb-2">
                     {commitment.name}
                   </p>
                   <p className="text-xs md:text-base text-muted-foreground font-oswald leading-relaxed">
