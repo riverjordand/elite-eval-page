@@ -17,19 +17,20 @@ const LandingPhotos = ({
   subtitle = "Elite training captured at every moment",
   photos
 }: LandingPhotosProps) => {
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const scrollContainer1Ref = useRef<HTMLDivElement>(null);
+  const scrollContainer2Ref = useRef<HTMLDivElement>(null);
 
+  // Auto-scroll for Row 1
   useEffect(() => {
-    const scrollContainer = scrollContainerRef.current;
+    const scrollContainer = scrollContainer1Ref.current;
     if (!scrollContainer) return;
 
     let scrollPos = 0;
-    const scrollSpeed = 0.5; // Pixels per frame
+    const scrollSpeed = 0.5;
 
     const scroll = () => {
       scrollPos += scrollSpeed;
       
-      // Reset scroll position for seamless loop
       if (scrollPos >= scrollContainer.scrollWidth / 2) {
         scrollPos = 0;
       }
@@ -39,7 +40,29 @@ const LandingPhotos = ({
     };
 
     const animationId = requestAnimationFrame(scroll);
+    return () => cancelAnimationFrame(animationId);
+  }, []);
 
+  // Auto-scroll for Row 2
+  useEffect(() => {
+    const scrollContainer = scrollContainer2Ref.current;
+    if (!scrollContainer) return;
+
+    let scrollPos = 0;
+    const scrollSpeed = 0.5;
+
+    const scroll = () => {
+      scrollPos += scrollSpeed;
+      
+      if (scrollPos >= scrollContainer.scrollWidth / 2) {
+        scrollPos = 0;
+      }
+      
+      scrollContainer.scrollLeft = scrollPos;
+      requestAnimationFrame(scroll);
+    };
+
+    const animationId = requestAnimationFrame(scroll);
     return () => cancelAnimationFrame(animationId);
   }, []);
 
@@ -67,14 +90,14 @@ const LandingPhotos = ({
           <div className="space-y-4 md:space-y-6">
             {/* Row 1 */}
             <div 
-              ref={scrollContainerRef}
-              className="flex overflow-x-hidden gap-4 md:gap-6"
+              ref={scrollContainer1Ref}
+              className="flex overflow-x-hidden gap-3 md:gap-4"
               style={{ scrollBehavior: 'auto' }}
             >
               {row1Photos.map((photo, index) => (
                 <div
                   key={index}
-                  className="flex-shrink-0 w-[250px] md:w-[350px] aspect-square rounded-lg overflow-hidden bg-muted border-2 border-border shadow-lg"
+                  className="flex-shrink-0 w-[200px] md:w-[280px] aspect-square rounded-lg overflow-hidden bg-muted border-2 border-border shadow-lg"
                 >
                   <img
                     src={photo.src}
@@ -88,13 +111,14 @@ const LandingPhotos = ({
 
             {/* Row 2 */}
             <div 
-              className="flex overflow-x-hidden gap-4 md:gap-6"
+              ref={scrollContainer2Ref}
+              className="flex overflow-x-hidden gap-3 md:gap-4"
               style={{ scrollBehavior: 'auto' }}
             >
               {row2Photos.map((photo, index) => (
                 <div
                   key={index}
-                  className="flex-shrink-0 w-[250px] md:w-[350px] aspect-square rounded-lg overflow-hidden bg-muted border-2 border-border shadow-lg"
+                  className="flex-shrink-0 w-[200px] md:w-[280px] aspect-square rounded-lg overflow-hidden bg-muted border-2 border-border shadow-lg"
                 >
                   <img
                     src={photo.src}
