@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import SectionDivider from "./SectionDivider";
 
 interface TrainingVideo {
@@ -16,6 +17,55 @@ const LandingVideos = ({
   subtitle = "See our elite development program in action",
   videos
 }: LandingVideosProps) => {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    let animationFrameId: number;
+    let scrollPosition = 0;
+    const scrollSpeed = 0.5; // pixels per frame
+
+    const autoScroll = () => {
+      if (!container) return;
+
+      scrollPosition += scrollSpeed;
+
+      // Reset scroll position when reaching the end (seamless loop)
+      if (scrollPosition >= container.scrollWidth / 2) {
+        scrollPosition = 0;
+      }
+
+      container.scrollLeft = scrollPosition;
+      animationFrameId = requestAnimationFrame(autoScroll);
+    };
+
+    // Start auto-scroll
+    animationFrameId = requestAnimationFrame(autoScroll);
+
+    // Pause on hover
+    const handleMouseEnter = () => {
+      cancelAnimationFrame(animationFrameId);
+    };
+
+    const handleMouseLeave = () => {
+      animationFrameId = requestAnimationFrame(autoScroll);
+    };
+
+    container.addEventListener('mouseenter', handleMouseEnter);
+    container.addEventListener('mouseleave', handleMouseLeave);
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+      container.removeEventListener('mouseenter', handleMouseEnter);
+      container.removeEventListener('mouseleave', handleMouseLeave);
+    };
+  }, []);
+
+  // Duplicate videos for seamless loop
+  const duplicatedVideos = [...videos, ...videos];
+
   return (
     <>
       <SectionDivider />
@@ -31,13 +81,16 @@ const LandingVideos = ({
             </p>
           </div>
 
-          {/* Mobile: Horizontal Scroll */}
-          <div className="md:hidden overflow-x-auto pb-4 -mx-4 px-4 scrollbar-hide">
-            <div className="flex gap-3" style={{ width: 'max-content' }}>
-              {videos.map((video, index) => (
+          {/* Auto-scrolling container */}
+          <div 
+            ref={scrollContainerRef}
+            className="overflow-x-hidden pb-4 -mx-4 px-4 scrollbar-hide"
+          >
+            <div className="flex gap-3 md:gap-4" style={{ width: 'max-content' }}>
+              {duplicatedVideos.map((video, index) => (
                 <div
                   key={index}
-                  className="flex-shrink-0 w-[85vw] aspect-[9/16] rounded-lg overflow-hidden bg-muted"
+                  className="flex-shrink-0 w-[70vw] md:w-[280px] aspect-[9/16] rounded-lg overflow-hidden bg-muted"
                 >
                   <video
                     src={video.src}
@@ -52,24 +105,10 @@ const LandingVideos = ({
             </div>
           </div>
 
-          {/* Desktop: Horizontal Layout */}
-          <div className="hidden md:flex md:gap-6 md:justify-center">
-            {videos.map((video, index) => (
-              <div
-                key={index}
-                className="w-full max-w-[280px] aspect-[9/16] rounded-lg overflow-hidden bg-muted hover:scale-105 transition-transform duration-300"
-              >
-                <video
-                  src={video.src}
-                  className="w-full h-full object-cover"
-                  loop
-                  muted
-                  playsInline
-                  autoPlay
-                />
-              </div>
-            ))}
-          </div>
+          {/* Hint text */}
+          <p className="text-center text-sm text-muted-foreground font-oswald mt-4">
+            Hover to pause
+          </p>
         </div>
       </section>
     </>

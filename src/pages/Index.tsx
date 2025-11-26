@@ -140,7 +140,13 @@ const Index = () => {
         videos={[
           { src: "/training-video-01.mp4", alt: "LPA training session in action" },
           { src: "/training-video-02.mp4", alt: "LPA athlete development training" },
-          { src: "/training-video-03.mp4", alt: "LPA facility training footage" }
+          { src: "/training-video-03.mp4", alt: "LPA facility training footage" },
+          { src: "/training-video-04.mp4", alt: "LPA athlete hitting practice" },
+          { src: "/training-video-05.mp4", alt: "LPA pitching mechanics work" },
+          { src: "/training-video-06.mp4", alt: "LPA strength and conditioning" },
+          { src: "/training-video-07.mp4", alt: "LPA athlete development session" },
+          { src: "/training-video-08.mp4", alt: "LPA team training environment" },
+          { src: "/training-video-09.mp4", alt: "LPA advanced training techniques" }
         ]}
       />
 
