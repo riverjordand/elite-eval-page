@@ -46,6 +46,7 @@ const LandingTestimonials = ({ title, subtitle, testimonials }: LandingTestimoni
                       className="w-full h-full object-cover"
                       preload="metadata"
                       playsInline
+                      poster={testimonial.videoUrl.replace('.mp4', '-thumb.jpg')}
                     >
                       <source src={testimonial.videoUrl} type="video/mp4" />
                       Your browser does not support the video tag.
@@ -74,7 +75,7 @@ const LandingTestimonials = ({ title, subtitle, testimonials }: LandingTestimoni
           </div>
 
           {/* Desktop: Grid Layout */}
-          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="hidden md:grid md:grid-cols-3 gap-6">
             {testimonials.map((testimonial, index) => (
               <div 
                 key={index}
@@ -88,6 +89,7 @@ const LandingTestimonials = ({ title, subtitle, testimonials }: LandingTestimoni
                     className="w-full h-full object-cover"
                     preload="metadata"
                     playsInline
+                    poster={testimonial.videoUrl.replace('.mp4', '-thumb.jpg')}
                   >
                     <source src={testimonial.videoUrl} type="video/mp4" />
                     Your browser does not support the video tag.
