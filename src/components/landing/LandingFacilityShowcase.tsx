@@ -36,7 +36,7 @@ const LandingFacilityShowcase = ({ title, subtitle, areas }: LandingFacilityShow
                   {areas.map((area, index) => (
                     <div 
                       key={index}
-                      className="flex-shrink-0 w-[85vw] bg-card border-2 border-border rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300 animate-fade-in snap-center"
+                      className="group flex-shrink-0 w-[85vw] bg-card border-[3px] border-border rounded-xl overflow-hidden shadow-lg hover:border-primary/60 hover:shadow-xl hover:scale-[1.02] transition-all duration-300 animate-fade-in snap-center"
                       style={{ animationDelay: `${index * 100}ms` }}
                     >
                       {/* Image */}
@@ -45,7 +45,7 @@ const LandingFacilityShowcase = ({ title, subtitle, areas }: LandingFacilityShow
                           <img 
                             src={area.image} 
                             alt={`${area.title} at LPA`}
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                           />
                         ) : (
                           <>
@@ -86,7 +86,7 @@ const LandingFacilityShowcase = ({ title, subtitle, areas }: LandingFacilityShow
             {areas.map((area, index) => (
               <div 
                 key={index}
-                className="bg-card border-2 border-border rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300 animate-fade-in"
+                className="group bg-card border-[3px] border-border rounded-xl overflow-hidden shadow-lg hover:border-primary/60 hover:shadow-xl hover:scale-[1.02] transition-all duration-300 animate-fade-in"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 {/* Image */}
@@ -95,7 +95,7 @@ const LandingFacilityShowcase = ({ title, subtitle, areas }: LandingFacilityShow
                     <img 
                       src={area.image} 
                       alt={`${area.title} at LPA`}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                   ) : (
                     <>
