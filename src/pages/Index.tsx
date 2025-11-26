@@ -25,7 +25,7 @@ const Index = () => {
         ctaPrimary="Claim My Free Evaluation"
         spotsLeft={10}
       />
-      <SectionDivider variant="angle-down" color="#1a1a1a" />
+      <SectionDivider variant="angle-down" />
 
       {/* INTRO - About LPA */}
       <LandingIntro
@@ -37,7 +37,7 @@ const Index = () => {
         ]}
         highlight="We don't just train athletes. We build college-ready players with the skills, metrics, and recruiting support needed to compete at the next level."
       />
-      <SectionDivider variant="angle-down" color="#0a0a0a" />
+      <SectionDivider variant="angle-down" />
 
       {/* OFFER SECTION #1 - What's Included */}
       <LandingIncluded
@@ -72,7 +72,7 @@ const Index = () => {
         ctaText="Book My Free Evaluation Now"
         valueStatement="Normally $350 Value - Yours Free"
       />
-      <SectionDivider variant="angle-down" color="#1a1a1a" />
+      <SectionDivider variant="angle-down" />
 
       {/* LPA SECTION #1 - The Facility */}
       <LandingFacilityShowcase
@@ -121,7 +121,7 @@ const Index = () => {
           }
         ]}
       />
-      <SectionDivider variant="angle-down" color="#0a0a0a" />
+      <SectionDivider variant="angle-down" />
 
       {/* OFFER SECTION #2 - How It Works */}
       <LandingProcess
@@ -151,7 +151,7 @@ const Index = () => {
         ]}
         ctaText="Claim Your Evaluation Now"
       />
-      <SectionDivider variant="angle-down" color="#1a1a1a" />
+      <SectionDivider variant="angle-down" />
 
       {/* LPA SECTION #2 - The Coaches */}
       <LandingCoaches
@@ -190,7 +190,7 @@ const Index = () => {
           }
         ]}
       />
-      <SectionDivider variant="angle-down" color="#0a0a0a" />
+      <SectionDivider variant="angle-down" />
 
       {/* OFFER SECTION #3 - Social Proof */}
       <LandingSocialProof
@@ -216,7 +216,7 @@ const Index = () => {
           }
         ]}
       />
-      <SectionDivider variant="angle-down" color="#1a1a1a" />
+      <SectionDivider variant="angle-down" />
 
       {/* LPA SECTION #3 - Player Commitments */}
       <LandingCommitments
@@ -235,7 +235,7 @@ const Index = () => {
           { name: "Isaiah Brown", position: "1B", school: "University of San Diego", year: "2025" }
         ]}
       />
-      <SectionDivider variant="angle-down" color="#0a0a0a" />
+      <SectionDivider variant="angle-down" />
 
       {/* ATHLETES IN ACTION - Photo Gallery */}
       <LandingAthletes
@@ -252,7 +252,7 @@ const Index = () => {
           { category: "Celebration", caption: "Commitment day at LPA" }
         ]}
       />
-      <SectionDivider variant="angle-down" color="#1a1a1a" />
+      <SectionDivider variant="angle-down" />
 
       {/* OFFER SECTION #4 - FAQ */}
       <LandingFAQ
@@ -284,7 +284,7 @@ const Index = () => {
           }
         ]}
       />
-      <SectionDivider variant="angle-down" color="#0a0a0a" />
+      <SectionDivider variant="angle-down" />
 
       {/* FINAL CTA */}
       <LandingFinalCTA
