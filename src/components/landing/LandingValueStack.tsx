@@ -71,10 +71,10 @@ const LandingValueStack = ({ onCtaClick }: LandingValueStackProps) => {
           <div className="max-w-5xl mx-auto">
             {/* Section Header */}
             <div className="text-center mb-8 md:mb-12">
-              <h2 className="text-3xl sm:text-4xl md:text-6xl font-bebas font-black uppercase mb-3 md:mb-4">
+              <h2 className="text-3xl sm:text-4xl md:text-6xl font-bebas font-black uppercase mb-4 md:mb-6">
                 What's Included in Your Free Evaluation
               </h2>
-              <p className="text-base md:text-xl text-muted-foreground font-oswald max-w-3xl mx-auto">
+              <p className="text-sm md:text-xl text-muted-foreground font-oswald max-w-3xl mx-auto leading-relaxed">
                 These are the exact evaluations D1 coaches use to diagnose what's holding a player back — and what will finally move them forward.
               </p>
             </div>
@@ -89,26 +89,26 @@ const LandingValueStack = ({ onCtaClick }: LandingValueStackProps) => {
                   className="md:contents"
                 >
                   {/* Mobile: Collapsible Card */}
-                  <div className="md:hidden bg-card border-2 border-border rounded-xl overflow-hidden animate-fade-in">
+                  <div className="md:hidden bg-card border-2 border-border rounded-2xl overflow-hidden animate-fade-in hover:border-primary/30 transition-all">
                     <CollapsibleTrigger className="w-full p-4 flex items-center justify-between gap-3 text-left">
                       <div className="flex-1 min-w-0">
-                        <h3 className="text-base font-bebas uppercase text-foreground leading-tight">
+                        <h3 className="text-sm font-bebas uppercase text-foreground leading-tight tracking-wide">
                           {item.title}
                         </h3>
                       </div>
-                      <div className="flex items-center gap-2 shrink-0">
-                        <span className="inline-block px-2.5 py-0.5 bg-background border border-border rounded-lg text-foreground font-bebas text-sm">
+                      <div className="flex items-center gap-2.5 shrink-0">
+                        <span className="inline-block px-3 py-1 bg-background border border-border rounded-lg text-foreground font-bebas text-base">
                           ${item.value}
                         </span>
                         <ChevronDown 
-                          className={`h-5 w-5 text-muted-foreground transition-transform duration-200 ${
+                          className={`h-4 w-4 text-muted-foreground transition-transform duration-200 ${
                             openItems.includes(index) ? 'rotate-180' : ''
                           }`}
                         />
                       </div>
                     </CollapsibleTrigger>
-                    <CollapsibleContent className="px-4 pb-4">
-                      <p className="text-sm text-muted-foreground font-oswald leading-relaxed">
+                    <CollapsibleContent className="px-4 pb-4 pt-1">
+                      <p className="text-xs text-muted-foreground font-oswald leading-relaxed">
                         {item.description}
                       </p>
                     </CollapsibleContent>
@@ -142,14 +142,14 @@ const LandingValueStack = ({ onCtaClick }: LandingValueStackProps) => {
 
             {/* Value Summary Box */}
             <div className="max-w-2xl mx-auto text-center">
-              <div className="bg-card border-2 border-primary/50 rounded-xl p-6 md:p-8">
-                <p className="text-lg md:text-2xl text-muted-foreground font-oswald mb-2">
+              <div className="bg-card border-2 border-primary/40 rounded-2xl p-8 md:p-10">
+                <p className="text-base md:text-xl text-muted-foreground font-oswald mb-2 tracking-wide">
                   Total Value:
                 </p>
-                <p className="text-4xl md:text-6xl font-bebas font-black text-foreground mb-4">
+                <p className="text-5xl md:text-7xl font-bebas font-black text-foreground mb-4 md:mb-6">
                   ${totalValue}
                 </p>
-                <p className="text-2xl md:text-4xl font-bebas font-black text-primary uppercase">
+                <p className="text-2xl md:text-4xl font-bebas font-black text-primary uppercase tracking-wider">
                   Yours Free Today
                 </p>
               </div>
