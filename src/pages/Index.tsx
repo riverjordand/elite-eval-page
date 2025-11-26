@@ -1,10 +1,11 @@
 import Navigation from "@/components/Navigation";
 import LandingHero from "@/components/landing/LandingHero";
 import LandingIncluded from "@/components/landing/LandingIncluded";
-import LandingAuthority from "@/components/landing/LandingAuthority";
-import LandingProgram from "@/components/landing/LandingProgram";
-import LandingSocialProof from "@/components/landing/LandingSocialProof";
+import LandingFacilityShowcase from "@/components/landing/LandingFacilityShowcase";
 import LandingProcess from "@/components/landing/LandingProcess";
+import LandingCoaches from "@/components/landing/LandingCoaches";
+import LandingSocialProof from "@/components/landing/LandingSocialProof";
+import LandingCommitments from "@/components/landing/LandingCommitments";
 import LandingFAQ from "@/components/landing/LandingFAQ";
 import LandingFinalCTA from "@/components/landing/LandingFinalCTA";
 import LandingFooter from "@/components/landing/LandingFooter";
@@ -13,6 +14,8 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
+      
+      {/* HERO - Intro about LPA + Offer */}
       <LandingHero
         headline="Is Your Athlete College-Ready? Find Out in 90 Minutes"
         subheadline="Get a complete breakdown of where your athlete stands today and exactly what it takes to play at the next level—completely free."
@@ -20,6 +23,7 @@ const Index = () => {
         spotsLeft={10}
       />
 
+      {/* OFFER SECTION #1 - What's Included */}
       <LandingIncluded
         title="What's Included in Your Free Evaluation"
         subtitle="Everything you need to know about your athlete's current level and development path"
@@ -53,76 +57,55 @@ const Index = () => {
         valueStatement="Normally $350 Value - Yours Free"
       />
 
-      <LandingAuthority
-        title="Why Parents Trust LPA With Their Athlete's Future"
-        description="Arizona's premier baseball development academy with a proven track record of getting athletes to the next level"
-        stats={[
-          { icon: "trophy", number: "50+", label: "College Commitments" },
-          { icon: "users", number: "200+", label: "Athletes Developed" },
-          { icon: "trending", number: "15+ MPH", label: "Average Velo Gains" }
-        ]}
-        credentials={[
-          "Former D1 & Professional Players on Staff",
-          "Certified Strength & Conditioning Specialists",
-          "Rapsodo & HitTrax Certified Coaches",
-          "MLB Scout Advisory Board",
-          "Sports Medicine & PT Partnership",
-          "College Recruiting Network Access"
-        ]}
-      />
-
-      <LandingProgram
-        subtitle="What Happens After The Evaluation"
-        title="Train Like A College Athlete Today"
-        description="LPA's elite training programs combine advanced technology, expert coaching, and proven development systems to transform high school athletes into college-ready players."
-        features={[
+      {/* LPA SECTION #1 - The Facility */}
+      <LandingFacilityShowcase
+        title="Where Elite Athletes Train"
+        subtitle="16,000 square feet of professional-grade training space designed for maximum development"
+        areas={[
           {
-            icon: "target",
-            title: "Position-Specific Training",
-            description: "Customized development plans for pitchers, hitters, and fielders using data-driven approaches. Every session is tailored to your athlete's specific needs and goals."
+            title: "Training Area",
+            description: "State-of-the-art hitting and pitching areas with the latest technology for real-time data analysis.",
+            specs: [
+              "Rapsodo Pitching & Hitting Units",
+              "HitTrax Motion Capture System",
+              "Edgertronic High-Speed Cameras",
+              "Professional Turf Surfaces"
+            ]
           },
           {
-            icon: "calendar",
-            title: "Year-Round Development",
-            description: "Structured training cycles designed around the high school season. Off-season strength building, pre-season preparation, and in-season performance maintenance."
+            title: "Strength & Conditioning",
+            description: "Fully equipped performance center focused on baseball-specific strength, power, and injury prevention.",
+            specs: [
+              "Olympic Lifting Platforms",
+              "Plyometric Training Equipment",
+              "Speed & Agility Stations",
+              "Recovery & Mobility Zone"
+            ]
           },
           {
-            icon: "users",
-            title: "Small Group & 1-on-1 Options",
-            description: "Choose between semi-private training (3-5 athletes) for competitive energy or private sessions for maximum individual attention from D1/Pro coaches."
+            title: "Video Analysis Room",
+            description: "Dedicated space for detailed video breakdown and athlete education using professional software.",
+            specs: [
+              "Multi-Angle Video Capture",
+              "Frame-by-Frame Analysis Tools",
+              "Side-by-Side Comparison Tech",
+              "Individual Video Libraries"
+            ]
           },
           {
-            icon: "award",
-            title: "College Recruiting Support",
-            description: "Showcase video creation, recruiting profile development, college coach connections, and guidance through the commitment process from evaluation to signing day."
+            title: "Sports Medicine",
+            description: "On-site partnership with certified physical therapists and athletic trainers for injury prevention and recovery.",
+            specs: [
+              "Pre-Season Screenings",
+              "Injury Prevention Programs",
+              "Rehabilitation Protocols",
+              "Performance Recovery Plans"
+            ]
           }
         ]}
       />
 
-      <LandingSocialProof
-        title="What Parents & Athletes Are Saying"
-        testimonials={[
-          {
-            quote: "The evaluation showed us exactly where my son needed to improve. Within 6 months at LPA, he gained 8 mph and committed to U of A.",
-            author: "Mike Rodriguez",
-            role: "Parent of D1 Commit",
-            result: "Committed to University of Arizona"
-          },
-          {
-            quote: "We tried 3 other facilities before finding LPA. The difference is night and day - these coaches actually know what they're doing.",
-            author: "Jennifer Martinez",
-            role: "Parent of Junior Pitcher",
-            result: "12 MPH Velocity Increase"
-          },
-          {
-            quote: "The free evaluation opened our eyes. We had no idea what college coaches were looking for. LPA gave us a clear path forward.",
-            author: "David Thompson",
-            role: "Parent of Sophomore",
-            result: "Multiple D2 Offers"
-          }
-        ]}
-      />
-
+      {/* OFFER SECTION #2 - How It Works */}
       <LandingProcess
         title="How It Works"
         subtitle="Simple 4-step process to get your athlete evaluated"
@@ -151,6 +134,88 @@ const Index = () => {
         ctaText="Claim Your Evaluation Now"
       />
 
+      {/* LPA SECTION #2 - The Coaches */}
+      <LandingCoaches
+        title="Meet The Coaching Staff"
+        subtitle="Learn from coaches who've played and coached at the highest levels"
+        coaches={[
+          {
+            name: "Coach Marcus",
+            title: "Director of Pitching",
+            credentials: [
+              "Former D1 Pitcher - Arizona State",
+              "10+ Years Coaching Experience",
+              "Rapsodo Certified Instructor",
+              "50+ Pitchers to College Programs"
+            ]
+          },
+          {
+            name: "Coach David",
+            title: "Director of Hitting",
+            credentials: [
+              "Former Professional Player",
+              "MLB Scout Consultant",
+              "HitTrax Master Trainer",
+              "Specialized in Swing Mechanics"
+            ]
+          },
+          {
+            name: "Coach Sarah",
+            title: "Strength & Conditioning",
+            credentials: [
+              "CSCS Certified",
+              "Sports Performance Specialist",
+              "Injury Prevention Expert",
+              "Former D1 Athlete"
+            ]
+          }
+        ]}
+      />
+
+      {/* OFFER SECTION #3 - Social Proof */}
+      <LandingSocialProof
+        title="What Parents & Athletes Are Saying"
+        testimonials={[
+          {
+            quote: "The evaluation showed us exactly where my son needed to improve. Within 6 months at LPA, he gained 8 mph and committed to U of A.",
+            author: "Mike Rodriguez",
+            role: "Parent of D1 Commit",
+            result: "Committed to University of Arizona"
+          },
+          {
+            quote: "We tried 3 other facilities before finding LPA. The difference is night and day - these coaches actually know what they're doing.",
+            author: "Jennifer Martinez",
+            role: "Parent of Junior Pitcher",
+            result: "12 MPH Velocity Increase"
+          },
+          {
+            quote: "The free evaluation opened our eyes. We had no idea what college coaches were looking for. LPA gave us a clear path forward.",
+            author: "David Thompson",
+            role: "Parent of Sophomore",
+            result: "Multiple D2 Offers"
+          }
+        ]}
+      />
+
+      {/* LPA SECTION #3 - Player Commitments */}
+      <LandingCommitments
+        title="Where Our Athletes Go"
+        subtitle="Recent commitments from LPA-trained athletes"
+        totalCount="50+"
+        commitments={[
+          { name: "Jake Morrison", position: "RHP", school: "University of Arizona", year: "2025" },
+          { name: "Tyler Chen", position: "SS", school: "Arizona State University", year: "2025" },
+          { name: "Marcus Johnson", position: "OF", school: "Grand Canyon University", year: "2024" },
+          { name: "Ryan Foster", position: "C", school: "UC San Diego", year: "2024" },
+          { name: "Alex Rivera", position: "LHP", school: "University of New Mexico", year: "2025" },
+          { name: "Brandon Lee", position: "3B", school: "Cal State Fullerton", year: "2024" },
+          { name: "Daniel Santos", position: "RHP", school: "Gonzaga University", year: "2025" },
+          { name: "Connor Walsh", position: "OF", school: "Santa Clara University", year: "2024" },
+          { name: "Isaiah Brown", position: "1B", school: "University of San Diego", year: "2025" }
+        ]}
+      />
+
+      {/* OFFER SECTION #4 - FAQ */}
       <LandingFAQ
         title="Common Questions"
         faqs={[
@@ -181,6 +246,7 @@ const Index = () => {
         ]}
       />
 
+      {/* FINAL CTA */}
       <LandingFinalCTA
         title="Only 10 Spots Available This Week"
         urgency="Filling Fast"
