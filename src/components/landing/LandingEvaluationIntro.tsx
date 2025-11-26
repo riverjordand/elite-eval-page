@@ -26,8 +26,8 @@ const LandingEvaluationIntro = () => {
                 </p>
               </div>
 
-              {/* Athlete Training Image - Hidden on mobile */}
-              <div className="hidden md:block rounded-xl overflow-hidden border-2 border-primary/30">
+              {/* Athlete Training Image */}
+              <div className="rounded-xl overflow-hidden border-2 border-primary/30">
                 <img 
                   src={evaluationImage} 
                   alt="Athlete training at LPA facility"
