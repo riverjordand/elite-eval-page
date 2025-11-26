@@ -52,14 +52,7 @@ const Index = () => {
       />
 
       {/* INTRO - About LPA */}
-      <LandingIntro
-        subtitle="Arizona's Premier Baseball Academy"
-        title="Welcome To Legendary Prep Academy"
-        description={[
-          "For over a decade, LPA has been Arizona's destination for serious high school baseball players. We've helped hundreds of athletes gain velocity, refine mechanics, and earn opportunities to play at the next level.",
-        ]}
-        highlight="We build college-ready players with the skills, metrics, and recruiting support needed to compete at the next level."
-      />
+      <LandingIntro />
 
       {/* LPA SECTION #1 - The Facility */}
       <LandingFacilityShowcase
