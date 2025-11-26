@@ -9,7 +9,6 @@ import {
 
 interface IncludedItem {
   title: string;
-  preview: string;
   description: string;
   value: number;
 }
@@ -32,37 +31,31 @@ const LandingValueStack = ({ onCtaClick }: LandingValueStackProps) => {
   const includedItems: IncludedItem[] = [
     {
       title: "Advanced Metrics Testing",
-      preview: "Find out your athlete's real velocity ceiling and college-ready numbers.",
       description: "Find out your athlete's real velocity ceiling — and exactly what number they need to reach to be considered college-ready. No more guessing where they stand.",
       value: 75
     },
     {
       title: "Complete Mechanics Analysis",
-      preview: "Discover the mechanical flaw costing them power and velocity.",
       description: "Discover the mechanical flaw that's secretly costing them power, consistency, or velocity — and the specific change that will immediately unlock performance.",
       value: 100
     },
     {
       title: "Strength & Mobility Assessment",
-      preview: "Identify the physical weakness limiting speed or power.",
       description: "Identify the physical weakness (ankle, hip, core, shoulder) limiting speed or power. You'll finally know whether the issue is strength, mobility, or mechanics.",
       value: 50
     },
     {
       title: "Coach-Led Development Plan",
-      preview: "Get a clear step-by-step plan from a D1/pro coach.",
       description: "A D1/pro coach maps out a clear step-by-step plan so your athlete knows exactly what to work on this month, next month, and in-season — removing all uncertainty.",
       value: 75
     },
     {
       title: "Personalized 6–12 Month Roadmap",
-      preview: "Leave with a written plan with milestones and timelines.",
       description: "Leave with a written plan that tells you the milestones to hit, the order to train them in, and the timeline to reach \"college-ready\" standards.",
       value: 50
     },
     {
       title: "Full Facility Tour & Q&A",
-      preview: "See the 16,000 sq ft facility where serious players train.",
       description: "See the 16,000 sq ft development space where serious players train — and get answers to anything about recruiting, development, or next-level expectations.",
       value: 50
     }
@@ -97,25 +90,22 @@ const LandingValueStack = ({ onCtaClick }: LandingValueStackProps) => {
                 >
                   {/* Mobile: Collapsible Card */}
                   <div className="md:hidden bg-card border-2 border-border rounded-xl overflow-hidden animate-fade-in">
-                    <CollapsibleTrigger className="w-full p-4 text-left">
-                      <div className="flex items-start justify-between gap-3 mb-2">
-                        <h3 className="text-base font-bebas uppercase text-foreground leading-tight flex-1">
+                    <CollapsibleTrigger className="w-full p-4 flex items-center justify-between gap-3 text-left">
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-base font-bebas uppercase text-foreground leading-tight">
                           {item.title}
                         </h3>
-                        <div className="flex items-center gap-2 shrink-0">
-                          <span className="inline-block px-2.5 py-0.5 bg-background border border-border rounded-lg text-foreground font-bebas text-sm">
-                            ${item.value}
-                          </span>
-                          <ChevronDown 
-                            className={`h-5 w-5 text-muted-foreground transition-transform duration-200 ${
-                              openItems.includes(index) ? 'rotate-180' : ''
-                            }`}
-                          />
-                        </div>
                       </div>
-                      <p className="text-xs text-muted-foreground font-oswald leading-relaxed pr-8">
-                        {item.preview}
-                      </p>
+                      <div className="flex items-center gap-2 shrink-0">
+                        <span className="inline-block px-2.5 py-0.5 bg-background border border-border rounded-lg text-foreground font-bebas text-sm">
+                          ${item.value}
+                        </span>
+                        <ChevronDown 
+                          className={`h-5 w-5 text-muted-foreground transition-transform duration-200 ${
+                            openItems.includes(index) ? 'rotate-180' : ''
+                          }`}
+                        />
+                      </div>
                     </CollapsibleTrigger>
                     <CollapsibleContent className="px-4 pb-4">
                       <p className="text-sm text-muted-foreground font-oswald leading-relaxed">
