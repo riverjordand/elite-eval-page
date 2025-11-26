@@ -1,5 +1,6 @@
 import Navigation from "@/components/Navigation";
 import LandingHero from "@/components/landing/LandingHero";
+import LandingIntro from "@/components/landing/LandingIntro";
 import LandingIncluded from "@/components/landing/LandingIncluded";
 import LandingFacilityShowcase from "@/components/landing/LandingFacilityShowcase";
 import LandingProcess from "@/components/landing/LandingProcess";
@@ -15,12 +16,23 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      {/* HERO - Intro about LPA + Offer */}
+      {/* HERO */}
       <LandingHero
         headline="Is Your Athlete College-Ready? Find Out in 90 Minutes"
         subheadline="Get a complete breakdown of where your athlete stands today and exactly what it takes to play at the next level—completely free."
         ctaPrimary="Claim My Free Evaluation"
         spotsLeft={10}
+      />
+
+      {/* INTRO - About LPA */}
+      <LandingIntro
+        subtitle="Arizona's Premier Baseball Academy"
+        title="Welcome To Legendary Prep Academy"
+        description={[
+          "For over a decade, LPA has been the destination for Arizona's most serious high school baseball players. We've helped hundreds of athletes gain velocity, refine mechanics, build strength, and ultimately earn opportunities to play at the next level.",
+          "Our approach combines elite-level coaching from former D1 and professional players, cutting-edge technology like Rapsodo and HitTrax, and a proven development system that's produced 50+ college commitments and counting."
+        ]}
+        highlight="We don't just train athletes. We build college-ready players with the skills, metrics, and recruiting support needed to compete at the next level."
       />
 
       {/* OFFER SECTION #1 - What's Included */}
