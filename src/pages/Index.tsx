@@ -243,11 +243,11 @@ const Index = () => {
         ]}
       />
 
-      {/* SECTION A - Evaluation Hook (Performance Gaps Transition) */}
-      <LandingEvaluationHook onCtaClick={() => setFormOpen(true)} />
-
-      {/* SECTION B - Problem Agitation */}
+      {/* SECTION A - Problem Agitation (Cost of Not Knowing) */}
       <LandingProblemAgitation />
+
+      {/* SECTION B - Evaluation Hook (Performance Gaps Transition) */}
+      <LandingEvaluationHook onCtaClick={() => setFormOpen(true)} />
 
       {/* SECTION C - Value Stack (What's Included) */}
       <LandingValueStack onCtaClick={() => setFormOpen(true)} />
