@@ -23,13 +23,13 @@ const Hero = () => {
           
           <div className="relative z-10 mb-6">
             <h1 className="font-bebas uppercase leading-[0.75] animate-fade-in tracking-tight text-white text-center font-black">
-              <span className="block text-4xl md:text-6xl lg:text-[7rem] xl:text-[8.5rem] whitespace-nowrap">Developing Elite</span>
-              <span className="block text-3xl md:text-5xl lg:text-[5.8rem] xl:text-[7rem] text-primary">Student-Athletes</span>
-              <span className="block text-3xl md:text-5xl lg:text-[5.5rem] xl:text-[6.5rem]">For The Next Level</span>
+              <span className="block text-5xl md:text-7xl lg:text-[8rem] xl:text-[10rem] whitespace-nowrap">Developing Elite</span>
+              <span className="block text-4xl md:text-6xl lg:text-[6.5rem] xl:text-[8rem] text-primary">Student-Athletes</span>
+              <span className="block text-4xl md:text-6xl lg:text-[6rem] xl:text-[7.5rem]">For The Next Level</span>
             </h1>
           </div>
           
-          <p className="font-oswald text-lg md:text-xl lg:text-2xl text-white mb-8 max-w-2xl mx-auto animate-fade-in font-semibold tracking-wide uppercase" style={{
+          <p className="font-oswald text-base md:text-lg lg:text-xl text-white mb-8 max-w-2xl mx-auto animate-fade-in font-semibold tracking-wide uppercase" style={{
           animationDelay: "0.2s"
         }}>
             Get a complete evaluation of your athlete's strengths, weaknesses, and college-ready potential.
