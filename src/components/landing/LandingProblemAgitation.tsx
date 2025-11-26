@@ -26,8 +26,8 @@ const LandingProblemAgitation = () => {
 
   return (
     <>
-      <SectionDivider fromColor="#0a0a0a" toColor="#1a1a1a" />
-      <section className="py-12 md:py-20 bg-[#1a1a1a]">
+      <SectionDivider fromColor="#1a1a1a" toColor="#0a0a0a" />
+      <section className="py-12 md:py-20 bg-[#0a0a0a]">
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-5xl mx-auto">
             {/* Header */}
