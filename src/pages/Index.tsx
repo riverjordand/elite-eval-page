@@ -117,7 +117,7 @@ const Index = () => {
       {/* TRAINING VIDEOS SECTION */}
       <LandingVideos
         title="Training In Motion"
-        subtitle="See our elite development program in action"
+        subtitle="The energy, the culture, the work — everything here pushes players to grow faster than they have anywhere else."
         videos={[
           { src: "/training-video-01.mp4", alt: "LPA training session in action" },
           { src: "/training-video-02.mp4", alt: "LPA athlete development training" },
