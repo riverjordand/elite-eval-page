@@ -24,6 +24,8 @@ const LandingVideos = ({
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
   const [selectedVideoIndex, setSelectedVideoIndex] = useState<number | null>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [isUserInteracting, setIsUserInteracting] = useState(false);
+  const interactionTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   // Play videos when they mount on mobile
   useEffect(() => {
@@ -44,11 +46,11 @@ const LandingVideos = ({
     if (!container) return;
 
     let animationFrameId: number;
-    let scrollPosition = 0;
+    let scrollPosition = container.scrollLeft;
     const scrollSpeed = 0.25;
 
     const autoScroll = () => {
-      if (!container) return;
+      if (!container || isUserInteracting) return;
 
       scrollPosition += scrollSpeed;
 
@@ -61,11 +63,50 @@ const LandingVideos = ({
       animationFrameId = requestAnimationFrame(autoScroll);
     };
 
-    // Start auto-scroll immediately - never stops
+    // Start auto-scroll
     animationFrameId = requestAnimationFrame(autoScroll);
 
     return () => {
       cancelAnimationFrame(animationFrameId);
+    };
+  }, [isUserInteracting]);
+
+  // Handle user interaction
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    const handleInteractionStart = () => {
+      setIsUserInteracting(true);
+      if (interactionTimeoutRef.current) {
+        clearTimeout(interactionTimeoutRef.current);
+      }
+    };
+
+    const handleInteractionEnd = () => {
+      if (interactionTimeoutRef.current) {
+        clearTimeout(interactionTimeoutRef.current);
+      }
+      interactionTimeoutRef.current = setTimeout(() => {
+        setIsUserInteracting(false);
+      }, 1500);
+    };
+
+    container.addEventListener('touchstart', handleInteractionStart);
+    container.addEventListener('touchend', handleInteractionEnd);
+    container.addEventListener('scroll', handleInteractionStart);
+    container.addEventListener('mousedown', handleInteractionStart);
+    container.addEventListener('mouseup', handleInteractionEnd);
+
+    return () => {
+      container.removeEventListener('touchstart', handleInteractionStart);
+      container.removeEventListener('touchend', handleInteractionEnd);
+      container.removeEventListener('scroll', handleInteractionStart);
+      container.removeEventListener('mousedown', handleInteractionStart);
+      container.removeEventListener('mouseup', handleInteractionEnd);
+      if (interactionTimeoutRef.current) {
+        clearTimeout(interactionTimeoutRef.current);
+      }
     };
   }, []);
 
