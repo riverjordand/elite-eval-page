@@ -161,21 +161,19 @@ const LandingFacilityShowcase = ({ title, subtitle, areas, onCtaClick }: Landing
           </div>
 
           {/* CTA Section */}
-          <div className="mt-12 md:mt-16 text-center px-4">
-            <div className="bg-card border-2 border-primary/30 rounded-xl p-6 md:p-10 max-w-3xl mx-auto">
-              <p className="text-sm sm:text-base md:text-lg text-foreground font-oswald leading-relaxed mb-4 md:mb-6">
-                Ready to see this level of development in person?
-              </p>
-              <p className="text-sm sm:text-base md:text-lg text-muted-foreground font-oswald leading-relaxed mb-6 md:mb-8">
-                Your athlete's free evaluation includes a full walkthrough of the facility, a breakdown of their performance, and a personalized development plan built by our coaching staff.
-              </p>
-              <button
-                onClick={onCtaClick}
-                className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 md:px-12 py-4 md:py-5 rounded-lg font-bebas text-xl md:text-2xl uppercase tracking-wider transition-all duration-300 hover:scale-105 shadow-lg"
-              >
-                → Book Your Free Evaluation
-              </button>
-            </div>
+          <div className="mt-12 md:mt-16 text-center max-w-3xl mx-auto px-4">
+            <p className="text-base md:text-lg text-foreground font-oswald mb-2 leading-relaxed">
+              Ready to see this level of development in person?
+            </p>
+            <p className="text-sm md:text-base text-muted-foreground font-oswald mb-6 md:mb-8 leading-relaxed">
+              Your athlete's free evaluation includes a full walkthrough of the facility, a breakdown of their performance, and a personalized development plan built by our coaching staff.
+            </p>
+            <button
+              onClick={onCtaClick}
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 md:px-12 py-4 md:py-5 rounded-lg font-bebas text-xl md:text-2xl uppercase tracking-wider transition-all duration-300 hover:scale-105 shadow-lg"
+            >
+              → Book Your Free Evaluation
+            </button>
           </div>
         </div>
       </div>
