@@ -21,8 +21,20 @@ const LandingVideos = ({
   videos
 }: LandingVideosProps) => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
   const [selectedVideoIndex, setSelectedVideoIndex] = useState<number | null>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+  // Play videos when they mount on mobile
+  useEffect(() => {
+    videoRefs.current.forEach((video) => {
+      if (video) {
+        video.play().catch(() => {
+          // Ignore autoplay errors - browser may block it
+        });
+      }
+    });
+  }, []);
 
   useEffect(() => {
     const container = scrollContainerRef.current;
@@ -143,12 +155,15 @@ const LandingVideos = ({
                 className="flex-shrink-0 w-[70vw] md:w-[350px] aspect-[9/16] rounded-lg overflow-hidden bg-muted cursor-pointer hover:opacity-90 transition-opacity"
               >
                 <video
+                  ref={(el) => { videoRefs.current[index] = el; }}
                   src={video.src}
                   className="w-full h-full object-cover"
                   loop
                   muted
                   playsInline
                   autoPlay
+                  preload="auto"
+                  webkit-playsinline="true"
                 />
               </div>
             ))}
