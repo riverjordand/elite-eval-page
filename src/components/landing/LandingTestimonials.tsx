@@ -75,7 +75,7 @@ const LandingTestimonials = ({ title, subtitle, testimonials }: LandingTestimoni
           </div>
 
           {/* Desktop: Grid Layout */}
-          <div className="hidden md:grid md:grid-cols-4 gap-8">
+          <div className="hidden md:grid md:grid-cols-4 gap-6">
             {testimonials.map((testimonial, index) => (
               <div 
                 key={index}
