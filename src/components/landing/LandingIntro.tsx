@@ -18,7 +18,7 @@ const LandingIntro = () => {
           {/* Two Column Layout - Text Left, Image Right */}
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             {/* Left Column - Text Content */}
-            <div className="space-y-5 md:space-y-6">
+            <div className="space-y-5 md:space-y-6 text-center md:text-left">
               <p className="text-sm sm:text-base md:text-xl text-muted-foreground font-oswald leading-relaxed">
                 LPA is where Arizona's most driven baseball athletes train to reach the next level — whether that's high-level varsity, college baseball, or pro development.
               </p>

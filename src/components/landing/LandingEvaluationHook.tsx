@@ -23,7 +23,7 @@ const LandingEvaluationHook = ({ onCtaClick }: LandingEvaluationHookProps) => {
             </div>
 
             {/* Right Column - Text Content */}
-            <div>
+            <div className="text-center md:text-left">
               <h2 className="text-2xl sm:text-3xl md:text-6xl font-bebas font-black uppercase mb-3 md:mb-6 leading-tight">
                 Most Parents Can't See What's Holding Their Athlete Back
               </h2>

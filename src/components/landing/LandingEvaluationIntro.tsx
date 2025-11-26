@@ -14,7 +14,7 @@ const LandingEvaluationIntro = () => {
           <div className="max-w-6xl mx-auto">
             <div className="space-y-6 md:space-y-0 md:grid md:grid-cols-2 md:gap-12 md:items-center">
               {/* Text Content */}
-              <div>
+              <div className="text-center md:text-left">
                 <h3 className="text-2xl sm:text-3xl md:text-5xl font-bebas font-black uppercase mb-3 md:mb-6 leading-tight text-primary">
                   The Free College-Ready Player Evaluation
                 </h3>
