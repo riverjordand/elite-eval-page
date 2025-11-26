@@ -20,7 +20,7 @@ const LandingTestimonials = ({ title, subtitle, testimonials }: LandingTestimoni
       <SectionDivider fromColor="#1a1a1a" toColor="#0a0a0a" />
       <section className="py-12 md:py-24 bg-[#0a0a0a] relative">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="max-w-6xl mx-auto">
+        <div className="mx-auto">
           {/* Header */}
           <div className="text-center mb-8 md:mb-12">
             <h2 className="text-3xl sm:text-4xl md:text-6xl font-bebas font-black uppercase mb-3 md:mb-4 px-4">
