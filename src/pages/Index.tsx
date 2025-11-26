@@ -163,7 +163,17 @@ const Index = () => {
           { src: "/action-25.jpg", alt: "Pitcher ready position at sunset" },
           { src: "/action-26.jpg", alt: "Runner sprinting to base" },
           { src: "/action-27.jpg", alt: "Player in dugout focused before game" },
-          { src: "/action-28.jpg", alt: "Pitcher walking on field under stadium lights" }
+          { src: "/action-28.jpg", alt: "Pitcher walking on field under stadium lights" },
+          { src: "/action-29.jpg", alt: "Coach instructing team huddle on field" },
+          { src: "/action-30.jpg", alt: "Team lined up listening to coach instruction" },
+          { src: "/action-31.jpg", alt: "Runners on base during game" },
+          { src: "/action-32.jpg", alt: "Player setting up pitching machine" },
+          { src: "/action-33.jpg", alt: "Infielder in ready defensive position" },
+          { src: "/action-34.jpg", alt: "Outfielder tracking fly ball" },
+          { src: "/action-35.jpg", alt: "Batter with red helmet watching pitch" },
+          { src: "/action-36.jpg", alt: "Infielder throwing to first base" },
+          { src: "/action-37.jpg", alt: "Batter power swing follow-through" },
+          { src: "/action-38.jpg", alt: "Infielder fielding ground ball at third" }
         ]}
       />
 
