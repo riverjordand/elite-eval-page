@@ -202,16 +202,23 @@ const Admin = () => {
         </div>
 
         {/* Submissions Table */}
-        <div className="bg-card border-2 border-border rounded-xl overflow-hidden">
-          <div className="p-6 border-b border-border">
-            <h2 className="text-2xl font-bebas font-bold uppercase tracking-wide">
-              Lead Submissions
-            </h2>
+        <div className="bg-card border-2 border-border rounded-xl overflow-hidden shadow-lg">
+          <div className="px-6 py-5 border-b-2 border-border bg-secondary/30">
+            <div className="flex items-center justify-between">
+              <div>
+                <h2 className="text-2xl font-bebas font-bold uppercase tracking-wide">
+                  Lead Submissions
+                </h2>
+                <p className="text-sm text-muted-foreground font-oswald mt-1">
+                  {submissions.length} total submission{submissions.length !== 1 ? 's' : ''}
+                </p>
+              </div>
+            </div>
           </div>
           
-          <div className="p-6">
+          <div className="p-0">
             {submissions.length === 0 ? (
-              <div className="text-center py-12">
+              <div className="text-center py-16 px-6">
                 <Users className="w-16 h-16 text-muted-foreground mx-auto mb-4 opacity-50" />
                 <p className="text-muted-foreground font-oswald text-lg">
                   No submissions yet.
@@ -221,47 +228,71 @@ const Admin = () => {
               <div className="overflow-x-auto">
                 <Table>
                   <TableHeader>
-                    <TableRow className="border-border hover:bg-transparent">
-                      <TableHead className="font-bebas text-base uppercase">Date</TableHead>
-                      <TableHead className="font-bebas text-base uppercase">Parent</TableHead>
-                      <TableHead className="font-bebas text-base uppercase">Player</TableHead>
-                      <TableHead className="font-bebas text-base uppercase">Age/Grade</TableHead>
-                      <TableHead className="font-bebas text-base uppercase">Email</TableHead>
-                      <TableHead className="font-bebas text-base uppercase">Phone</TableHead>
-                      <TableHead className="font-bebas text-base uppercase">Goal</TableHead>
-                      <TableHead className="font-bebas text-base uppercase">Source</TableHead>
+                    <TableRow className="border-b-2 border-border hover:bg-transparent bg-secondary/20">
+                      <TableHead className="font-bebas text-sm uppercase tracking-wider py-4 px-6">Date</TableHead>
+                      <TableHead className="font-bebas text-sm uppercase tracking-wider py-4 px-6">Parent</TableHead>
+                      <TableHead className="font-bebas text-sm uppercase tracking-wider py-4 px-6">Player Info</TableHead>
+                      <TableHead className="font-bebas text-sm uppercase tracking-wider py-4 px-6">Contact</TableHead>
+                      <TableHead className="font-bebas text-sm uppercase tracking-wider py-4 px-6">Goal</TableHead>
+                      <TableHead className="font-bebas text-sm uppercase tracking-wider py-4 px-6">Source</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
-                    {submissions.map((submission) => (
+                    {submissions.map((submission, index) => (
                       <TableRow 
                         key={submission.id}
-                        className="border-border hover:bg-secondary/50 transition-colors"
+                        className={`border-border hover:bg-primary/5 transition-all duration-200 ${
+                          index % 2 === 0 ? 'bg-background' : 'bg-secondary/10'
+                        }`}
                       >
-                        <TableCell className="font-oswald">
-                          {new Date(submission.created_at).toLocaleDateString()}
+                        <TableCell className="font-oswald py-5 px-6">
+                          <div className="flex flex-col">
+                            <span className="font-semibold">
+                              {new Date(submission.created_at).toLocaleDateString('en-US', { 
+                                month: 'short', 
+                                day: 'numeric',
+                                year: 'numeric'
+                              })}
+                            </span>
+                            <span className="text-xs text-muted-foreground">
+                              {new Date(submission.created_at).toLocaleTimeString('en-US', { 
+                                hour: 'numeric', 
+                                minute: '2-digit'
+                              })}
+                            </span>
+                          </div>
                         </TableCell>
-                        <TableCell className="font-oswald font-semibold">
+                        <TableCell className="font-oswald font-semibold py-5 px-6">
                           {submission.parent_name}
                         </TableCell>
-                        <TableCell className="font-oswald">
-                          {submission.player_name}
+                        <TableCell className="font-oswald py-5 px-6">
+                          <div className="flex flex-col">
+                            <span className="font-semibold">{submission.player_name}</span>
+                            <span className="text-sm text-muted-foreground">{submission.player_age}</span>
+                          </div>
                         </TableCell>
-                        <TableCell className="font-oswald">
-                          {submission.player_age}
+                        <TableCell className="font-oswald py-5 px-6">
+                          <div className="flex flex-col gap-1">
+                            <a 
+                              href={`mailto:${submission.email}`}
+                              className="text-sm hover:text-primary transition-colors hover:underline"
+                            >
+                              {submission.email}
+                            </a>
+                            <a 
+                              href={`tel:${submission.phone}`}
+                              className="text-sm text-muted-foreground hover:text-primary transition-colors hover:underline"
+                            >
+                              {submission.phone}
+                            </a>
+                          </div>
                         </TableCell>
-                        <TableCell className="font-oswald text-sm">
-                          {submission.email}
-                        </TableCell>
-                        <TableCell className="font-oswald text-sm">
-                          {submission.phone}
-                        </TableCell>
-                        <TableCell>
-                          <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-oswald font-semibold bg-primary/10 text-primary capitalize">
+                        <TableCell className="py-5 px-6">
+                          <span className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-oswald font-bold bg-primary text-primary-foreground capitalize shadow-sm">
                             {submission.primary_goal.replace(/-/g, " ")}
                           </span>
                         </TableCell>
-                        <TableCell className="font-oswald text-sm capitalize">
+                        <TableCell className="font-oswald text-sm capitalize py-5 px-6 text-muted-foreground">
                           {submission.lead_magnet_source.replace(/-/g, " ")}
                         </TableCell>
                       </TableRow>
