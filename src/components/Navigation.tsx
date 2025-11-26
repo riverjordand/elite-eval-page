@@ -13,26 +13,26 @@ const Navigation = () => {
           />
           
           <div className="hidden md:flex items-center gap-8">
-            <a href="#home" className="text-foreground hover:text-primary transition-colors">
+            <a href="#home" className="text-foreground hover:text-primary transition-colors font-oswald uppercase tracking-wide">
               Home
             </a>
-            <a href="#advantages" className="text-foreground hover:text-primary transition-colors">
+            <a href="#advantages" className="text-foreground hover:text-primary transition-colors font-oswald uppercase tracking-wide">
               The Academy
             </a>
-            <a href="#staff" className="text-foreground hover:text-primary transition-colors">
+            <a href="#staff" className="text-foreground hover:text-primary transition-colors font-oswald uppercase tracking-wide">
               Meet The Staff
             </a>
-            <a href="#commitments" className="text-foreground hover:text-primary transition-colors">
+            <a href="#commitments" className="text-foreground hover:text-primary transition-colors font-oswald uppercase tracking-wide">
               Success Stories
             </a>
-            <a href="#contact" className="text-foreground hover:text-primary transition-colors">
+            <a href="#contact" className="text-foreground hover:text-primary transition-colors font-oswald uppercase tracking-wide">
               Contact Us
             </a>
           </div>
 
           <Button 
             size="lg" 
-            className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold uppercase tracking-wider border-glow"
+            className="bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-wider border-glow"
           >
             Book Now
           </Button>

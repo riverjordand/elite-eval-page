@@ -12,14 +12,14 @@ const Footer = () => {
               alt="Legendary Prep Academy" 
               className="h-10 w-auto mb-4"
             />
-            <p className="text-muted-foreground mb-6 leading-relaxed">
+            <p className="text-muted-foreground mb-6 leading-relaxed font-oswald">
               Arizona's first and only professional baseball prep academy. Developing elite student-athletes for college and professional baseball.
             </p>
           </div>
 
           <div>
-            <h4 className="text-lg font-bold uppercase mb-4 text-primary">Quick Links</h4>
-            <ul className="space-y-3">
+            <h4 className="text-lg font-bebas font-bold uppercase mb-4 text-primary">Quick Links</h4>
+            <ul className="space-y-3 font-oswald">
               <li>
                 <a href="#home" className="text-muted-foreground hover:text-primary transition-colors">
                   Home
@@ -44,8 +44,8 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-lg font-bold uppercase mb-4 text-primary">Contact</h4>
-            <ul className="space-y-4">
+            <h4 className="text-lg font-bebas font-bold uppercase mb-4 text-primary">Contact</h4>
+            <ul className="space-y-4 font-oswald">
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
                 <span className="text-muted-foreground">
@@ -70,14 +70,14 @@ const Footer = () => {
 
         <div className="border-t border-border pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-muted-foreground text-sm">
+            <p className="text-muted-foreground text-sm font-oswald">
               © 2024 Legendary Prep Academy. All rights reserved.
             </p>
             <div className="flex gap-6">
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">
+              <a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm font-oswald">
                 Privacy Policy
               </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">
+              <a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm font-oswald">
                 Terms of Service
               </a>
             </div>

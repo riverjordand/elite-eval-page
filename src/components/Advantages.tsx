@@ -28,10 +28,10 @@ const Advantages = () => {
     <section id="advantages" className="py-24 bg-secondary">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-black uppercase mb-4">
+          <h2 className="text-5xl md:text-6xl font-bebas font-black uppercase mb-4">
             The <span className="text-primary">Legendary</span> Advantage
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-oswald">
             What sets us apart as Arizona's first and only professional baseball prep academy
           </p>
         </div>
@@ -49,11 +49,11 @@ const Advantages = () => {
                 </div>
               </div>
               
-              <h3 className="text-2xl font-bold uppercase mb-4 text-foreground">
+              <h3 className="text-2xl font-bebas font-bold uppercase mb-4 text-foreground">
                 {advantage.title}
               </h3>
               
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-muted-foreground leading-relaxed font-oswald">
                 {advantage.description}
               </p>
             </div>
