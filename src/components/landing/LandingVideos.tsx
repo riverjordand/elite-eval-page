@@ -24,34 +24,72 @@ const LandingVideos = ({
   const [selectedVideoIndex, setSelectedVideoIndex] = useState<number | null>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [isUserScrolling, setIsUserScrolling] = useState(false);
+  const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Smooth continuous pixel scroll
+  // Smooth continuous pixel scroll with manual scroll support
   useEffect(() => {
     const container = scrollContainerRef.current;
     if (!container) return;
 
     let animationFrameId: number;
-    let scrollPosition = 0;
+    let scrollPosition = container.scrollLeft;
     const scrollSpeed = 0.5; // Smooth continuous scroll
 
     const continuousScroll = () => {
-      scrollPosition += scrollSpeed;
-      
-      // Reset when reaching halfway (seamless loop with duplicated content)
-      if (scrollPosition >= container.scrollWidth / 2) {
-        scrollPosition = 0;
+      // Only auto-scroll if user is not manually scrolling
+      if (!isUserScrolling) {
+        scrollPosition += scrollSpeed;
+        
+        // Reset when reaching halfway (seamless loop with duplicated content)
+        if (scrollPosition >= container.scrollWidth / 2) {
+          scrollPosition = 0;
+        }
+        
+        container.scrollLeft = scrollPosition;
+      } else {
+        // Sync our scroll position with user's manual scroll
+        scrollPosition = container.scrollLeft;
       }
       
-      container.scrollLeft = scrollPosition;
       animationFrameId = requestAnimationFrame(continuousScroll);
     };
 
     animationFrameId = requestAnimationFrame(continuousScroll);
 
+    // Handle manual scroll/touch interaction
+    const handleInteractionStart = () => {
+      setIsUserScrolling(true);
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+    };
+
+    const handleInteractionEnd = () => {
+      // Resume auto-scroll after 2 seconds of no interaction
+      scrollTimeoutRef.current = setTimeout(() => {
+        setIsUserScrolling(false);
+      }, 2000);
+    };
+
+    container.addEventListener('touchstart', handleInteractionStart);
+    container.addEventListener('touchend', handleInteractionEnd);
+    container.addEventListener('mousedown', handleInteractionStart);
+    container.addEventListener('mouseup', handleInteractionEnd);
+    container.addEventListener('scroll', handleInteractionStart);
+
     return () => {
       cancelAnimationFrame(animationFrameId);
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+      container.removeEventListener('touchstart', handleInteractionStart);
+      container.removeEventListener('touchend', handleInteractionEnd);
+      container.removeEventListener('mousedown', handleInteractionStart);
+      container.removeEventListener('mouseup', handleInteractionEnd);
+      container.removeEventListener('scroll', handleInteractionStart);
     };
-  }, []);
+  }, [isUserScrolling]);
 
   // Play videos when they mount on mobile
   useEffect(() => {
