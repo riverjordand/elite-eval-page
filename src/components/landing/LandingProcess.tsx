@@ -15,7 +15,7 @@ interface LandingProcessProps {
 
 const LandingProcess = ({ title, subtitle, steps, ctaText }: LandingProcessProps) => {
   return (
-    <section className="py-12 md:py-24 bg-secondary/30 relative">
+    <section className="py-12 md:py-24 bg-[#1a1a1a] relative">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-5xl mx-auto">
           {/* Title */}

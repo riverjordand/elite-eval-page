@@ -14,7 +14,7 @@ interface LandingSocialProofProps {
 
 const LandingSocialProof = ({ title, testimonials }: LandingSocialProofProps) => {
   return (
-    <section className="py-12 md:py-24 bg-background relative">
+    <section className="py-12 md:py-24 bg-[#1a1a1a] relative">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-6xl mx-auto">
           {/* Title */}

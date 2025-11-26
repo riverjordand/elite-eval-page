@@ -12,7 +12,7 @@ interface LandingCoachesProps {
 
 const LandingCoaches = ({ title, subtitle, coaches }: LandingCoachesProps) => {
   return (
-    <section className="py-12 md:py-24 bg-background relative">
+    <section className="py-12 md:py-24 bg-[#0a0a0a] relative">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
