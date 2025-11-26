@@ -65,6 +65,7 @@ export default {
       },
       fontFamily: {
         'bebas': ['Bebas Neue', 'sans-serif'],
+        'montserrat': ['Montserrat', 'sans-serif'],
       },
       keyframes: {
         "accordion-down": {
