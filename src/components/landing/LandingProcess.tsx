@@ -18,16 +18,16 @@ const LandingProcess = ({ title, subtitle, steps, ctaText }: LandingProcessProps
   return (
     <>
       <SectionDivider fromColor="#1a1a1a" toColor="#0a0a0a" />
-      <section className="py-16 md:py-24 bg-[#0a0a0a] relative">
+      <section className="py-16 md:py-32 bg-[#0a0a0a] relative">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-5xl mx-auto">
           {/* Title */}
-          <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-7xl lg:text-8xl font-bebas font-black uppercase mb-3 md:mb-6 px-4">
+          <div className="text-center mb-14 md:mb-20">
+            <h2 className="text-3xl sm:text-4xl md:text-7xl lg:text-8xl font-bebas font-black uppercase mb-5 md:mb-10 px-4 leading-[0.95]">
               {title}
             </h2>
             {subtitle && (
-              <p className="text-sm sm:text-base md:text-2xl lg:text-3xl text-muted-foreground font-oswald px-2">
+              <p className="text-sm sm:text-base md:text-2xl lg:text-3xl text-muted-foreground font-oswald px-2 leading-relaxed">
                 {subtitle}
               </p>
             )}
@@ -53,11 +53,11 @@ const LandingProcess = ({ title, subtitle, steps, ctaText }: LandingProcessProps
                   </div>
 
                   {/* Content */}
-                  <div className="bg-card border-2 border-border rounded-lg p-4 md:p-8 flex-1 flex flex-col hover:border-primary/50 transition-all duration-300">
-                    <h3 className="text-base md:text-2xl lg:text-3xl font-bebas font-bold uppercase mb-2 md:mb-4 text-foreground">
+                  <div className="bg-card border-2 border-border rounded-lg p-6 md:p-10 flex-1 flex flex-col hover:border-primary/50 transition-all duration-300">
+                    <h3 className="text-base md:text-2xl lg:text-3xl font-bebas font-bold uppercase mb-3 md:mb-6 text-foreground leading-tight">
                       {step.title}
                     </h3>
-                    <p className="text-muted-foreground font-oswald text-xs md:text-xl lg:text-2xl leading-relaxed flex-1">
+                    <p className="text-muted-foreground font-oswald text-xs md:text-xl lg:text-2xl leading-relaxed md:leading-relaxed flex-1">
                       {step.description}
                     </p>
                   </div>

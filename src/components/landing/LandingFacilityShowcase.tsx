@@ -17,15 +17,15 @@ const LandingFacilityShowcase = ({ title, subtitle, areas }: LandingFacilityShow
   return (
     <>
       <SectionDivider fromColor="#1a1a1a" toColor="#0a0a0a" />
-      <section className="py-12 md:py-24 bg-[#0a0a0a] relative">
+      <section className="py-16 md:py-32 bg-[#0a0a0a] relative">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-8 md:mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-7xl lg:text-8xl font-bebas font-black uppercase mb-3 md:mb-6 px-4">
+          <div className="text-center mb-10 md:mb-20">
+            <h2 className="text-3xl sm:text-4xl md:text-7xl lg:text-8xl font-bebas font-black uppercase mb-5 md:mb-10 px-4 leading-[0.95]">
               {title}
             </h2>
-            <p className="text-sm sm:text-base md:text-2xl lg:text-3xl text-muted-foreground font-oswald max-w-4xl mx-auto px-2">
+            <p className="text-sm sm:text-base md:text-2xl lg:text-3xl text-muted-foreground font-oswald max-w-4xl mx-auto px-2 leading-relaxed">
               {subtitle}
             </p>
           </div>
@@ -110,18 +110,18 @@ const LandingFacilityShowcase = ({ title, subtitle, areas }: LandingFacilityShow
                 </div>
                 
                 {/* Content */}
-                <div className="p-8">
-                  <h3 className="text-3xl md:text-4xl lg:text-5xl font-bebas font-black uppercase mb-4 text-primary">
+                <div className="p-8 md:p-10">
+                  <h3 className="text-3xl md:text-4xl lg:text-5xl font-bebas font-black uppercase mb-5 md:mb-7 text-primary leading-tight">
                     {area.title}
                   </h3>
-                  <p className="text-base md:text-xl lg:text-2xl text-foreground font-oswald mb-6 leading-relaxed">
+                  <p className="text-base md:text-xl lg:text-2xl text-foreground font-oswald mb-7 md:mb-9 leading-relaxed">
                     {area.description}
                   </p>
-                  <ul className="space-y-3">
+                  <ul className="space-y-4 md:space-y-5">
                     {area.specs.map((spec, specIndex) => (
-                      <li key={specIndex} className="flex items-start gap-3">
-                        <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0" />
-                        <span className="text-muted-foreground font-oswald text-sm md:text-lg lg:text-xl">{spec}</span>
+                      <li key={specIndex} className="flex items-start gap-3 md:gap-4">
+                        <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0" />
+                        <span className="text-muted-foreground font-oswald text-sm md:text-lg lg:text-xl leading-relaxed">{spec}</span>
                       </li>
                     ))}
                   </ul>
@@ -131,19 +131,19 @@ const LandingFacilityShowcase = ({ title, subtitle, areas }: LandingFacilityShow
           </div>
 
           {/* Facility Stats */}
-          <div className="mt-8 md:mt-16 bg-card border-2 border-primary/30 rounded-xl p-6 md:p-10">
-            <div className="grid grid-cols-3 gap-4 md:gap-8 text-center">
+          <div className="mt-12 md:mt-20 bg-card border-2 border-primary/30 rounded-xl p-8 md:p-14">
+            <div className="grid grid-cols-3 gap-6 md:gap-12 text-center">
               <div>
-                <div className="text-3xl sm:text-4xl md:text-5xl font-bebas font-black text-primary mb-1 md:mb-2">16K+</div>
-                <p className="text-muted-foreground font-oswald uppercase text-xs md:text-sm">Square Feet</p>
+                <div className="text-3xl sm:text-4xl md:text-5xl font-bebas font-black text-primary mb-2 md:mb-4">16K+</div>
+                <p className="text-muted-foreground font-oswald uppercase text-xs md:text-base leading-relaxed">Square Feet</p>
               </div>
               <div>
-                <div className="text-3xl sm:text-4xl md:text-5xl font-bebas font-black text-primary mb-1 md:mb-2">365</div>
-                <p className="text-muted-foreground font-oswald uppercase text-xs md:text-sm">Days Open</p>
+                <div className="text-3xl sm:text-4xl md:text-5xl font-bebas font-black text-primary mb-2 md:mb-4">365</div>
+                <p className="text-muted-foreground font-oswald uppercase text-xs md:text-base leading-relaxed">Days Open</p>
               </div>
               <div>
-                <div className="text-xl sm:text-2xl md:text-5xl font-bebas font-black text-primary mb-1 md:mb-2">Pro</div>
-                <p className="text-muted-foreground font-oswald uppercase text-xs md:text-sm">Technology</p>
+                <div className="text-xl sm:text-2xl md:text-5xl font-bebas font-black text-primary mb-2 md:mb-4">Pro</div>
+                <p className="text-muted-foreground font-oswald uppercase text-xs md:text-base leading-relaxed">Technology</p>
               </div>
             </div>
           </div>
