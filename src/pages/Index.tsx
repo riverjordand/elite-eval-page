@@ -242,9 +242,9 @@ const Index = () => {
           },
           {
             videoUrl: "/testimonials/parent-testimonial-3.mp4",
-            parentName: "Parent Testimonial",
-            athleteName: "Jett",
-            quote: "What he knew about himself was brought to the forefront here. Jett has really excelled in the school portion of it. He's being pushed every day in the classroom, you know, by the teachers online and the teacher that's in class with them. You know, for young kids that love baseball and are really trying to make this, you know, either what they do in college or professionally, for them to have like those little gains every day and see the progress that they're making. As for parents, it's great for us too to see that they're starting to achieve some of those."
+            parentName: "LPA Parents",
+            athleteName: "Multiple Families",
+            quote: "Through this first year, we've seen incredible gains with Cash, not only on the baseball side, but just the physical on the strength side. The interesting thing for me has been the schools that were interested in Will calling this school to kind of learn about not only Will, but learn about what kind of program this is. The confidence and authority that is taught here by the coaches has helped Connor outside LPA. I was absolutely like in love with it. Everything, you know, state of the art. It's definitely eye opening to see in person. One of the big things that we were really excited about was kind of the speed and the strength and how hard that is to get outside of either another private facility, after school hours, driving him to and from. Just the way he's grown as a human here. This was just a big step above what he was used to and what he knew about himself was brought to the forefront here. Jett has really excelled in the school portion of it. He's being pushed every day in the classroom by the teachers online and the teacher that's in class with them. For young kids that love baseball and are really trying to make this what they do in college or professionally, for them to have like those little gains every day and see the progress that they're making. As for parents, it's great for us too to see that they're starting to achieve some of those."
           }
         ]}
       />
