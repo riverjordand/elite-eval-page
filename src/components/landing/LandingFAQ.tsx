@@ -25,11 +25,11 @@ const LandingFAQ = ({ title, faqs }: LandingFAQProps) => {
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-3xl sm:text-4xl md:text-6xl font-bebas font-black uppercase mb-4 md:mb-6 px-4">
-              {title}
+            <h2 className="text-3xl sm:text-4xl md:text-6xl font-bebas font-black uppercase mb-3 md:mb-4 px-4">
+              Common Questions From Parents
             </h2>
             <p className="text-base md:text-lg text-muted-foreground font-oswald px-4">
-              Parents usually ask these before booking — so we answered them for you.
+              Everything you need to know about the evaluation and next steps.
             </p>
           </div>
 
