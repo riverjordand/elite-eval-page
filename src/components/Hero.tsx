@@ -22,10 +22,10 @@ const Hero = () => {
       <div className="relative z-10 container mx-auto px-6 text-center">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-center justify-center gap-8 mb-6">
-            <h1 className="font-bebas uppercase leading-[0.9] animate-fade-in tracking-tight text-white">
-              <span className="block text-7xl md:text-9xl lg:text-[11rem]">Developing Elite</span>
-              <span className="block text-6xl md:text-8xl lg:text-[9rem] text-primary font-black">Student-Athletes</span>
-              <span className="block text-5xl md:text-7xl lg:text-[7rem]">For The Next Level</span>
+            <h1 className="font-bebas uppercase leading-[0.85] animate-fade-in tracking-tight text-white text-center">
+              <span className="block text-6xl md:text-8xl lg:text-[10rem] xl:text-[12rem]">Developing Elite</span>
+              <span className="block text-5xl md:text-7xl lg:text-[8rem] xl:text-[10rem] text-primary font-black">Student-Athletes</span>
+              <span className="block text-4xl md:text-6xl lg:text-[6rem] xl:text-[8rem]">For The Next Level</span>
             </h1>
             <img 
               src={logoBolt} 
