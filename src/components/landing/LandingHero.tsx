@@ -17,9 +17,20 @@ const LandingHero = ({
   spotsLeft = 10
 }: LandingHeroProps) => {
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center bg-gradient-to-b from-background via-background to-secondary/20 overflow-hidden">
-      {/* Background accent */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent" />
+    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+      {/* Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src="/hero-training.mp4" type="video/mp4" />
+      </video>
+      
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/90 to-background/95" />
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
