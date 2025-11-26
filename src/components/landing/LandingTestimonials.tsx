@@ -37,7 +37,7 @@ const LandingTestimonials = ({ title, subtitle, testimonials }: LandingTestimoni
               {testimonials.map((testimonial, index) => (
                 <div 
                   key={index}
-                  className="flex-shrink-0 w-[75vw] bg-card border-2 border-border rounded-lg overflow-hidden"
+                  className="flex-shrink-0 w-[65vw] bg-card border-2 border-border rounded-lg overflow-hidden"
                 >
                   {/* Video - Vertical aspect ratio */}
                   <div className="relative aspect-[9/16] bg-black">
@@ -54,13 +54,13 @@ const LandingTestimonials = ({ title, subtitle, testimonials }: LandingTestimoni
                   </div>
 
                   {/* Caption */}
-                  <div className="p-3">
-                    <p className="text-sm text-muted-foreground font-oswald italic mb-2 leading-relaxed">
+                  <div className="p-2.5">
+                    <p className="text-xs text-muted-foreground font-oswald italic mb-2 leading-relaxed line-clamp-3">
                       "{testimonial.quote}"
                     </p>
                     <div className="flex items-center gap-2">
                       <div>
-                        <p className="text-sm font-bebas uppercase text-foreground">
+                        <p className="text-xs font-bebas uppercase text-foreground">
                           {testimonial.parentName}
                         </p>
                         <p className="text-xs text-primary font-oswald">
