@@ -9,6 +9,13 @@ const LandingEvaluationHook = ({ onCtaClick }: LandingEvaluationHookProps) => {
     <section className="py-12 md:py-20 bg-[#0a0a0a]">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-4xl mx-auto space-y-8 md:space-y-12">
+          {/* Purple Badge */}
+          <div className="flex justify-center">
+            <span className="inline-block px-6 py-2.5 bg-primary/20 border-2 border-primary/40 rounded-full text-primary font-bebas text-sm md:text-base uppercase tracking-wider">
+              The College-Ready Player Evaluation
+            </span>
+          </div>
+
           {/* Top Headline & Body */}
           <div className="text-center space-y-4 md:space-y-6">
             <h2 className="text-2xl sm:text-3xl md:text-5xl font-bebas font-black uppercase leading-tight px-2">
