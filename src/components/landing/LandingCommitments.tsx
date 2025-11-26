@@ -2,9 +2,8 @@ import { GraduationCap } from "lucide-react";
 
 interface Commitment {
   name: string;
-  position: string;
   school: string;
-  year: string;
+  image: string;
 }
 
 interface LandingCommitmentsProps {
@@ -39,32 +38,72 @@ const LandingCommitments = ({ title, subtitle, commitments, totalCount }: Landin
             </p>
           </div>
 
-          {/* Commitments Grid */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 mb-8 md:mb-12">
-            {commitments.map((commitment, index) => (
-              <div 
-                key={index}
-                className="bg-card border-2 border-border rounded-lg p-3 md:p-6 hover:border-primary/50 transition-all duration-300 animate-fade-in"
-                style={{ animationDelay: `${index * 50}ms` }}
-              >
-                <div className="flex items-start gap-2 md:gap-4">
-                  <div className="flex-shrink-0 w-8 h-8 md:w-12 md:h-12 bg-primary/10 rounded-full flex items-center justify-center">
-                    <GraduationCap className="w-4 h-4 md:w-6 md:h-6 text-primary" />
+          {/* Mobile: Horizontal Scroll Gallery | Desktop: Grid */}
+          <div className="md:hidden overflow-x-auto -mx-4 px-4 pb-4 mb-8">
+            <div className="flex gap-3" style={{ width: 'max-content' }}>
+              {commitments.map((commitment, index) => (
+                <div 
+                  key={index}
+                  className="flex-shrink-0 w-72 bg-card border-2 border-border rounded-lg overflow-hidden hover:border-primary/50 transition-all duration-300"
+                >
+                  {/* Commitment Photo */}
+                  <div className="w-full aspect-square relative overflow-hidden">
+                    <img 
+                      src={commitment.image} 
+                      alt={`${commitment.name} - ${commitment.school}`}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
-                  <div>
-                    <h3 className="font-bebas text-sm md:text-lg uppercase text-foreground mb-0.5 md:mb-1">
+
+                  {/* Caption */}
+                  <div className="p-3">
+                    <p className="text-sm font-bebas uppercase text-primary mb-1">
                       {commitment.name}
-                    </h3>
-                    <p className="text-xs md:text-sm text-muted-foreground font-oswald mb-1 md:mb-2">
-                      {commitment.position} • {commitment.year}
                     </p>
-                    <p className="text-primary font-oswald font-semibold text-xs md:text-sm">
+                    <p className="text-xs text-muted-foreground font-oswald leading-relaxed">
                       {commitment.school}
                     </p>
                   </div>
                 </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Desktop: Grid Layout */}
+          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8 md:mb-12">
+            {commitments.map((commitment, index) => (
+              <div 
+                key={index}
+                className="bg-card border-2 border-border rounded-lg overflow-hidden hover:border-primary/50 transition-all duration-300 animate-fade-in"
+                style={{ animationDelay: `${index * 50}ms` }}
+              >
+                {/* Commitment Photo */}
+                <div className="w-full aspect-square relative overflow-hidden">
+                  <img 
+                    src={commitment.image} 
+                    alt={`${commitment.name} - ${commitment.school}`}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+
+                {/* Caption */}
+                <div className="p-4">
+                  <p className="text-sm font-bebas uppercase text-primary mb-1">
+                    {commitment.name}
+                  </p>
+                  <p className="text-xs text-muted-foreground font-oswald leading-relaxed">
+                    {commitment.school}
+                  </p>
+                </div>
               </div>
             ))}
+          </div>
+
+          {/* Swipe Indicator (Mobile Only) */}
+          <div className="md:hidden text-center mb-8">
+            <p className="text-xs text-muted-foreground font-oswald italic">
+              ← Swipe to see more →
+            </p>
           </div>
 
           {/* CTA Context */}

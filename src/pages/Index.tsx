@@ -6,7 +6,7 @@ import LandingFacilityShowcase from "@/components/landing/LandingFacilityShowcas
 import LandingProcess from "@/components/landing/LandingProcess";
 import LandingCoaches from "@/components/landing/LandingCoaches";
 import LandingCommitments from "@/components/landing/LandingCommitments";
-import LandingAthletes from "@/components/landing/LandingAthletes";
+
 import LandingFAQ from "@/components/landing/LandingFAQ";
 import LandingFinalCTA from "@/components/landing/LandingFinalCTA";
 import LandingFooter from "@/components/landing/LandingFooter";
@@ -225,30 +225,13 @@ const Index = () => {
       {/* LPA SECTION #3 - Player Commitments */}
       <LandingCommitments
         title="Where Our Athletes Go"
-        subtitle="Recent commitments from LPA-trained athletes"
+        subtitle="LPA athletes signing with top college programs"
         totalCount="50+"
         commitments={[
-          { name: "Jake Morrison", position: "RHP", school: "University of Arizona", year: "2025" },
-          { name: "Tyler Chen", position: "SS", school: "Arizona State University", year: "2025" },
-          { name: "Marcus Johnson", position: "OF", school: "Grand Canyon University", year: "2024" },
-          { name: "Ryan Foster", position: "C", school: "UC San Diego", year: "2024" },
-          { name: "Alex Rivera", position: "LHP", school: "University of New Mexico", year: "2025" },
-          { name: "Brandon Lee", position: "3B", school: "Cal State Fullerton", year: "2024" },
-          { name: "Daniel Santos", position: "RHP", school: "Gonzaga University", year: "2025" },
-          { name: "Connor Walsh", position: "OF", school: "Santa Clara University", year: "2024" },
-          { name: "Isaiah Brown", position: "1B", school: "University of San Diego", year: "2025" }
-        ]}
-      />
-
-      {/* ATHLETES IN ACTION - Photo Gallery */}
-      <LandingAthletes
-        title="Where Our Athletes Go"
-        subtitle="LPA athletes signing with top college programs"
-        photos={[
-          { category: "Commitment", caption: "Preston Francis - Glendale Community College", image: prestonGlendale },
-          { category: "Commitment", caption: "Brayan Paredes Moreno - Southwestern Community College", image: brayanSouthwestern },
-          { category: "Signed", caption: "Preston Francis - Glendale Community College", image: prestonSigned },
-          { category: "Signed", caption: "Miles Keogh - Coastal Carolina", image: milesCoastal }
+          { name: "Preston Francis", school: "Glendale Community College", image: prestonGlendale },
+          { name: "Brayan Paredes Moreno", school: "Southwestern Community College", image: brayanSouthwestern },
+          { name: "Preston Francis", school: "Glendale Community College", image: prestonSigned },
+          { name: "Miles Keogh", school: "Coastal Carolina", image: milesCoastal }
         ]}
       />
 
