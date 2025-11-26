@@ -2,6 +2,7 @@ import Navigation from "@/components/Navigation";
 import LandingHero from "@/components/landing/LandingHero";
 import LandingIncluded from "@/components/landing/LandingIncluded";
 import LandingAuthority from "@/components/landing/LandingAuthority";
+import LandingProgram from "@/components/landing/LandingProgram";
 import LandingSocialProof from "@/components/landing/LandingSocialProof";
 import LandingProcess from "@/components/landing/LandingProcess";
 import LandingFAQ from "@/components/landing/LandingFAQ";
@@ -67,6 +68,34 @@ const Index = () => {
           "MLB Scout Advisory Board",
           "Sports Medicine & PT Partnership",
           "College Recruiting Network Access"
+        ]}
+      />
+
+      <LandingProgram
+        subtitle="What Happens After The Evaluation"
+        title="Train Like A College Athlete Today"
+        description="LPA's elite training programs combine advanced technology, expert coaching, and proven development systems to transform high school athletes into college-ready players."
+        features={[
+          {
+            icon: "target",
+            title: "Position-Specific Training",
+            description: "Customized development plans for pitchers, hitters, and fielders using data-driven approaches. Every session is tailored to your athlete's specific needs and goals."
+          },
+          {
+            icon: "calendar",
+            title: "Year-Round Development",
+            description: "Structured training cycles designed around the high school season. Off-season strength building, pre-season preparation, and in-season performance maintenance."
+          },
+          {
+            icon: "users",
+            title: "Small Group & 1-on-1 Options",
+            description: "Choose between semi-private training (3-5 athletes) for competitive energy or private sessions for maximum individual attention from D1/Pro coaches."
+          },
+          {
+            icon: "award",
+            title: "College Recruiting Support",
+            description: "Showcase video creation, recruiting profile development, college coach connections, and guidance through the commitment process from evaluation to signing day."
+          }
         ]}
       />
 
