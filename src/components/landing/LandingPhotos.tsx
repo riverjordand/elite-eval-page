@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import SectionDivider from "./SectionDivider";
 
 interface ActionPhoto {
@@ -19,16 +19,21 @@ const LandingPhotos = ({
 }: LandingPhotosProps) => {
   const scrollContainer1Ref = useRef<HTMLDivElement>(null);
   const scrollContainer2Ref = useRef<HTMLDivElement>(null);
+  const [isUserInteracting, setIsUserInteracting] = useState(false);
+  const interactionTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   // Auto-scroll for Row 1 - continuous on all devices
   useEffect(() => {
     const scrollContainer = scrollContainer1Ref.current;
     if (!scrollContainer) return;
 
-    let scrollPos = 0;
-    const scrollSpeed = 0.4; // Increased for smoother mobile scroll
+    let scrollPos = scrollContainer.scrollLeft;
+    const scrollSpeed = 0.4;
+    let animationId: number;
 
     const scroll = () => {
+      if (isUserInteracting) return;
+      
       scrollPos += scrollSpeed;
       
       if (scrollPos >= scrollContainer.scrollWidth / 2) {
@@ -36,12 +41,12 @@ const LandingPhotos = ({
       }
       
       scrollContainer.scrollLeft = scrollPos;
-      requestAnimationFrame(scroll);
+      animationId = requestAnimationFrame(scroll);
     };
 
-    const animationId = requestAnimationFrame(scroll);
+    animationId = requestAnimationFrame(scroll);
     return () => cancelAnimationFrame(animationId);
-  }, []);
+  }, [isUserInteracting]);
 
   // Auto-scroll for Row 2 - continuous opposite direction
   useEffect(() => {
@@ -49,9 +54,12 @@ const LandingPhotos = ({
     if (!scrollContainer) return;
 
     let scrollPos = scrollContainer.scrollWidth / 2;
-    const scrollSpeed = 0.4; // Increased for smoother mobile scroll
+    const scrollSpeed = 0.4;
+    let animationId: number;
 
     const scroll = () => {
+      if (isUserInteracting) return;
+      
       scrollPos -= scrollSpeed;
       
       if (scrollPos <= 0) {
@@ -59,11 +67,56 @@ const LandingPhotos = ({
       }
       
       scrollContainer.scrollLeft = scrollPos;
-      requestAnimationFrame(scroll);
+      animationId = requestAnimationFrame(scroll);
     };
 
-    const animationId = requestAnimationFrame(scroll);
+    animationId = requestAnimationFrame(scroll);
     return () => cancelAnimationFrame(animationId);
+  }, [isUserInteracting]);
+
+  // Handle user interaction
+  useEffect(() => {
+    const container1 = scrollContainer1Ref.current;
+    const container2 = scrollContainer2Ref.current;
+    if (!container1 || !container2) return;
+
+    const handleInteractionStart = () => {
+      setIsUserInteracting(true);
+      if (interactionTimeoutRef.current) {
+        clearTimeout(interactionTimeoutRef.current);
+      }
+    };
+
+    const handleInteractionEnd = () => {
+      if (interactionTimeoutRef.current) {
+        clearTimeout(interactionTimeoutRef.current);
+      }
+      interactionTimeoutRef.current = setTimeout(() => {
+        setIsUserInteracting(false);
+      }, 1500);
+    };
+
+    const containers = [container1, container2];
+    containers.forEach(container => {
+      container.addEventListener('touchstart', handleInteractionStart);
+      container.addEventListener('touchend', handleInteractionEnd);
+      container.addEventListener('scroll', handleInteractionStart);
+      container.addEventListener('mousedown', handleInteractionStart);
+      container.addEventListener('mouseup', handleInteractionEnd);
+    });
+
+    return () => {
+      containers.forEach(container => {
+        container.removeEventListener('touchstart', handleInteractionStart);
+        container.removeEventListener('touchend', handleInteractionEnd);
+        container.removeEventListener('scroll', handleInteractionStart);
+        container.removeEventListener('mousedown', handleInteractionStart);
+        container.removeEventListener('mouseup', handleInteractionEnd);
+      });
+      if (interactionTimeoutRef.current) {
+        clearTimeout(interactionTimeoutRef.current);
+      }
+    };
   }, []);
 
   // Split photos into two rows and duplicate for seamless loop
