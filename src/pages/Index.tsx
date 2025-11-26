@@ -150,23 +150,23 @@ const Index = () => {
         coaches={[
           {
             name: "Marcus Rodriguez",
-            title: "Head Coach",
+            title: "Certified Hitting Instructor",
             credentials: [
-              "Former D1 Player - University of Oregon",
+              "Former Division I baseball player at the University of Nevada",
+              "Drafted and played for Arizona Diamondbacks",
               "Certified Bad Ass Hitting Instructor",
-              "10+ years of professional baseball experience",
-              "Specialized in advanced swing mechanics"
+              "10 years of professional baseball experience"
             ],
             image: coachMarcus
           },
           {
             name: "Joe Mejia",
-            title: "Hitting Coach & Outfield Coordinator",
+            title: "Bat Wizard / Head Instructor",
             credentials: [
-              "Former Division I baseball player at the University of Nevada-Reno",
-              "Drafted and played for the Westside Wooly Mammoths",
+              "Certified Bad Ass Hitting Instructor",
+              "Drafted and coached for the Westside Woolly Mammoths",
               "10 years of professional baseball experience",
-              "Certified instructor in hitting development"
+              "Specializes in hitting and defensive development"
             ],
             image: coachJoe
           },
@@ -175,7 +175,7 @@ const Index = () => {
             title: "Pitching Coordinator",
             credentials: [
               "Former Division I baseball player at the University of Nevada-Reno",
-              "Drafted Bad Ass by the Arizona Diamondbacks",
+              "Drafted by the Arizona Diamondbacks",
               "9 years of professional baseball experience",
               "Focus on mechanics and mental game development"
             ],
@@ -186,7 +186,7 @@ const Index = () => {
             title: "Assistant Coach",
             credentials: [
               "Former Division I baseball player at the University of New Mexico",
-              "Extensive experience in coaching and developing youth baseball",
+              "Extensive experience in coaching and developing youth/high school baseball",
               "Specializes in hitting and defensive development",
               "Over 10 years in baseball instruction"
             ],
