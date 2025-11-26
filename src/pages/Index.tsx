@@ -361,16 +361,16 @@ const Index = () => {
             answer: "Plan for 90 minutes total. This includes metrics testing, video analysis, strength assessment, facility tour, and the development plan consultation."
           },
           {
-            question: "What should my athlete bring?",
-            answer: "Athletic wear, cleats or turf shoes, glove, bat (if applicable), and any previous medical/training history. We provide all testing equipment."
+            question: "What makes LPA different from other academies?",
+            answer: "LPA combines college-level coaching with professional-grade technology in a structured, focused environment. Our coaches have D1 and pro experience, and we've helped 50+ athletes earn college commitments through proven development systems."
           },
           {
-            question: "Why are spots limited to 10 per week?",
-            answer: "We limit evaluations to ensure each athlete gets dedicated one-on-one time with our coaching staff. Quality over quantity is our standard."
+            question: "What programs does LPA offer?",
+            answer: "We offer year-round training programs including position-specific development, pitching instruction, strength and conditioning, hitting labs, and college recruiting support. Programs range from drop-in training to full academy enrollment."
           },
           {
-            question: "What happens after the evaluation?",
-            answer: "You'll receive a detailed written plan with specific recommendations. There's no pressure to join LPA, but we'll explain our programs if you're interested in continuing development with us."
+            question: "How does LPA help with college recruiting?",
+            answer: "Beyond skill development, we provide recruiting guidance, college contact support, video packages, and showcase preparation. Many of our athletes have gone on to play at D1, D2, JUCO, and NAIA programs across the country."
           }
         ]}
       />
