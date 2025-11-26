@@ -1,7 +1,11 @@
 import { Button } from "@/components/ui/button";
 import logoText from "@/assets/lpa-logo-text.webp";
 
-const Navigation = () => {
+interface NavigationProps {
+  onBookNowClick?: () => void;
+}
+
+const Navigation = ({ onBookNowClick }: NavigationProps) => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <div className="container mx-auto px-6 py-4">
@@ -15,6 +19,7 @@ const Navigation = () => {
           <Button 
             size="lg" 
             className="bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-wider border-glow"
+            onClick={onBookNowClick}
           >
             Book Now
           </Button>
