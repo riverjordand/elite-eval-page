@@ -47,7 +47,7 @@ const LandingHero = ({
           {/* CTA */}
           <Button 
             size="lg" 
-            className="bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-wider text-base sm:text-xl md:text-2xl px-6 py-5 md:px-16 md:py-10 shadow-lg hover:shadow-xl transition-all duration-300 animate-scale-in w-full sm:w-auto"
+            className="bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-wider text-base sm:text-xl md:text-2xl px-8 py-5 md:px-12 md:py-10 shadow-lg hover:shadow-xl transition-all duration-300 animate-scale-in w-auto"
           >
             {ctaPrimary} <ArrowRight className="ml-2 w-4 h-4 md:w-6 md:h-6" />
           </Button>
