@@ -26,7 +26,7 @@ const LandingPhotos = ({
     if (!scrollContainer) return;
 
     let scrollPos = 0;
-    const scrollSpeed = 0.15;
+    const scrollSpeed = 0.4; // Increased for smoother mobile scroll
 
     const scroll = () => {
       scrollPos += scrollSpeed;
@@ -49,7 +49,7 @@ const LandingPhotos = ({
     if (!scrollContainer) return;
 
     let scrollPos = scrollContainer.scrollWidth / 2;
-    const scrollSpeed = 0.15;
+    const scrollSpeed = 0.4; // Increased for smoother mobile scroll
 
     const scroll = () => {
       scrollPos -= scrollSpeed;
