@@ -66,7 +66,7 @@ const Facility = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
           <h2 className="text-5xl md:text-6xl font-bebas font-black uppercase mb-6">
-            Where Elite Athletes <span className="text-primary">Train</span>
+            Where Elite Athletes Train
           </h2>
           <p className="text-lg md:text-xl font-oswald text-muted-foreground max-w-4xl mx-auto leading-relaxed">
             16,000 square feet of professional-grade development built for one thing — turning serious players into college-ready athletes.
