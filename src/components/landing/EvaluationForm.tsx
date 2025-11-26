@@ -107,137 +107,161 @@ const EvaluationForm = ({ open, onOpenChange }: EvaluationFormProps) => {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[500px]">
-        <DialogHeader>
-          <DialogTitle className="text-2xl font-black uppercase">
-            Book Your Free Evaluation
+      <DialogContent className="sm:max-w-[600px] max-h-[90vh] overflow-y-auto">
+        <DialogHeader className="space-y-3 pb-6 border-b border-border">
+          <DialogTitle className="text-3xl md:text-4xl font-bebas font-black uppercase tracking-wide text-center">
+            Book Your Free <span className="text-primary">Evaluation</span>
           </DialogTitle>
-          <DialogDescription>
-            Fill out the form below and we'll reach out to schedule your free
-            college-ready player evaluation.
+          <DialogDescription className="text-center font-oswald text-base">
+            Fill out the form below and our team will reach out within 24 hours to schedule your personalized college-ready player evaluation.
           </DialogDescription>
         </DialogHeader>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <Label htmlFor="parentName">Parent Name *</Label>
-            <Input
-              id="parentName"
-              value={formData.parentName}
-              onChange={(e) =>
-                setFormData({ ...formData, parentName: e.target.value })
-              }
-              placeholder="John Smith"
-            />
-            {errors.parentName && (
-              <p className="text-sm text-destructive mt-1">{errors.parentName}</p>
-            )}
+        <form onSubmit={handleSubmit} className="space-y-6 pt-6">
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="space-y-2">
+              <Label htmlFor="parentName" className="font-oswald font-semibold uppercase text-sm tracking-wide">
+                Parent Name *
+              </Label>
+              <Input
+                id="parentName"
+                value={formData.parentName}
+                onChange={(e) =>
+                  setFormData({ ...formData, parentName: e.target.value })
+                }
+                placeholder="John Smith"
+                className="h-12 font-oswald"
+              />
+              {errors.parentName && (
+                <p className="text-sm text-destructive mt-1 font-oswald">{errors.parentName}</p>
+              )}
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="playerName" className="font-oswald font-semibold uppercase text-sm tracking-wide">
+                Player Name *
+              </Label>
+              <Input
+                id="playerName"
+                value={formData.playerName}
+                onChange={(e) =>
+                  setFormData({ ...formData, playerName: e.target.value })
+                }
+                placeholder="Mike Smith"
+                className="h-12 font-oswald"
+              />
+              {errors.playerName && (
+                <p className="text-sm text-destructive mt-1 font-oswald">{errors.playerName}</p>
+              )}
+            </div>
           </div>
 
-          <div>
-            <Label htmlFor="playerName">Player Name *</Label>
-            <Input
-              id="playerName"
-              value={formData.playerName}
-              onChange={(e) =>
-                setFormData({ ...formData, playerName: e.target.value })
-              }
-              placeholder="Mike Smith"
-            />
-            {errors.playerName && (
-              <p className="text-sm text-destructive mt-1">{errors.playerName}</p>
-            )}
-          </div>
-
-          <div>
-            <Label htmlFor="playerAge">Player Age/Grade *</Label>
+          <div className="space-y-2">
+            <Label htmlFor="playerAge" className="font-oswald font-semibold uppercase text-sm tracking-wide">
+              Player Age/Grade *
+            </Label>
             <Input
               id="playerAge"
               value={formData.playerAge}
               onChange={(e) =>
                 setFormData({ ...formData, playerAge: e.target.value })
               }
-              placeholder="16 / Sophomore"
+              placeholder="e.g. 16 / Sophomore"
+              className="h-12 font-oswald"
             />
             {errors.playerAge && (
-              <p className="text-sm text-destructive mt-1">{errors.playerAge}</p>
+              <p className="text-sm text-destructive mt-1 font-oswald">{errors.playerAge}</p>
             )}
           </div>
 
-          <div>
-            <Label htmlFor="email">Email *</Label>
-            <Input
-              id="email"
-              type="email"
-              value={formData.email}
-              onChange={(e) =>
-                setFormData({ ...formData, email: e.target.value })
-              }
-              placeholder="john@example.com"
-            />
-            {errors.email && (
-              <p className="text-sm text-destructive mt-1">{errors.email}</p>
-            )}
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="space-y-2">
+              <Label htmlFor="email" className="font-oswald font-semibold uppercase text-sm tracking-wide">
+                Email Address *
+              </Label>
+              <Input
+                id="email"
+                type="email"
+                value={formData.email}
+                onChange={(e) =>
+                  setFormData({ ...formData, email: e.target.value })
+                }
+                placeholder="john@example.com"
+                className="h-12 font-oswald"
+              />
+              {errors.email && (
+                <p className="text-sm text-destructive mt-1 font-oswald">{errors.email}</p>
+              )}
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="phone" className="font-oswald font-semibold uppercase text-sm tracking-wide">
+                Phone Number *
+              </Label>
+              <Input
+                id="phone"
+                type="tel"
+                value={formData.phone}
+                onChange={(e) =>
+                  setFormData({ ...formData, phone: e.target.value })
+                }
+                placeholder="(555) 123-4567"
+                className="h-12 font-oswald"
+              />
+              {errors.phone && (
+                <p className="text-sm text-destructive mt-1 font-oswald">{errors.phone}</p>
+              )}
+            </div>
           </div>
 
-          <div>
-            <Label htmlFor="phone">Phone *</Label>
-            <Input
-              id="phone"
-              type="tel"
-              value={formData.phone}
-              onChange={(e) =>
-                setFormData({ ...formData, phone: e.target.value })
-              }
-              placeholder="(555) 123-4567"
-            />
-            {errors.phone && (
-              <p className="text-sm text-destructive mt-1">{errors.phone}</p>
-            )}
-          </div>
-
-          <div>
-            <Label htmlFor="primaryGoal">Primary Goal *</Label>
+          <div className="space-y-2">
+            <Label htmlFor="primaryGoal" className="font-oswald font-semibold uppercase text-sm tracking-wide">
+              What is your primary goal? *
+            </Label>
             <Select
               value={formData.primaryGoal}
               onValueChange={(value) =>
                 setFormData({ ...formData, primaryGoal: value })
               }
             >
-              <SelectTrigger id="primaryGoal">
-                <SelectValue placeholder="Select a goal" />
+              <SelectTrigger id="primaryGoal" className="h-12 font-oswald">
+                <SelectValue placeholder="Select your primary goal" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="college-recruitment">
+                <SelectItem value="college-recruitment" className="font-oswald">
                   College Recruitment
                 </SelectItem>
-                <SelectItem value="skill-development">
+                <SelectItem value="skill-development" className="font-oswald">
                   Skill Development
                 </SelectItem>
-                <SelectItem value="velocity-increase">
+                <SelectItem value="velocity-increase" className="font-oswald">
                   Velocity Increase
                 </SelectItem>
-                <SelectItem value="injury-prevention">
+                <SelectItem value="injury-prevention" className="font-oswald">
                   Injury Prevention
                 </SelectItem>
-                <SelectItem value="overall-improvement">
+                <SelectItem value="overall-improvement" className="font-oswald">
                   Overall Improvement
                 </SelectItem>
               </SelectContent>
             </Select>
             {errors.primaryGoal && (
-              <p className="text-sm text-destructive mt-1">{errors.primaryGoal}</p>
+              <p className="text-sm text-destructive mt-1 font-oswald">{errors.primaryGoal}</p>
             )}
           </div>
 
-          <Button
-            type="submit"
-            className="w-full"
-            size="lg"
-            disabled={isSubmitting}
-          >
-            {isSubmitting ? "Submitting..." : "Book Free Evaluation"}
-          </Button>
+          <div className="pt-4 border-t border-border">
+            <Button
+              type="submit"
+              className="w-full h-14 text-lg font-bebas uppercase tracking-wider bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? "Submitting..." : "Book Your Free Evaluation →"}
+            </Button>
+            <p className="text-center text-sm text-muted-foreground font-oswald mt-4">
+              We'll contact you within 24 hours to confirm your evaluation time
+            </p>
+          </div>
         </form>
       </DialogContent>
     </Dialog>
