@@ -35,7 +35,7 @@ const LandingHero = ({
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           {/* Main Headline - About LPA */}
-          <h1 className="text-3xl sm:text-5xl md:text-8xl font-bebas font-black uppercase mb-4 md:mb-6 leading-[0.95] px-2">
+          <h1 className="text-4xl sm:text-5xl md:text-8xl font-bebas font-black uppercase mb-4 md:mb-6 leading-[0.95] px-2">
             {mainHeadline}
           </h1>
 
