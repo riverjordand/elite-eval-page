@@ -74,17 +74,14 @@ const LandingCoaches = ({ title, subtitle, coaches }: LandingCoachesProps) => {
                     {coach.title}
                   </p>
 
-                  {/* Credentials */}
-                  <ul className="space-y-2 md:space-y-2.5 text-left">
+                  {/* Credentials - Paragraph Format */}
+                  <div className="text-left">
                     {coach.credentials.map((credential, credIndex) => (
-                      <li key={credIndex} className="flex items-start gap-2 md:gap-3">
-                        <span className="text-primary text-base md:text-lg mt-0.5 flex-shrink-0">•</span>
-                        <span className="text-muted-foreground font-oswald text-xs md:text-sm leading-relaxed">
-                          {credential}
-                        </span>
-                      </li>
+                      <p key={credIndex} className="text-muted-foreground font-oswald text-xs md:text-sm leading-relaxed">
+                        {credential}
+                      </p>
                     ))}
-                  </ul>
+                  </div>
                 </div>
               </div>
             ))}
