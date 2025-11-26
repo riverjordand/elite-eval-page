@@ -225,14 +225,14 @@ const Index = () => {
 
       {/* PARENT TESTIMONIALS - Video Carousel */}
       <LandingTestimonials
-        title="Hear From LPA Parents"
-        subtitle="Real families sharing their experience with our program"
+        title="Hear From LPA Families & Athletes"
+        subtitle="Real families and athletes sharing their experience with our program"
         testimonials={[
           {
             videoUrl: "/testimonials/parent-testimonial-1.mp4",
-            parentName: "Parent Testimonial",
-            athleteName: "Will",
-            quote: "Through this first year, we've seen incredible gains, not only on the baseball side, but just the physical on the strength side. The interesting thing for me has been the schools that were interested in Will calling this school to kind of learn about not only Will, but learn about what kind of program this is. The confidence and authority that is taught here by the coaches has helped outside LPA."
+            parentName: "Austin Smith",
+            athleteName: "3B/C/RHP • Crowdettys",
+            quote: "Leaving the name of IMG and the logo of IMG was tough, but for my recruiting process and the development in my game, I felt that it was crucial to come back home to Arizona to come to LPA. I think the environment is everything. That is one of the reasons I did come back. I've never really had a pitching coach. I've had people teach me velocity and how to throw harder, but I've never had a pitching coach. So something that Terrell has taught me is that slowing down the mechanics and getting them right instead of moving as fast as you can can help increase Velo and take strain off the arm. I think that's been a really big thing for me as well is trying to implement all those drills to get the other body part stronger so that it takes strain off the elbow which in turn leads to more velocity. Knowing that I was going to be safe in this environment with these coaches, with them nurturing me to grow, create programs for us to get us better, to fine tune things - it's just great. The environment's been amazing."
           },
           {
             videoUrl: "/testimonials/parent-testimonial-2.mp4",
