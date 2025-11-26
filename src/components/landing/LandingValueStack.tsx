@@ -98,32 +98,32 @@ const LandingValueStack = ({ onCtaClick }: LandingValueStackProps) => {
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-5xl mx-auto">
             {/* Outcomes Section Header */}
-            <div className="text-center mb-8 md:mb-12">
-              <h2 className="text-3xl sm:text-4xl md:text-6xl font-bebas font-black uppercase mb-4 md:mb-6">
+            <div className="text-center mb-6 md:mb-8">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bebas font-black uppercase mb-3 md:mb-4">
                 What You'll Walk Away With
               </h2>
-              <p className="text-base md:text-xl text-muted-foreground font-oswald">
+              <p className="text-sm md:text-lg text-muted-foreground font-oswald">
                 Real clarity. Real direction. Real momentum.
               </p>
             </div>
 
-            {/* Outcomes Grid - 2x2 */}
-            <div className="grid sm:grid-cols-2 gap-4 md:gap-6 mb-8 md:mb-10">
+            {/* Outcomes Grid - 2x2 Compact */}
+            <div className="grid sm:grid-cols-2 gap-3 md:gap-4 mb-6 md:mb-8">
               {outcomes.map((outcome, index) => {
                 const Icon = getIcon(outcome.icon);
                 return (
                   <div 
                     key={index}
-                    className="bg-card border-2 border-border rounded-xl p-6 md:p-8 hover:border-primary/50 transition-all duration-300 animate-fade-in"
+                    className="bg-card border border-border rounded-lg p-4 md:p-6 hover:border-primary/50 transition-all duration-300 animate-fade-in"
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
-                    <div className="flex items-start gap-4">
-                      <Icon className="w-6 h-6 md:w-8 md:h-8 text-primary flex-shrink-0 mt-1" />
+                    <div className="flex items-start gap-3">
+                      <Icon className="w-5 h-5 md:w-6 md:h-6 text-primary flex-shrink-0 mt-0.5" />
                       <div>
-                        <h3 className="text-lg md:text-2xl font-bebas uppercase text-foreground mb-2">
+                        <h3 className="text-base md:text-xl font-bebas uppercase text-foreground mb-1">
                           {outcome.title}
                         </h3>
-                        <p className="text-sm md:text-base text-muted-foreground font-oswald leading-relaxed">
+                        <p className="text-xs md:text-sm text-muted-foreground font-oswald leading-snug">
                           {outcome.description}
                         </p>
                       </div>
@@ -134,8 +134,8 @@ const LandingValueStack = ({ onCtaClick }: LandingValueStackProps) => {
             </div>
 
             {/* Closing Text for Outcomes */}
-            <div className="text-center mb-12 md:mb-16">
-              <p className="text-base md:text-lg text-foreground font-oswald italic">
+            <div className="text-center mb-10 md:mb-12">
+              <p className="text-sm md:text-base text-foreground font-oswald italic">
                 You're walking away with the blueprint families wish they had years ago.
               </p>
             </div>
