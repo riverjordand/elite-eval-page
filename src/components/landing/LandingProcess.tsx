@@ -22,13 +22,13 @@ const LandingProcess = ({ title, subtitle, steps, ctaText, onCtaClick }: Landing
       <section className="py-16 md:py-24 bg-[#0a0a0a] relative">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-5xl mx-auto">
-          {/* Title */}
+          {/* Header */}
           <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-6xl font-bebas font-black uppercase mb-3 md:mb-4 px-4">
+            <h2 className="text-3xl sm:text-4xl md:text-6xl font-bebas font-black uppercase mb-4 md:mb-6 px-4">
               {title}
             </h2>
             {subtitle && (
-              <p className="text-sm sm:text-base md:text-xl text-muted-foreground font-oswald px-2">
+              <p className="text-base md:text-xl text-muted-foreground font-oswald px-2">
                 {subtitle}
               </p>
             )}
