@@ -107,20 +107,20 @@ const EvaluationForm = ({ open, onOpenChange }: EvaluationFormProps) => {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[600px] max-h-[90vh] overflow-y-auto">
-        <DialogHeader className="space-y-3 pb-6 border-b border-border">
-          <DialogTitle className="text-3xl md:text-4xl font-bebas font-black uppercase tracking-wide text-center">
+      <DialogContent className="sm:max-w-[600px] max-w-[95vw] max-h-[90vh] overflow-y-auto p-4 sm:p-6">
+        <DialogHeader className="space-y-2 sm:space-y-3 pb-4 sm:pb-6 border-b border-border">
+          <DialogTitle className="text-2xl sm:text-3xl md:text-4xl font-bebas font-black uppercase tracking-wide text-center leading-tight">
             Book Your Free <span className="text-primary">Evaluation</span>
           </DialogTitle>
-          <DialogDescription className="text-center font-oswald text-base">
-            Fill out the form below and our team will reach out within 24 hours to schedule your personalized college-ready player evaluation.
+          <DialogDescription className="text-center font-oswald text-sm sm:text-base px-2">
+            Fill out the form below and our team will reach out within 24 hours to schedule your evaluation.
           </DialogDescription>
         </DialogHeader>
 
-        <form onSubmit={handleSubmit} className="space-y-6 pt-6">
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="space-y-2">
-              <Label htmlFor="parentName" className="font-oswald font-semibold uppercase text-sm tracking-wide">
+        <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6 pt-4 sm:pt-6">
+          <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
+            <div className="space-y-1.5 sm:space-y-2">
+              <Label htmlFor="parentName" className="font-oswald font-semibold uppercase text-xs sm:text-sm tracking-wide">
                 Parent Name *
               </Label>
               <Input
@@ -130,15 +130,15 @@ const EvaluationForm = ({ open, onOpenChange }: EvaluationFormProps) => {
                   setFormData({ ...formData, parentName: e.target.value })
                 }
                 placeholder="John Smith"
-                className="h-12 font-oswald"
+                className="h-11 sm:h-12 font-oswald text-base"
               />
               {errors.parentName && (
-                <p className="text-sm text-destructive mt-1 font-oswald">{errors.parentName}</p>
+                <p className="text-xs sm:text-sm text-destructive mt-1 font-oswald">{errors.parentName}</p>
               )}
             </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="playerName" className="font-oswald font-semibold uppercase text-sm tracking-wide">
+            <div className="space-y-1.5 sm:space-y-2">
+              <Label htmlFor="playerName" className="font-oswald font-semibold uppercase text-xs sm:text-sm tracking-wide">
                 Player Name *
               </Label>
               <Input
@@ -148,16 +148,16 @@ const EvaluationForm = ({ open, onOpenChange }: EvaluationFormProps) => {
                   setFormData({ ...formData, playerName: e.target.value })
                 }
                 placeholder="Mike Smith"
-                className="h-12 font-oswald"
+                className="h-11 sm:h-12 font-oswald text-base"
               />
               {errors.playerName && (
-                <p className="text-sm text-destructive mt-1 font-oswald">{errors.playerName}</p>
+                <p className="text-xs sm:text-sm text-destructive mt-1 font-oswald">{errors.playerName}</p>
               )}
             </div>
           </div>
 
-          <div className="space-y-2">
-            <Label htmlFor="playerAge" className="font-oswald font-semibold uppercase text-sm tracking-wide">
+          <div className="space-y-1.5 sm:space-y-2">
+            <Label htmlFor="playerAge" className="font-oswald font-semibold uppercase text-xs sm:text-sm tracking-wide">
               Player Age/Grade *
             </Label>
             <Input
@@ -167,16 +167,16 @@ const EvaluationForm = ({ open, onOpenChange }: EvaluationFormProps) => {
                 setFormData({ ...formData, playerAge: e.target.value })
               }
               placeholder="e.g. 16 / Sophomore"
-              className="h-12 font-oswald"
+              className="h-11 sm:h-12 font-oswald text-base"
             />
             {errors.playerAge && (
-              <p className="text-sm text-destructive mt-1 font-oswald">{errors.playerAge}</p>
+              <p className="text-xs sm:text-sm text-destructive mt-1 font-oswald">{errors.playerAge}</p>
             )}
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="space-y-2">
-              <Label htmlFor="email" className="font-oswald font-semibold uppercase text-sm tracking-wide">
+          <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
+            <div className="space-y-1.5 sm:space-y-2">
+              <Label htmlFor="email" className="font-oswald font-semibold uppercase text-xs sm:text-sm tracking-wide">
                 Email Address *
               </Label>
               <Input
@@ -187,15 +187,15 @@ const EvaluationForm = ({ open, onOpenChange }: EvaluationFormProps) => {
                   setFormData({ ...formData, email: e.target.value })
                 }
                 placeholder="john@example.com"
-                className="h-12 font-oswald"
+                className="h-11 sm:h-12 font-oswald text-base"
               />
               {errors.email && (
-                <p className="text-sm text-destructive mt-1 font-oswald">{errors.email}</p>
+                <p className="text-xs sm:text-sm text-destructive mt-1 font-oswald">{errors.email}</p>
               )}
             </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="phone" className="font-oswald font-semibold uppercase text-sm tracking-wide">
+            <div className="space-y-1.5 sm:space-y-2">
+              <Label htmlFor="phone" className="font-oswald font-semibold uppercase text-xs sm:text-sm tracking-wide">
                 Phone Number *
               </Label>
               <Input
@@ -206,16 +206,16 @@ const EvaluationForm = ({ open, onOpenChange }: EvaluationFormProps) => {
                   setFormData({ ...formData, phone: e.target.value })
                 }
                 placeholder="(555) 123-4567"
-                className="h-12 font-oswald"
+                className="h-11 sm:h-12 font-oswald text-base"
               />
               {errors.phone && (
-                <p className="text-sm text-destructive mt-1 font-oswald">{errors.phone}</p>
+                <p className="text-xs sm:text-sm text-destructive mt-1 font-oswald">{errors.phone}</p>
               )}
             </div>
           </div>
 
-          <div className="space-y-2">
-            <Label htmlFor="primaryGoal" className="font-oswald font-semibold uppercase text-sm tracking-wide">
+          <div className="space-y-1.5 sm:space-y-2">
+            <Label htmlFor="primaryGoal" className="font-oswald font-semibold uppercase text-xs sm:text-sm tracking-wide">
               What is your primary goal? *
             </Label>
             <Select
@@ -224,7 +224,7 @@ const EvaluationForm = ({ open, onOpenChange }: EvaluationFormProps) => {
                 setFormData({ ...formData, primaryGoal: value })
               }
             >
-              <SelectTrigger id="primaryGoal" className="h-12 font-oswald">
+              <SelectTrigger id="primaryGoal" className="h-11 sm:h-12 font-oswald text-base">
                 <SelectValue placeholder="Select your primary goal" />
               </SelectTrigger>
               <SelectContent>
@@ -246,19 +246,19 @@ const EvaluationForm = ({ open, onOpenChange }: EvaluationFormProps) => {
               </SelectContent>
             </Select>
             {errors.primaryGoal && (
-              <p className="text-sm text-destructive mt-1 font-oswald">{errors.primaryGoal}</p>
+              <p className="text-xs sm:text-sm text-destructive mt-1 font-oswald">{errors.primaryGoal}</p>
             )}
           </div>
 
-          <div className="pt-4 border-t border-border">
+          <div className="pt-3 sm:pt-4 border-t border-border">
             <Button
               type="submit"
-              className="w-full h-14 text-lg font-bebas uppercase tracking-wider bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg"
+              className="w-full h-12 sm:h-14 text-base sm:text-lg font-bebas uppercase tracking-wider bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg"
               disabled={isSubmitting}
             >
               {isSubmitting ? "Submitting..." : "Book Your Free Evaluation →"}
             </Button>
-            <p className="text-center text-sm text-muted-foreground font-oswald mt-4">
+            <p className="text-center text-xs sm:text-sm text-muted-foreground font-oswald mt-3 sm:mt-4 px-2">
               We'll contact you within 24 hours to confirm your evaluation time
             </p>
           </div>
