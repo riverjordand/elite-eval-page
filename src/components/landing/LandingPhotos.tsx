@@ -33,16 +33,16 @@ const LandingPhotos = ({
 
           {/* Mobile: Horizontal Scroll */}
           <div className="md:hidden overflow-x-auto pb-4 -mx-4 px-4 scrollbar-hide">
-            <div className="flex gap-3" style={{ width: 'max-content' }}>
+            <div className="flex gap-4" style={{ width: 'max-content' }}>
               {photos.map((photo, index) => (
                 <div
                   key={index}
-                  className="flex-shrink-0 w-[75vw] aspect-square rounded-lg overflow-hidden bg-muted"
+                  className="group flex-shrink-0 w-[75vw] aspect-square rounded-lg overflow-hidden bg-muted border-[3px] border-border shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300"
                 >
                   <img
                     src={photo.src}
                     alt={photo.alt}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-all duration-300 group-hover:brightness-110 group-hover:scale-110"
                     loading="lazy"
                   />
                 </div>
@@ -51,16 +51,16 @@ const LandingPhotos = ({
           </div>
 
           {/* Desktop: Grid */}
-          <div className="hidden md:grid md:grid-cols-3 lg:grid-cols-5 gap-4">
+          <div className="hidden md:grid md:grid-cols-3 lg:grid-cols-5 gap-6">
             {photos.map((photo, index) => (
               <div
                 key={index}
-                className="aspect-square rounded-lg overflow-hidden bg-muted hover:scale-105 transition-transform duration-300"
+                className="group aspect-square rounded-lg overflow-hidden bg-muted border-[3px] border-border shadow-lg hover:shadow-xl hover:scale-[1.03] transition-all duration-300"
               >
                 <img
                   src={photo.src}
                   alt={photo.alt}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-all duration-300 group-hover:brightness-110 group-hover:scale-110"
                   loading="lazy"
                 />
               </div>
