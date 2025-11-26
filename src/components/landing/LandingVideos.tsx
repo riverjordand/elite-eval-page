@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import Autoplay from "embla-carousel-autoplay";
 import SectionDivider from "./SectionDivider";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
@@ -26,18 +25,38 @@ const LandingVideos = ({
   const [selectedVideoIndex, setSelectedVideoIndex] = useState<number | null>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
-  const autoplayPlugin = useRef(
-    Autoplay({ delay: 2000, stopOnInteraction: false, stopOnMouseEnter: false })
-  );
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: true,
+    dragFree: true,
+    containScroll: false
+  });
 
-  const [emblaRef] = useEmblaCarousel(
-    { 
-      loop: true, 
-      dragFree: true,
-      containScroll: false
-    },
-    [autoplayPlugin.current]
-  );
+  // Custom smooth auto-scroll
+  useEffect(() => {
+    if (!emblaApi) return;
+
+    let animationFrameId: number;
+    const scrollSpeed = 0.3; // Slow, smooth scroll
+
+    const autoScroll = () => {
+      if (emblaApi.canScrollNext()) {
+        emblaApi.scrollNext();
+      }
+      animationFrameId = requestAnimationFrame(autoScroll);
+    };
+
+    // Start with a delay to allow smooth continuous movement
+    const intervalId = setInterval(() => {
+      if (emblaApi.canScrollNext()) {
+        emblaApi.scrollNext();
+      }
+    }, 3000); // Move to next slide every 3 seconds
+
+    return () => {
+      clearInterval(intervalId);
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, [emblaApi]);
 
   // Play videos when they mount on mobile
   useEffect(() => {
