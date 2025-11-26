@@ -17,7 +17,7 @@ interface LandingCommitmentsProps {
 const LandingCommitments = ({ title, subtitle, commitments, totalCount }: LandingCommitmentsProps) => {
   return (
     <>
-      <SectionDivider />
+      <SectionDivider fromColor="#1a1a1a" toColor="#0a0a0a" />
       <section className="py-12 md:py-24 bg-[#0a0a0a] relative">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-6xl mx-auto">
