@@ -5,7 +5,6 @@ import LandingIncluded from "@/components/landing/LandingIncluded";
 import LandingFacilityShowcase from "@/components/landing/LandingFacilityShowcase";
 import LandingProcess from "@/components/landing/LandingProcess";
 import LandingCoaches from "@/components/landing/LandingCoaches";
-import LandingSocialProof from "@/components/landing/LandingSocialProof";
 import LandingCommitments from "@/components/landing/LandingCommitments";
 import LandingAthletes from "@/components/landing/LandingAthletes";
 import LandingFAQ from "@/components/landing/LandingFAQ";
@@ -213,31 +212,6 @@ const Index = () => {
               "Expert in athlete mindset, long-term consulting, business strategy, and training program design"
             ],
             image: coachNeil
-          }
-        ]}
-      />
-
-      {/* OFFER SECTION #3 - Social Proof */}
-      <LandingSocialProof
-        title="What Parents & Athletes Are Saying"
-        testimonials={[
-          {
-            quote: "The evaluation showed us exactly where my son needed to improve. Within 6 months at LPA, he gained 8 mph and committed to U of A.",
-            author: "Mike Rodriguez",
-            role: "Parent of D1 Commit",
-            result: "Committed to University of Arizona"
-          },
-          {
-            quote: "We tried 3 other facilities before finding LPA. The difference is night and day - these coaches actually know what they're doing.",
-            author: "Jennifer Martinez",
-            role: "Parent of Junior Pitcher",
-            result: "12 MPH Velocity Increase"
-          },
-          {
-            quote: "The free evaluation opened our eyes. We had no idea what college coaches were looking for. LPA gave us a clear path forward.",
-            author: "David Thompson",
-            role: "Parent of Sophomore",
-            result: "Multiple D2 Offers"
           }
         ]}
       />

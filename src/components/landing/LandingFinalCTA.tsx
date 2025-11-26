@@ -17,7 +17,7 @@ const LandingFinalCTA = ({
   guaranteeText = "No credit card required • No obligation • 100% Free"
 }: LandingFinalCTAProps) => {
   return (
-    <section className="py-16 md:py-32 bg-gradient-to-b from-secondary to-background relative overflow-hidden">
+    <section className="py-16 md:py-32 bg-[#1a1a1a] relative overflow-hidden">
       {/* Background accent */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent" />
       
