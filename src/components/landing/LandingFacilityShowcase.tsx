@@ -111,10 +111,10 @@ const LandingFacilityShowcase = ({ title, subtitle, areas }: LandingFacilityShow
                 
                 {/* Content */}
                 <div className="p-8">
-                  <h3 className="text-3xl font-bebas font-black uppercase mb-4 text-primary">
+                  <h3 className="text-4xl font-bebas font-black uppercase mb-4 text-primary">
                     {area.title}
                   </h3>
-                  <p className="text-base text-foreground font-oswald mb-6 leading-relaxed">
+                  <p className="text-lg text-foreground font-oswald mb-6 leading-relaxed">
                     {area.description}
                   </p>
                   <ul className="space-y-3">
