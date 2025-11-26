@@ -36,8 +36,8 @@ const LandingPhotos = ({
 
   return (
     <>
-      <SectionDivider fromColor="#1a1a1a" toColor="#0a0a0a" />
-      <section className="bg-[#0a0a0a] py-12 md:py-16 overflow-hidden">
+      <SectionDivider fromColor="#0a0a0a" toColor="#1a1a1a" />
+      <section className="bg-[#1a1a1a] py-12 md:py-16 overflow-hidden">
         <div className="mx-auto">
           {/* Header */}
           <div className="text-center mb-8 md:mb-12 px-4">
