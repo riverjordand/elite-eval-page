@@ -21,10 +21,7 @@ const LandingFinalCTA = ({
     <>
       <SectionDivider />
       <section className="py-16 md:py-32 bg-[#0a0a0a] relative overflow-hidden">
-      {/* Background accent */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent" />
-      
-      <div className="container mx-auto px-4 md:px-6 relative z-10">
+      <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-4xl mx-auto text-center">
           {/* Urgency Badge */}
           <div className="inline-flex items-center gap-1.5 md:gap-2 px-4 py-2 md:px-6 md:py-3 bg-destructive/10 border-2 border-destructive/30 rounded-full mb-6 md:mb-8 animate-pulse">
