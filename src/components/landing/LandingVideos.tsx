@@ -44,22 +44,8 @@ const LandingVideos = ({
     // Start auto-scroll
     animationFrameId = requestAnimationFrame(autoScroll);
 
-    // Pause on hover
-    const handleMouseEnter = () => {
-      cancelAnimationFrame(animationFrameId);
-    };
-
-    const handleMouseLeave = () => {
-      animationFrameId = requestAnimationFrame(autoScroll);
-    };
-
-    container.addEventListener('mouseenter', handleMouseEnter);
-    container.addEventListener('mouseleave', handleMouseLeave);
-
     return () => {
       cancelAnimationFrame(animationFrameId);
-      container.removeEventListener('mouseenter', handleMouseEnter);
-      container.removeEventListener('mouseleave', handleMouseLeave);
     };
   }, []);
 
@@ -104,11 +90,6 @@ const LandingVideos = ({
               ))}
             </div>
           </div>
-
-          {/* Hint text */}
-          <p className="text-center text-sm text-muted-foreground font-oswald mt-4 px-4">
-            Hover to pause
-          </p>
         </div>
       </section>
     </>
