@@ -43,19 +43,12 @@ const LandingVideos = ({
     const container = scrollContainerRef.current;
     if (!container) return;
 
-    const isDesktop = window.matchMedia('(min-width: 768px)').matches;
     let animationFrameId: number;
     let scrollPosition = 0;
     const scrollSpeed = 0.25;
-    let isTouching = false;
-    let isScrolling = false;
-    let scrollTimeout: NodeJS.Timeout;
 
     const autoScroll = () => {
       if (!container) return;
-      
-      // Pause auto-scroll during touch or user scroll on mobile
-      if (!isDesktop && (isTouching || isScrolling)) return;
 
       scrollPosition += scrollSpeed;
 
@@ -68,51 +61,11 @@ const LandingVideos = ({
       animationFrameId = requestAnimationFrame(autoScroll);
     };
 
-    const handleTouchStart = () => {
-      isTouching = true;
-      scrollPosition = container.scrollLeft;
-    };
-
-    const handleTouchEnd = () => {
-      isTouching = false;
-      if (!isScrolling) {
-        scrollPosition = container.scrollLeft;
-      }
-    };
-
-    const handleScroll = () => {
-      isScrolling = true;
-      scrollPosition = container.scrollLeft;
-      
-      clearTimeout(scrollTimeout);
-      
-      // Resume auto-scroll after momentum scroll stops (300ms after last scroll)
-      scrollTimeout = setTimeout(() => {
-        isScrolling = false;
-        if (!isTouching) {
-          animationFrameId = requestAnimationFrame(autoScroll);
-        }
-      }, 300);
-    };
-
-    // Add touch and scroll listeners on mobile
-    if (!isDesktop) {
-      container.addEventListener('touchstart', handleTouchStart, { passive: true });
-      container.addEventListener('touchend', handleTouchEnd, { passive: true });
-      container.addEventListener('scroll', handleScroll, { passive: true });
-    }
-
-    // Start auto-scroll immediately
+    // Start auto-scroll immediately - never stops
     animationFrameId = requestAnimationFrame(autoScroll);
 
     return () => {
       cancelAnimationFrame(animationFrameId);
-      clearTimeout(scrollTimeout);
-      if (!isDesktop) {
-        container.removeEventListener('touchstart', handleTouchStart);
-        container.removeEventListener('touchend', handleTouchEnd);
-        container.removeEventListener('scroll', handleScroll);
-      }
     };
   }, []);
 
