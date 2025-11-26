@@ -18,10 +18,10 @@ const Commitments = () => {
     <section id="commitments" className="py-24 bg-background">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-black uppercase mb-4">
+          <h2 className="text-5xl md:text-6xl font-bebas font-black uppercase mb-4">
             Where LPA Athletes <span className="text-primary">Go Next</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-oswald">
             Our players have committed to top-tier college baseball programs across the nation
           </p>
         </div>
@@ -34,18 +34,18 @@ const Commitments = () => {
             >
               <div className="flex items-start justify-between">
                 <div>
-                  <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                  <h3 className="text-xl font-bebas font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
                     {commitment.player}
                   </h3>
-                  <p className="text-primary font-semibold mb-1">
+                  <p className="text-primary font-oswald font-semibold mb-1">
                     {commitment.school}
                   </p>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text-muted-foreground font-oswald">
                     Class of {commitment.year}
                   </p>
                 </div>
                 <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                  <span className="text-primary font-bold">{commitment.year.slice(-2)}</span>
+                  <span className="text-primary font-bebas font-bold">{commitment.year.slice(-2)}</span>
                 </div>
               </div>
             </div>
@@ -53,10 +53,10 @@ const Commitments = () => {
         </div>
 
         <div className="text-center bg-card border-2 border-primary/20 rounded-xl p-12">
-          <h3 className="text-3xl font-bold uppercase mb-4">
+          <h3 className="text-3xl font-bebas font-bold uppercase mb-4">
             Ready to Join Them?
           </h3>
-          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto font-oswald">
             Start your journey to college baseball with a comprehensive evaluation from our expert coaching staff.
           </p>
         </div>
