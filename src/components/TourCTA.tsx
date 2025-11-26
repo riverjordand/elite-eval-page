@@ -1,6 +1,9 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import EvaluationForm from "@/components/landing/EvaluationForm";
 
 const TourCTA = () => {
+  const [formOpen, setFormOpen] = useState(false);
   return (
     <section className="py-24 bg-gradient-to-b from-secondary to-background">
       <div className="container mx-auto px-6">
@@ -35,12 +38,15 @@ const TourCTA = () => {
               size="lg" 
               variant="outline"
               className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-bold uppercase tracking-wider text-xl px-12 py-8 transition-all duration-300"
+              onClick={() => setFormOpen(true)}
             >
               Schedule a Tour
             </Button>
           </div>
         </div>
       </div>
+
+      <EvaluationForm open={formOpen} onOpenChange={setFormOpen} />
     </section>
   );
 };

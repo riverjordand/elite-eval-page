@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
+import EvaluationForm from "@/components/landing/EvaluationForm";
 
 const evaluationPoints = [
   "Pitching or hitting metrics with advanced technology",
@@ -11,6 +13,7 @@ const evaluationPoints = [
 ];
 
 const Evaluation = () => {
+  const [formOpen, setFormOpen] = useState(false);
   return (
     <section className="py-24 bg-background relative overflow-hidden">
       {/* Background accent */}
@@ -56,6 +59,7 @@ const Evaluation = () => {
               <Button 
                 size="lg" 
                 className="bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-wider text-xl px-12 py-8 border-glow"
+                onClick={() => setFormOpen(true)}
               >
                 Book Free Evaluation Now
               </Button>
@@ -75,6 +79,8 @@ const Evaluation = () => {
           </div>
         </div>
       </div>
+
+      <EvaluationForm open={formOpen} onOpenChange={setFormOpen} />
     </section>
   );
 };
