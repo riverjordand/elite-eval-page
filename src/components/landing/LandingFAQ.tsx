@@ -17,7 +17,7 @@ interface LandingFAQProps {
 
 const LandingFAQ = ({ title, faqs }: LandingFAQProps) => {
   return (
-    <section className="py-12 md:py-24 bg-background">
+    <section className="py-12 md:py-24 bg-background relative">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-4xl mx-auto">
           {/* Title */}

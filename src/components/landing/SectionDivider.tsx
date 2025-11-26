@@ -7,45 +7,67 @@ const SectionDivider = ({
   variant = "angle-down",
   color = "hsl(var(--background))"
 }: SectionDividerProps) => {
-  const paths = {
-    "angle-down": "M0,0 L1920,0 L1920,30 L0,80 Z",
-    "angle-up": "M0,80 L1920,30 L1920,0 L0,0 Z",
-    "wave-down": "M0,0 L1920,0 L1920,30 Q1440,80 960,50 T0,80 Z",
-    "wave-up": "M0,80 Q480,30 960,50 T1920,30 L1920,0 L0,0 Z"
+  const variants = {
+    "angle-down": {
+      path: "M0,0 L0,40 L1920,10 L1920,0 Z",
+      line: { x1: 0, y1: 40, x2: 1920, y2: 10, curved: false }
+    },
+    "angle-up": {
+      path: "M0,10 L0,0 L1920,0 L1920,40 Z",
+      line: { x1: 0, y1: 10, x2: 1920, y2: 40, curved: false }
+    },
+    "wave-down": {
+      path: "M0,0 L0,30 Q480,40 960,35 T1920,15 L1920,0 Z",
+      line: { x1: 0, y1: 30, x2: 1920, y2: 15, curved: true }
+    },
+    "wave-up": {
+      path: "M0,15 Q480,35 960,30 T1920,30 L1920,0 L0,0 Z",
+      line: { x1: 0, y1: 15, x2: 1920, y2: 30, curved: true }
+    }
   };
 
+  const config = variants[variant];
+
   return (
-    <div className="w-full overflow-hidden -mb-px relative z-20">
+    <div className="w-full overflow-hidden relative -mb-px" style={{ marginTop: '-1px', marginBottom: '-1px' }}>
       <svg
-        viewBox="0 0 1920 80"
+        viewBox="0 0 1920 40"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="w-full h-auto"
+        className="w-full h-auto block"
         preserveAspectRatio="none"
-        style={{ display: 'block', minHeight: '40px', maxHeight: '80px' }}
+        style={{ 
+          minHeight: '20px',
+          maxHeight: '60px',
+          height: 'clamp(20px, 4vw, 60px)'
+        }}
       >
-        {/* Subtle shadow line for depth */}
+        {/* Main shape */}
         <path
-          d={paths[variant]}
-          fill="hsl(var(--border))"
-          opacity="0.1"
-          transform="translate(0, -2)"
-        />
-        {/* Main divider */}
-        <path
-          d={paths[variant]}
+          d={config.path}
           fill={color}
         />
         {/* White accent line */}
-        <line
-          x1="0"
-          y1={variant.includes("down") ? "2" : "78"}
-          x2="1920"
-          y2={variant.includes("down") ? "32" : "28"}
-          stroke="white"
-          strokeWidth="2"
-          opacity="0.6"
-        />
+        {config.line.curved ? (
+          <path
+            d={variant === "wave-down" 
+              ? "M0,30 Q480,40 960,35 T1920,15"
+              : "M0,15 Q480,35 960,30 T1920,30"
+            }
+            stroke="rgba(255, 255, 255, 0.4)"
+            strokeWidth="1.5"
+            fill="none"
+          />
+        ) : (
+          <line
+            x1={config.line.x1}
+            y1={config.line.y1}
+            x2={config.line.x2}
+            y2={config.line.y2}
+            stroke="rgba(255, 255, 255, 0.4)"
+            strokeWidth="1.5"
+          />
+        )}
       </svg>
     </div>
   );
