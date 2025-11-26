@@ -1,13 +1,16 @@
 import { Button } from "@/components/ui/button";
+import logoText from "@/assets/lpa-logo-text.webp";
 
 const Navigation = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <div className="text-2xl font-bold tracking-wider text-foreground">
-            LEGENDARY PREP ACADEMY
-          </div>
+          <img 
+            src={logoText} 
+            alt="Legendary Prep Academy" 
+            className="h-8 md:h-10 w-auto"
+          />
           
           <div className="hidden md:flex items-center gap-8">
             <a href="#home" className="text-foreground hover:text-primary transition-colors">

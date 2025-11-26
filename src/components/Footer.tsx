@@ -1,4 +1,5 @@
 import { MapPin, Phone, Mail } from "lucide-react";
+import logoText from "@/assets/lpa-logo-text.webp";
 
 const Footer = () => {
   return (
@@ -6,9 +7,11 @@ const Footer = () => {
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           <div className="md:col-span-2">
-            <h3 className="text-3xl font-black uppercase mb-4">
-              LEGENDARY PREP ACADEMY
-            </h3>
+            <img 
+              src={logoText} 
+              alt="Legendary Prep Academy" 
+              className="h-10 w-auto mb-4"
+            />
             <p className="text-muted-foreground mb-6 leading-relaxed">
               Arizona's first and only professional baseball prep academy. Developing elite student-athletes for college and professional baseball.
             </p>
