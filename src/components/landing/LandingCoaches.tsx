@@ -37,7 +37,7 @@ const LandingCoaches = ({ title, subtitle, coaches }: LandingCoachesProps) => {
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 {/* Coach Photo */}
-                <div className="w-full aspect-[4/5] relative overflow-hidden pt-4 md:pt-6">
+                <div className="w-full aspect-[3/4] relative overflow-hidden">
                   <img 
                     src={coach.image} 
                     alt={coach.name}
