@@ -50,7 +50,7 @@ const LandingHero = ({
           <div className="flex justify-center items-center mb-6 md:mb-8">
             <Button 
               size="lg" 
-              className="bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-wider text-lg sm:text-xl md:text-2xl px-8 py-5 md:px-12 md:py-8 shadow-lg hover:shadow-xl transition-all duration-300 animate-scale-in w-full sm:w-auto"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-wider text-lg sm:text-xl md:text-2xl px-8 py-5 md:px-12 md:py-8 shadow-lg hover:shadow-xl transition-all duration-300 animate-scale-in"
               onClick={onCtaClick}
             >
               Book My Free Evaluation <ArrowRight className="ml-2 w-4 h-4 md:w-6 md:h-6" />
