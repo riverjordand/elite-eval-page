@@ -56,70 +56,6 @@ const Index = () => {
         highlight="We build college-ready players with the skills, metrics, and recruiting support needed to compete at the next level."
       />
 
-      {/* OFFER SECTION #1 - What's Included */}
-      <LandingIncluded
-        title="What's Included in Your Free Evaluation"
-        subtitle="Everything you need to know about your athlete's current level and development path"
-        items={[
-          {
-            title: "Advanced Metrics Testing",
-            value: 75,
-            bullets: [
-              "Pitching or hitting velocity testing",
-              "Professional-grade tech (Rapsodo, HitTrax)",
-              "Real-time performance data"
-            ]
-          },
-          {
-            title: "Complete Mechanics Analysis",
-            value: 100,
-            bullets: [
-              "Frame-by-frame video breakdown",
-              "Analyzed by D1/Pro coaches",
-              "Identify technical flaws"
-            ]
-          },
-          {
-            title: "Strength & Mobility Assessment",
-            value: 50,
-            bullets: [
-              "Certified strength coach evaluation",
-              "Identify physical weaknesses",
-              "Injury prevention insights"
-            ]
-          },
-          {
-            title: "Coach-Led Development Plan",
-            value: 75,
-            bullets: [
-              "One-on-one coaching consultation",
-              "Personalized improvement roadmap",
-              "Specific training recommendations"
-            ]
-          },
-          {
-            title: "Personalized 6-12 Month Roadmap",
-            value: 50,
-            bullets: [
-              "Written development plan",
-              "Tailored to athlete's goals",
-              "Clear next steps to improve"
-            ]
-          },
-          {
-            title: "Full Facility Tour & Q&A",
-            value: 0,
-            bullets: [
-              "Walk through 16,000 sq ft facility",
-              "Ask questions about programs",
-              "Meet coaches and see success stories"
-            ]
-          }
-        ]}
-        ctaText="Book My Free Evaluation Now"
-        valueStatement="Normally $350 Value - Yours Free"
-      />
-
       {/* LPA SECTION #1 - The Facility */}
       <LandingFacilityShowcase
         title="Where Elite Athletes Train"
@@ -205,35 +141,6 @@ const Index = () => {
           { src: "/action-09.jpg", alt: "LPA athlete fielding and throwing" },
           { src: "/action-10.jpg", alt: "LPA athlete defensive stance in outfield" }
         ]}
-      />
-
-      {/* OFFER SECTION #2 - How It Works */}
-      <LandingProcess
-        title="How It Works"
-        subtitle="Simple 4-step process to get your athlete evaluated"
-        steps={[
-          {
-            number: "1",
-            title: "Book Your Spot",
-            description: "Fill out the simple form and choose a time that works for your schedule"
-          },
-          {
-            number: "2",
-            title: "Come Prepared",
-            description: "Bring your athlete ready to throw/hit and any previous training history or injury information"
-          },
-          {
-            number: "3",
-            title: "Complete Evaluation",
-            description: "90-minute session with metrics testing, video analysis, and strength assessment"
-          },
-          {
-            number: "4",
-            title: "Get Your Roadmap",
-            description: "Walk away with a written development plan and clear next steps toward your athlete's goals"
-          }
-        ]}
-        ctaText="Claim Your Evaluation Now"
       />
 
       {/* LPA SECTION #2 - The Coaches */}
@@ -344,7 +251,100 @@ const Index = () => {
         ]}
       />
 
-      {/* OFFER SECTION #4 - FAQ */}
+      {/* OFFER SECTION #1 - What's Included */}
+      <LandingIncluded
+        title="What's Included in Your Free Evaluation"
+        subtitle="Everything you need to know about your athlete's current level and development path"
+        items={[
+          {
+            title: "Advanced Metrics Testing",
+            value: 75,
+            bullets: [
+              "Pitching or hitting velocity testing",
+              "Professional-grade tech (Rapsodo, HitTrax)",
+              "Real-time performance data"
+            ]
+          },
+          {
+            title: "Complete Mechanics Analysis",
+            value: 100,
+            bullets: [
+              "Frame-by-frame video breakdown",
+              "Analyzed by D1/Pro coaches",
+              "Identify technical flaws"
+            ]
+          },
+          {
+            title: "Strength & Mobility Assessment",
+            value: 50,
+            bullets: [
+              "Certified strength coach evaluation",
+              "Identify physical weaknesses",
+              "Injury prevention insights"
+            ]
+          },
+          {
+            title: "Coach-Led Development Plan",
+            value: 75,
+            bullets: [
+              "One-on-one coaching consultation",
+              "Personalized improvement roadmap",
+              "Specific training recommendations"
+            ]
+          },
+          {
+            title: "Personalized 6-12 Month Roadmap",
+            value: 50,
+            bullets: [
+              "Written development plan",
+              "Tailored to athlete's goals",
+              "Clear next steps to improve"
+            ]
+          },
+          {
+            title: "Full Facility Tour & Q&A",
+            value: 0,
+            bullets: [
+              "Walk through 16,000 sq ft facility",
+              "Ask questions about programs",
+              "Meet coaches and see success stories"
+            ]
+          }
+        ]}
+        ctaText="Book My Free Evaluation Now"
+        valueStatement="Normally $350 Value - Yours Free"
+      />
+
+      {/* OFFER SECTION #2 - How It Works */}
+      <LandingProcess
+        title="How It Works"
+        subtitle="Simple 4-step process to get your athlete evaluated"
+        steps={[
+          {
+            number: "1",
+            title: "Book Your Spot",
+            description: "Fill out the simple form and choose a time that works for your schedule"
+          },
+          {
+            number: "2",
+            title: "Come Prepared",
+            description: "Bring your athlete ready to throw/hit and any previous training history or injury information"
+          },
+          {
+            number: "3",
+            title: "Complete Evaluation",
+            description: "90-minute session with metrics testing, video analysis, and strength assessment"
+          },
+          {
+            number: "4",
+            title: "Get Your Roadmap",
+            description: "Walk away with a written development plan and clear next steps toward your athlete's goals"
+          }
+        ]}
+        ctaText="Claim Your Evaluation Now"
+      />
+
+      {/* FAQ */}
       <LandingFAQ
         title="Common Questions"
         faqs={[
