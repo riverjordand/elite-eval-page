@@ -30,6 +30,24 @@ const LandingCoaches = ({ title, subtitle, coaches }: LandingCoachesProps) => {
             </p>
           </div>
 
+          {/* Coaching Stats Bar */}
+          <div className="mb-8 md:mb-16 bg-card border-2 border-primary/30 rounded-xl p-6 md:p-10">
+            <div className="grid grid-cols-3 gap-4 md:gap-8 text-center">
+              <div>
+                <div className="text-3xl sm:text-4xl md:text-5xl font-bebas font-black text-primary mb-1 md:mb-2">50+</div>
+                <p className="text-muted-foreground font-oswald uppercase text-xs md:text-sm">Years Pro Experience</p>
+              </div>
+              <div>
+                <div className="text-3xl sm:text-4xl md:text-5xl font-bebas font-black text-primary mb-1 md:mb-2">5</div>
+                <p className="text-muted-foreground font-oswald uppercase text-xs md:text-sm">D1 Programs Represented</p>
+              </div>
+              <div>
+                <div className="text-3xl sm:text-4xl md:text-5xl font-bebas font-black text-primary mb-1 md:mb-2">500+</div>
+                <p className="text-muted-foreground font-oswald uppercase text-xs md:text-sm">Athletes Coached</p>
+              </div>
+            </div>
+          </div>
+
           {/* Coaches - Mobile: Horizontal Scroll / Desktop: All Fit in One Row */}
           <div className="flex overflow-x-auto md:overflow-x-visible gap-4 md:gap-6 snap-x snap-mandatory scrollbar-hide pb-4 -mx-4 px-4 md:mx-0 md:px-0 md:justify-center">
             {coaches.map((coach, index) => (
