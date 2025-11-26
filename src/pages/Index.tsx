@@ -49,7 +49,6 @@ const Index = () => {
       {/* HERO */}
       <LandingHero
         onCtaClick={() => setFormOpen(true)}
-        onTourClick={() => setFormOpen(true)}
       />
 
       {/* INTRO - About LPA */}
