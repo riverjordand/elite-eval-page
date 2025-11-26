@@ -20,7 +20,7 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 text-center">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black uppercase leading-tight mb-6 animate-fade-in">
+          <h1 className="font-bebas text-6xl md:text-8xl lg:text-9xl uppercase leading-[0.9] mb-6 animate-fade-in tracking-tight">
             Developing Elite
             <br />
             <span className="text-gradient-purple glow-primary">Student-Athletes</span>
