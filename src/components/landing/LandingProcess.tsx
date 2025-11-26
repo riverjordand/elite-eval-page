@@ -36,26 +36,26 @@ const LandingProcess = ({ title, subtitle, steps, ctaText, onCtaClick }: Landing
 
           {/* Steps */}
           <div className="relative mb-12 md:mb-16">
-            {/* Connection Line - visible on desktop */}
-            <div className="hidden md:block absolute top-16 left-0 right-0 h-1 bg-primary/40" style={{ width: 'calc(100% - 8rem)', margin: '0 auto' }} />
+            {/* Connection Line - visible on desktop, positioned between circles */}
+            <div className="hidden md:block absolute top-8 left-1/2 -translate-x-1/2 h-0.5 bg-primary/30" style={{ width: 'calc(100% - 16rem)' }} />
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-12">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-6 lg:gap-8">
               {steps.map((step, index) => (
                 <div 
                   key={index}
                   className="relative animate-fade-in flex flex-row md:flex-col gap-4 md:gap-0 items-start md:items-center text-left md:text-center"
                   style={{ animationDelay: `${index * 150}ms` }}
                 >
-                  {/* Number Circle */}
-                  <div className="relative z-10 w-14 h-14 md:w-16 md:h-16 bg-primary rounded-full flex items-center justify-center shrink-0 md:mx-auto md:mb-6 shadow-lg">
-                    <span className="text-3xl md:text-3xl font-bebas font-black text-primary-foreground">
+                  {/* Number Circle - positioned above card on desktop */}
+                  <div className="relative z-10 w-14 h-14 md:w-16 md:h-16 bg-primary rounded-full flex items-center justify-center shrink-0 md:mx-auto md:mb-8 shadow-lg ring-4 ring-background">
+                    <span className="text-2xl md:text-3xl font-bebas font-black text-primary-foreground">
                       {step.number}
                     </span>
                   </div>
 
-                  {/* Content */}
-                  <div className="bg-card border-2 border-border rounded-xl p-5 md:p-6 flex-1 flex flex-col hover:border-primary/50 transition-all duration-300">
-                    <h3 className="text-lg md:text-2xl font-bebas font-bold uppercase mb-2 md:mb-3 text-foreground leading-tight">
+                  {/* Content Card */}
+                  <div className="bg-card border-2 border-border rounded-2xl p-5 md:p-7 lg:p-8 flex-1 flex flex-col hover:border-primary/40 transition-all duration-300 min-h-[140px] md:min-h-[180px]">
+                    <h3 className="text-lg md:text-xl lg:text-2xl font-bebas font-bold uppercase mb-2 md:mb-4 text-foreground leading-tight tracking-wide">
                       {step.title}
                     </h3>
                     <p className="text-muted-foreground font-oswald text-sm md:text-base leading-relaxed flex-1">
