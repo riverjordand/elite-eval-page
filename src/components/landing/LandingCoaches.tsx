@@ -1,3 +1,5 @@
+import SectionDivider from "./SectionDivider";
+
 interface Coach {
   name: string;
   title: string;
@@ -13,7 +15,9 @@ interface LandingCoachesProps {
 
 const LandingCoaches = ({ title, subtitle, coaches }: LandingCoachesProps) => {
   return (
-    <section className="py-12 md:py-24 bg-[#1a1a1a] relative">
+    <>
+      <SectionDivider />
+      <section className="py-12 md:py-24 bg-[#1a1a1a] relative">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
@@ -70,6 +74,7 @@ const LandingCoaches = ({ title, subtitle, coaches }: LandingCoachesProps) => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

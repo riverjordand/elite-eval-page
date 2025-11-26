@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Clock, ArrowRight } from "lucide-react";
+import SectionDivider from "./SectionDivider";
 
 interface LandingFinalCTAProps {
   title: string;
@@ -17,7 +18,9 @@ const LandingFinalCTA = ({
   guaranteeText = "No credit card required • No obligation • 100% Free"
 }: LandingFinalCTAProps) => {
   return (
-    <section className="py-16 md:py-32 bg-[#0a0a0a] relative overflow-hidden">
+    <>
+      <SectionDivider />
+      <section className="py-16 md:py-32 bg-[#0a0a0a] relative overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-4xl mx-auto text-center">
           {/* Urgency Badge */}
@@ -60,6 +63,7 @@ const LandingFinalCTA = ({
         </div>
       </div>
     </section>
+    </>
   );
 };
 
