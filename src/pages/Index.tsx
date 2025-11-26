@@ -11,6 +11,7 @@ import LandingTestimonials from "@/components/landing/LandingTestimonials";
 import LandingCommitments from "@/components/landing/LandingCommitments";
 import LandingEvaluationHook from "@/components/landing/LandingEvaluationHook";
 import LandingProblemAgitation from "@/components/landing/LandingProblemAgitation";
+import LandingEvaluationIntro from "@/components/landing/LandingEvaluationIntro";
 import LandingValueStack from "@/components/landing/LandingValueStack";
 
 import EvaluationForm from "@/components/landing/EvaluationForm";
@@ -249,7 +250,10 @@ const Index = () => {
       {/* SECTION B - Problem Agitation (Cost of Not Knowing) */}
       <LandingProblemAgitation />
 
-      {/* SECTION C - Value Stack (What's Included) */}
+      {/* SECTION C - Evaluation Intro (Free College-Ready Player Evaluation) */}
+      <LandingEvaluationIntro />
+
+      {/* SECTION D - Value Stack (What's Included) */}
       <LandingValueStack onCtaClick={() => setFormOpen(true)} />
 
 
