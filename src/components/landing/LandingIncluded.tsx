@@ -40,19 +40,19 @@ const LandingIncluded = ({
             )}
           </div>
 
-          {/* Items Grid */}
-          <div className="grid md:grid-cols-2 gap-4 md:gap-8 mb-8 md:mb-12">
+          {/* Items Stack - Full Width */}
+          <div className="max-w-3xl mx-auto space-y-4 md:space-y-5 mb-8 md:mb-12">
             {items.map((item, index) => (
               <div 
                 key={index} 
-                className="bg-card border-2 border-border rounded-lg p-4 md:p-8 hover:border-primary/50 transition-all duration-300 animate-fade-in"
-                style={{ animationDelay: `${index * 100}ms` }}
+                className="bg-card border-2 border-border rounded-lg p-5 md:p-7 hover:border-primary/50 transition-all duration-300 animate-fade-in"
+                style={{ animationDelay: `${index * 50}ms` }}
               >
                 <div className="flex gap-3 md:gap-4">
-                  <div className="flex-shrink-0 w-6 h-6 md:w-8 md:h-8 bg-primary rounded-full flex items-center justify-center mt-0.5 md:mt-1">
-                    <Check className="w-4 h-4 md:w-5 md:h-5 text-primary-foreground" />
+                  <div className="flex-shrink-0 w-6 h-6 md:w-7 md:h-7 bg-primary rounded-full flex items-center justify-center mt-0.5">
+                    <Check className="w-4 h-4 md:w-4.5 md:h-4.5 text-primary-foreground" />
                   </div>
-                  <div>
+                  <div className="flex-1">
                     <h3 className="text-base md:text-xl font-bebas font-bold uppercase mb-2 md:mb-3 text-foreground">
                       {item.title}
                     </h3>
