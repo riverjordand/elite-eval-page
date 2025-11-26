@@ -14,6 +14,7 @@ interface LandingIncludedProps {
   items: IncludedItem[];
   ctaText: string;
   valueStatement?: string;
+  onCtaClick?: () => void;
 }
 
 const LandingIncluded = ({ 
@@ -21,7 +22,8 @@ const LandingIncluded = ({
   subtitle,
   items, 
   ctaText,
-  valueStatement = "Normally $300+ Value - Yours Free"
+  valueStatement = "Normally $300+ Value - Yours Free",
+  onCtaClick
 }: LandingIncludedProps) => {
   return (
     <>
@@ -99,6 +101,7 @@ const LandingIncluded = ({
             <Button 
               size="lg" 
               className="bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-wider text-lg md:text-2xl px-8 py-6 md:px-16 md:py-10 w-full sm:w-auto"
+              onClick={onCtaClick}
             >
               {ctaText}
             </Button>
