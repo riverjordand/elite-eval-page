@@ -117,7 +117,7 @@ const Index = () => {
       {/* TRAINING VIDEOS SECTION */}
       <LandingVideos
         title="Training In Motion"
-        subtitle="The energy, the culture, the work — everything here pushes players to grow faster than they have anywhere else."
+        subtitle="Everything here pushes players to grow faster than they have anywhere else."
         videos={[
           { src: "/training-video-01.mp4", alt: "LPA training session in action" },
           { src: "/training-video-02.mp4", alt: "LPA athlete development training" },
@@ -134,7 +134,7 @@ const Index = () => {
       {/* ACTION PHOTOS SECTION */}
       <LandingPhotos
         title="Athletes In Action"
-        subtitle="Your athlete becomes who they train around — these are the habits, standards, and work ethic they grow into here."
+        subtitle="Your athlete becomes who they train around."
         photos={[
           { src: "/action-01.jpg", alt: "LPA athlete strength training with equipment" },
           { src: "/action-02.jpg", alt: "LPA athlete bat training session" },
