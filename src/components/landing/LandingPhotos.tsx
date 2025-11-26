@@ -32,12 +32,12 @@ const LandingPhotos = ({
           </div>
 
           {/* Mobile: Horizontal Scroll */}
-          <div className="md:hidden overflow-x-auto pb-4 -mx-4 px-4 scrollbar-hide snap-x snap-mandatory">
+          <div className="md:hidden overflow-x-auto pb-4 -mx-4 px-4 scrollbar-hide">
             <div className="flex gap-4" style={{ width: 'max-content' }}>
               {photos.map((photo, index) => (
                 <div
                   key={index}
-                  className="group flex-shrink-0 w-[75vw] aspect-square rounded-lg overflow-hidden bg-muted border-[3px] border-border shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300 snap-center"
+                  className="group flex-shrink-0 w-[75vw] aspect-square rounded-lg overflow-hidden bg-muted border-[3px] border-border shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300"
                 >
                   <img
                     src={photo.src}

@@ -23,6 +23,10 @@ const LandingVideos = ({
     const container = scrollContainerRef.current;
     if (!container) return;
 
+    // Only enable auto-scroll on desktop
+    const isDesktop = window.matchMedia('(min-width: 768px)').matches;
+    if (!isDesktop) return;
+
     let animationFrameId: number;
     let scrollPosition = 0;
     const scrollSpeed = 0.25; // pixels per frame
@@ -68,10 +72,10 @@ const LandingVideos = ({
           </div>
         </div>
 
-        {/* Auto-scrolling container - full width */}
+        {/* Auto-scrolling container on desktop, manual scroll on mobile - full width */}
         <div 
           ref={scrollContainerRef}
-          className="overflow-x-hidden pb-4 scrollbar-hide"
+          className="overflow-x-auto md:overflow-x-hidden pb-4 scrollbar-hide"
         >
           <div className="flex gap-3 md:gap-4" style={{ width: 'max-content' }}>
             {duplicatedVideos.map((video, index) => (
