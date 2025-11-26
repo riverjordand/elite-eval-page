@@ -134,7 +134,7 @@ const Index = () => {
       {/* ACTION PHOTOS SECTION */}
       <LandingPhotos
         title="Athletes In Action"
-        subtitle="Elite training captured at every moment"
+        subtitle="Your athlete becomes who they train around — these are the habits, standards, and work ethic they grow into here."
         photos={[
           { src: "/action-01.jpg", alt: "LPA athlete strength training with equipment" },
           { src: "/action-02.jpg", alt: "LPA athlete bat training session" },
