@@ -45,12 +45,12 @@ const LandingHero = ({
           </div>
 
           {/* Main Headline - About LPA */}
-          <h1 className="text-4xl sm:text-5xl md:text-8xl font-bebas font-black uppercase mb-4 md:mb-6 leading-[0.95] px-2">
+          <h1 className="text-4xl sm:text-5xl md:text-9xl lg:text-[10rem] font-bebas font-black uppercase mb-4 md:mb-8 leading-[0.95] px-2">
             {mainHeadline}
           </h1>
 
           {/* Sub Headline */}
-          <p className="text-base sm:text-xl md:text-3xl text-primary font-oswald font-semibold mb-6 md:mb-10 max-w-3xl mx-auto px-2 leading-tight uppercase">
+          <p className="text-base sm:text-xl md:text-4xl lg:text-5xl text-primary font-oswald font-semibold mb-6 md:mb-12 max-w-5xl mx-auto px-2 leading-tight uppercase">
             {subHeadline}
           </p>
 

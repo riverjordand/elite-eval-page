@@ -22,10 +22,10 @@ const LandingFacilityShowcase = ({ title, subtitle, areas }: LandingFacilityShow
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-8 md:mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-6xl font-bebas font-black uppercase mb-3 md:mb-4 px-4">
+            <h2 className="text-3xl sm:text-4xl md:text-7xl lg:text-8xl font-bebas font-black uppercase mb-3 md:mb-6 px-4">
               {title}
             </h2>
-            <p className="text-sm sm:text-base md:text-xl text-muted-foreground font-oswald max-w-2xl mx-auto px-2">
+            <p className="text-sm sm:text-base md:text-2xl lg:text-3xl text-muted-foreground font-oswald max-w-4xl mx-auto px-2">
               {subtitle}
             </p>
           </div>
@@ -111,17 +111,17 @@ const LandingFacilityShowcase = ({ title, subtitle, areas }: LandingFacilityShow
                 
                 {/* Content */}
                 <div className="p-8">
-                  <h3 className="text-3xl font-bebas font-black uppercase mb-4 text-primary">
+                  <h3 className="text-3xl md:text-4xl lg:text-5xl font-bebas font-black uppercase mb-4 text-primary">
                     {area.title}
                   </h3>
-                  <p className="text-base text-foreground font-oswald mb-6 leading-relaxed">
+                  <p className="text-base md:text-xl lg:text-2xl text-foreground font-oswald mb-6 leading-relaxed">
                     {area.description}
                   </p>
                   <ul className="space-y-3">
                     {area.specs.map((spec, specIndex) => (
                       <li key={specIndex} className="flex items-start gap-3">
                         <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0" />
-                        <span className="text-muted-foreground font-oswald text-sm">{spec}</span>
+                        <span className="text-muted-foreground font-oswald text-sm md:text-lg lg:text-xl">{spec}</span>
                       </li>
                     ))}
                   </ul>
