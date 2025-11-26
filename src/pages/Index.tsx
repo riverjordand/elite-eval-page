@@ -2,6 +2,7 @@ import { useState } from "react";
 import Navigation from "@/components/Navigation";
 import LandingHero from "@/components/landing/LandingHero";
 import LandingIntro from "@/components/landing/LandingIntro";
+import LandingAdvantage from "@/components/landing/LandingAdvantage";
 import LandingFacilityShowcase from "@/components/landing/LandingFacilityShowcase";
 import LandingVideos from "@/components/landing/LandingVideos";
 import LandingPhotos from "@/components/landing/LandingPhotos";
@@ -53,6 +54,9 @@ const Index = () => {
 
       {/* INTRO - About LPA */}
       <LandingIntro />
+
+      {/* THE LEGENDARY ADVANTAGE - Why LPA is Different */}
+      <LandingAdvantage />
 
       {/* LPA SECTION #1 - The Facility */}
       <LandingFacilityShowcase
