@@ -3,50 +3,67 @@ import facilityImage from "@/assets/facility-interior.jpg";
 const facilityAreas = [
   {
     title: "Training Area",
-    description: "Our spaciously offers over 16,000 sq. ft. of dedicated space for baseball training.",
+    description: "The same hitting and pitching environment used by college programs — built to speed up development.",
     features: [
-      "Advanced pitching technology",
-      "Multiple training bays",
-      "Baseball specific technology"
-    ]
+      "Real-time ball flight and data so athletes instantly see what's working",
+      "Indoor turf + full-size spacing that mirrors game environments",
+      "High-speed cameras that reveal what the eye can't",
+      "Advanced training systems that help athletes add velocity, sharpen contact, and fix flaws fast"
+    ],
+    tagline: "Your athlete trains in a space designed for progress — not guesswork."
   },
   {
-    title: "Recovery Center",
-    description: "Features cutting-edge recovery tools like red light therapy and infrared saunas.",
+    title: "Strength & Conditioning",
+    description: "A complete baseball-specific strength system designed to build power, health, and longevity.",
     features: [
-      "Normatec lease therapy",
-      "Red Light Therapy sessions",
-      "Cold plunge / Hot tub"
-    ]
+      "Olympic lifting platforms for explosive power",
+      "Mobility + stability work to protect joints and prevent injuries",
+      "Speed + agility training built for in-game movements",
+      "Recovery zone to keep athletes training year-round"
+    ],
+    tagline: "They don't just get stronger — they become more explosive, durable, and recruitable."
   },
   {
-    title: "Strength Conditioning",
-    description: "Advanced weight room with $250,000 of equipment for baseball specific training.",
+    title: "Video Analysis Room",
+    description: "College-level breakdowns that reveal EXACTLY what's holding your athlete back.",
     features: [
-      "Personalized strength programs",
-      "Access to latest gym technology",
-      "Baseball strength and conditioning saunas"
-    ]
+      "Multi-angle video capture so nothing goes unnoticed",
+      "Frame-by-frame analysis to isolate mechanical flaws",
+      "Pro-grade side-by-side comparisons to track improvement",
+      "Personalized coaching corrections that create immediate results"
+    ],
+    tagline: "This is how serious players remove the guesswork and finally break through plateaus."
   },
   {
     title: "Sports Medicine",
-    description: "Weekly visits from Sponsor Physical Therapy ensure for injury prevention.",
+    description: "Injury prevention and recovery support built directly into development — so progress never stops.",
     features: [
-      "Physical Therapy sessions",
-      "Injury assessment and care",
-      "Professional programs from licensed professional"
-    ]
+      "Physical therapists and athletic trainers overseeing movement quality",
+      "Preventative screenings to catch issues early",
+      "Custom recovery plans to keep athletes healthy during high-volume seasons",
+      "Rehabilitation protocols to accelerate safe return-to-play"
+    ],
+    tagline: "Your athlete trains harder — and stays healthier — because everything is built with longevity in mind."
   }
+];
+
+const facilityStats = [
+  { number: "16K+", label: "Square feet of elite baseball development" },
+  { number: "365", label: "Days open for year-round progress" },
+  { number: "PRO", label: "Technology + coaching used at D1 and MLB levels" }
 ];
 
 const Facility = () => {
   return (
     <section id="facility" className="py-24 bg-secondary relative overflow-hidden">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-bebas font-black uppercase mb-4">
-            The <span className="text-primary">Facility</span>
+        <div className="text-center mb-12">
+          <h2 className="text-5xl md:text-6xl font-bebas font-black uppercase mb-6">
+            Where Elite Athletes <span className="text-primary">Train</span>
           </h2>
+          <p className="text-lg md:text-xl font-oswald text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+            16,000 square feet of professional-grade development built for one thing — turning serious players into college-ready athletes.
+          </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
@@ -82,7 +99,7 @@ const Facility = () => {
                       {area.description}
                     </p>
                     
-                    <ul className="space-y-2">
+                    <ul className="space-y-3 mb-4">
                       {area.features.map((feature, fIndex) => (
                         <li 
                           key={fIndex}
@@ -93,11 +110,31 @@ const Facility = () => {
                         </li>
                       ))}
                     </ul>
+                    
+                    <p className="text-sm font-oswald font-semibold text-foreground italic mt-4 pt-4 border-t border-border">
+                      {area.tagline}
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Stats Bar */}
+        <div className="mt-16 pt-12 border-t border-border">
+          <div className="grid grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {facilityStats.map((stat, index) => (
+              <div key={index} className="text-center">
+                <div className="text-4xl md:text-5xl font-bebas font-black text-primary mb-2">
+                  {stat.number}
+                </div>
+                <p className="text-xs md:text-sm font-oswald text-muted-foreground uppercase">
+                  {stat.label}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
