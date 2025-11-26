@@ -321,6 +321,12 @@ const Index = () => {
             parentName: "LPA Parents",
             athleteName: "Multiple Families",
             quote: "We've seen incredible gains in baseball, strength, and development. Everything here is state of the art, and seeing those gains every day is amazing."
+          },
+          {
+            videoUrl: "/testimonials/parent-testimonial-4.mp4",
+            parentName: "Cash Kelly",
+            athleteName: "Class of 2030 • SS/C",
+            quote: "I made so many new friends so quickly - we're like brothers here. I got way stronger and my swing mechanics improved so much. I used to roll over a lot, but now I'm staying through the ball."
           }
         ]}
       />
