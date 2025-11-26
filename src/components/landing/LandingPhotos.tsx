@@ -99,7 +99,7 @@ const LandingPhotos = ({
               {row1Photos.map((photo, index) => (
                 <div
                   key={index}
-                  className="flex-shrink-0 w-[200px] md:w-[280px] aspect-square rounded-lg overflow-hidden bg-muted border-2 border-border shadow-lg"
+                  className="flex-shrink-0 w-[150px] md:w-[220px] aspect-square rounded-lg overflow-hidden bg-muted border-2 border-border shadow-lg"
                 >
                   <img
                     src={photo.src}
@@ -120,7 +120,7 @@ const LandingPhotos = ({
               {row2Photos.map((photo, index) => (
                 <div
                   key={index}
-                  className="flex-shrink-0 w-[200px] md:w-[280px] aspect-square rounded-lg overflow-hidden bg-muted border-2 border-border shadow-lg"
+                  className="flex-shrink-0 w-[150px] md:w-[220px] aspect-square rounded-lg overflow-hidden bg-muted border-2 border-border shadow-lg"
                 >
                   <img
                     src={photo.src}
