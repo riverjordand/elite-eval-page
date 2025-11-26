@@ -42,7 +42,7 @@ const LandingIncluded = ({
           </div>
 
           {/* Items Stack - Full Width */}
-          <div className="max-w-3xl mx-auto space-y-4 md:space-y-5 mb-8 md:mb-12">
+          <div className="max-w-2xl mx-auto space-y-4 md:space-y-5 mb-8 md:mb-12">
             {items.map((item, index) => (
               <div 
                 key={index} 
@@ -77,7 +77,7 @@ const LandingIncluded = ({
           </div>
 
           {/* Total Value */}
-          <div className="max-w-3xl mx-auto mb-6 md:mb-8 p-6 md:p-8 bg-gradient-to-br from-primary/20 via-primary/10 to-transparent border-2 border-primary rounded-xl">
+          <div className="max-w-2xl mx-auto mb-6 md:mb-8 p-6 md:p-8 bg-gradient-to-br from-primary/20 via-primary/10 to-transparent border-2 border-primary rounded-xl">
             <div className="flex items-center justify-between">
               <span className="text-lg md:text-2xl font-bebas uppercase text-foreground">Total Value:</span>
               <span className="text-2xl md:text-4xl font-bebas text-primary">${items.reduce((sum, item) => sum + item.value, 0)}</span>
