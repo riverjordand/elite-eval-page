@@ -1,22 +1,21 @@
 import SectionDivider from "./SectionDivider";
 
-interface MediaItem {
-  type: 'photo' | 'video';
+interface ActionPhoto {
   src: string;
   alt: string;
 }
 
-interface LandingActionGalleryProps {
+interface LandingPhotosProps {
   title?: string;
   subtitle?: string;
-  media: MediaItem[];
+  photos: ActionPhoto[];
 }
 
-const LandingActionGallery = ({
-  title = "Elite Training In Action",
-  subtitle = "Real athletes. Real results. Real development.",
-  media
-}: LandingActionGalleryProps) => {
+const LandingPhotos = ({
+  title = "Athletes In Action",
+  subtitle = "Elite training captured at every moment",
+  photos
+}: LandingPhotosProps) => {
   return (
     <>
       <SectionDivider />
@@ -35,28 +34,17 @@ const LandingActionGallery = ({
           {/* Mobile: Horizontal Scroll */}
           <div className="md:hidden overflow-x-auto pb-4 -mx-4 px-4 scrollbar-hide">
             <div className="flex gap-3" style={{ width: 'max-content' }}>
-              {media.map((item, index) => (
+              {photos.map((photo, index) => (
                 <div
                   key={index}
                   className="flex-shrink-0 w-[75vw] aspect-square rounded-lg overflow-hidden bg-muted"
                 >
-                  {item.type === 'video' ? (
-                    <video
-                      src={item.src}
-                      className="w-full h-full object-cover"
-                      loop
-                      muted
-                      playsInline
-                      autoPlay
-                    />
-                  ) : (
-                    <img
-                      src={item.src}
-                      alt={item.alt}
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                    />
-                  )}
+                  <img
+                    src={photo.src}
+                    alt={photo.alt}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
                 </div>
               ))}
             </div>
@@ -64,28 +52,17 @@ const LandingActionGallery = ({
 
           {/* Desktop: Grid */}
           <div className="hidden md:grid md:grid-cols-3 lg:grid-cols-5 gap-4">
-            {media.map((item, index) => (
+            {photos.map((photo, index) => (
               <div
                 key={index}
                 className="aspect-square rounded-lg overflow-hidden bg-muted hover:scale-105 transition-transform duration-300"
               >
-                {item.type === 'video' ? (
-                  <video
-                    src={item.src}
-                    className="w-full h-full object-cover"
-                    loop
-                    muted
-                    playsInline
-                    autoPlay
-                  />
-                ) : (
-                  <img
-                    src={item.src}
-                    alt={item.alt}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                )}
+                <img
+                  src={photo.src}
+                  alt={photo.alt}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
               </div>
             ))}
           </div>
@@ -95,4 +72,4 @@ const LandingActionGallery = ({
   );
 };
 
-export default LandingActionGallery;
+export default LandingPhotos;

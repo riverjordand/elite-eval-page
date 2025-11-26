@@ -3,7 +3,8 @@ import LandingHero from "@/components/landing/LandingHero";
 import LandingIntro from "@/components/landing/LandingIntro";
 import LandingIncluded from "@/components/landing/LandingIncluded";
 import LandingFacilityShowcase from "@/components/landing/LandingFacilityShowcase";
-import LandingActionGallery from "@/components/landing/LandingActionGallery";
+import LandingVideos from "@/components/landing/LandingVideos";
+import LandingPhotos from "@/components/landing/LandingPhotos";
 import LandingProcess from "@/components/landing/LandingProcess";
 import LandingCoaches from "@/components/landing/LandingCoaches";
 import LandingTestimonials from "@/components/landing/LandingTestimonials";
@@ -132,24 +133,32 @@ const Index = () => {
         ]}
       />
 
-      {/* ACTION GALLERY - Training Photos & Videos */}
-      <LandingActionGallery
-        title="Elite Training In Action"
-        subtitle="Real athletes. Real results. Real development."
-        media={[
-          { type: "video", src: "/training-video-01.mp4", alt: "LPA training session in action" },
-          { type: "photo", src: "/action-01.jpg", alt: "LPA athlete strength training with equipment" },
-          { type: "photo", src: "/action-02.jpg", alt: "LPA athlete bat training session" },
-          { type: "video", src: "/training-video-02.mp4", alt: "LPA athlete development training" },
-          { type: "photo", src: "/action-03.jpg", alt: "LPA athlete batting practice action" },
-          { type: "photo", src: "/action-04.jpg", alt: "LPA athlete core training with weight plate" },
-          { type: "photo", src: "/action-05.jpg", alt: "LPA athlete focused in dugout" },
-          { type: "video", src: "/training-video-03.mp4", alt: "LPA facility training footage" },
-          { type: "photo", src: "/action-06.jpg", alt: "LPA athlete batting at field during golden hour" },
-          { type: "photo", src: "/action-07.jpg", alt: "LPA athlete pitching on mound" },
-          { type: "photo", src: "/action-08.jpg", alt: "LPA athletes team photo on field" },
-          { type: "photo", src: "/action-09.jpg", alt: "LPA athlete fielding and throwing" },
-          { type: "photo", src: "/action-10.jpg", alt: "LPA athlete defensive stance in outfield" }
+      {/* TRAINING VIDEOS SECTION */}
+      <LandingVideos
+        title="Training In Motion"
+        subtitle="See our elite development program in action"
+        videos={[
+          { src: "/training-video-01.mp4", alt: "LPA training session in action" },
+          { src: "/training-video-02.mp4", alt: "LPA athlete development training" },
+          { src: "/training-video-03.mp4", alt: "LPA facility training footage" }
+        ]}
+      />
+
+      {/* ACTION PHOTOS SECTION */}
+      <LandingPhotos
+        title="Athletes In Action"
+        subtitle="Elite training captured at every moment"
+        photos={[
+          { src: "/action-01.jpg", alt: "LPA athlete strength training with equipment" },
+          { src: "/action-02.jpg", alt: "LPA athlete bat training session" },
+          { src: "/action-03.jpg", alt: "LPA athlete batting practice action" },
+          { src: "/action-04.jpg", alt: "LPA athlete core training with weight plate" },
+          { src: "/action-05.jpg", alt: "LPA athlete focused in dugout" },
+          { src: "/action-06.jpg", alt: "LPA athlete batting at field during golden hour" },
+          { src: "/action-07.jpg", alt: "LPA athlete pitching on mound" },
+          { src: "/action-08.jpg", alt: "LPA athletes team photo on field" },
+          { src: "/action-09.jpg", alt: "LPA athlete fielding and throwing" },
+          { src: "/action-10.jpg", alt: "LPA athlete defensive stance in outfield" }
         ]}
       />
 
