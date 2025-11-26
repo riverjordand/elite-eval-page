@@ -3,16 +3,18 @@ import { ArrowRight } from "lucide-react";
 
 interface LandingHeroProps {
   badge?: string;
-  headline: string;
-  subheadline: string;
+  mainHeadline: string;
+  offerHeadline: string;
+  description: string;
   ctaPrimary: string;
   spotsLeft?: number;
 }
 
 const LandingHero = ({ 
   badge = "Limited Availability",
-  headline, 
-  subheadline, 
+  mainHeadline,
+  offerHeadline,
+  description,
   ctaPrimary,
   spotsLeft = 10
 }: LandingHeroProps) => {
@@ -42,14 +44,19 @@ const LandingHero = ({
             </span>
           </div>
 
-          {/* Headline */}
-          <h1 className="text-3xl sm:text-4xl md:text-7xl font-bebas font-black uppercase mb-4 md:mb-6 leading-tight px-2">
-            {headline}
+          {/* Main Headline - About LPA */}
+          <h1 className="text-3xl sm:text-4xl md:text-7xl font-bebas font-black uppercase mb-3 md:mb-4 leading-tight px-2">
+            {mainHeadline}
           </h1>
 
-          {/* Subheadline */}
-          <p className="text-base sm:text-lg md:text-2xl text-muted-foreground mb-6 md:mb-10 font-oswald max-w-3xl mx-auto px-2">
-            {subheadline}
+          {/* Offer Headline - About the Evaluation */}
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bebas uppercase mb-4 md:mb-6 text-primary leading-tight px-2">
+            {offerHeadline}
+          </h2>
+
+          {/* Description */}
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-6 md:mb-10 font-oswald max-w-3xl mx-auto px-2">
+            {description}
           </p>
 
           {/* CTA */}

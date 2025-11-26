@@ -34,8 +34,9 @@ const Index = () => {
       
       {/* HERO */}
       <LandingHero
-        headline="Is Your Athlete College-Ready? Find Out in 90 Minutes"
-        subheadline="Get a complete breakdown of where your athlete stands today and exactly what it takes to play at the next level—completely free."
+        mainHeadline="Arizona's Premier Baseball Development Academy"
+        offerHeadline="Start with a Free College-Ready Player Evaluation"
+        description="Get a complete breakdown of where your athlete stands today and exactly what it takes to play at the next level—completely free."
         ctaPrimary="Claim My Free Evaluation"
         spotsLeft={10}
       />
