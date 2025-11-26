@@ -17,7 +17,7 @@ const LandingHero = ({
   spotsLeft = 10
 }: LandingHeroProps) => {
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[70vh] md:min-h-[90vh] flex items-center justify-center overflow-hidden">
       {/* Background Video */}
       <video
         autoPlay
@@ -32,47 +32,47 @@ const LandingHero = ({
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/90 to-background/95" />
       
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full mb-6 animate-fade-in">
-            <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-            <span className="text-primary font-bebas uppercase tracking-wider text-sm">
-              {badge} • Only {spotsLeft} Spots Left This Week
+          <div className="inline-flex items-center gap-1.5 px-3 py-1.5 md:px-4 md:py-2 bg-primary/10 border border-primary/20 rounded-full mb-4 md:mb-6 animate-fade-in">
+            <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-primary rounded-full animate-pulse" />
+            <span className="text-primary font-bebas uppercase tracking-wider text-xs md:text-sm">
+              {badge} • Only {spotsLeft} Spots Left
             </span>
           </div>
 
           {/* Headline */}
-          <h1 className="text-5xl md:text-7xl font-bebas font-black uppercase mb-6 leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-7xl font-bebas font-black uppercase mb-4 md:mb-6 leading-tight px-2">
             {headline}
           </h1>
 
           {/* Subheadline */}
-          <p className="text-xl md:text-2xl text-muted-foreground mb-10 font-oswald max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-2xl text-muted-foreground mb-6 md:mb-10 font-oswald max-w-3xl mx-auto px-2">
             {subheadline}
           </p>
 
           {/* CTA */}
           <Button 
             size="lg" 
-            className="bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-wider text-2xl px-16 py-10 shadow-lg hover:shadow-xl transition-all duration-300 animate-scale-in"
+            className="bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-wider text-lg sm:text-xl md:text-2xl px-8 py-6 md:px-16 md:py-10 shadow-lg hover:shadow-xl transition-all duration-300 animate-scale-in w-full sm:w-auto"
           >
-            {ctaPrimary} <ArrowRight className="ml-2 w-6 h-6" />
+            {ctaPrimary} <ArrowRight className="ml-2 w-5 h-5 md:w-6 md:h-6" />
           </Button>
 
           {/* Trust indicators */}
-          <div className="mt-12 pt-8 border-t border-border/50">
-            <p className="text-sm text-muted-foreground mb-4 font-oswald uppercase tracking-wide">
+          <div className="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-border/50">
+            <p className="text-xs md:text-sm text-muted-foreground mb-3 md:mb-4 font-oswald uppercase tracking-wide">
               Trusted By Parents Of Athletes At
             </p>
-            <div className="flex flex-wrap justify-center gap-8 text-foreground/70 font-oswald font-semibold text-sm">
-              <span>University of Arizona</span>
-              <span>•</span>
+            <div className="flex flex-wrap justify-center gap-2 md:gap-8 text-foreground/70 font-oswald font-semibold text-xs md:text-sm px-4">
+              <span>U of Arizona</span>
+              <span className="hidden md:inline">•</span>
               <span>Arizona State</span>
-              <span>•</span>
-              <span>Grand Canyon University</span>
-              <span>•</span>
-              <span>MLB Organizations</span>
+              <span className="hidden md:inline">•</span>
+              <span>GCU</span>
+              <span className="hidden md:inline">•</span>
+              <span>MLB Orgs</span>
             </div>
           </div>
         </div>
