@@ -35,15 +35,15 @@ const LandingCoaches = ({ title, subtitle, coaches }: LandingCoachesProps) => {
             <div className="grid grid-cols-3 gap-4 md:gap-8 text-center">
               <div>
                 <div className="text-3xl sm:text-4xl md:text-5xl font-bebas font-black text-primary mb-1 md:mb-2">50+</div>
-                <p className="text-muted-foreground font-oswald uppercase text-xs md:text-sm">Years Pro Experience</p>
+                <p className="text-muted-foreground font-oswald uppercase text-xs md:text-sm">years combined pro experience</p>
               </div>
               <div>
                 <div className="text-3xl sm:text-4xl md:text-5xl font-bebas font-black text-primary mb-1 md:mb-2">5</div>
-                <p className="text-muted-foreground font-oswald uppercase text-xs md:text-sm">D1 Programs Represented</p>
+                <p className="text-muted-foreground font-oswald uppercase text-xs md:text-sm">Division 1 programs represented</p>
               </div>
               <div>
                 <div className="text-3xl sm:text-4xl md:text-5xl font-bebas font-black text-primary mb-1 md:mb-2">500+</div>
-                <p className="text-muted-foreground font-oswald uppercase text-xs md:text-sm">Athletes Coached</p>
+                <p className="text-muted-foreground font-oswald uppercase text-xs md:text-sm">athletes coached</p>
               </div>
             </div>
           </div>
