@@ -19,15 +19,15 @@ const LandingTestimonials = ({ title, subtitle, testimonials, onCtaClick }: Land
   return (
     <>
       <SectionDivider fromColor="#0a0a0a" toColor="#1a1a1a" />
-      <section className="py-12 md:py-24 bg-[#1a1a1a] relative">
-      <div className="mx-auto px-4 md:px-6">
-        <div className="mx-auto">
+      <section className="py-16 md:py-24 lg:py-32 bg-[#1a1a1a] relative">
+      <div className="mx-auto px-4 md:px-8">
+        <div className="mx-auto max-w-[1800px]">
           {/* Header */}
-          <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-3xl sm:text-4xl md:text-6xl font-bebas font-black uppercase mb-3 md:mb-4 px-4">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bebas font-black uppercase mb-4 md:mb-6 px-4 leading-tight">
               {title}
             </h2>
-            <p className="text-sm sm:text-base md:text-xl text-muted-foreground font-oswald max-w-2xl mx-auto px-2">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground font-oswald max-w-3xl mx-auto px-2 leading-relaxed">
               {subtitle}
             </p>
           </div>
@@ -116,16 +116,16 @@ const LandingTestimonials = ({ title, subtitle, testimonials, onCtaClick }: Land
           </div>
 
           {/* CTA Section */}
-          <div className="mt-12 md:mt-16 text-center max-w-3xl mx-auto px-4">
-            <p className="text-base md:text-lg text-foreground font-oswald mb-2 leading-relaxed">
+          <div className="mt-16 md:mt-20 text-center max-w-4xl mx-auto px-4">
+            <p className="text-lg md:text-xl lg:text-2xl text-foreground font-oswald mb-3 leading-relaxed">
               Your athlete deserves this level of clarity, coaching, and progress.
             </p>
-            <p className="text-sm md:text-base text-muted-foreground font-oswald mb-6 md:mb-8 leading-relaxed">
+            <p className="text-base md:text-lg lg:text-xl text-muted-foreground font-oswald mb-8 md:mb-10 leading-relaxed">
               Every player you see here started with the same free evaluation your athlete can book today.
             </p>
             <button
               onClick={onCtaClick}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 md:px-12 py-4 md:py-5 rounded-lg font-bebas text-xl md:text-2xl uppercase tracking-wider transition-all duration-300 hover:scale-105 shadow-lg"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-10 md:px-14 py-5 md:py-7 rounded-lg font-bebas text-xl md:text-2xl lg:text-3xl uppercase tracking-wider transition-all duration-300 hover:scale-105 shadow-lg h-auto min-h-[56px]"
             >
               → Book Your Free Evaluation
             </button>

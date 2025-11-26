@@ -17,33 +17,33 @@ const LandingCoaches = ({ title, subtitle, coaches }: LandingCoachesProps) => {
   return (
     <>
       <SectionDivider fromColor="#1a1a1a" toColor="#0a0a0a" />
-      <section className="py-12 md:py-24 bg-[#0a0a0a] relative">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="max-w-6xl mx-auto">
+      <section className="py-16 md:py-24 lg:py-32 bg-[#0a0a0a] relative">
+      <div className="container mx-auto px-4 md:px-8 lg:px-6">
+        <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-8 md:mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-6xl font-bebas font-black uppercase mb-3 md:mb-4 px-4 text-white">
+          <div className="text-center mb-12 md:mb-20">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bebas font-black uppercase mb-4 md:mb-6 px-4 text-white leading-tight">
               {title}
             </h2>
-            <p className="text-sm sm:text-base md:text-xl text-muted-foreground font-oswald max-w-2xl mx-auto px-2">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground font-oswald max-w-3xl mx-auto px-2 leading-relaxed">
               {subtitle}
             </p>
           </div>
 
           {/* Coaching Stats Bar */}
-          <div className="mb-8 md:mb-16 bg-card border-2 border-primary/30 rounded-xl p-6 md:p-10">
-            <div className="grid grid-cols-3 gap-4 md:gap-8 text-center">
+          <div className="mb-12 md:mb-20 bg-card border-2 border-primary/30 rounded-xl p-8 md:p-12">
+            <div className="grid grid-cols-3 gap-6 md:gap-10 text-center">
               <div>
-                <div className="text-3xl sm:text-4xl md:text-5xl font-bebas font-black text-primary mb-1 md:mb-2">50+</div>
-                <p className="text-muted-foreground font-oswald uppercase text-xs md:text-sm">years combined pro experience</p>
+                <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bebas font-black text-primary mb-2 md:mb-3">50+</div>
+                <p className="text-muted-foreground font-oswald uppercase text-sm md:text-base lg:text-lg leading-tight">years combined pro experience</p>
               </div>
               <div>
-                <div className="text-3xl sm:text-4xl md:text-5xl font-bebas font-black text-primary mb-1 md:mb-2">5</div>
-                <p className="text-muted-foreground font-oswald uppercase text-xs md:text-sm">Division 1 programs represented</p>
+                <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bebas font-black text-primary mb-2 md:mb-3">5</div>
+                <p className="text-muted-foreground font-oswald uppercase text-sm md:text-base lg:text-lg leading-tight">Division 1 programs represented</p>
               </div>
               <div>
-                <div className="text-3xl sm:text-4xl md:text-5xl font-bebas font-black text-primary mb-1 md:mb-2">500+</div>
-                <p className="text-muted-foreground font-oswald uppercase text-xs md:text-sm">athletes coached</p>
+                <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bebas font-black text-primary mb-2 md:mb-3">500+</div>
+                <p className="text-muted-foreground font-oswald uppercase text-sm md:text-base lg:text-lg leading-tight">athletes coached</p>
               </div>
             </div>
           </div>
@@ -88,8 +88,8 @@ const LandingCoaches = ({ title, subtitle, coaches }: LandingCoachesProps) => {
           </div>
 
           {/* Bottom Text */}
-          <div className="mt-8 md:mt-12 text-center">
-            <p className="text-sm md:text-base text-muted-foreground font-oswald max-w-3xl mx-auto leading-relaxed px-4">
+          <div className="mt-12 md:mt-16 text-center">
+            <p className="text-base md:text-lg lg:text-xl text-muted-foreground font-oswald max-w-4xl mx-auto leading-relaxed px-4">
               These are the coaches who will evaluate your athlete, identify their weaknesses, and map out the exact development plan they need. Your athlete starts working with this team on day one — beginning with the free evaluation.
             </p>
           </div>

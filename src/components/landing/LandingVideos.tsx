@@ -104,14 +104,14 @@ const LandingVideos = ({
   return (
     <>
       <SectionDivider fromColor="#1a1a1a" toColor="#0a0a0a" />
-      <section className="bg-[#0a0a0a] py-12 md:py-16">
+      <section className="bg-[#0a0a0a] py-16 md:py-24 lg:py-28">
         {/* Header */}
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-3xl md:text-6xl font-bebas font-black uppercase text-foreground mb-3 md:mb-4 tracking-tight">
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bebas font-black uppercase text-foreground mb-4 md:mb-6 tracking-tight leading-tight">
               {title}
             </h2>
-            <p className="text-base md:text-xl font-oswald font-semibold uppercase text-primary">
+            <p className="text-lg md:text-xl lg:text-2xl font-oswald font-semibold uppercase text-primary">
               {subtitle}
             </p>
           </div>

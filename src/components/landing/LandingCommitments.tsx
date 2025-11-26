@@ -19,22 +19,22 @@ const LandingCommitments = ({ title, subtitle, commitments, totalCount, onCtaCli
   return (
     <>
       <SectionDivider fromColor="#1a1a1a" toColor="#0a0a0a" />
-      <section className="py-12 md:py-24 bg-[#0a0a0a] relative">
-      <div className="container mx-auto px-4 md:px-6">
+      <section className="py-16 md:py-24 lg:py-32 bg-[#0a0a0a] relative">
+      <div className="container mx-auto px-4 md:px-8 lg:px-6">
         <div className="max-w-[2000px] mx-auto">
           {/* Header */}
-          <div className="text-center mb-8 md:mb-16">
-            <div className="inline-flex items-center gap-2 md:gap-3 px-4 py-2 md:px-6 md:py-3 bg-primary/10 border border-primary/20 rounded-full mb-4 md:mb-6">
-              <GraduationCap className="w-4 h-4 md:w-6 md:h-6 text-primary" />
-              <span className="text-primary font-bebas uppercase tracking-wider text-xs sm:text-sm md:text-lg font-bold">
+          <div className="text-center mb-12 md:mb-20">
+            <div className="inline-flex items-center gap-3 md:gap-4 px-6 py-3 md:px-8 md:py-4 bg-primary/10 border border-primary/20 rounded-full mb-6 md:mb-8">
+              <GraduationCap className="w-5 h-5 md:w-7 md:h-7 text-primary" />
+              <span className="text-primary font-bebas uppercase tracking-wider text-sm sm:text-base md:text-xl lg:text-2xl font-bold">
                 {totalCount} College Commitments
               </span>
             </div>
             
-            <h2 className="text-3xl sm:text-4xl md:text-6xl font-bebas font-black uppercase mb-3 md:mb-4 px-4">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bebas font-black uppercase mb-4 md:mb-6 px-4 leading-tight">
               {title}
             </h2>
-            <p className="text-sm sm:text-base md:text-xl text-muted-foreground font-oswald max-w-2xl mx-auto px-2">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground font-oswald max-w-3xl mx-auto px-2 leading-relaxed">
               {subtitle}
             </p>
           </div>
@@ -70,16 +70,16 @@ const LandingCommitments = ({ title, subtitle, commitments, totalCount, onCtaCli
           </div>
 
           {/* CTA Section */}
-          <div className="mt-12 md:mt-16 text-center max-w-3xl mx-auto px-4">
-            <p className="text-base md:text-lg text-foreground font-oswald mb-2 leading-relaxed">
+          <div className="mt-16 md:mt-20 text-center max-w-4xl mx-auto px-4">
+            <p className="text-lg md:text-xl lg:text-2xl text-foreground font-oswald mb-3 leading-relaxed">
               Every committed athlete you see here started with the same free evaluation your athlete can book today.
             </p>
-            <p className="text-sm md:text-base text-muted-foreground font-oswald mb-6 md:mb-8 leading-relaxed">
+            <p className="text-base md:text-lg lg:text-xl text-muted-foreground font-oswald mb-8 md:mb-10 leading-relaxed">
               Get a clear development roadmap and the confidence to reach the next level.
             </p>
             <button
               onClick={onCtaClick}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 md:px-12 py-4 md:py-5 rounded-lg font-bebas text-xl md:text-2xl uppercase tracking-wider transition-all duration-300 hover:scale-105 shadow-lg"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-10 md:px-14 py-5 md:py-7 rounded-lg font-bebas text-xl md:text-2xl lg:text-3xl uppercase tracking-wider transition-all duration-300 hover:scale-105 shadow-lg h-auto min-h-[56px]"
             >
               → Book Your Free Evaluation
             </button>
