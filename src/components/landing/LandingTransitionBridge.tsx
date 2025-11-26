@@ -13,7 +13,7 @@ const LandingTransitionBridge = () => {
                 Every athlete has a limit they can't break through on their own — the key is knowing what's causing it.
               </h2>
               <p className="text-base sm:text-lg md:text-xl text-muted-foreground font-oswald leading-relaxed max-w-3xl mx-auto">
-                Most parents can see the potential… but not the mechanical flaw, mobility issue, timing problem, or strength gap that's slowing progress. That's why the free evaluation exists.
+                The difference between a plateau and a breakthrough is professional clarity. That's why the free evaluation exists.
               </p>
             </div>
           </div>
