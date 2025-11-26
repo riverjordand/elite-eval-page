@@ -149,57 +149,54 @@ const Index = () => {
         subtitle="Learn from coaches who've played and coached at the highest levels"
         coaches={[
           {
-            name: "Marcus Rodriguez",
-            title: "Certified Hitting Instructor",
+            name: "Mark Karaviotis",
+            title: "Head Coach",
             credentials: [
-              "Former Division I baseball player at the University of Nevada",
-              "Drafted and played for the Arizona Diamondbacks",
-              "Certified Bad Ass Hitting Instructor",
-              "10 years of professional baseball experience"
+              "Former Division 1 baseball player at Oregon",
+              "Drafted 19th round by the Arizona Diamondbacks",
+              "2016 Hillsboro Hops batting champion",
+              "3x MiLB All Star"
             ],
             image: coachMarcus
           },
           {
-            name: "Joe Mejia",
-            title: "Bat Wizard / Head Instructor",
+            name: "Joe Dunigan",
+            title: "Hitting Coordinator & Astros Scout",
             credentials: [
-              "Certified Bad Ass Hitting Instructor",
-              "Drafted for the Arizona Diamondbacks",
-              "10 years of professional baseball experience",
-              "Specializes in hitting and defensive development"
+              "Former Division 1 baseball player at Oklahoma",
+              "Drafted 41st round by the Montreal Expos",
+              "Drafted 5th round by the Seattle Mariners",
+              "Current Area Scout for the Houston Astros"
             ],
             image: coachJoe
           },
           {
-            name: "Eric Lowe",
-            title: "Pitching Coordinator",
+            name: "Eric Smith",
+            title: "Coordinator",
             credentials: [
-              "Former Division I baseball player at the University of Nevada-Reno",
-              "Drafted Bad Ass by the Arizona Diamondbacks",
-              "9 years of professional baseball experience",
-              "Focus on mechanics and mental game development"
+              "Former Division 1 baseball player at the University of Rhode Island",
+              "Drafted 2nd round by Arizona Diamondbacks",
+              "6 years of professional baseball experience"
             ],
             image: coachEric
           },
           {
-            name: "Terrell Barlow",
+            name: "Terrell Hudson",
             title: "Assistant Coach",
             credentials: [
-              "Former Division I baseball player at the University of New Mexico",
-              "Extensive experience in coaching and developing youth baseball",
-              "Specializes in hitting and defensive development",
-              "Over 10 years in baseball instruction"
+              "Former Division 1 baseball player at the University of New Mexico",
+              "Extensive experience in training and managing ELITE youth baseball"
             ],
             image: coachTerrell
           },
           {
-            name: "Neil Khaian",
+            name: "Will Armijo",
             title: "CEO & Co-Founder",
             credentials: [
-              "Founder and leader of Legendary Prep Academy",
-              "Oversees all academy operations, growth, and training excellence",
-              "Over 10 years of experience running training facilities and elite athlete development",
-              "Expert in athlete mindset, long-term consulting, business strategy, and training program design"
+              "Former NCAA baseball player with an MBA",
+              "Founder of six companies spanning across four industries",
+              "Over 13 years of experience mentoring athletes and professionals",
+              "Board member for CARE, Arizona nonprofit combating human trafficking"
             ],
             image: coachNeil
           }
