@@ -11,7 +11,6 @@ import LandingCoaches from "@/components/landing/LandingCoaches";
 import LandingTestimonials from "@/components/landing/LandingTestimonials";
 import LandingCommitments from "@/components/landing/LandingCommitments";
 import LandingEvaluationHook from "@/components/landing/LandingEvaluationHook";
-import LandingTransitionBridge from "@/components/landing/LandingTransitionBridge";
 import LandingProblemAgitation from "@/components/landing/LandingProblemAgitation";
 import LandingEvaluationIntro from "@/components/landing/LandingEvaluationIntro";
 import LandingValueStack from "@/components/landing/LandingValueStack";
@@ -273,9 +272,6 @@ const Index = () => {
           { name: "Miles Keogh", school: "Coastal Carolina", image: milesCoastal }
         ]}
       />
-
-      {/* TRANSITION - Bridge to Lead Magnet */}
-      <LandingTransitionBridge />
 
       {/* SECTION A - Evaluation Hook (Performance Gaps Transition) */}
       <LandingEvaluationHook onCtaClick={() => setFormOpen(true)} />
