@@ -137,7 +137,17 @@ const Index = () => {
           { src: "/action-07.jpg", alt: "LPA athlete pitching on mound" },
           { src: "/action-08.jpg", alt: "LPA athletes team photo on field" },
           { src: "/action-09.jpg", alt: "LPA athlete fielding and throwing" },
-          { src: "/action-10.jpg", alt: "LPA athlete defensive stance in outfield" }
+          { src: "/action-10.jpg", alt: "LPA athlete defensive stance in outfield" },
+          { src: "/action-11.jpg", alt: "Baseball cap on field" },
+          { src: "/action-12.jpg", alt: "Catcher at golden hour" },
+          { src: "/action-13.jpg", alt: "Batter making contact" },
+          { src: "/action-14.jpg", alt: "Athlete on field at sunset" },
+          { src: "/action-15.jpg", alt: "Pitcher on mound" },
+          { src: "/action-16.jpg", alt: "Coach and athlete on base" },
+          { src: "/action-17.jpg", alt: "Athlete walking on field at sunset" },
+          { src: "/action-18.jpg", alt: "Batter at the plate" },
+          { src: "/action-19.jpg", alt: "Pitcher follow-through" },
+          { src: "/action-20.jpg", alt: "Batter mid-swing at sunset" }
         ]}
       />
 
