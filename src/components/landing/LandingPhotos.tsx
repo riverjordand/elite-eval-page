@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import SectionDivider from "./SectionDivider";
 
 interface ActionPhoto {
@@ -19,6 +19,68 @@ const LandingPhotos = ({
 }: LandingPhotosProps) => {
   const scrollContainer1Ref = useRef<HTMLDivElement>(null);
   const scrollContainer2Ref = useRef<HTMLDivElement>(null);
+
+  // Add drag-to-scroll functionality
+  useEffect(() => {
+    const addDragScroll = (container: HTMLDivElement) => {
+      let isDown = false;
+      let startX = 0;
+      let scrollLeft = 0;
+
+      const handleMouseDown = (e: MouseEvent) => {
+        isDown = true;
+        container.style.cursor = 'grabbing';
+        startX = e.pageX - container.offsetLeft;
+        scrollLeft = container.scrollLeft;
+      };
+
+      const handleMouseLeave = () => {
+        isDown = false;
+        container.style.cursor = 'grab';
+      };
+
+      const handleMouseUp = () => {
+        isDown = false;
+        container.style.cursor = 'grab';
+      };
+
+      const handleMouseMove = (e: MouseEvent) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - container.offsetLeft;
+        const walk = (x - startX) * 2;
+        container.scrollLeft = scrollLeft - walk;
+      };
+
+      container.style.cursor = 'grab';
+      container.addEventListener('mousedown', handleMouseDown);
+      container.addEventListener('mouseleave', handleMouseLeave);
+      container.addEventListener('mouseup', handleMouseUp);
+      container.addEventListener('mousemove', handleMouseMove);
+
+      return () => {
+        container.removeEventListener('mousedown', handleMouseDown);
+        container.removeEventListener('mouseleave', handleMouseLeave);
+        container.removeEventListener('mouseup', handleMouseUp);
+        container.removeEventListener('mousemove', handleMouseMove);
+      };
+    };
+
+    const container1 = scrollContainer1Ref.current;
+    const container2 = scrollContainer2Ref.current;
+
+    if (container1) {
+      const cleanup1 = addDragScroll(container1);
+      if (container2) {
+        const cleanup2 = addDragScroll(container2);
+        return () => {
+          cleanup1();
+          cleanup2();
+        };
+      }
+      return cleanup1;
+    }
+  }, []);
 
   // Split photos into two rows and duplicate for seamless loop
   const halfLength = Math.ceil(photos.length / 2);
