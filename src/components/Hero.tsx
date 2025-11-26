@@ -15,9 +15,9 @@ const Hero = () => {
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-center gap-8 mb-6">
             <h1 className="font-bebas uppercase leading-[0.75] animate-fade-in tracking-tight text-white text-center">
-              <span className="block text-5xl md:text-7xl lg:text-[8rem] xl:text-[10rem] whitespace-nowrap">Developing Elite</span>
-              <span className="block text-4xl md:text-6xl lg:text-[6.5rem] xl:text-[8rem] text-primary font-black">Student-Athletes</span>
-              <span className="block text-3xl md:text-5xl lg:text-[5rem] xl:text-[6.5rem]">For The Next Level</span>
+              <span className="block text-6xl md:text-8xl lg:text-[10rem] xl:text-[12rem] whitespace-nowrap">Developing Elite</span>
+              <span className="block text-5xl md:text-7xl lg:text-[8.5rem] xl:text-[10rem] text-primary font-black">Student-Athletes</span>
+              <span className="block text-4xl md:text-6xl lg:text-[7rem] xl:text-[8.5rem]">For The Next Level</span>
             </h1>
             
           </div>
