@@ -12,17 +12,21 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 text-center">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex items-center justify-center gap-12 mb-6">
-            <h1 className="font-bebas uppercase leading-[0.75] animate-fade-in tracking-tight text-white text-left font-black">
+        <div className="max-w-7xl mx-auto relative">
+          {/* Large background logo */}
+          <img 
+            src={logoBolt} 
+            alt="LPA Logo" 
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] md:w-[700px] md:h-[700px] lg:w-[900px] lg:h-[900px] object-contain opacity-10 animate-fade-in pointer-events-none" 
+            style={{ animationDelay: "0.1s" }}
+          />
+          
+          <div className="relative z-10 mb-6">
+            <h1 className="font-bebas uppercase leading-[0.75] animate-fade-in tracking-tight text-white text-center font-black">
               <span className="block text-4xl md:text-6xl lg:text-[7rem] xl:text-[8.5rem] whitespace-nowrap">Developing Elite</span>
               <span className="block text-3xl md:text-5xl lg:text-[5.8rem] xl:text-[7rem] text-primary">Student-Athletes</span>
               <span className="block text-3xl md:text-5xl lg:text-[5.5rem] xl:text-[6.5rem]">For The Next Level</span>
             </h1>
-            
-            <img src={logoBolt} alt="LPA Logo" className="w-32 h-32 md:w-48 md:h-48 lg:w-72 lg:h-72 xl:w-80 xl:h-80 object-contain animate-fade-in" style={{
-              animationDelay: "0.2s"
-            }} />
           </div>
           
           <p className="font-oswald text-lg md:text-xl lg:text-2xl text-white mb-8 max-w-2xl mx-auto animate-fade-in font-semibold tracking-wide uppercase" style={{
