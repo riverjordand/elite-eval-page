@@ -19,7 +19,7 @@ const LandingTestimonials = ({ title, subtitle, testimonials }: LandingTestimoni
     <>
       <SectionDivider fromColor="#1a1a1a" toColor="#0a0a0a" />
       <section className="py-12 md:py-24 bg-[#0a0a0a] relative">
-      <div className="container mx-auto px-4 md:px-6">
+      <div className="mx-auto px-4 md:px-6">
         <div className="mx-auto">
           {/* Header */}
           <div className="text-center mb-8 md:mb-12">
@@ -75,7 +75,7 @@ const LandingTestimonials = ({ title, subtitle, testimonials }: LandingTestimoni
           </div>
 
           {/* Desktop: Grid Layout */}
-          <div className="hidden md:grid md:grid-cols-3 gap-6">
+          <div className="hidden md:grid md:grid-cols-4 gap-6 max-w-[1600px] mx-auto">
             {testimonials.map((testimonial, index) => (
               <div 
                 key={index}
