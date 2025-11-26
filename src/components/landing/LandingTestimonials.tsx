@@ -37,7 +37,7 @@ const LandingTestimonials = ({ title, subtitle, testimonials }: LandingTestimoni
               {testimonials.map((testimonial, index) => (
                 <div 
                   key={index}
-                  className="flex-shrink-0 w-[60vw] bg-card border-2 border-border rounded-lg overflow-hidden"
+                  className="flex-shrink-0 w-[75vw] bg-card border-2 border-border rounded-lg overflow-hidden"
                 >
                   {/* Video - Vertical aspect ratio */}
                   <div className="relative aspect-[9/16] bg-black">
