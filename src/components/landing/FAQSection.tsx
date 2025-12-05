@@ -35,32 +35,32 @@ const faqs = [
 
 const FAQSection = () => {
   return (
-    <section className="relative py-16 md:py-20 lg:py-24 overflow-hidden">
+    <section className="relative py-20 md:py-28 lg:py-36 xl:py-44 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-background to-card/30" />
       
-      <div className="container relative mx-auto px-6 lg:px-16">
-        <div className="text-center mb-8 lg:mb-10">
-          <div className="inline-flex items-center gap-2 mb-3">
-            <HelpCircle className="w-4 h-4 text-primary" />
-            <span className="font-oswald text-xs text-primary uppercase tracking-[0.3em]">Common Questions</span>
+      <div className="container relative mx-auto px-6 lg:px-20">
+        <div className="text-center mb-10 lg:mb-14 xl:mb-16">
+          <div className="inline-flex items-center gap-3 mb-4">
+            <HelpCircle className="w-5 h-5 text-primary" />
+            <span className="font-oswald text-sm lg:text-base text-primary uppercase tracking-[0.3em]">Common Questions</span>
           </div>
-          <h2 className="font-bebas text-3xl md:text-4xl lg:text-5xl text-foreground uppercase leading-none">
+          <h2 className="font-bebas text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-foreground uppercase leading-none">
             Everything You Need To Know
           </h2>
         </div>
         
-        <div className="max-w-3xl mx-auto">
-          <Accordion type="single" collapsible className="space-y-2">
+        <div className="max-w-4xl mx-auto">
+          <Accordion type="single" collapsible className="space-y-3 lg:space-y-4">
             {faqs.map((faq, index) => (
               <AccordionItem 
                 key={index} 
                 value={`faq-${index}`}
-                className="border border-border/40 bg-card/30 px-4 data-[state=open]:border-primary/40 transition-colors"
+                className="border border-border/40 bg-card/30 px-5 lg:px-6 data-[state=open]:border-primary/40 transition-colors"
               >
-                <AccordionTrigger className="font-bebas text-left text-sm md:text-base text-foreground uppercase hover:text-primary py-4 hover:no-underline">
+                <AccordionTrigger className="font-bebas text-left text-base md:text-lg lg:text-xl text-foreground uppercase hover:text-primary py-5 lg:py-6 hover:no-underline">
                   {faq.q}
                 </AccordionTrigger>
-                <AccordionContent className="font-oswald text-xs md:text-sm text-muted-foreground leading-relaxed pb-4">
+                <AccordionContent className="font-oswald text-sm md:text-base lg:text-lg text-muted-foreground leading-relaxed pb-5 lg:pb-6">
                   {faq.a}
                 </AccordionContent>
               </AccordionItem>

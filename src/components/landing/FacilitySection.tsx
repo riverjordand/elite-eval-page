@@ -37,35 +37,35 @@ const facilities = [
 
 const FacilitySection = () => {
   return (
-    <section className="relative py-16 md:py-20 lg:py-24 bg-black overflow-hidden">
+    <section className="relative py-20 md:py-28 lg:py-36 xl:py-44 bg-black overflow-hidden">
       {/* Header */}
-      <div className="container mx-auto px-6 lg:px-16 mb-8 lg:mb-10">
-        <div className="grid lg:grid-cols-2 gap-6 items-end">
+      <div className="container mx-auto px-6 lg:px-20 mb-10 lg:mb-14 xl:mb-16">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-end">
           <div>
-            <div className="flex items-center gap-2 mb-3">
-              <MapPin className="w-4 h-4 text-primary" />
-              <span className="font-oswald text-xs text-primary uppercase tracking-[0.3em]">
+            <div className="flex items-center gap-3 mb-4">
+              <MapPin className="w-5 h-5 text-primary" />
+              <span className="font-oswald text-sm lg:text-base text-primary uppercase tracking-[0.3em]">
                 Gilbert, Arizona
               </span>
             </div>
-            <h2 className="font-bebas text-3xl md:text-4xl lg:text-5xl text-foreground uppercase leading-none mb-3">
+            <h2 className="font-bebas text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-foreground uppercase leading-none mb-4">
               16,000 Sq Ft of Pure
               <span className="block text-primary">Development</span>
             </h2>
           </div>
           <div>
-            <p className="font-oswald text-sm md:text-base text-muted-foreground leading-relaxed mb-4">
+            <p className="font-oswald text-base md:text-lg lg:text-xl text-muted-foreground leading-relaxed mb-5 lg:mb-6">
               This isn't a warehouse with batting cages. It's a professional training complex built specifically 
               for developing the next generation of college and pro players.
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-6">
               <div className="flex items-center gap-2">
-                <Clock className="w-3 h-3 text-primary" />
-                <span className="font-oswald text-xs text-foreground/70">Open 365 Days</span>
+                <Clock className="w-4 h-4 text-primary" />
+                <span className="font-oswald text-sm lg:text-base text-foreground/70">Open 365 Days</span>
               </div>
               <div className="flex items-center gap-2">
-                <Zap className="w-3 h-3 text-primary" />
-                <span className="font-oswald text-xs text-foreground/70">Pro-Level Equipment</span>
+                <Zap className="w-4 h-4 text-primary" />
+                <span className="font-oswald text-sm lg:text-base text-foreground/70">Pro-Level Equipment</span>
               </div>
             </div>
           </div>
@@ -73,9 +73,9 @@ const FacilitySection = () => {
       </div>
       
       {/* Facility Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2">
         {facilities.map((facility, index) => (
-          <div key={index} className="group relative aspect-[4/3] lg:aspect-[3/4] overflow-hidden">
+          <div key={index} className="group relative aspect-[4/3] lg:aspect-[3/4] xl:aspect-[4/5] overflow-hidden">
             <img 
               src={facility.image} 
               alt={facility.title}
@@ -84,18 +84,18 @@ const FacilitySection = () => {
             
             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
             
-            <div className="absolute bottom-0 left-0 right-0 p-4 lg:p-5">
-              <p className="font-oswald text-[10px] text-primary uppercase tracking-wider mb-1">
+            <div className="absolute bottom-0 left-0 right-0 p-5 lg:p-6 xl:p-8">
+              <p className="font-oswald text-xs lg:text-sm text-primary uppercase tracking-wider mb-2">
                 {facility.subtitle}
               </p>
-              <h3 className="font-bebas text-xl md:text-2xl text-foreground uppercase mb-2">
+              <h3 className="font-bebas text-2xl md:text-3xl lg:text-4xl text-foreground uppercase mb-3">
                 {facility.title}
               </h3>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-3">
                 {facility.features.slice(0, 2).map((feature, fIndex) => (
-                  <div key={fIndex} className="flex items-center gap-1">
-                    <Check className="w-2.5 h-2.5 text-primary" />
-                    <span className="font-oswald text-[10px] text-foreground/60">{feature}</span>
+                  <div key={fIndex} className="flex items-center gap-2">
+                    <Check className="w-3 h-3 text-primary" />
+                    <span className="font-oswald text-xs lg:text-sm text-foreground/60">{feature}</span>
                   </div>
                 ))}
               </div>
