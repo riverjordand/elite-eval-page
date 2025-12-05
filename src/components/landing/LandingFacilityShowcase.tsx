@@ -88,12 +88,12 @@ const LandingFacilityShowcase = ({ title, subtitle, areas, onCtaClick }: Landing
                 </div>
               </div>
 
-              {/* Desktop: Single Row */}
-              <div className="hidden md:flex md:gap-8 md:justify-center">
+              {/* Desktop: Responsive Grid */}
+              <div className="hidden md:grid md:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-8">
             {areas.map((area, index) => (
               <div 
                 key={index}
-                className="group bg-card border-[3px] border-border rounded-xl overflow-hidden shadow-lg hover:border-primary/60 hover:shadow-xl hover:scale-[1.02] transition-all duration-300 animate-fade-in flex-shrink-0 w-[420px]"
+                className="group bg-card border-[3px] border-border rounded-xl overflow-hidden shadow-lg hover:border-primary/60 hover:shadow-xl hover:scale-[1.02] transition-all duration-300 animate-fade-in"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 {/* Image */}
@@ -117,23 +117,23 @@ const LandingFacilityShowcase = ({ title, subtitle, areas, onCtaClick }: Landing
                 </div>
                 
                 {/* Content */}
-                <div className="p-8">
-                  <h3 className="text-4xl font-bebas font-black uppercase mb-4 text-primary">
+                <div className="p-6 lg:p-8">
+                  <h3 className="text-2xl lg:text-3xl xl:text-4xl font-bebas font-black uppercase mb-3 lg:mb-4 text-primary">
                     {area.title}
                   </h3>
-                  <p className="text-lg text-foreground font-oswald mb-6 leading-relaxed">
+                  <p className="text-sm lg:text-base xl:text-lg text-foreground font-oswald mb-4 lg:mb-6 leading-relaxed">
                     {area.description}
                   </p>
-                  <ul className="space-y-3">
+                  <ul className="space-y-2 lg:space-y-3">
                     {area.specs.map((spec, specIndex) => (
-                      <li key={specIndex} className="flex items-start gap-3">
+                      <li key={specIndex} className="flex items-start gap-2 lg:gap-3">
                         <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0" />
-                        <span className="text-muted-foreground font-oswald text-sm">{spec}</span>
+                        <span className="text-muted-foreground font-oswald text-xs lg:text-sm">{spec}</span>
                       </li>
                     ))}
                   </ul>
                   {area.tagline && (
-                    <p className="text-sm font-oswald font-semibold text-foreground italic mt-6 pt-6 border-t border-border">
+                    <p className="text-xs lg:text-sm font-oswald font-semibold text-foreground italic mt-4 lg:mt-6 pt-4 lg:pt-6 border-t border-border">
                       {area.tagline}
                     </p>
                   )}

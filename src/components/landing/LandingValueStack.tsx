@@ -80,7 +80,7 @@ const LandingValueStack = ({ onCtaClick }: LandingValueStackProps) => {
             </div>
 
             {/* Items Grid - Mobile: Collapsible, Desktop: Full Cards */}
-            <div className="space-y-3 md:space-y-0 md:grid md:grid-cols-2 md:gap-4 lg:gap-6 mb-8 md:mb-10">
+            <div className="space-y-3 md:space-y-0 md:grid md:grid-cols-2 xl:grid-cols-3 md:gap-4 lg:gap-6 xl:gap-8 mb-8 md:mb-10 lg:mb-12">
               {includedItems.map((item, index) => (
                 <Collapsible
                   key={index}

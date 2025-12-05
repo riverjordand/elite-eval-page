@@ -40,7 +40,7 @@ const LandingCommitments = ({ title, subtitle, commitments, totalCount, onCtaCli
           </div>
 
           {/* Mobile: 2 Columns / Desktop: Single Row with Massive Images */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-10 mb-8 md:mb-12">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 lg:gap-8 xl:gap-10 mb-8 md:mb-12">
             {commitments.map((commitment, index) => (
               <div 
                 key={index}

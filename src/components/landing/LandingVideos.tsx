@@ -104,14 +104,14 @@ const LandingVideos = ({
   return (
     <>
       <SectionDivider fromColor="#1a1a1a" toColor="#0a0a0a" />
-      <section className="bg-[#0a0a0a] py-16 md:py-24 lg:py-28">
+      <section className="bg-[#0a0a0a] py-16 md:py-24 lg:py-32 xl:py-40">
         {/* Header */}
-        <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bebas font-black uppercase text-foreground mb-4 md:mb-6 tracking-tight leading-tight">
+        <div className="max-w-7xl xl:max-w-[1400px] mx-auto px-4 md:px-8 lg:px-12">
+          <div className="text-center mb-12 md:mb-16 lg:mb-20">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bebas font-black uppercase text-foreground mb-4 md:mb-6 tracking-tight leading-tight">
               {title}
             </h2>
-            <p className="text-lg md:text-xl lg:text-2xl font-oswald font-semibold uppercase text-primary">
+            <p className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-oswald font-semibold uppercase text-primary">
               {subtitle}
             </p>
           </div>
@@ -122,12 +122,12 @@ const LandingVideos = ({
           ref={scrollContainerRef}
           className="overflow-x-auto scrollbar-hide"
         >
-          <div className="flex gap-3 md:gap-4" style={{ width: 'max-content' }}>
+          <div className="flex gap-3 md:gap-4 lg:gap-6" style={{ width: 'max-content' }}>
             {duplicatedVideos.map((video, index) => (
               <div
                 key={index}
                 onClick={() => handleVideoClick(index)}
-                className="flex-[0_0_70vw] md:flex-[0_0_350px] aspect-[9/16] rounded-lg overflow-hidden bg-muted cursor-pointer hover:opacity-90 transition-opacity"
+                className="flex-[0_0_70vw] md:flex-[0_0_350px] lg:flex-[0_0_400px] xl:flex-[0_0_450px] aspect-[9/16] rounded-lg overflow-hidden bg-muted cursor-pointer hover:opacity-90 transition-opacity"
               >
                 <video
                   ref={(el) => { videoRefs.current[index] = el; }}

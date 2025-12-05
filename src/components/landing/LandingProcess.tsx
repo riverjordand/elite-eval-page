@@ -39,7 +39,7 @@ const LandingProcess = ({ title, subtitle, steps, ctaText, onCtaClick }: Landing
             {/* Connection Line - visible on desktop, positioned between circles */}
             <div className="hidden md:block absolute top-8 left-1/2 -translate-x-1/2 h-0.5 bg-primary/30" style={{ width: 'calc(100% - 16rem)' }} />
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-6 lg:gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 xl:gap-10">
               {steps.map((step, index) => (
                 <div 
                   key={index}

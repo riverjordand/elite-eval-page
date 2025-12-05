@@ -37,27 +37,27 @@ const LandingPhotos = ({
   return (
     <>
       <SectionDivider fromColor="#0a0a0a" toColor="#1a1a1a" />
-      <section className="bg-[#1a1a1a] py-12 md:py-16 overflow-hidden">
+      <section className="bg-[#1a1a1a] py-12 md:py-16 lg:py-24 xl:py-32 overflow-hidden">
         <div className="mx-auto">
           {/* Header */}
-          <div className="text-center mb-8 md:mb-12 px-4">
-            <h2 className="text-3xl md:text-6xl font-bebas font-black uppercase text-foreground mb-3 md:mb-4 tracking-tight">
+          <div className="text-center mb-8 md:mb-12 lg:mb-16 px-4">
+            <h2 className="text-3xl md:text-6xl lg:text-7xl xl:text-8xl font-bebas font-black uppercase text-foreground mb-3 md:mb-4 lg:mb-6 tracking-tight">
               {title}
             </h2>
-            <p className="text-base md:text-xl font-oswald font-semibold uppercase text-primary">
+            <p className="text-base md:text-xl lg:text-2xl xl:text-3xl font-oswald font-semibold uppercase text-primary">
               {subtitle}
             </p>
           </div>
 
           {/* Two-row carousel layout */}
-          <div className="space-y-4 md:space-y-6">
+          <div className="space-y-4 md:space-y-6 lg:space-y-8">
             {/* Row 1 */}
             <div className="overflow-hidden" ref={emblaRef1}>
-              <div className="flex gap-3 md:gap-4">
+              <div className="flex gap-3 md:gap-4 lg:gap-6">
                 {row1Photos.map((photo, index) => (
                   <div
                     key={index}
-                    className="flex-[0_0_150px] md:flex-[0_0_220px] aspect-square rounded-lg overflow-hidden bg-muted border-2 border-border shadow-lg"
+                    className="flex-[0_0_150px] md:flex-[0_0_220px] lg:flex-[0_0_280px] xl:flex-[0_0_320px] aspect-square rounded-lg overflow-hidden bg-muted border-2 border-border shadow-lg"
                   >
                     <img
                       src={photo.src}
@@ -72,11 +72,11 @@ const LandingPhotos = ({
 
             {/* Row 2 */}
             <div className="overflow-hidden" ref={emblaRef2}>
-              <div className="flex gap-3 md:gap-4">
+              <div className="flex gap-3 md:gap-4 lg:gap-6">
                 {row2Photos.map((photo, index) => (
                   <div
                     key={index}
-                    className="flex-[0_0_150px] md:flex-[0_0_220px] aspect-square rounded-lg overflow-hidden bg-muted border-2 border-border shadow-lg"
+                    className="flex-[0_0_150px] md:flex-[0_0_220px] lg:flex-[0_0_280px] xl:flex-[0_0_320px] aspect-square rounded-lg overflow-hidden bg-muted border-2 border-border shadow-lg"
                   >
                     <img
                       src={photo.src}

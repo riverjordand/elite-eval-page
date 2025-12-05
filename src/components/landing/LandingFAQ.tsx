@@ -20,28 +20,28 @@ const LandingFAQ = ({ title, faqs }: LandingFAQProps) => {
   return (
     <>
       <SectionDivider fromColor="#1a1a1a" toColor="#0a0a0a" />
-      <section className="py-16 md:py-24 lg:py-32 bg-[#0a0a0a] relative">
-      <div className="container mx-auto px-4 md:px-8 lg:px-6">
-        <div className="max-w-5xl mx-auto">
+      <section className="py-16 md:py-24 lg:py-32 xl:py-40 bg-[#0a0a0a] relative">
+      <div className="container mx-auto px-4 md:px-8 lg:px-12 xl:px-16">
+        <div className="max-w-5xl lg:max-w-6xl xl:max-w-7xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bebas font-black uppercase mb-4 md:mb-6 px-4 leading-tight">
+          <div className="text-center mb-12 md:mb-16 lg:mb-20">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bebas font-black uppercase mb-4 md:mb-6 px-4 leading-tight">
               Common Questions From Parents
             </h2>
-            <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground font-oswald px-4 leading-relaxed">
+            <p className="text-lg md:text-xl lg:text-2xl xl:text-3xl text-muted-foreground font-oswald px-4 leading-relaxed">
               Everything you need to know about the evaluation and next steps.
             </p>
           </div>
 
           {/* FAQ Accordion */}
-          <div className="bg-card border-2 border-border rounded-xl p-6 md:p-10 lg:p-12">
+          <div className="bg-card border-2 border-border rounded-xl p-6 md:p-10 lg:p-12 xl:p-16">
             <Accordion type="single" collapsible className="w-full">
               {faqs.map((faq, index) => (
                 <AccordionItem key={index} value={`item-${index}`}>
-                  <AccordionTrigger className="text-left font-bebas text-lg md:text-2xl lg:text-3xl uppercase hover:text-primary py-5">
+                  <AccordionTrigger className="text-left font-bebas text-lg md:text-2xl lg:text-3xl xl:text-4xl uppercase hover:text-primary py-5 lg:py-6">
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground font-oswald leading-relaxed text-base md:text-lg lg:text-xl pt-2">
+                  <AccordionContent className="text-muted-foreground font-oswald leading-relaxed text-base md:text-lg lg:text-xl xl:text-2xl pt-2">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>
