@@ -13,6 +13,7 @@ import CTASection from "@/components/landing/CTASection";
 import FAQSection from "@/components/landing/FAQSection";
 import FooterSection from "@/components/landing/FooterSection";
 import EvaluationForm from "@/components/landing/EvaluationForm";
+import FloatingCTA from "@/components/FloatingCTA";
 
 const Index = () => {
   const [showForm, setShowForm] = useState(false);
@@ -39,6 +40,8 @@ const Index = () => {
         open={showForm} 
         onOpenChange={setShowForm} 
       />
+      
+      <FloatingCTA onClick={openForm} />
     </main>
   );
 };
