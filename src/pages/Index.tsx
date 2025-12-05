@@ -2,6 +2,7 @@ import { useState } from "react";
 import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/landing/HeroSection";
 import StatsSection from "@/components/landing/StatsSection";
+import IntroSection from "@/components/landing/IntroSection";
 import AboutSection from "@/components/landing/AboutSection";
 import FacilitySection from "@/components/landing/FacilitySection";
 import MediaSection from "@/components/landing/MediaSection";
@@ -23,6 +24,7 @@ const Index = () => {
       <Navigation onBookNowClick={openForm} />
       <HeroSection onCtaClick={openForm} />
       <StatsSection />
+      <IntroSection />
       <AboutSection />
       <FacilitySection />
       <MediaSection />
