@@ -36,27 +36,38 @@ const LandingTestimonialsCompact = () => {
   const [playingIndex, setPlayingIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-12 md:py-20 lg:py-28 bg-black">
-      <div className="container mx-auto px-4">
+    <section className="relative py-16 md:py-24 lg:py-32 overflow-hidden">
+      {/* Dark cinematic background */}
+      <div className="absolute inset-0 bg-black" />
+      
+      {/* Atmospheric lighting */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-primary/10 rounded-full blur-[180px]" />
+      <div className="absolute top-0 left-0 w-full h-40 bg-gradient-to-b from-background to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-background to-transparent" />
+      
+      <div className="container relative mx-auto px-4">
         {/* Section header */}
-        <div className="text-center mb-8 md:mb-12 lg:mb-16">
-          <div className="inline-block bg-primary/20 text-primary font-bebas text-xs md:text-sm lg:text-base px-3 md:px-4 py-1 mb-3 md:mb-4 uppercase tracking-widest">
+        <div className="text-center mb-10 md:mb-14 lg:mb-20">
+          <div className="inline-block bg-primary/20 backdrop-blur-sm text-primary font-bebas text-xs md:text-sm lg:text-base px-4 md:px-6 py-1.5 mb-4 md:mb-5 uppercase tracking-[0.15em] border border-primary/30 rounded-sm">
             Real Results
           </div>
-          <h2 className="font-bebas text-2xl md:text-4xl lg:text-5xl xl:text-6xl text-foreground uppercase tracking-tight">
+          <h2 className="font-bebas text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-foreground uppercase tracking-tight glow-primary">
             Hear From LPA Families
           </h2>
         </div>
         
         {/* Testimonials grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 lg:gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-8 lg:gap-10 max-w-7xl mx-auto">
           {testimonials.map((item, index) => (
             <div key={index} className="group">
               {/* Video thumbnail */}
               <div 
-                className="relative aspect-[9/16] rounded-xl overflow-hidden cursor-pointer mb-3 md:mb-4"
+                className="relative aspect-[9/16] rounded-xl lg:rounded-2xl overflow-hidden cursor-pointer mb-4 md:mb-5 shadow-2xl"
                 onClick={() => setPlayingIndex(playingIndex === index ? null : index)}
               >
+                {/* Border glow */}
+                <div className="absolute -inset-px rounded-xl lg:rounded-2xl bg-gradient-to-b from-primary/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none" />
+                
                 {playingIndex === index ? (
                   <video
                     src={item.video}
@@ -69,11 +80,18 @@ const LandingTestimonialsCompact = () => {
                     <img 
                       src={item.thumb} 
                       alt={item.name}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     />
-                    <div className="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/30 transition-colors">
-                      <div className="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 bg-primary/90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <Play className="w-5 h-5 md:w-7 md:h-7 lg:w-8 lg:h-8 text-primary-foreground ml-1" fill="currentColor" />
+                    {/* Cinematic overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/20 group-hover:via-black/20 transition-colors" />
+                    
+                    {/* Play button with glow */}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="relative">
+                        <div className="absolute inset-0 bg-primary/50 rounded-full blur-xl scale-150 opacity-0 group-hover:opacity-100 transition-opacity" />
+                        <div className="relative w-14 h-14 md:w-18 md:h-18 lg:w-24 lg:h-24 bg-primary/90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-2xl border-glow">
+                          <Play className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 text-primary-foreground ml-1" fill="currentColor" />
+                        </div>
                       </div>
                     </div>
                   </>
@@ -81,9 +99,9 @@ const LandingTestimonialsCompact = () => {
               </div>
               
               {/* Quote & name */}
-              <p className="font-oswald text-[10px] md:text-sm lg:text-base text-foreground/70 italic mb-1 md:mb-2 line-clamp-2">"{item.quote}"</p>
-              <p className="font-bebas text-xs md:text-sm lg:text-base text-primary">{item.name}</p>
-              <p className="font-oswald text-[9px] md:text-xs lg:text-sm text-muted-foreground">{item.role}</p>
+              <p className="font-oswald text-xs md:text-base lg:text-lg text-foreground/70 italic mb-2 md:mb-3 line-clamp-2">"{item.quote}"</p>
+              <p className="font-bebas text-sm md:text-base lg:text-lg text-primary">{item.name}</p>
+              <p className="font-oswald text-[10px] md:text-sm lg:text-base text-muted-foreground">{item.role}</p>
             </div>
           ))}
         </div>
