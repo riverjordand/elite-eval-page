@@ -21,9 +21,9 @@ const HeroSection = ({ onCtaClick }: HeroSectionProps) => {
       </video>
       
       {/* Cinematic Overlays */}
-      <div className="absolute inset-0 bg-black/70" />
-      <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-black/40" />
-      <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-black/50" />
+      <div className="absolute inset-0 bg-black/50" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-black/30" />
       <div className="absolute inset-0 cinematic-vignette-intense" />
       
       {/* Atmospheric glow */}
