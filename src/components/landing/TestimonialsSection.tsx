@@ -32,28 +32,26 @@ const TestimonialsSection = () => {
   const [playing, setPlaying] = useState<number | null>(null);
 
   return (
-    <section className="relative py-20 md:py-32 bg-black overflow-hidden">
-      {/* Ambient light */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-primary/10 rounded-full blur-[150px]" />
+    <section className="relative py-16 md:py-24 lg:py-32 xl:py-40 bg-black overflow-hidden">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-primary/5 rounded-full blur-[150px]" />
       
-      <div className="container relative mx-auto px-4">
+      <div className="container relative mx-auto px-6 lg:px-16 xl:px-24">
         {/* Header */}
-        <div className="text-center mb-12 md:mb-16">
-          <p className="font-oswald text-xs md:text-sm text-primary uppercase tracking-[0.3em] mb-4">
+        <div className="text-center mb-12 md:mb-16 lg:mb-20 xl:mb-24">
+          <p className="font-oswald text-xs md:text-sm lg:text-base text-primary uppercase tracking-[0.3em] mb-3 lg:mb-4">
             Real Results
           </p>
-          <h2 className="font-bebas text-4xl md:text-6xl lg:text-7xl text-foreground uppercase leading-none">
+          <h2 className="font-bebas text-3xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl text-foreground uppercase leading-none">
             Hear From Athletes
           </h2>
         </div>
         
-        {/* Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-6xl mx-auto">
+        {/* Grid - 4 columns on desktop */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8 xl:gap-10">
           {testimonials.map((item, index) => (
             <div key={index} className="group">
-              {/* Video */}
               <div 
-                className="relative aspect-[9/16] mb-4 cursor-pointer overflow-hidden bg-card"
+                className="relative aspect-[9/16] mb-3 lg:mb-4 cursor-pointer overflow-hidden bg-card"
                 onClick={() => setPlaying(playing === index ? null : index)}
               >
                 {playing === index ? (
@@ -70,20 +68,19 @@ const TestimonialsSection = () => {
                       alt={item.name}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/30 transition-colors">
-                      <div className="w-14 h-14 md:w-16 md:h-16 bg-primary flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <Play className="w-6 h-6 md:w-7 md:h-7 text-primary-foreground ml-1" fill="currentColor" />
+                    <div className="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/20 transition-colors">
+                      <div className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 xl:w-20 xl:h-20 bg-primary flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <Play className="w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 xl:w-8 xl:h-8 text-primary-foreground ml-1" fill="currentColor" />
                       </div>
                     </div>
                   </>
                 )}
               </div>
               
-              {/* Quote */}
-              <p className="font-oswald text-xs md:text-sm text-foreground/70 italic mb-2 line-clamp-2">
+              <p className="font-oswald text-xs md:text-sm lg:text-base text-foreground/70 italic mb-2 line-clamp-2">
                 "{item.quote}"
               </p>
-              <p className="font-bebas text-sm text-primary">{item.name}</p>
+              <p className="font-bebas text-sm lg:text-base text-primary">{item.name}</p>
             </div>
           ))}
         </div>
