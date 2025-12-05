@@ -11,9 +11,6 @@ const photos = [
   "/action-05.jpg", "/action-06.jpg", "/action-07.jpg", "/action-08.jpg",
 ];
 
-const loopedVideos = [...videos, ...videos, ...videos];
-const loopedPhotos = [...photos, ...photos, ...photos];
-
 const MediaSection = () => {
   const [videoRef] = useEmblaCarousel(
     { loop: true, dragFree: true, align: 'start' },
@@ -21,7 +18,7 @@ const MediaSection = () => {
   );
   
   const [photoRef] = useEmblaCarousel(
-    { loop: true, dragFree: true, align: 'start', direction: 'rtl' },
+    { loop: true, dragFree: true, align: 'start' },
     [Autoplay({ delay: 1800, stopOnInteraction: false, stopOnMouseEnter: false })]
   );
 
@@ -30,7 +27,7 @@ const MediaSection = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-black via-card/20 to-black" />
       
       {/* Header */}
-      <div className="container mx-auto px-6 lg:px-16 xl:px-24 mb-10 md:mb-14 lg:mb-16 xl:mb-20">
+      <div className="container mx-auto px-6 lg:px-16 xl:px-24 mb-10 md:mb-14 lg:mb-16 xl:mb-20 relative z-10">
         <div className="text-center">
           <p className="font-oswald text-xs md:text-sm lg:text-base text-primary uppercase tracking-[0.3em] mb-3 lg:mb-4">
             See It In Action
@@ -41,43 +38,51 @@ const MediaSection = () => {
         </div>
       </div>
       
-      {/* Videos */}
-      <div className="relative mb-4 lg:mb-6 xl:mb-8 overflow-hidden" ref={videoRef}>
+      {/* Videos Carousel */}
+      <div className="relative mb-4 lg:mb-6 xl:mb-8">
         <div className="absolute left-0 top-0 bottom-0 w-16 lg:w-32 xl:w-48 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-16 lg:w-32 xl:w-48 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
         
-        <div className="flex gap-3 lg:gap-4 xl:gap-6">
-          {loopedVideos.map((video, index) => (
-            <div key={index} className="flex-none w-56 md:w-80 lg:w-[420px] xl:w-[520px] 2xl:w-[600px] aspect-video">
-              <video
-                src={video}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-full object-cover"
-              />
-            </div>
-          ))}
+        <div className="overflow-hidden" ref={videoRef}>
+          <div className="flex gap-3 lg:gap-4 xl:gap-6">
+            {videos.map((video, index) => (
+              <div key={index} className="flex-[0_0_auto] min-w-0 w-56 md:w-80 lg:w-[420px] xl:w-[520px] 2xl:w-[600px]">
+                <div className="aspect-video">
+                  <video
+                    src={video}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover rounded-lg"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
       
-      {/* Photos */}
-      <div className="relative overflow-hidden" ref={photoRef}>
+      {/* Photos Carousel - scrolls opposite direction */}
+      <div className="relative">
         <div className="absolute left-0 top-0 bottom-0 w-16 lg:w-32 xl:w-48 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-16 lg:w-32 xl:w-48 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
         
-        <div className="flex gap-3 lg:gap-4 xl:gap-6">
-          {loopedPhotos.map((photo, index) => (
-            <div key={index} className="flex-none w-40 md:w-60 lg:w-80 xl:w-96 2xl:w-[420px] aspect-square">
-              <img 
-                src={photo} 
-                alt={`Training ${index + 1}`}
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
-            </div>
-          ))}
+        <div className="overflow-hidden" ref={photoRef}>
+          <div className="flex gap-3 lg:gap-4 xl:gap-6">
+            {photos.map((photo, index) => (
+              <div key={index} className="flex-[0_0_auto] min-w-0 w-40 md:w-60 lg:w-80 xl:w-96 2xl:w-[420px]">
+                <div className="aspect-square">
+                  <img 
+                    src={photo} 
+                    alt={`Training ${index + 1}`}
+                    className="w-full h-full object-cover rounded-lg"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
