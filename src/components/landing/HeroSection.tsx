@@ -26,109 +26,77 @@ const HeroSection = ({ onCtaClick }: HeroSectionProps) => {
       <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-black/30" />
 
       {/* Content */}
-      <div className="relative z-10 w-full py-20 lg:py-28">
+      <div className="relative z-10 w-full py-16 lg:py-24">
         <div className="container mx-auto px-6 lg:px-16">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            {/* Left - Main Content */}
-            <div>
-              {/* Logo */}
-              <img 
-                src={lpaBolt} 
-                alt="LPA" 
-                className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 mb-6"
-                style={{ filter: 'drop-shadow(0 0 30px hsl(271 81% 56% / 0.5))' }}
-              />
+          <div className="max-w-3xl mx-auto text-center lg:text-left lg:mx-0">
+            {/* Logo */}
+            <img 
+              src={lpaBolt} 
+              alt="LPA" 
+              className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 mb-5 mx-auto lg:mx-0"
+              style={{ filter: 'drop-shadow(0 0 30px hsl(271 81% 56% / 0.5))' }}
+            />
 
-              {/* Badge */}
-              <div className="inline-flex items-center bg-primary/20 backdrop-blur border border-primary/30 px-4 py-2 mb-6">
-                <Star className="w-3 h-3 text-primary mr-2" />
-                <span className="font-oswald text-xs text-primary uppercase tracking-[0.2em]">
-                  Arizona's #1 Baseball Academy
-                </span>
-              </div>
-
-              {/* Headline */}
-              <h1 className="font-bebas uppercase leading-[0.9] tracking-tight mb-6">
-                <span className="block text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-foreground">
-                  Transform Your Game.
-                </span>
-                <span className="block text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-foreground">
-                  Get Recruited.
-                </span>
-                <span 
-                  className="block text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-primary mt-2"
-                  style={{ textShadow: '0 0 60px hsl(271 81% 56% / 0.5)' }}
-                >
-                  Go Pro.
-                </span>
-              </h1>
-
-              {/* Description */}
-              <p className="font-oswald text-base md:text-lg lg:text-xl text-foreground/70 mb-8 max-w-lg leading-relaxed">
-                The only Arizona academy where elite D1/pro coaches, MLB-grade technology, and complete 
-                athletic development combine to build college-ready players — guaranteed.
-              </p>
-
-              {/* CTAs */}
-              <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <Button 
-                  size="lg"
-                  onClick={onCtaClick}
-                  className="group bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-[0.15em] text-lg px-8 py-6 h-auto"
-                  style={{ boxShadow: '0 0 40px hsl(271 81% 56% / 0.4)' }}
-                >
-                  Start Free Evaluation
-                  <ArrowRight className="ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </Button>
-                <Button 
-                  variant="outline"
-                  size="lg"
-                  className="group border-white/30 hover:bg-white/10 text-foreground font-bebas uppercase tracking-[0.15em] text-lg px-8 py-6 h-auto"
-                >
-                  <Play className="mr-2 w-5 h-5" />
-                  Watch Athletes Train
-                </Button>
-              </div>
-
-              {/* Trust Elements */}
-              <div className="flex flex-wrap items-center gap-6 text-foreground/50">
-                <div className="flex items-center gap-2">
-                  <Trophy className="w-4 h-4 text-primary" />
-                  <span className="font-oswald text-sm">50+ College Commits</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Users className="w-4 h-4 text-primary" />
-                  <span className="font-oswald text-sm">500+ Athletes Trained</span>
-                </div>
-              </div>
+            {/* Badge */}
+            <div className="inline-flex items-center bg-primary/20 backdrop-blur border border-primary/30 px-3 py-1.5 mb-5">
+              <Star className="w-3 h-3 text-primary mr-2" />
+              <span className="font-oswald text-xs text-primary uppercase tracking-[0.2em]">
+                Arizona's #1 Baseball Academy
+              </span>
             </div>
 
-            {/* Right - Testimonial Card */}
-            <div className="hidden lg:block">
-              <div className="bg-black/40 backdrop-blur-xl border border-white/10 p-8 relative">
-                <div className="absolute -top-3 -left-3 w-8 h-8 border-l-2 border-t-2 border-primary" />
-                <div className="absolute -bottom-3 -right-3 w-8 h-8 border-r-2 border-b-2 border-primary" />
-                
-                <div className="flex gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                  ))}
-                </div>
-                
-                <blockquote className="font-oswald text-lg text-foreground/90 mb-6 leading-relaxed italic">
-                  "My son went from a solid travel ball player to getting D1 looks in just 8 months. 
-                  The coaching here is on another level — they see things other coaches miss."
-                </blockquote>
-                
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
-                    <span className="font-bebas text-primary text-xl">JM</span>
-                  </div>
-                  <div>
-                    <p className="font-bebas text-foreground uppercase">Jennifer M.</p>
-                    <p className="font-oswald text-sm text-foreground/50">Parent of D1 Commit</p>
-                  </div>
-                </div>
+            {/* Headline */}
+            <h1 className="font-bebas uppercase leading-[0.9] tracking-tight mb-5">
+              <span className="block text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-foreground">
+                Transform Your Game.
+              </span>
+              <span className="block text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-foreground">
+                Get Recruited.
+              </span>
+              <span 
+                className="block text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-primary mt-1"
+                style={{ textShadow: '0 0 60px hsl(271 81% 56% / 0.5)' }}
+              >
+                Go Pro.
+              </span>
+            </h1>
+
+            {/* Description */}
+            <p className="font-oswald text-sm md:text-base lg:text-lg text-foreground/70 mb-6 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+              The only Arizona academy where elite D1/pro coaches, MLB-grade technology, and complete 
+              athletic development combine to build college-ready players — guaranteed.
+            </p>
+
+            {/* CTAs */}
+            <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-6">
+              <Button 
+                size="lg"
+                onClick={onCtaClick}
+                className="group bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-[0.15em] text-base px-6 py-5 h-auto"
+                style={{ boxShadow: '0 0 40px hsl(271 81% 56% / 0.4)' }}
+              >
+                Start Free Evaluation
+                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Button>
+              <Button 
+                variant="outline"
+                size="lg"
+                className="group border-white/30 hover:bg-white/10 text-foreground font-bebas uppercase tracking-[0.15em] text-base px-6 py-5 h-auto"
+              >
+                <Play className="mr-2 w-4 h-4" />
+                Watch Athletes Train
+              </Button>
+            </div>
+
+            {/* Trust Elements */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-5 text-foreground/50">
+              <div className="flex items-center gap-2">
+                <Trophy className="w-4 h-4 text-primary" />
+                <span className="font-oswald text-sm">50+ College Commits</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Users className="w-4 h-4 text-primary" />
+                <span className="font-oswald text-sm">500+ Athletes Trained</span>
               </div>
             </div>
           </div>
