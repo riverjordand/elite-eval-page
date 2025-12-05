@@ -11,13 +11,15 @@ const photos = [
   "/action-05.jpg", "/action-06.jpg", "/action-07.jpg", "/action-08.jpg",
 ];
 
-// Double the photos for seamless loop
-const loopedPhotos = [...photos, ...photos];
-
 const MediaSection = () => {
   const [videoRef] = useEmblaCarousel(
     { loop: true, dragFree: true, align: 'start' },
     [Autoplay({ delay: 2000, stopOnInteraction: false, stopOnMouseEnter: false })]
+  );
+  
+  const [photoRef] = useEmblaCarousel(
+    { loop: true, dragFree: true, align: 'start' },
+    [Autoplay({ delay: 1800, stopOnInteraction: false, stopOnMouseEnter: false })]
   );
 
   return (
@@ -61,24 +63,26 @@ const MediaSection = () => {
         </div>
       </div>
       
-      {/* Photos - CSS animation scrolling right (opposite direction) */}
-      <div className="relative overflow-hidden">
+      {/* Photos Carousel */}
+      <div className="relative">
         <div className="absolute left-0 top-0 bottom-0 w-16 lg:w-32 xl:w-48 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-16 lg:w-32 xl:w-48 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
         
-        <div className="flex gap-3 lg:gap-4 xl:gap-6 animate-scroll-right">
-          {loopedPhotos.map((photo, index) => (
-            <div key={index} className="flex-[0_0_auto] min-w-0 w-40 md:w-60 lg:w-80 xl:w-96 2xl:w-[420px]">
-              <div className="aspect-square">
-                <img 
-                  src={photo} 
-                  alt={`Training ${index + 1}`}
-                  className="w-full h-full object-cover rounded-lg"
-                  loading="lazy"
-                />
+        <div className="overflow-hidden" ref={photoRef}>
+          <div className="flex gap-3 lg:gap-4 xl:gap-6">
+            {photos.map((photo, index) => (
+              <div key={index} className="flex-[0_0_auto] min-w-0 w-40 md:w-60 lg:w-80 xl:w-96 2xl:w-[420px]">
+                <div className="aspect-square">
+                  <img 
+                    src={photo} 
+                    alt={`Training ${index + 1}`}
+                    className="w-full h-full object-cover rounded-lg"
+                    loading="lazy"
+                  />
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
