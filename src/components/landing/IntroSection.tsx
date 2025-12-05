@@ -3,7 +3,9 @@ import welcomeAthlete from "@/assets/welcome-athlete-batting.jpg";
 
 const IntroSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
+  const imageRef = useRef<HTMLImageElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [parallaxOffset, setParallaxOffset] = useState(0);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -23,15 +25,38 @@ const IntroSection = () => {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!sectionRef.current) return;
+      
+      const rect = sectionRef.current.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      
+      // Only apply parallax when section is in view
+      if (rect.top < windowHeight && rect.bottom > 0) {
+        const scrollProgress = (windowHeight - rect.top) / (windowHeight + rect.height);
+        const offset = (scrollProgress - 0.5) * 60; // Subtle 60px movement range
+        setParallaxOffset(offset);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Initial call
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <section ref={sectionRef} className="relative py-20 md:py-28 lg:py-36 overflow-hidden">
       {/* Multi-layer background for depth */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-background" />
         <img 
+          ref={imageRef}
           src={welcomeAthlete} 
           alt="LPA Athlete" 
-          className="absolute right-0 top-1/2 -translate-y-1/2 h-[120%] w-full lg:w-3/4 xl:w-2/3 object-cover object-[70%_center]"
+          className="absolute right-0 top-1/2 h-[130%] w-full lg:w-3/4 xl:w-2/3 object-cover object-[70%_center] will-change-transform"
+          style={{ transform: `translateY(calc(-50% + ${parallaxOffset}px))` }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
