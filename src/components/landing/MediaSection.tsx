@@ -17,12 +17,12 @@ const loopedPhotos = [...photos, ...photos, ...photos];
 const MediaSection = () => {
   const [videoRef] = useEmblaCarousel(
     { loop: true, dragFree: true, align: 'start' },
-    [Autoplay({ delay: 3000, stopOnInteraction: false })]
+    [Autoplay({ delay: 0, stopOnInteraction: false, playOnInit: true })]
   );
   
   const [photoRef] = useEmblaCarousel(
-    { loop: true, dragFree: true, align: 'end' },
-    [Autoplay({ delay: 2500, stopOnInteraction: false })]
+    { loop: true, dragFree: true, align: 'start', direction: 'rtl' },
+    [Autoplay({ delay: 0, stopOnInteraction: false, playOnInit: true })]
   );
 
   return (
