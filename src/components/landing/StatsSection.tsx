@@ -21,23 +21,23 @@ const StatsSection = () => {
       {/* Vignette */}
       <div className="absolute inset-0 cinematic-vignette opacity-30" />
       
-      <div className="container relative mx-auto px-6 lg:px-20 py-12 md:py-16 lg:py-20 xl:py-24">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-16">
+      <div className="container relative mx-auto px-6 lg:px-20 py-6 md:py-8 lg:py-10">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-12">
           {stats.map((stat, index) => (
             <div key={index} className="text-center relative group">
-              <div className="flex items-center justify-center gap-3 mb-2">
-                <TrendingUp className="w-5 h-5 lg:w-6 lg:h-6 text-primary-foreground/60 hidden lg:block group-hover:scale-110 transition-transform" />
+              <div className="flex items-center justify-center gap-2 mb-1">
+                <TrendingUp className="w-4 h-4 lg:w-5 lg:h-5 text-primary-foreground/60 hidden lg:block group-hover:scale-110 transition-transform" />
                 <div 
-                  className="font-bebas text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-primary-foreground leading-none"
+                  className="font-bebas text-3xl md:text-4xl lg:text-5xl text-primary-foreground leading-none"
                   style={{ textShadow: '0 4px 30px rgba(0,0,0,0.3)' }}
                 >
                   {stat.value}
                 </div>
               </div>
-              <div className="font-bebas text-base md:text-lg lg:text-xl xl:text-2xl text-primary-foreground uppercase tracking-wide">
+              <div className="font-bebas text-sm md:text-base lg:text-lg text-primary-foreground uppercase tracking-wide">
                 {stat.label}
               </div>
-              <div className="font-oswald text-xs md:text-sm lg:text-base text-primary-foreground/70 mt-2">
+              <div className="font-oswald text-[10px] md:text-xs text-primary-foreground/70 mt-1">
                 {stat.sublabel}
               </div>
             </div>
