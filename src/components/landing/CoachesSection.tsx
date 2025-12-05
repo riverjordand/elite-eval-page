@@ -11,7 +11,8 @@ const coaches = [
     image: coachMarcus, 
     role: "Head Coach", 
     cred: "Former D1 & Pro",
-    bio: "Played at Oregon, drafted by the Diamondbacks. Knows exactly what college coaches want to see because he's been there."
+    bio: "Played at Oregon, drafted by the Diamondbacks. Knows exactly what college coaches want to see because he's been there.",
+    highlight: true
   },
   { 
     name: "Coach Joe", 
@@ -95,46 +96,107 @@ const CoachesSection = () => {
           ))}
         </div>
         
-        {/* Coaches Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
+        {/* Coaches Grid - Redesigned */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-5 lg:gap-6">
           {coaches.map((coach, index) => (
-            <div key={index} className="group">
+            <div key={index} className="group relative">
               <div 
-                className="relative aspect-[3/4] overflow-hidden bg-card"
-                style={{ boxShadow: '0 25px 50px -12px rgba(0,0,0,0.6)' }}
+                className={`relative aspect-[3/4] overflow-hidden bg-card transition-all duration-500 ${
+                  coach.highlight ? 'ring-2 ring-primary/50' : ''
+                }`}
+                style={{ 
+                  boxShadow: coach.highlight 
+                    ? '0 0 60px hsl(271 81% 56% / 0.3), 0 25px 50px -12px rgba(0,0,0,0.6)' 
+                    : '0 25px 50px -12px rgba(0,0,0,0.6)' 
+                }}
               >
+                {/* Image */}
                 <img 
                   src={coach.image} 
                   alt={coach.name}
-                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  className="absolute inset-0 w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-50"
                 />
                 
-                {/* Cinematic overlays */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
-                <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute inset-0 cinematic-vignette opacity-40" />
+                {/* Default overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent transition-opacity duration-500 group-hover:opacity-0" />
                 
-                {/* Badge */}
-                <div className="absolute top-3 left-3">
-                  <span 
-                    className="inline-block bg-primary text-primary-foreground font-bebas text-xs lg:text-sm px-2 py-1 uppercase tracking-wider"
-                    style={{ boxShadow: '0 0 20px hsl(271 81% 56% / 0.5)' }}
-                  >
-                    {coach.cred}
-                  </span>
+                {/* Hover overlay - bio reveal */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/90 to-black/70 opacity-0 group-hover:opacity-100 transition-all duration-500" />
+                
+                {/* Glowing credential badge */}
+                <div className="absolute top-3 left-3 z-10">
+                  <div className="relative">
+                    {/* Glow effect behind badge */}
+                    <div 
+                      className="absolute inset-0 bg-primary blur-lg opacity-60 group-hover:opacity-100 group-hover:blur-xl transition-all duration-500"
+                      style={{ transform: 'scale(1.5)' }}
+                    />
+                    <span 
+                      className="relative inline-block bg-primary text-primary-foreground font-bebas text-[10px] lg:text-xs px-2 py-1 uppercase tracking-wider border border-primary-foreground/20"
+                      style={{ 
+                        boxShadow: '0 0 20px hsl(271 81% 56% / 0.6), inset 0 0 10px hsl(271 81% 56% / 0.3)' 
+                      }}
+                    >
+                      {coach.cred}
+                    </span>
+                  </div>
                 </div>
                 
-                {/* Info */}
-                <div className="absolute bottom-0 left-0 right-0 p-4 lg:p-5">
-                  <h3 className="font-bebas text-lg md:text-xl lg:text-2xl text-foreground uppercase drop-shadow-lg">{coach.name}</h3>
-                  <p className="font-oswald text-xs lg:text-sm text-primary glow-primary">{coach.role}</p>
+                {/* Default info - visible normally */}
+                <div className="absolute bottom-0 left-0 right-0 p-4 lg:p-5 transition-all duration-500 group-hover:opacity-0 group-hover:translate-y-4">
+                  <h3 className="font-bebas text-lg md:text-xl lg:text-2xl text-foreground uppercase drop-shadow-lg">
+                    {coach.name}
+                  </h3>
+                  <p className="font-oswald text-xs lg:text-sm text-primary glow-primary">
+                    {coach.role}
+                  </p>
                 </div>
                 
-                {/* Hover border */}
-                <div className="absolute inset-0 border-2 border-primary/0 group-hover:border-primary/50 transition-colors duration-500" />
+                {/* Hover info - bio reveal */}
+                <div className="absolute inset-0 flex flex-col justify-end p-4 lg:p-5 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+                  <h3 className="font-bebas text-xl lg:text-2xl text-foreground uppercase mb-1 drop-shadow-lg">
+                    {coach.name}
+                  </h3>
+                  <p className="font-oswald text-xs lg:text-sm text-primary glow-primary mb-3">
+                    {coach.role}
+                  </p>
+                  <p className="font-oswald text-[11px] lg:text-xs text-foreground/90 leading-relaxed line-clamp-4">
+                    {coach.bio}
+                  </p>
+                </div>
+                
+                {/* Animated border on hover */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                  {/* Top border */}
+                  <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-primary to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left" />
+                  {/* Bottom border */}
+                  <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-primary to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700 delay-100 origin-right" />
+                  {/* Left border */}
+                  <div className="absolute top-0 left-0 w-[2px] h-full bg-gradient-to-b from-transparent via-primary to-transparent scale-y-0 group-hover:scale-y-100 transition-transform duration-700 delay-200 origin-top" />
+                  {/* Right border */}
+                  <div className="absolute top-0 right-0 w-[2px] h-full bg-gradient-to-b from-transparent via-primary to-transparent scale-y-0 group-hover:scale-y-100 transition-transform duration-700 delay-300 origin-bottom" />
+                </div>
+                
+                {/* Corner accents */}
+                <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-primary/0 group-hover:border-primary transition-colors duration-500" />
+                <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-primary/0 group-hover:border-primary transition-colors duration-500" />
+                <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-primary/0 group-hover:border-primary transition-colors duration-500" />
+                <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-primary/0 group-hover:border-primary transition-colors duration-500" />
               </div>
+              
+              {/* Glow under card on hover */}
+              <div 
+                className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-3/4 h-8 bg-primary/30 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              />
             </div>
           ))}
+        </div>
+        
+        {/* Bottom tagline */}
+        <div className="text-center mt-12 lg:mt-16">
+          <p className="font-oswald text-sm lg:text-base text-muted-foreground">
+            <span className="text-primary glow-primary">Hover</span> over each coach to learn more about their journey
+          </p>
         </div>
       </div>
     </section>
