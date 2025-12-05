@@ -36,25 +36,25 @@ const LandingTestimonialsCompact = () => {
   const [playingIndex, setPlayingIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-16 md:py-20 bg-black">
+    <section className="py-12 md:py-16 lg:py-20 bg-black">
       <div className="container mx-auto px-4">
         {/* Section header */}
-        <div className="text-center mb-10 md:mb-12">
-          <div className="inline-block bg-primary/20 text-primary font-bebas text-sm px-4 py-1 mb-4 uppercase tracking-widest">
+        <div className="text-center mb-8 md:mb-10">
+          <div className="inline-block bg-primary/20 text-primary font-bebas text-xs md:text-sm px-3 py-1 mb-3 uppercase tracking-widest">
             Real Results
           </div>
-          <h2 className="font-bebas text-3xl md:text-4xl lg:text-5xl text-foreground uppercase tracking-tight mb-3">
+          <h2 className="font-bebas text-2xl md:text-3xl lg:text-4xl text-foreground uppercase tracking-tight">
             Hear From LPA Families
           </h2>
         </div>
         
         {/* Testimonials grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 max-w-4xl mx-auto">
           {testimonials.map((item, index) => (
             <div key={index} className="group">
               {/* Video thumbnail */}
               <div 
-                className="relative aspect-[9/16] rounded-lg overflow-hidden cursor-pointer mb-3"
+                className="relative aspect-[9/16] rounded-lg overflow-hidden cursor-pointer mb-2"
                 onClick={() => setPlayingIndex(playingIndex === index ? null : index)}
               >
                 {playingIndex === index ? (
@@ -72,8 +72,8 @@ const LandingTestimonialsCompact = () => {
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                     <div className="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/30 transition-colors">
-                      <div className="w-12 h-12 md:w-14 md:h-14 bg-primary/90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <Play className="w-5 h-5 md:w-6 md:h-6 text-primary-foreground ml-1" fill="currentColor" />
+                      <div className="w-10 h-10 md:w-12 md:h-12 bg-primary/90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <Play className="w-4 h-4 md:w-5 md:h-5 text-primary-foreground ml-0.5" fill="currentColor" />
                       </div>
                     </div>
                   </>
@@ -81,9 +81,9 @@ const LandingTestimonialsCompact = () => {
               </div>
               
               {/* Quote & name */}
-              <p className="font-oswald text-xs md:text-sm text-foreground/70 italic mb-2 line-clamp-2">"{item.quote}"</p>
-              <p className="font-bebas text-xs text-primary">{item.name}</p>
-              <p className="font-oswald text-[10px] text-muted-foreground">{item.role}</p>
+              <p className="font-oswald text-[10px] md:text-xs text-foreground/70 italic mb-1 line-clamp-2">"{item.quote}"</p>
+              <p className="font-bebas text-[10px] md:text-xs text-primary">{item.name}</p>
+              <p className="font-oswald text-[9px] md:text-[10px] text-muted-foreground">{item.role}</p>
             </div>
           ))}
         </div>
