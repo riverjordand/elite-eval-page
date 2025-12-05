@@ -38,58 +38,58 @@ const pillars = [
 
 const AboutSection = () => {
   return (
-    <section className="relative py-20 md:py-28 lg:py-36 overflow-hidden">
+    <section className="relative py-16 md:py-20 lg:py-24 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-card/50 to-background" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[600px] bg-primary/5 rounded-full blur-[150px]" />
       
       <div className="container relative mx-auto px-6 lg:px-16">
         {/* Header */}
-        <div className="text-center mb-16 lg:mb-20">
-          <p className="font-oswald text-sm text-primary uppercase tracking-[0.3em] mb-4">
+        <div className="text-center mb-10 lg:mb-12">
+          <p className="font-oswald text-xs text-primary uppercase tracking-[0.3em] mb-3">
             Why 500+ Families Choose LPA
           </p>
-          <h2 className="font-bebas text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-foreground uppercase leading-none mb-6">
+          <h2 className="font-bebas text-3xl md:text-4xl lg:text-5xl text-foreground uppercase leading-none mb-4">
             The Unfair Advantage
           </h2>
-          <p className="font-oswald text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="font-oswald text-sm md:text-base text-muted-foreground max-w-2xl mx-auto">
             Other academies have coaches or equipment. LPA has the <span className="text-foreground">complete system</span> — 
             the same development approach used by professional organizations to turn raw talent into recruited players.
           </p>
         </div>
         
         {/* Pillars */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6">
           {pillars.map((pillar, index) => (
             <div 
               key={index}
-              className="group relative bg-card/60 backdrop-blur border border-border/40 p-8 lg:p-10 hover:border-primary/50 transition-all duration-500"
+              className="group relative bg-card/60 backdrop-blur border border-border/40 p-5 lg:p-6 hover:border-primary/50 transition-all duration-500"
             >
               {/* Icon & Stat */}
-              <div className="flex items-start gap-4 mb-6">
-                <div className="w-14 h-14 bg-primary/15 flex items-center justify-center group-hover:bg-primary/25 transition-colors flex-shrink-0">
-                  <pillar.icon className="w-7 h-7 text-primary" strokeWidth={1.5} />
+              <div className="flex items-start gap-3 mb-4">
+                <div className="w-10 h-10 bg-primary/15 flex items-center justify-center group-hover:bg-primary/25 transition-colors flex-shrink-0">
+                  <pillar.icon className="w-5 h-5 text-primary" strokeWidth={1.5} />
                 </div>
                 <div>
-                  <h3 className="font-bebas text-2xl lg:text-3xl text-foreground uppercase mb-1">
+                  <h3 className="font-bebas text-xl lg:text-2xl text-foreground uppercase mb-0.5">
                     {pillar.title}
                   </h3>
-                  <p className="font-oswald text-xs text-primary uppercase tracking-wide">
+                  <p className="font-oswald text-[10px] text-primary uppercase tracking-wide">
                     {pillar.stat}
                   </p>
                 </div>
               </div>
               
               {/* Description */}
-              <p className="font-oswald text-sm md:text-base text-muted-foreground leading-relaxed mb-6">
+              <p className="font-oswald text-xs md:text-sm text-muted-foreground leading-relaxed mb-4">
                 {pillar.description}
               </p>
               
               {/* Features */}
-              <div className="space-y-3">
+              <div className="space-y-2">
                 {pillar.features.map((feature, fIndex) => (
-                  <div key={fIndex} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                    <span className="font-oswald text-sm text-foreground/80">{feature}</span>
+                  <div key={fIndex} className="flex items-start gap-2">
+                    <CheckCircle2 className="w-3 h-3 text-primary mt-0.5 flex-shrink-0" />
+                    <span className="font-oswald text-xs text-foreground/80">{feature}</span>
                   </div>
                 ))}
               </div>
@@ -101,8 +101,8 @@ const AboutSection = () => {
         </div>
 
         {/* Bottom CTA Text */}
-        <div className="text-center mt-12 lg:mt-16">
-          <p className="font-oswald text-muted-foreground inline-flex items-center gap-2">
+        <div className="text-center mt-8 lg:mt-10">
+          <p className="font-oswald text-sm text-muted-foreground inline-flex items-center gap-2">
             See why parents say LPA changed their athlete's trajectory
             <ChevronRight className="w-4 h-4 text-primary" />
           </p>
