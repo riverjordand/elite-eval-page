@@ -11,6 +11,12 @@ const photos = [
   "/action-05.jpg", "/action-06.jpg", "/action-07.jpg", "/action-08.jpg",
   "/action-09.jpg", "/action-10.jpg", "/action-11.jpg", "/action-12.jpg",
   "/action-13.jpg", "/action-14.jpg", "/action-15.jpg", "/action-16.jpg",
+  "/action-17.jpg", "/action-18.jpg", "/action-19.jpg", "/action-20.jpg",
+  "/action-21.jpg", "/action-22.jpg", "/action-23.jpg", "/action-24.jpg",
+  "/action-25.jpg", "/action-26.jpg", "/action-27.jpg", "/action-28.jpg",
+  "/action-29.jpg", "/action-30.jpg", "/action-31.jpg", "/action-32.jpg",
+  "/action-33.jpg", "/action-34.jpg", "/action-35.jpg", "/action-36.jpg",
+  "/action-37.jpg", "/action-38.jpg",
 ];
 
 const MediaSection = () => {
