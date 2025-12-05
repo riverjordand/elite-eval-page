@@ -1,4 +1,5 @@
-import { Award, Star, Users } from "lucide-react";
+import { useState } from "react";
+import { Award, Star, Users, X, ChevronDown } from "lucide-react";
 import coachEric from "@/assets/coach-eric.webp";
 import coachJoe from "@/assets/coach-joe.webp";
 import coachMarcus from "@/assets/coach-marcus.webp";
@@ -12,35 +13,39 @@ const coaches = [
     role: "Head Coach", 
     cred: "Former D1 & Pro",
     bio: "Played at Oregon, drafted by the Diamondbacks. Knows exactly what college coaches want to see because he's been there.",
-    highlight: true
+    highlights: ["4 years D1 at Oregon", "Drafted by Arizona Diamondbacks", "50+ athletes coached to college"]
   },
   { 
     name: "Coach Joe", 
     image: coachJoe, 
     role: "Hitting Coordinator", 
     cred: "MLB Scout Experience",
-    bio: "Spent years evaluating talent for MLB organizations. He can spot — and fix — swing flaws that other coaches miss."
+    bio: "Spent years evaluating talent for MLB organizations. He can spot — and fix — swing flaws that other coaches miss.",
+    highlights: ["MLB scouting experience", "Expert swing analysis", "Data-driven approach"]
   },
   { 
     name: "Coach Eric", 
     image: coachEric, 
     role: "Pitching Coordinator", 
     cred: "2nd Round Pick",
-    bio: "A high draft pick who built an 8-year pro career. Teaches the mechanics and mentality that separate good from elite."
+    bio: "A high draft pick who built an 8-year pro career. Teaches the mechanics and mentality that separate good from elite.",
+    highlights: ["2nd round MLB draft pick", "8-year pro career", "Velocity development specialist"]
   },
   { 
     name: "Coach Terrell", 
     image: coachTerrell, 
     role: "Development Coach", 
     cred: "D1 Player",
-    bio: "Four years at a Power 5 program. Specializes in turning raw athleticism into polished, recruitable skill sets."
+    bio: "Four years at a Power 5 program. Specializes in turning raw athleticism into polished, recruitable skill sets.",
+    highlights: ["Power 5 program athlete", "Recruiting guidance expert", "Athletic development focus"]
   },
   { 
     name: "Coach Will", 
     image: coachNeil, 
     role: "Academy Director", 
     cred: "13+ Years Development",
-    bio: "Built LPA from the ground up. Has guided hundreds of athletes from beginners to college commits."
+    bio: "Built LPA from the ground up. Has guided hundreds of athletes from beginners to college commits.",
+    highlights: ["Founded LPA", "500+ athletes developed", "Program design expert"]
   },
 ];
 
@@ -51,6 +56,12 @@ const stats = [
 ];
 
 const CoachesSection = () => {
+  const [expandedCoach, setExpandedCoach] = useState<number | null>(null);
+
+  const toggleCoach = (index: number) => {
+    setExpandedCoach(expandedCoach === index ? null : index);
+  };
+
   return (
     <section className="relative py-20 md:py-28 lg:py-36 xl:py-44 overflow-hidden">
       {/* Cinematic background */}
@@ -96,106 +107,154 @@ const CoachesSection = () => {
           ))}
         </div>
         
-        {/* Coaches Grid - Redesigned */}
+        {/* Coaches Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-5 lg:gap-6">
-          {coaches.map((coach, index) => (
-            <div key={index} className="group relative">
+          {coaches.map((coach, index) => {
+            const isExpanded = expandedCoach === index;
+            
+            return (
               <div 
-                className={`relative aspect-[3/4] overflow-hidden bg-card transition-all duration-500 ${
-                  coach.highlight ? 'ring-2 ring-primary/50' : ''
+                key={index} 
+                className={`relative transition-all duration-500 ${
+                  isExpanded ? 'col-span-2 md:col-span-3 lg:col-span-2 row-span-2 z-20' : 'z-10'
                 }`}
-                style={{ 
-                  boxShadow: coach.highlight 
-                    ? '0 0 60px hsl(271 81% 56% / 0.3), 0 25px 50px -12px rgba(0,0,0,0.6)' 
-                    : '0 25px 50px -12px rgba(0,0,0,0.6)' 
-                }}
               >
-                {/* Image */}
-                <img 
-                  src={coach.image} 
-                  alt={coach.name}
-                  className="absolute inset-0 w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-50"
-                />
-                
-                {/* Default overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent transition-opacity duration-500 group-hover:opacity-0" />
-                
-                {/* Hover overlay - bio reveal */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/90 to-black/70 opacity-0 group-hover:opacity-100 transition-all duration-500" />
-                
-                {/* Glowing credential badge */}
-                <div className="absolute top-3 left-3 z-10">
-                  <div className="relative">
-                    {/* Glow effect behind badge */}
-                    <div 
-                      className="absolute inset-0 bg-primary blur-lg opacity-60 group-hover:opacity-100 group-hover:blur-xl transition-all duration-500"
-                      style={{ transform: 'scale(1.5)' }}
-                    />
-                    <span 
-                      className="relative inline-block bg-primary text-primary-foreground font-bebas text-[10px] lg:text-xs px-2 py-1 uppercase tracking-wider border border-primary-foreground/20"
-                      style={{ 
-                        boxShadow: '0 0 20px hsl(271 81% 56% / 0.6), inset 0 0 10px hsl(271 81% 56% / 0.3)' 
-                      }}
-                    >
-                      {coach.cred}
-                    </span>
+                <div 
+                  onClick={() => toggleCoach(index)}
+                  className={`relative overflow-hidden bg-card cursor-pointer transition-all duration-500 ${
+                    isExpanded 
+                      ? 'aspect-auto min-h-[400px] md:min-h-[450px]' 
+                      : 'aspect-[3/4]'
+                  } ${isExpanded ? 'ring-2 ring-primary' : 'hover:ring-1 hover:ring-primary/50'}`}
+                  style={{ 
+                    boxShadow: isExpanded 
+                      ? '0 0 80px hsl(271 81% 56% / 0.4), 0 30px 60px -15px rgba(0,0,0,0.7)' 
+                      : '0 25px 50px -12px rgba(0,0,0,0.6)' 
+                  }}
+                >
+                  {/* Image */}
+                  <img 
+                    src={coach.image} 
+                    alt={coach.name}
+                    className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ${
+                      isExpanded ? 'brightness-[0.3] scale-110' : 'brightness-100 hover:scale-105'
+                    }`}
+                  />
+                  
+                  {/* Default overlay */}
+                  <div className={`absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent transition-opacity duration-500 ${
+                    isExpanded ? 'opacity-0' : 'opacity-100'
+                  }`} />
+                  
+                  {/* Glowing credential badge */}
+                  <div className="absolute top-3 left-3 z-10">
+                    <div className="relative">
+                      <div 
+                        className={`absolute inset-0 bg-primary blur-lg transition-all duration-500 ${
+                          isExpanded ? 'opacity-100 blur-xl' : 'opacity-60'
+                        }`}
+                        style={{ transform: 'scale(1.5)' }}
+                      />
+                      <span 
+                        className="relative inline-block bg-primary text-primary-foreground font-bebas text-[10px] lg:text-xs px-2 py-1 uppercase tracking-wider border border-primary-foreground/20"
+                        style={{ boxShadow: '0 0 20px hsl(271 81% 56% / 0.6)' }}
+                      >
+                        {coach.cred}
+                      </span>
+                    </div>
                   </div>
+                  
+                  {/* Expand indicator - only show when not expanded */}
+                  {!isExpanded && (
+                    <div className="absolute top-3 right-3 z-10">
+                      <div className="w-7 h-7 rounded-full bg-black/50 backdrop-blur-sm border border-white/20 flex items-center justify-center">
+                        <ChevronDown className="w-4 h-4 text-white/80" />
+                      </div>
+                    </div>
+                  )}
+                  
+                  {/* Close button - only show when expanded */}
+                  {isExpanded && (
+                    <div className="absolute top-3 right-3 z-10">
+                      <div className="w-8 h-8 rounded-full bg-primary/80 backdrop-blur-sm border border-primary-foreground/20 flex items-center justify-center hover:bg-primary transition-colors">
+                        <X className="w-4 h-4 text-primary-foreground" />
+                      </div>
+                    </div>
+                  )}
+                  
+                  {/* Default info - visible when collapsed */}
+                  <div className={`absolute bottom-0 left-0 right-0 p-4 lg:p-5 transition-all duration-500 ${
+                    isExpanded ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'
+                  }`}>
+                    <h3 className="font-bebas text-lg md:text-xl lg:text-2xl text-foreground uppercase drop-shadow-lg">
+                      {coach.name}
+                    </h3>
+                    <p className="font-oswald text-xs lg:text-sm text-primary glow-primary">
+                      {coach.role}
+                    </p>
+                  </div>
+                  
+                  {/* Expanded content */}
+                  <div className={`absolute inset-0 flex flex-col justify-end p-5 lg:p-8 transition-all duration-500 ${
+                    isExpanded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8 pointer-events-none'
+                  }`}>
+                    {/* Name and role */}
+                    <div className="mb-4">
+                      <h3 className="font-bebas text-3xl lg:text-4xl text-foreground uppercase drop-shadow-lg mb-1">
+                        {coach.name}
+                      </h3>
+                      <p className="font-oswald text-sm lg:text-base text-primary glow-primary">
+                        {coach.role}
+                      </p>
+                    </div>
+                    
+                    {/* Bio */}
+                    <p className="font-oswald text-sm lg:text-base text-foreground/90 leading-relaxed mb-5">
+                      {coach.bio}
+                    </p>
+                    
+                    {/* Highlights */}
+                    <div className="space-y-2">
+                      <p className="font-bebas text-xs text-primary uppercase tracking-wider">Career Highlights</p>
+                      <div className="flex flex-wrap gap-2">
+                        {coach.highlights.map((highlight, hIndex) => (
+                          <span 
+                            key={hIndex}
+                            className="inline-block bg-primary/20 border border-primary/30 px-3 py-1 font-oswald text-xs text-foreground/80"
+                          >
+                            {highlight}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Animated borders when expanded */}
+                  {isExpanded && (
+                    <div className="absolute inset-0 pointer-events-none">
+                      <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-primary via-primary/80 to-transparent animate-[shimmer_2s_ease-in-out_infinite]" />
+                      <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-primary/80 to-primary" />
+                      <div className="absolute top-0 left-0 w-[2px] h-full bg-gradient-to-b from-primary via-primary/80 to-transparent" />
+                      <div className="absolute top-0 right-0 w-[2px] h-full bg-gradient-to-b from-transparent via-primary/80 to-primary" />
+                    </div>
+                  )}
                 </div>
                 
-                {/* Default info - visible normally */}
-                <div className="absolute bottom-0 left-0 right-0 p-4 lg:p-5 transition-all duration-500 group-hover:opacity-0 group-hover:translate-y-4">
-                  <h3 className="font-bebas text-lg md:text-xl lg:text-2xl text-foreground uppercase drop-shadow-lg">
-                    {coach.name}
-                  </h3>
-                  <p className="font-oswald text-xs lg:text-sm text-primary glow-primary">
-                    {coach.role}
-                  </p>
-                </div>
-                
-                {/* Hover info - bio reveal */}
-                <div className="absolute inset-0 flex flex-col justify-end p-4 lg:p-5 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
-                  <h3 className="font-bebas text-xl lg:text-2xl text-foreground uppercase mb-1 drop-shadow-lg">
-                    {coach.name}
-                  </h3>
-                  <p className="font-oswald text-xs lg:text-sm text-primary glow-primary mb-3">
-                    {coach.role}
-                  </p>
-                  <p className="font-oswald text-[11px] lg:text-xs text-foreground/90 leading-relaxed line-clamp-4">
-                    {coach.bio}
-                  </p>
-                </div>
-                
-                {/* Animated border on hover */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                  {/* Top border */}
-                  <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-primary to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left" />
-                  {/* Bottom border */}
-                  <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-primary to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700 delay-100 origin-right" />
-                  {/* Left border */}
-                  <div className="absolute top-0 left-0 w-[2px] h-full bg-gradient-to-b from-transparent via-primary to-transparent scale-y-0 group-hover:scale-y-100 transition-transform duration-700 delay-200 origin-top" />
-                  {/* Right border */}
-                  <div className="absolute top-0 right-0 w-[2px] h-full bg-gradient-to-b from-transparent via-primary to-transparent scale-y-0 group-hover:scale-y-100 transition-transform duration-700 delay-300 origin-bottom" />
-                </div>
-                
-                {/* Corner accents */}
-                <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-primary/0 group-hover:border-primary transition-colors duration-500" />
-                <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-primary/0 group-hover:border-primary transition-colors duration-500" />
-                <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-primary/0 group-hover:border-primary transition-colors duration-500" />
-                <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-primary/0 group-hover:border-primary transition-colors duration-500" />
+                {/* Glow under card */}
+                <div 
+                  className={`absolute -bottom-4 left-1/2 -translate-x-1/2 w-3/4 h-8 bg-primary/30 blur-xl transition-opacity duration-500 ${
+                    isExpanded ? 'opacity-100' : 'opacity-0'
+                  }`}
+                />
               </div>
-              
-              {/* Glow under card on hover */}
-              <div 
-                className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-3/4 h-8 bg-primary/30 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-              />
-            </div>
-          ))}
+            );
+          })}
         </div>
         
         {/* Bottom tagline */}
         <div className="text-center mt-12 lg:mt-16">
           <p className="font-oswald text-sm lg:text-base text-muted-foreground">
-            <span className="text-primary glow-primary">Hover</span> over each coach to learn more about their journey
+            <span className="text-primary glow-primary">Click</span> on any coach to learn more about their journey
           </p>
         </div>
       </div>
