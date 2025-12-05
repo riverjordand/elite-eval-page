@@ -6,7 +6,7 @@ import facilitySports from "@/assets/facility-sports-medicine.jpg";
 const facilities = [
   {
     title: "Training Area",
-    description: "Indoor turf, live data, and game-environment spacing",
+    description: "Indoor turf, live data, game-environment spacing",
     image: facilityTraining
   },
   {
@@ -16,7 +16,7 @@ const facilities = [
   },
   {
     title: "Video Analysis",
-    description: "Multi-angle capture and frame-by-frame breakdowns",
+    description: "Multi-angle capture, frame-by-frame breakdowns",
     image: facilityVideo
   },
   {
@@ -28,26 +28,26 @@ const facilities = [
 
 const LandingFacilityGrid = () => {
   return (
-    <section className="relative py-16 md:py-20 bg-black overflow-hidden">
+    <section className="relative py-12 md:py-16 lg:py-20 bg-black overflow-hidden">
       {/* Background pattern */}
-      <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, hsl(var(--primary)) 1px, transparent 0)', backgroundSize: '40px 40px' }} />
+      <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, hsl(var(--primary)) 1px, transparent 0)', backgroundSize: '32px 32px' }} />
       
       <div className="container relative mx-auto px-4">
         {/* Section header */}
-        <div className="text-center mb-10 md:mb-12">
-          <div className="inline-block bg-primary/20 text-primary font-bebas text-sm px-4 py-1 mb-4 uppercase tracking-widest">
+        <div className="text-center mb-8 md:mb-10">
+          <div className="inline-block bg-primary/20 text-primary font-bebas text-xs md:text-sm px-3 py-1 mb-3 uppercase tracking-widest">
             16,000 Sq Ft
           </div>
-          <h2 className="font-bebas text-3xl md:text-4xl lg:text-5xl text-foreground uppercase tracking-tight mb-3">
+          <h2 className="font-bebas text-2xl md:text-3xl lg:text-4xl text-foreground uppercase tracking-tight mb-2">
             Where Elite Athletes Train
           </h2>
-          <p className="font-oswald text-sm md:text-base text-muted-foreground max-w-2xl mx-auto">
+          <p className="font-oswald text-xs md:text-sm text-muted-foreground max-w-lg mx-auto">
             Professional-grade development built for serious players
           </p>
         </div>
         
         {/* Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3">
           {facilities.map((facility, index) => (
             <div 
               key={index}
@@ -58,14 +58,14 @@ const LandingFacilityGrid = () => {
                 alt={facility.title}
                 className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
               
               {/* Content */}
-              <div className="absolute bottom-0 left-0 right-0 p-4">
-                <h3 className="font-bebas text-base md:text-lg text-foreground uppercase mb-1">
+              <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4">
+                <h3 className="font-bebas text-sm md:text-base text-foreground uppercase leading-tight mb-0.5">
                   {facility.title}
                 </h3>
-                <p className="font-oswald text-xs text-foreground/70 leading-tight hidden md:block">
+                <p className="font-oswald text-[10px] md:text-xs text-foreground/60 leading-tight hidden md:block">
                   {facility.description}
                 </p>
               </div>

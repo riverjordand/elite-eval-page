@@ -16,7 +16,7 @@ const includes = [
 
 const LandingEvaluation = ({ onCtaClick }: LandingEvaluationProps) => {
   return (
-    <section className="relative py-16 md:py-24 bg-card overflow-hidden">
+    <section className="relative py-14 md:py-20 lg:py-24 bg-card overflow-hidden">
       {/* Dynamic background */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/5" />
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent" />
@@ -26,31 +26,31 @@ const LandingEvaluation = ({ onCtaClick }: LandingEvaluationProps) => {
       <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 skew-x-[-12deg] translate-x-1/4" />
       
       <div className="container relative mx-auto px-4">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-2xl mx-auto">
           {/* Badge */}
-          <div className="flex justify-center mb-6">
-            <div className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-bebas text-sm md:text-base px-5 py-2 rounded-full uppercase tracking-widest">
-              <Zap className="w-4 h-4" />
+          <div className="flex justify-center mb-4 md:mb-5">
+            <div className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-bebas text-xs md:text-sm px-4 py-1.5 rounded-full uppercase tracking-widest">
+              <Zap className="w-3 h-3 md:w-4 md:h-4" />
               Free Evaluation
             </div>
           </div>
           
           {/* Headline */}
-          <h2 className="font-bebas text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-center text-foreground uppercase tracking-tight mb-4">
+          <h2 className="font-bebas text-2xl md:text-4xl lg:text-5xl text-center text-foreground uppercase tracking-tight mb-3">
             College-Ready Player
             <span className="block text-primary">Evaluation</span>
           </h2>
           
-          <p className="font-oswald text-sm md:text-base lg:text-lg text-center text-muted-foreground mb-8 max-w-xl mx-auto">
+          <p className="font-oswald text-xs md:text-sm lg:text-base text-center text-muted-foreground mb-6 md:mb-8 max-w-lg mx-auto">
             Find out exactly where your athlete stands—and what it takes to reach the next level.
           </p>
           
           {/* What's included */}
-          <div className="grid grid-cols-2 gap-3 md:gap-4 mb-10 max-w-lg mx-auto">
+          <div className="grid grid-cols-2 gap-2 md:gap-3 mb-8 max-w-md mx-auto">
             {includes.map((item, index) => (
               <div key={index} className="flex items-center gap-2 bg-background/50 rounded-lg px-3 py-2">
-                <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                <span className="font-oswald text-xs md:text-sm text-foreground">{item}</span>
+                <Check className="w-3 h-3 md:w-4 md:h-4 text-primary flex-shrink-0" />
+                <span className="font-oswald text-[10px] md:text-xs text-foreground">{item}</span>
               </div>
             ))}
           </div>
@@ -59,14 +59,14 @@ const LandingEvaluation = ({ onCtaClick }: LandingEvaluationProps) => {
           <div className="text-center">
             <Button 
               size="lg" 
-              className="group bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-widest text-lg md:text-xl lg:text-2xl px-8 md:px-12 py-5 md:py-6 h-auto shadow-xl hover:shadow-primary/30 transition-all duration-300 hover:scale-105"
+              className="group bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-widest text-base md:text-lg lg:text-xl px-6 md:px-10 py-4 md:py-5 h-auto shadow-xl hover:shadow-primary/30 transition-all duration-300 hover:scale-105"
               onClick={onCtaClick}
             >
               Book My Free Evaluation
-              <ArrowRight className="ml-3 w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-2 transition-transform" />
+              <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-2 transition-transform" />
             </Button>
             
-            <p className="font-oswald text-xs md:text-sm text-muted-foreground mt-4">
+            <p className="font-oswald text-[10px] md:text-xs text-muted-foreground mt-3">
               No commitment required • Limited spots available
             </p>
           </div>

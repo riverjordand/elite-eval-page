@@ -34,15 +34,15 @@ const faqs = [
 
 const LandingFAQCompact = () => {
   return (
-    <section className="py-16 md:py-20 bg-background">
+    <section className="py-12 md:py-16 lg:py-20 bg-background">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-10">
-          <h2 className="font-bebas text-3xl md:text-4xl text-foreground uppercase tracking-tight">
+        <div className="text-center mb-8 md:mb-10">
+          <h2 className="font-bebas text-2xl md:text-3xl lg:text-4xl text-foreground uppercase tracking-tight">
             Common Questions
           </h2>
         </div>
         
-        <div className="max-w-2xl mx-auto">
+        <div className="max-w-xl mx-auto">
           <Accordion type="single" collapsible className="space-y-2">
             {faqs.map((faq, index) => (
               <AccordionItem 
@@ -50,10 +50,10 @@ const LandingFAQCompact = () => {
                 value={`faq-${index}`}
                 className="border border-border/50 rounded-lg px-4 bg-card/30 hover:border-primary/30 transition-colors"
               >
-                <AccordionTrigger className="font-bebas text-sm md:text-base text-foreground uppercase hover:no-underline py-4">
+                <AccordionTrigger className="font-bebas text-xs md:text-sm text-foreground uppercase hover:no-underline py-3">
                   {faq.q}
                 </AccordionTrigger>
-                <AccordionContent className="font-oswald text-sm text-muted-foreground pb-4">
+                <AccordionContent className="font-oswald text-xs md:text-sm text-muted-foreground pb-3">
                   {faq.a}
                 </AccordionContent>
               </AccordionItem>

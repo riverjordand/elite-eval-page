@@ -32,48 +32,48 @@ const LandingHeroNew = ({ onCtaClick }: LandingHeroNewProps) => {
       <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-bl from-primary/20 to-transparent skew-x-12 translate-x-1/4" />
       
       {/* Content */}
-      <div className="relative z-10 text-center px-4 md:px-8 max-w-6xl mx-auto">
+      <div className="relative z-10 text-center px-4 md:px-8 max-w-5xl mx-auto">
         {/* Logo */}
-        <div className="mb-6 md:mb-8">
+        <div className="mb-4 md:mb-6">
           <img 
             src={lpaBolt} 
             alt="LPA" 
-            className="w-20 h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 mx-auto drop-shadow-2xl animate-fade-in"
+            className="w-16 h-16 md:w-24 md:h-24 lg:w-28 lg:h-28 mx-auto drop-shadow-2xl animate-fade-in"
           />
         </div>
 
         {/* Pre-headline */}
-        <div className="inline-block bg-primary/90 text-primary-foreground font-bebas text-sm md:text-base px-6 py-2 mb-4 uppercase tracking-widest skew-x-[-3deg]">
+        <div className="inline-block bg-primary/90 text-primary-foreground font-bebas text-xs md:text-sm px-4 md:px-5 py-1.5 mb-3 md:mb-4 uppercase tracking-widest skew-x-[-3deg]">
           <span className="inline-block skew-x-[3deg]">Arizona's Premier Baseball Academy</span>
         </div>
 
         {/* Main Headline */}
-        <h1 className="font-bebas font-black uppercase leading-[0.85] tracking-tight mb-6">
-          <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-foreground drop-shadow-lg">
+        <h1 className="font-bebas font-black uppercase leading-[0.85] tracking-tight mb-4 md:mb-6">
+          <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-foreground drop-shadow-lg">
             Developing Elite
           </span>
-          <span className="block text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl text-primary drop-shadow-lg" style={{ textShadow: '0 0 60px hsl(var(--primary) / 0.5)' }}>
+          <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-primary drop-shadow-lg" style={{ textShadow: '0 0 60px hsl(var(--primary) / 0.5)' }}>
             Student-Athletes
           </span>
-          <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-foreground drop-shadow-lg">
+          <span className="block text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-foreground drop-shadow-lg">
             For The Next Level
           </span>
         </h1>
 
         {/* Subheadline */}
-        <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-foreground/80 font-oswald mb-8 max-w-3xl mx-auto leading-relaxed">
+        <p className="text-sm sm:text-base md:text-lg lg:text-xl text-foreground/80 font-oswald mb-6 md:mb-8 max-w-2xl mx-auto leading-relaxed">
           Where serious players build velocity, sharpen fundamentals, and become college-ready.
         </p>
 
         {/* CTA */}
         <Button 
           size="lg" 
-          className="group bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-widest text-lg md:text-xl lg:text-2xl px-8 md:px-12 py-5 md:py-6 h-auto shadow-2xl hover:shadow-primary/40 transition-all duration-300 hover:scale-105 skew-x-[-2deg]"
+          className="group bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-widest text-base md:text-lg lg:text-xl px-6 md:px-10 py-4 md:py-5 h-auto shadow-2xl hover:shadow-primary/40 transition-all duration-300 hover:scale-105 skew-x-[-2deg]"
           onClick={onCtaClick}
         >
           <span className="inline-block skew-x-[2deg] flex items-center">
             Book My Free Evaluation
-            <ArrowRight className="ml-3 w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-2 transition-transform" />
+            <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-2 transition-transform" />
           </span>
         </Button>
       </div>
@@ -81,9 +81,9 @@ const LandingHeroNew = ({ onCtaClick }: LandingHeroNewProps) => {
       {/* Scroll indicator */}
       <button 
         onClick={scrollToContent}
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 text-foreground/50 hover:text-foreground transition-colors animate-bounce"
+        className="absolute bottom-4 md:bottom-6 left-1/2 -translate-x-1/2 text-foreground/50 hover:text-foreground transition-colors animate-bounce"
       >
-        <ChevronDown className="w-8 h-8" />
+        <ChevronDown className="w-6 h-6 md:w-8 md:h-8" />
       </button>
 
       {/* Bottom accent bar */}
