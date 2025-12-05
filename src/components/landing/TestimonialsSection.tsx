@@ -40,7 +40,7 @@ const TestimonialsSection = () => {
   const [playing, setPlaying] = useState<number | null>(null);
 
   return (
-    <section className="relative py-20 md:py-28 lg:py-36 bg-black overflow-hidden">
+    <section className="relative py-20 md:py-28 lg:py-36 overflow-hidden" style={{ backgroundColor: '#0a0a0a' }}>
       <div className="container relative mx-auto px-6 lg:px-16">
         <div className="text-center mb-12 lg:mb-16">
           <p className="font-oswald text-sm text-primary uppercase tracking-[0.3em] mb-4">Real Stories, Real Results</p>

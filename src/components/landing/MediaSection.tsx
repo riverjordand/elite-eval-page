@@ -26,8 +26,8 @@ const MediaSection = () => {
   );
 
   return (
-    <section className="relative py-16 md:py-24 lg:py-32 xl:py-40 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-card/20 to-black" />
+    <section className="relative py-16 md:py-24 lg:py-32 xl:py-40 overflow-hidden" style={{ backgroundColor: '#0a0a0a' }}>
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-card/20 to-[#0a0a0a]" />
       
       {/* Header */}
       <div className="container mx-auto px-6 lg:px-16 xl:px-24 mb-10 md:mb-14 lg:mb-16 xl:mb-20">

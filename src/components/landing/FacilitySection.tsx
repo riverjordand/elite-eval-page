@@ -37,7 +37,7 @@ const facilities = [
 
 const FacilitySection = () => {
   return (
-    <section className="relative py-16 md:py-20 lg:py-24 bg-black overflow-hidden">
+    <section className="relative py-16 md:py-20 lg:py-24 overflow-hidden" style={{ backgroundColor: '#1a1a1a' }}>
       {/* Header */}
       <div className="container mx-auto px-6 lg:px-16 mb-8 lg:mb-10">
         <div className="grid lg:grid-cols-2 gap-6 items-end">
