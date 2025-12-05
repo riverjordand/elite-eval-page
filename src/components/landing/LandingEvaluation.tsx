@@ -16,57 +16,75 @@ const includes = [
 
 const LandingEvaluation = ({ onCtaClick }: LandingEvaluationProps) => {
   return (
-    <section className="relative py-16 md:py-24 lg:py-32 bg-card overflow-hidden">
-      {/* Dynamic background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/5" />
-      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent" />
-      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent" />
+    <section className="relative py-20 md:py-28 lg:py-36 overflow-hidden">
+      {/* Dramatic gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-card via-background to-card" />
+      
+      {/* Cinematic lighting effects */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[800px] bg-primary/15 rounded-full blur-[200px]" />
+      <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-primary/10 to-transparent" />
+      <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-primary/5 to-transparent" />
+      
+      {/* Top and bottom accent lines */}
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
       
       {/* Diagonal accent */}
       <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 skew-x-[-12deg] translate-x-1/4" />
       
       <div className="container relative mx-auto px-4">
-        <div className="max-w-4xl mx-auto">
-          {/* Badge */}
-          <div className="flex justify-center mb-5 md:mb-6 lg:mb-8">
-            <div className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-bebas text-xs md:text-sm lg:text-base px-4 md:px-6 py-1.5 md:py-2 rounded-full uppercase tracking-widest">
-              <Zap className="w-3 h-3 md:w-4 md:h-4 lg:w-5 lg:h-5" />
-              Free Evaluation
+        <div className="max-w-5xl mx-auto">
+          {/* Badge with glow */}
+          <div className="flex justify-center mb-6 md:mb-8 lg:mb-10">
+            <div className="relative">
+              <div className="absolute inset-0 bg-primary/50 blur-xl rounded-full" />
+              <div className="relative inline-flex items-center gap-2 md:gap-3 bg-primary text-primary-foreground font-bebas text-sm md:text-base lg:text-lg px-5 md:px-8 py-2 md:py-3 rounded-full uppercase tracking-widest shadow-2xl border-glow">
+                <Zap className="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6" />
+                Free Evaluation
+              </div>
             </div>
           </div>
           
-          {/* Headline */}
-          <h2 className="font-bebas text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-center text-foreground uppercase tracking-tight mb-4 md:mb-5 lg:mb-6">
+          {/* Headline with dramatic glow */}
+          <h2 className="font-bebas text-4xl md:text-6xl lg:text-7xl xl:text-8xl text-center text-foreground uppercase tracking-tight mb-5 md:mb-6 lg:mb-8">
             College-Ready Player
-            <span className="block text-primary">Evaluation</span>
+            <span className="block text-primary glow-primary-intense">Evaluation</span>
           </h2>
           
-          <p className="font-oswald text-sm md:text-lg lg:text-xl text-center text-muted-foreground mb-8 md:mb-10 lg:mb-12 max-w-2xl mx-auto">
+          <p className="font-oswald text-base md:text-xl lg:text-2xl text-center text-muted-foreground mb-10 md:mb-12 lg:mb-16 max-w-3xl mx-auto">
             Find out exactly where your athlete stands—and what it takes to reach the next level.
           </p>
           
-          {/* What's included */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 lg:gap-5 mb-10 md:mb-12 lg:mb-14 max-w-3xl mx-auto">
+          {/* What's included - cards with glow */}
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5 lg:gap-6 mb-12 md:mb-16 lg:mb-20 max-w-4xl mx-auto">
             {includes.map((item, index) => (
-              <div key={index} className="flex items-center gap-2 md:gap-3 bg-background/50 rounded-lg px-3 md:px-4 lg:px-5 py-2 md:py-3 lg:py-4">
-                <Check className="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 text-primary flex-shrink-0" />
-                <span className="font-oswald text-xs md:text-sm lg:text-base text-foreground">{item}</span>
+              <div 
+                key={index} 
+                className="group flex items-center gap-3 md:gap-4 bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm rounded-xl px-4 md:px-6 lg:px-8 py-3 md:py-5 lg:py-6 border border-border/30 hover:border-primary/50 transition-all duration-300"
+              >
+                <div className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 bg-primary/20 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-primary/30 transition-colors">
+                  <Check className="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 text-primary" />
+                </div>
+                <span className="font-oswald text-sm md:text-base lg:text-lg text-foreground">{item}</span>
               </div>
             ))}
           </div>
           
-          {/* CTA */}
+          {/* CTA with intense glow */}
           <div className="text-center">
-            <Button 
-              size="lg" 
-              className="group bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-widest text-lg md:text-2xl lg:text-3xl px-8 md:px-14 lg:px-16 py-5 md:py-7 lg:py-8 h-auto shadow-xl hover:shadow-primary/30 transition-all duration-300 hover:scale-105"
-              onClick={onCtaClick}
-            >
-              Book My Free Evaluation
-              <ArrowRight className="ml-3 w-5 h-5 md:w-7 md:h-7 lg:w-8 lg:h-8 group-hover:translate-x-2 transition-transform" />
-            </Button>
+            <div className="relative inline-block">
+              <div className="absolute inset-0 bg-primary/40 blur-3xl rounded-full scale-150" />
+              <Button 
+                size="lg" 
+                className="relative group bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-[0.15em] text-xl md:text-3xl lg:text-4xl px-10 md:px-16 lg:px-20 py-6 md:py-8 lg:py-10 h-auto shadow-2xl border-glow-intense transition-all duration-500 hover:scale-105"
+                onClick={onCtaClick}
+              >
+                Book My Free Evaluation
+                <ArrowRight className="ml-3 md:ml-4 w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 group-hover:translate-x-2 transition-transform" />
+              </Button>
+            </div>
             
-            <p className="font-oswald text-xs md:text-sm lg:text-base text-muted-foreground mt-4 md:mt-5">
+            <p className="font-oswald text-sm md:text-base lg:text-lg text-muted-foreground mt-6 md:mt-8">
               No commitment required • Limited spots available
             </p>
           </div>

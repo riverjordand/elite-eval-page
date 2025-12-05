@@ -34,26 +34,32 @@ const faqs = [
 
 const LandingFAQCompact = () => {
   return (
-    <section className="py-12 md:py-20 lg:py-28 bg-background">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-8 md:mb-12 lg:mb-16">
-          <h2 className="font-bebas text-2xl md:text-4xl lg:text-5xl xl:text-6xl text-foreground uppercase tracking-tight">
+    <section className="relative py-16 md:py-24 lg:py-32 overflow-hidden">
+      {/* Cinematic background */}
+      <div className="absolute inset-0 section-darker" />
+      
+      {/* Atmospheric lighting */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-primary/8 rounded-full blur-[150px]" />
+      
+      <div className="container relative mx-auto px-4">
+        <div className="text-center mb-10 md:mb-14 lg:mb-20">
+          <h2 className="font-bebas text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-foreground uppercase tracking-tight glow-primary">
             Common Questions
           </h2>
         </div>
         
-        <div className="max-w-3xl mx-auto">
-          <Accordion type="single" collapsible className="space-y-3 md:space-y-4">
+        <div className="max-w-4xl mx-auto">
+          <Accordion type="single" collapsible className="space-y-4 md:space-y-5">
             {faqs.map((faq, index) => (
               <AccordionItem 
                 key={index} 
                 value={`faq-${index}`}
-                className="border border-border/50 rounded-xl px-4 md:px-6 lg:px-8 bg-card/30 hover:border-primary/30 transition-colors"
+                className="group border border-border/30 rounded-xl lg:rounded-2xl px-5 md:px-8 lg:px-10 bg-gradient-to-br from-card/60 to-card/30 backdrop-blur-sm hover:border-primary/40 hover:bg-card/50 transition-all duration-300"
               >
-                <AccordionTrigger className="font-bebas text-sm md:text-lg lg:text-xl text-foreground uppercase hover:no-underline py-4 md:py-5 lg:py-6">
+                <AccordionTrigger className="font-bebas text-base md:text-xl lg:text-2xl text-foreground uppercase hover:no-underline py-5 md:py-6 lg:py-8 group-hover:text-primary transition-colors">
                   {faq.q}
                 </AccordionTrigger>
-                <AccordionContent className="font-oswald text-xs md:text-base lg:text-lg text-muted-foreground pb-4 md:pb-5 lg:pb-6">
+                <AccordionContent className="font-oswald text-sm md:text-lg lg:text-xl text-muted-foreground pb-5 md:pb-6 lg:pb-8">
                   {faq.a}
                 </AccordionContent>
               </AccordionItem>

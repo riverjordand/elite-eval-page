@@ -28,23 +28,38 @@ const LandingMediaStrip = () => {
   );
 
   return (
-    <section className="py-10 md:py-16 lg:py-24 bg-background overflow-hidden">
-      <div className="container mx-auto px-4 mb-6 md:mb-10 lg:mb-14">
+    <section className="relative py-14 md:py-20 lg:py-28 overflow-hidden">
+      {/* Cinematic gradient background */}
+      <div className="absolute inset-0 section-darker" />
+      
+      {/* Atmospheric effects */}
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[400px] bg-primary/8 rounded-full blur-[150px]" />
+      
+      <div className="container mx-auto px-4 mb-8 md:mb-12 lg:mb-16">
         <div className="text-center">
-          <h2 className="font-bebas text-2xl md:text-4xl lg:text-5xl xl:text-6xl text-foreground uppercase tracking-tight mb-1 md:mb-2">
+          <div className="inline-block bg-primary/20 backdrop-blur-sm text-primary font-bebas text-xs md:text-sm lg:text-base px-4 md:px-6 py-1.5 mb-4 md:mb-5 uppercase tracking-[0.15em] border border-primary/30 rounded-sm">
+            Live Training
+          </div>
+          <h2 className="font-bebas text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-foreground uppercase tracking-tight mb-2 md:mb-3 glow-primary">
             Training In Motion
           </h2>
-          <p className="font-oswald text-xs md:text-base lg:text-lg text-muted-foreground">
+          <p className="font-oswald text-sm md:text-lg lg:text-xl text-muted-foreground">
             The energy, culture, and work that pushes players to grow
           </p>
         </div>
       </div>
       
       {/* Videos row */}
-      <div className="mb-3 md:mb-4 lg:mb-6 overflow-hidden" ref={videoRef}>
-        <div className="flex gap-2 md:gap-4 lg:gap-6">
+      <div className="relative mb-4 md:mb-6 lg:mb-8 overflow-hidden" ref={videoRef}>
+        {/* Side fades for cinematic effect */}
+        <div className="absolute left-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
+        
+        <div className="flex gap-3 md:gap-5 lg:gap-6">
           {videos.map((video, index) => (
-            <div key={index} className="flex-none w-44 md:w-72 lg:w-96 xl:w-[450px] aspect-video rounded-lg lg:rounded-xl overflow-hidden">
+            <div key={index} className="flex-none w-48 md:w-80 lg:w-[420px] xl:w-[500px] aspect-video rounded-xl lg:rounded-2xl overflow-hidden border border-border/20 shadow-2xl">
               <video
                 src={video}
                 autoPlay
@@ -59,14 +74,18 @@ const LandingMediaStrip = () => {
       </div>
       
       {/* Photos row */}
-      <div className="overflow-hidden" ref={photoRef}>
-        <div className="flex gap-2 md:gap-4 lg:gap-6">
+      <div className="relative overflow-hidden" ref={photoRef}>
+        {/* Side fades */}
+        <div className="absolute left-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
+        
+        <div className="flex gap-3 md:gap-5 lg:gap-6">
           {photos.map((photo, index) => (
-            <div key={index} className="flex-none w-32 md:w-52 lg:w-72 xl:w-80 aspect-square rounded-lg lg:rounded-xl overflow-hidden">
+            <div key={index} className="flex-none w-36 md:w-60 lg:w-80 xl:w-[360px] aspect-square rounded-xl lg:rounded-2xl overflow-hidden border border-border/20 shadow-2xl">
               <img 
                 src={photo} 
                 alt={`Action ${index + 1}`}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                 loading="lazy"
               />
             </div>
