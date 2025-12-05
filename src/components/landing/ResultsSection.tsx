@@ -16,8 +16,8 @@ const commits = [
 
 const ResultsSection = ({ onCtaClick }: ResultsSectionProps) => {
   return (
-    <section className="relative py-20 md:py-28 lg:py-36 overflow-hidden" style={{ backgroundColor: '#1a1a1a' }}>
-      <div className="absolute inset-0 bg-gradient-to-b from-[#1a1a1a] via-card/20 to-[#1a1a1a]" />
+    <section className="relative py-20 md:py-28 lg:py-36 overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-card/20 to-background" />
       
       <div className="container relative mx-auto px-6 lg:px-16">
         <div className="text-center mb-12 lg:mb-16">

@@ -35,8 +35,8 @@ const faqs = [
 
 const FAQSection = () => {
   return (
-    <section className="relative py-16 md:py-20 lg:py-24 overflow-hidden" style={{ backgroundColor: '#1a1a1a' }}>
-      <div className="absolute inset-0 bg-gradient-to-b from-[#1a1a1a] to-card/30" />
+    <section className="relative py-16 md:py-20 lg:py-24 overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-background to-card/30" />
       
       <div className="container relative mx-auto px-6 lg:px-16">
         <div className="text-center mb-8 lg:mb-10">

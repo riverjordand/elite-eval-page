@@ -16,8 +16,8 @@ const includes = [
 
 const CTASection = ({ onCtaClick }: CTASectionProps) => {
   return (
-    <section className="relative py-16 md:py-20 lg:py-24 overflow-hidden" style={{ backgroundColor: '#0a0a0a' }}>
-      <div className="absolute inset-0" style={{ backgroundColor: '#0a0a0a' }} />
+    <section className="relative py-16 md:py-20 lg:py-24 overflow-hidden">
+      <div className="absolute inset-0 bg-card" />
       <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-transparent" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[700px] bg-primary/10 rounded-full blur-[200px]" />
       
