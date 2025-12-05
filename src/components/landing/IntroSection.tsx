@@ -55,7 +55,7 @@ const IntroSection = () => {
           ref={imageRef}
           src={welcomeAthlete} 
           alt="LPA Athlete" 
-          className="absolute right-0 top-1/2 h-[130%] w-full lg:w-3/4 xl:w-2/3 object-cover object-[70%_center] will-change-transform"
+          className="absolute right-0 top-1/2 h-[130%] w-full lg:w-3/4 xl:w-2/3 object-cover object-[70%_center] lg:object-[70%_30%] will-change-transform"
           style={{ transform: `translateY(calc(-50% + ${parallaxOffset}px))` }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-transparent" />
