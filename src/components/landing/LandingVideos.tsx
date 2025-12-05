@@ -26,66 +26,45 @@ const LandingVideos = ({
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < 768);
 
-  // Detect mobile devices
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
     window.addEventListener('resize', checkMobile);
-    
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Continuous auto-scroll on desktop only, manual scroll on mobile
   useEffect(() => {
     const container = scrollContainerRef.current;
-    if (!container || isMobile) return; // Skip auto-scroll on mobile
+    if (!container || isMobile) return;
 
     let animationFrameId: number;
     let scrollPosition = container.scrollLeft;
-    const scrollSpeed = 0.5; // Smooth continuous scroll
+    const scrollSpeed = 0.5;
 
     const continuousScroll = () => {
       scrollPosition += scrollSpeed;
-      
-      // Reset when reaching halfway (seamless loop with duplicated content)
-      if (scrollPosition >= container.scrollWidth / 2) {
-        scrollPosition = 0;
-      }
-      
+      if (scrollPosition >= container.scrollWidth / 2) scrollPosition = 0;
       container.scrollLeft = scrollPosition;
       animationFrameId = requestAnimationFrame(continuousScroll);
     };
 
     animationFrameId = requestAnimationFrame(continuousScroll);
-
-    return () => {
-      cancelAnimationFrame(animationFrameId);
-    };
+    return () => cancelAnimationFrame(animationFrameId);
   }, [isMobile]);
 
-  // Play videos when they mount on mobile
   useEffect(() => {
     videoRefs.current.forEach((video) => {
       if (video) {
-        // Ensure video is muted and has playsinline for mobile
         video.muted = true;
         video.setAttribute('playsinline', '');
-        video.play().catch(() => {
-          // Ignore autoplay errors - browser may block it
-        });
+        video.play().catch(() => {});
       }
     });
   }, []);
 
-  // Duplicate videos for seamless loop
   const duplicatedVideos = [...videos, ...videos];
 
   const handleVideoClick = (index: number) => {
-    // Get the original video index (not the duplicated one)
-    const originalIndex = index % videos.length;
-    setSelectedVideoIndex(originalIndex);
+    setSelectedVideoIndex(index % videos.length);
     setIsDialogOpen(true);
   };
 
@@ -103,31 +82,32 @@ const LandingVideos = ({
 
   return (
     <>
-      <SectionDivider fromColor="#1a1a1a" toColor="#0a0a0a" />
-      <section className="bg-[#0a0a0a] py-16 md:py-24 lg:py-32 xl:py-40">
+      <SectionDivider fromColor="#050505" toColor="#000000" />
+      <section className="section-dark py-20 md:py-28 lg:py-40">
         {/* Header */}
-        <div className="max-w-7xl xl:max-w-[1400px] mx-auto px-4 md:px-8 lg:px-12">
-          <div className="text-center mb-12 md:mb-16 lg:mb-20">
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bebas font-black uppercase text-foreground mb-4 md:mb-6 tracking-tight leading-tight">
-              {title}
+        <div className="px-4 md:px-8 lg:px-12 xl:px-20 mb-12 md:mb-16 lg:mb-24">
+          <div className="max-w-[1800px] mx-auto text-center">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bebas font-black uppercase leading-[0.9] mb-6 lg:mb-8">
+              Training In<br />
+              <span className="text-primary glow-primary">Motion</span>
             </h2>
-            <p className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-oswald font-semibold uppercase text-primary">
+            <p className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-oswald text-muted-foreground">
               {subtitle}
             </p>
           </div>
         </div>
 
-        {/* Continuous auto-scrolling container */}
+        {/* Continuous auto-scrolling container - Full width */}
         <div 
           ref={scrollContainerRef}
           className="overflow-x-auto scrollbar-hide"
         >
-          <div className="flex gap-3 md:gap-4 lg:gap-6" style={{ width: 'max-content' }}>
+          <div className="flex gap-4 lg:gap-6" style={{ width: 'max-content' }}>
             {duplicatedVideos.map((video, index) => (
               <div
                 key={index}
                 onClick={() => handleVideoClick(index)}
-                className="flex-[0_0_70vw] md:flex-[0_0_350px] lg:flex-[0_0_400px] xl:flex-[0_0_450px] aspect-[9/16] rounded-lg overflow-hidden bg-muted cursor-pointer hover:opacity-90 transition-opacity"
+                className="flex-[0_0_70vw] md:flex-[0_0_400px] lg:flex-[0_0_450px] xl:flex-[0_0_500px] aspect-[9/16] rounded-xl lg:rounded-2xl overflow-hidden bg-muted cursor-pointer hover:opacity-90 transition-opacity border border-border/30"
               >
                 <video
                   ref={(el) => { videoRefs.current[index] = el; }}
@@ -138,68 +118,63 @@ const LandingVideos = ({
                   playsInline
                   autoPlay
                   preload="auto"
-                  webkit-playsinline="true"
                 />
               </div>
             ))}
           </div>
         </div>
 
-      {/* Video Modal */}
-      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-        <DialogContent className="max-w-4xl w-full bg-black border-primary/20 p-0">
-          <div className="relative">
-            {/* Close Button */}
-            <Button
-              variant="ghost"
-              size="icon"
-              className="absolute top-4 right-4 z-50 bg-black/50 hover:bg-black/70 text-white"
-              onClick={() => setIsDialogOpen(false)}
-            >
-              <X className="h-6 w-6" />
-            </Button>
+        {/* Video Modal */}
+        <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+          <DialogContent className="max-w-4xl w-full bg-black border-primary/20 p-0">
+            <div className="relative">
+              <Button
+                variant="ghost"
+                size="icon"
+                className="absolute top-4 right-4 z-50 bg-black/50 hover:bg-black/70 text-white"
+                onClick={() => setIsDialogOpen(false)}
+              >
+                <X className="h-6 w-6" />
+              </Button>
 
-            {/* Video Container */}
-            {selectedVideoIndex !== null && (
-              <div className="relative aspect-[9/16] max-h-[80vh] mx-auto">
-                <video
-                  src={videos[selectedVideoIndex].src}
-                  className="w-full h-full object-contain"
-                  controls
-                  autoPlay
-                  loop
-                />
-              </div>
-            )}
+              {selectedVideoIndex !== null && (
+                <div className="relative aspect-[9/16] max-h-[80vh] mx-auto">
+                  <video
+                    src={videos[selectedVideoIndex].src}
+                    className="w-full h-full object-contain"
+                    controls
+                    autoPlay
+                    loop
+                  />
+                </div>
+              )}
 
-            {/* Navigation Buttons */}
-            <Button
-              variant="ghost"
-              size="icon"
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white"
-              onClick={handlePrevious}
-            >
-              <ChevronLeft className="h-8 w-8" />
-            </Button>
-            <Button
-              variant="ghost"
-              size="icon"
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white"
-              onClick={handleNext}
-            >
-              <ChevronRight className="h-8 w-8" />
-            </Button>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white"
+                onClick={handlePrevious}
+              >
+                <ChevronLeft className="h-8 w-8" />
+              </Button>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white"
+                onClick={handleNext}
+              >
+                <ChevronRight className="h-8 w-8" />
+              </Button>
 
-            {/* Video Counter */}
-            {selectedVideoIndex !== null && (
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/70 text-white px-4 py-2 rounded-full font-oswald text-sm">
-                {selectedVideoIndex + 1} / {videos.length}
-              </div>
-            )}
-          </div>
-        </DialogContent>
-      </Dialog>
-    </section>
+              {selectedVideoIndex !== null && (
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/70 text-white px-4 py-2 rounded-full font-oswald text-sm">
+                  {selectedVideoIndex + 1} / {videos.length}
+                </div>
+              )}
+            </div>
+          </DialogContent>
+        </Dialog>
+      </section>
     </>
   );
 };
