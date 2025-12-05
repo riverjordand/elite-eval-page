@@ -31,7 +31,7 @@ const MediaSection = () => {
   );
   
   const [photoRef] = useEmblaCarousel(
-    { loop: true, dragFree: true, align: 'start', direction: 'rtl' },
+    { loop: true, dragFree: true, align: 'start' },
     [Autoplay({ delay: 1800, stopOnInteraction: false, stopOnMouseEnter: false })]
   );
 
