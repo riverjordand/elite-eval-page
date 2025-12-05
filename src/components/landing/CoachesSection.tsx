@@ -52,16 +52,23 @@ const stats = [
 const CoachesSection = () => {
   return (
     <section className="relative py-20 md:py-28 lg:py-36 xl:py-44 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-card/30 to-background" />
-      <div className="absolute top-1/2 left-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px] -translate-y-1/2" />
+      {/* Cinematic background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-card/20 to-background" />
+      
+      {/* Atmospheric glows */}
+      <div className="absolute top-1/2 left-0 w-[800px] h-[800px] bg-primary/8 rounded-full blur-[200px] -translate-y-1/2" />
+      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[150px]" />
+      
+      {/* Vignette */}
+      <div className="absolute inset-0 cinematic-vignette opacity-30" />
       
       <div className="container relative mx-auto px-6 lg:px-20">
         {/* Header */}
         <div className="text-center mb-10 lg:mb-14 xl:mb-16">
-          <p className="font-oswald text-sm lg:text-base text-primary uppercase tracking-[0.3em] mb-4">
+          <p className="font-oswald text-sm lg:text-base text-primary uppercase tracking-[0.3em] mb-4 glow-primary">
             Learn From The Best
           </p>
-          <h2 className="font-bebas text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-foreground uppercase leading-none mb-5 lg:mb-6">
+          <h2 className="font-bebas text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-foreground uppercase leading-none mb-5 lg:mb-6 drop-shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
             Coaches Who've Been There
           </h2>
           <p className="font-oswald text-base md:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -71,12 +78,15 @@ const CoachesSection = () => {
         </div>
 
         {/* Stats Bar */}
-        <div className="grid grid-cols-3 gap-4 lg:gap-8 bg-card/50 backdrop-blur border border-border/30 p-5 lg:p-8 mb-10 lg:mb-14">
+        <div 
+          className="grid grid-cols-3 gap-4 lg:gap-8 bg-card/40 backdrop-blur-sm border border-border/30 p-5 lg:p-8 mb-10 lg:mb-14"
+          style={{ boxShadow: '0 25px 50px -12px rgba(0,0,0,0.5), inset 0 0 60px rgba(107,63,175,0.05)' }}
+        >
           {stats.map((stat, index) => (
-            <div key={index} className="text-center">
+            <div key={index} className="text-center group">
               <div className="flex items-center justify-center gap-3 mb-2">
-                <stat.icon className="w-5 h-5 lg:w-6 lg:h-6 text-primary hidden sm:block" />
-                <span className="font-bebas text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-foreground">{stat.value}</span>
+                <stat.icon className="w-5 h-5 lg:w-6 lg:h-6 text-primary hidden sm:block group-hover:scale-110 transition-transform" />
+                <span className="font-bebas text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-foreground glow-primary">{stat.value}</span>
               </div>
               <span className="font-oswald text-xs md:text-sm lg:text-base text-muted-foreground uppercase tracking-wider">
                 {stat.label}
@@ -89,26 +99,39 @@ const CoachesSection = () => {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
           {coaches.map((coach, index) => (
             <div key={index} className="group">
-              <div className="relative aspect-[3/4] overflow-hidden bg-card">
+              <div 
+                className="relative aspect-[3/4] overflow-hidden bg-card"
+                style={{ boxShadow: '0 25px 50px -12px rgba(0,0,0,0.6)' }}
+              >
                 <img 
                   src={coach.image} 
                   alt={coach.name}
-                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+                
+                {/* Cinematic overlays */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+                <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 cinematic-vignette opacity-40" />
                 
                 {/* Badge */}
                 <div className="absolute top-3 left-3">
-                  <span className="inline-block bg-primary text-primary-foreground font-bebas text-xs lg:text-sm px-2 py-1 uppercase tracking-wider">
+                  <span 
+                    className="inline-block bg-primary text-primary-foreground font-bebas text-xs lg:text-sm px-2 py-1 uppercase tracking-wider"
+                    style={{ boxShadow: '0 0 20px hsl(271 81% 56% / 0.5)' }}
+                  >
                     {coach.cred}
                   </span>
                 </div>
                 
                 {/* Info */}
                 <div className="absolute bottom-0 left-0 right-0 p-4 lg:p-5">
-                  <h3 className="font-bebas text-lg md:text-xl lg:text-2xl text-foreground uppercase">{coach.name}</h3>
-                  <p className="font-oswald text-xs lg:text-sm text-primary">{coach.role}</p>
+                  <h3 className="font-bebas text-lg md:text-xl lg:text-2xl text-foreground uppercase drop-shadow-lg">{coach.name}</h3>
+                  <p className="font-oswald text-xs lg:text-sm text-primary glow-primary">{coach.role}</p>
                 </div>
+                
+                {/* Hover border */}
+                <div className="absolute inset-0 border-2 border-primary/0 group-hover:border-primary/50 transition-colors duration-500" />
               </div>
             </div>
           ))}
