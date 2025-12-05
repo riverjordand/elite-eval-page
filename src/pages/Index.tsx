@@ -3,6 +3,7 @@ import Navigation from "@/components/Navigation";
 import LandingHeroNew from "@/components/landing/LandingHeroNew";
 import LandingStatsBar from "@/components/landing/LandingStatsBar";
 import LandingAbout from "@/components/landing/LandingAbout";
+import LandingFacilityGrid from "@/components/landing/LandingFacilityGrid";
 import LandingMediaStrip from "@/components/landing/LandingMediaStrip";
 import LandingCoachesCompact from "@/components/landing/LandingCoachesCompact";
 import LandingTestimonialsCompact from "@/components/landing/LandingTestimonialsCompact";
@@ -21,17 +22,40 @@ const Index = () => {
     <div className="min-h-screen bg-background text-foreground">
       <Navigation onBookNowClick={openEvaluationForm} />
       
+      {/* Hero */}
       <LandingHeroNew onCtaClick={openEvaluationForm} />
+      
+      {/* Stats bar */}
       <LandingStatsBar />
+      
+      {/* Why LPA */}
       <LandingAbout />
+      
+      {/* Facility */}
+      <LandingFacilityGrid />
+      
+      {/* Media - videos & photos */}
       <LandingMediaStrip />
+      
+      {/* Coaches */}
       <LandingCoachesCompact />
+      
+      {/* Testimonials */}
       <LandingTestimonialsCompact />
-      <LandingResults />
+      
+      {/* Results / Commitments */}
+      <LandingResults onCtaClick={openEvaluationForm} />
+      
+      {/* Main CTA - Evaluation */}
       <LandingEvaluation onCtaClick={openEvaluationForm} />
+      
+      {/* FAQ */}
       <LandingFAQCompact />
+      
+      {/* Footer */}
       <LandingFooterCompact />
 
+      {/* Form modal */}
       <EvaluationForm
         open={showEvaluationForm}
         onOpenChange={setShowEvaluationForm}
