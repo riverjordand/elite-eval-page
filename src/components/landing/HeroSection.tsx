@@ -8,7 +8,7 @@ interface HeroSectionProps {
 
 const HeroSection = ({ onCtaClick }: HeroSectionProps) => {
   return (
-    <section className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
+    <section className="relative h-screen min-h-[600px] lg:min-h-[800px] flex items-center overflow-hidden">
       {/* Video Background */}
       <video
         autoPlay
@@ -20,68 +20,65 @@ const HeroSection = ({ onCtaClick }: HeroSectionProps) => {
         <source src="/hero-training.mp4" type="video/mp4" />
       </video>
       
-      {/* Multi-layer cinematic overlays */}
-      <div className="absolute inset-0 bg-black/60" />
-      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
-      <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-transparent to-background/80" />
-      
-      {/* Vignette */}
-      <div className="absolute inset-0" style={{ boxShadow: 'inset 0 0 200px 80px rgba(0,0,0,0.8)' }} />
-      
-      {/* Ambient glow */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-primary/20 rounded-full blur-[150px] opacity-50" />
+      {/* Overlays */}
+      <div className="absolute inset-0 bg-black/50" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-black/80" />
+      <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-black/40" />
 
-      {/* Content */}
-      <div className="relative z-10 container mx-auto px-4">
-        <div className="max-w-5xl mx-auto text-center">
-          {/* Logo */}
-          <div className="mb-8 md:mb-12">
+      {/* Content - Left aligned on desktop */}
+      <div className="relative z-10 w-full">
+        <div className="container mx-auto px-6 lg:px-16 xl:px-24">
+          <div className="max-w-4xl xl:max-w-5xl">
+            {/* Logo */}
             <img 
               src={lpaBolt} 
               alt="LPA" 
-              className="w-20 h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 mx-auto opacity-90"
+              className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 mb-6 lg:mb-8 opacity-90"
               style={{ filter: 'drop-shadow(0 0 30px hsl(271 81% 56% / 0.5))' }}
             />
+
+            {/* Badge */}
+            <div className="inline-flex items-center bg-white/10 backdrop-blur border border-white/20 px-4 py-2 mb-6 lg:mb-8">
+              <span className="w-2 h-2 bg-primary rounded-full mr-3 animate-pulse" />
+              <span className="font-oswald text-xs lg:text-sm text-foreground/80 uppercase tracking-[0.2em]">
+                Arizona's Premier Baseball Academy
+              </span>
+            </div>
+
+            {/* Headline */}
+            <h1 className="font-bebas uppercase leading-[0.9] tracking-tight mb-6 lg:mb-8">
+              <span className="block text-4xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl text-foreground">
+                Build The Athlete
+              </span>
+              <span 
+                className="block text-5xl md:text-7xl lg:text-8xl xl:text-9xl 2xl:text-[10rem] text-primary"
+                style={{ textShadow: '0 0 60px hsl(271 81% 56% / 0.5)' }}
+              >
+                Colleges Want
+              </span>
+            </h1>
+
+            {/* Subheadline */}
+            <p className="font-oswald text-base md:text-lg lg:text-xl xl:text-2xl text-foreground/60 mb-8 lg:mb-10 max-w-2xl">
+              Elite coaching. Pro technology. A proven system that gets players recruited.
+            </p>
+
+            {/* CTA */}
+            <Button 
+              size="lg"
+              onClick={onCtaClick}
+              className="group bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-[0.15em] text-base md:text-lg lg:text-xl xl:text-2xl px-8 lg:px-12 xl:px-14 py-5 lg:py-6 xl:py-7 h-auto"
+              style={{ boxShadow: '0 0 40px hsl(271 81% 56% / 0.4)' }}
+            >
+              Book Free Evaluation
+              <ArrowRight className="ml-3 w-5 h-5 lg:w-6 lg:h-6 group-hover:translate-x-1 transition-transform" />
+            </Button>
           </div>
-
-          {/* Badge */}
-          <div className="inline-flex items-center bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 md:px-6 py-2 mb-6 md:mb-8">
-            <span className="w-2 h-2 bg-primary rounded-full mr-3 animate-pulse" />
-            <span className="font-oswald text-xs md:text-sm text-foreground/80 uppercase tracking-widest">
-              Arizona's Premier Baseball Academy
-            </span>
-          </div>
-
-          {/* Headline */}
-          <h1 className="font-bebas uppercase leading-none tracking-tight mb-6 md:mb-8">
-            <span className="block text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl text-foreground">
-              Build The Athlete
-            </span>
-            <span className="block text-5xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-[11rem] text-primary" style={{ textShadow: '0 0 80px hsl(271 81% 56% / 0.6)' }}>
-              Colleges Want
-            </span>
-          </h1>
-
-          {/* Subheadline */}
-          <p className="font-oswald text-base md:text-xl lg:text-2xl text-foreground/60 mb-10 md:mb-14 max-w-2xl mx-auto">
-            Elite coaching. Pro technology. A proven system that gets players recruited.
-          </p>
-
-          {/* CTA */}
-          <Button 
-            size="lg"
-            onClick={onCtaClick}
-            className="group bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-widest text-lg md:text-xl lg:text-2xl px-8 md:px-12 py-5 md:py-7 h-auto rounded-none"
-            style={{ boxShadow: '0 0 40px hsl(271 81% 56% / 0.4)' }}
-          >
-            Book Free Evaluation
-            <ArrowRight className="ml-3 w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-1 transition-transform" />
-          </Button>
         </div>
       </div>
 
       {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-background to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
     </section>
   );
 };
