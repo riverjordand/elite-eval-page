@@ -1,39 +1,46 @@
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import { HelpCircle } from "lucide-react";
+import { useState } from "react";
+import { ChevronDown, HelpCircle, MessageCircle } from "lucide-react";
 
 const faqs = [
   {
+    category: "evaluation",
     q: "What exactly happens during the free evaluation?",
     a: "Your athlete goes through velocity/metrics testing with Rapsodo, video mechanics analysis, a strength and mobility screen, and receives a personalized development plan. We also give you an honest college recruiting assessment. The whole session takes about 60 minutes."
   },
   {
+    category: "evaluation",
     q: "Is there really no catch? Why is it free?",
     a: "No hidden fees. We offer free evaluations because once parents see the LPA difference — the coaching quality, the technology, the results — many decide to train with us. But there's zero pressure. Even if you never come back, you'll walk away with valuable insights."
   },
   {
+    category: "program",
     q: "What age or skill level should my athlete be?",
     a: "We work with athletes ages 10-18, from travel ball players who want to level up to varsity stars preparing for college recruitment. If your athlete is serious about improvement, they're a good fit."
   },
   {
+    category: "program",
     q: "What makes LPA different from other academies?",
     a: "Three things: (1) Our coaches have actually played D1 and pro ball. (2) We use the same technology MLB teams use. (3) We develop the complete athlete — mechanics, strength, mobility, and mental game. Most academies have one of these. We have all three."
   },
   {
+    category: "results",
     q: "How quickly do athletes typically see results?",
     a: "Most athletes see measurable improvements within 4-6 weeks. Our average athlete gains 3-5 MPH in their first 3 months. The real transformation happens over 6-12 months when everything compounds."
   },
   {
+    category: "results",
     q: "Do you help with college recruiting?",
     a: "Yes. Our coaches have connections with college programs across all levels — D1, D2, D3, NAIA, and JUCO. We've helped place 50+ athletes at the college level."
   },
 ];
 
 const FAQSection = () => {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const toggleFAQ = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
   return (
     <section className="relative py-20 md:py-28 lg:py-36 xl:py-44 overflow-hidden">
       {/* Cinematic background */}
@@ -46,34 +53,132 @@ const FAQSection = () => {
       <div className="absolute inset-0 cinematic-vignette opacity-30" />
       
       <div className="container relative mx-auto px-6 lg:px-20">
-        <div className="text-center mb-10 lg:mb-14 xl:mb-16">
+        {/* Header */}
+        <div className="text-center mb-12 lg:mb-16">
           <div className="inline-flex items-center gap-3 mb-4">
-            <HelpCircle className="w-5 h-5 text-primary" />
-            <span className="font-oswald text-sm lg:text-base text-primary uppercase tracking-[0.3em] glow-primary">Common Questions</span>
+            <div className="relative">
+              <div className="absolute inset-0 bg-primary blur-lg opacity-60" style={{ transform: 'scale(1.5)' }} />
+              <div className="relative w-10 h-10 bg-primary/20 border border-primary/50 flex items-center justify-center">
+                <HelpCircle className="w-5 h-5 text-primary" />
+              </div>
+            </div>
+            <span className="font-oswald text-sm lg:text-base text-primary uppercase tracking-[0.3em] glow-primary">
+              Common Questions
+            </span>
           </div>
-          <h2 className="font-bebas text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-foreground uppercase leading-none drop-shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
+          <h2 className="font-bebas text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-foreground uppercase leading-none mb-5 drop-shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
             Everything You Need To Know
           </h2>
+          <p className="font-oswald text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
+            Got questions? We've got answers. If you don't see what you're looking for, 
+            reach out — we're happy to help.
+          </p>
         </div>
         
+        {/* FAQ Grid */}
         <div className="max-w-4xl mx-auto">
-          <Accordion type="single" collapsible className="space-y-3 lg:space-y-4">
-            {faqs.map((faq, index) => (
-              <AccordionItem 
-                key={index} 
-                value={`faq-${index}`}
-                className="border border-border/40 bg-card/30 backdrop-blur-sm px-5 lg:px-6 data-[state=open]:border-primary/50 transition-all duration-300 data-[state=open]:bg-card/50"
-                style={{ boxShadow: '0 15px 30px -10px rgba(0,0,0,0.4)' }}
-              >
-                <AccordionTrigger className="font-bebas text-left text-base md:text-lg lg:text-xl text-foreground uppercase hover:text-primary py-5 lg:py-6 hover:no-underline transition-colors">
-                  {faq.q}
-                </AccordionTrigger>
-                <AccordionContent className="font-oswald text-sm md:text-base lg:text-lg text-muted-foreground leading-relaxed pb-5 lg:pb-6">
-                  {faq.a}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+          <div className="grid gap-4">
+            {faqs.map((faq, index) => {
+              const isOpen = openIndex === index;
+              
+              return (
+                <div
+                  key={index}
+                  className={`group relative transition-all duration-500 ${
+                    isOpen ? 'z-10' : 'z-0'
+                  }`}
+                >
+                  {/* Card */}
+                  <div
+                    onClick={() => toggleFAQ(index)}
+                    className={`relative cursor-pointer transition-all duration-500 ${
+                      isOpen 
+                        ? 'bg-card/60 border-primary/50' 
+                        : 'bg-card/30 border-border/40 hover:border-primary/30 hover:bg-card/40'
+                    } border backdrop-blur-sm`}
+                    style={{ 
+                      boxShadow: isOpen 
+                        ? '0 0 60px hsl(271 81% 56% / 0.2), 0 20px 40px -15px rgba(0,0,0,0.5)' 
+                        : '0 15px 30px -10px rgba(0,0,0,0.4)' 
+                    }}
+                  >
+                    {/* Question row */}
+                    <div className="flex items-start gap-4 p-5 lg:p-6">
+                      {/* Number indicator */}
+                      <div className={`relative flex-shrink-0 transition-all duration-500 ${
+                        isOpen ? 'scale-110' : 'scale-100'
+                      }`}>
+                        <div className={`absolute inset-0 bg-primary blur-lg transition-opacity duration-500 ${
+                          isOpen ? 'opacity-80' : 'opacity-0 group-hover:opacity-40'
+                        }`} style={{ transform: 'scale(1.5)' }} />
+                        <div className={`relative w-10 h-10 lg:w-12 lg:h-12 flex items-center justify-center font-bebas text-lg lg:text-xl transition-all duration-500 ${
+                          isOpen 
+                            ? 'bg-primary text-primary-foreground' 
+                            : 'bg-primary/15 text-primary border border-primary/30'
+                        }`}>
+                          {String(index + 1).padStart(2, '0')}
+                        </div>
+                      </div>
+                      
+                      {/* Question text */}
+                      <div className="flex-1 pt-1">
+                        <h3 className={`font-bebas text-lg md:text-xl lg:text-2xl uppercase leading-tight transition-colors duration-300 ${
+                          isOpen ? 'text-primary' : 'text-foreground group-hover:text-primary/80'
+                        }`}>
+                          {faq.q}
+                        </h3>
+                      </div>
+                      
+                      {/* Toggle icon */}
+                      <div className={`flex-shrink-0 w-8 h-8 lg:w-10 lg:h-10 rounded-full flex items-center justify-center transition-all duration-500 ${
+                        isOpen 
+                          ? 'bg-primary text-primary-foreground rotate-180' 
+                          : 'bg-primary/15 text-primary group-hover:bg-primary/25'
+                      }`}>
+                        <ChevronDown className="w-5 h-5" />
+                      </div>
+                    </div>
+                    
+                    {/* Answer - collapsible */}
+                    <div className={`overflow-hidden transition-all duration-500 ease-out ${
+                      isOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+                    }`}>
+                      <div className="px-5 lg:px-6 pb-6 pt-0">
+                        <div className="pl-14 lg:pl-16 border-l-2 border-primary/30 ml-5 lg:ml-6">
+                          <p className="font-oswald text-sm md:text-base lg:text-lg text-foreground/80 leading-relaxed pl-4">
+                            {faq.a}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Active indicator line */}
+                    <div className={`absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-primary via-primary/80 to-transparent transition-all duration-500 ${
+                      isOpen ? 'w-full' : 'w-0'
+                    }`} />
+                  </div>
+                  
+                  {/* Glow under card when open */}
+                  <div className={`absolute -bottom-2 left-1/2 -translate-x-1/2 w-3/4 h-4 bg-primary/30 blur-xl transition-opacity duration-500 ${
+                    isOpen ? 'opacity-100' : 'opacity-0'
+                  }`} />
+                </div>
+              );
+            })}
+          </div>
+        </div>
+        
+        {/* Bottom CTA */}
+        <div className="text-center mt-12 lg:mt-16">
+          <div 
+            className="inline-flex items-center gap-3 bg-card/40 backdrop-blur-sm border border-border/40 px-6 py-4 hover:border-primary/40 transition-colors cursor-pointer group"
+            style={{ boxShadow: '0 15px 30px -10px rgba(0,0,0,0.4)' }}
+          >
+            <MessageCircle className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
+            <span className="font-oswald text-sm lg:text-base text-foreground/80">
+              Still have questions? <span className="text-primary glow-primary">Contact us</span>
+            </span>
+          </div>
         </div>
       </div>
     </section>
