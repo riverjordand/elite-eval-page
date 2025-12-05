@@ -10,23 +10,34 @@ const stats = [
 const StatsSection = () => {
   return (
     <section className="relative bg-primary overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30" />
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDEwIEwgNDAgMTAgTSAxMCAwIEwgMTAgNDAgTSAwIDIwIEwgNDAgMjAgTSAyMCAwIEwgMjAgNDAgTSAwIDMwIEwgNDAgMzAgTSAzMCAwIEwgMzAgNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLW9wYWNpdHk9IjAuMDUiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-30" />
+      {/* Cinematic overlays */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/30" />
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDEwIEwgNDAgMTAgTSAxMCAwIEwgMTAgNDAgTSAwIDIwIEwgNDAgMjAgTSAyMCAwIEwgMjAgNDAgTSAwIDMwIEwgNDAgMzAgTSAzMCAwIEwgMzAgNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLW9wYWNpdHk9IjAuMDgiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-40" />
       
-      <div className="container relative mx-auto px-6 lg:px-20 py-10 md:py-14 lg:py-16 xl:py-20">
+      {/* Shimmer effect */}
+      <div className="absolute inset-0 shimmer" />
+      
+      {/* Vignette */}
+      <div className="absolute inset-0 cinematic-vignette opacity-30" />
+      
+      <div className="container relative mx-auto px-6 lg:px-20 py-12 md:py-16 lg:py-20 xl:py-24">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-16">
           {stats.map((stat, index) => (
             <div key={index} className="text-center relative group">
               <div className="flex items-center justify-center gap-3 mb-2">
-                <TrendingUp className="w-5 h-5 lg:w-6 lg:h-6 text-primary-foreground/50 hidden lg:block" />
-                <div className="font-bebas text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-primary-foreground leading-none">
+                <TrendingUp className="w-5 h-5 lg:w-6 lg:h-6 text-primary-foreground/60 hidden lg:block group-hover:scale-110 transition-transform" />
+                <div 
+                  className="font-bebas text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-primary-foreground leading-none"
+                  style={{ textShadow: '0 4px 30px rgba(0,0,0,0.3)' }}
+                >
                   {stat.value}
                 </div>
               </div>
               <div className="font-bebas text-base md:text-lg lg:text-xl xl:text-2xl text-primary-foreground uppercase tracking-wide">
                 {stat.label}
               </div>
-              <div className="font-oswald text-xs md:text-sm lg:text-base text-primary-foreground/60 mt-2">
+              <div className="font-oswald text-xs md:text-sm lg:text-base text-primary-foreground/70 mt-2">
                 {stat.sublabel}
               </div>
             </div>

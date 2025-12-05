@@ -36,15 +36,22 @@ const faqs = [
 const FAQSection = () => {
   return (
     <section className="relative py-20 md:py-28 lg:py-36 xl:py-44 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-background to-card/30" />
+      {/* Cinematic background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-card/20 to-background" />
+      
+      {/* Atmospheric glows */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-primary/8 rounded-full blur-[200px]" />
+      
+      {/* Vignette */}
+      <div className="absolute inset-0 cinematic-vignette opacity-30" />
       
       <div className="container relative mx-auto px-6 lg:px-20">
         <div className="text-center mb-10 lg:mb-14 xl:mb-16">
           <div className="inline-flex items-center gap-3 mb-4">
             <HelpCircle className="w-5 h-5 text-primary" />
-            <span className="font-oswald text-sm lg:text-base text-primary uppercase tracking-[0.3em]">Common Questions</span>
+            <span className="font-oswald text-sm lg:text-base text-primary uppercase tracking-[0.3em] glow-primary">Common Questions</span>
           </div>
-          <h2 className="font-bebas text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-foreground uppercase leading-none">
+          <h2 className="font-bebas text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-foreground uppercase leading-none drop-shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
             Everything You Need To Know
           </h2>
         </div>
@@ -55,9 +62,10 @@ const FAQSection = () => {
               <AccordionItem 
                 key={index} 
                 value={`faq-${index}`}
-                className="border border-border/40 bg-card/30 px-5 lg:px-6 data-[state=open]:border-primary/40 transition-colors"
+                className="border border-border/40 bg-card/30 backdrop-blur-sm px-5 lg:px-6 data-[state=open]:border-primary/50 transition-all duration-300 data-[state=open]:bg-card/50"
+                style={{ boxShadow: '0 15px 30px -10px rgba(0,0,0,0.4)' }}
               >
-                <AccordionTrigger className="font-bebas text-left text-base md:text-lg lg:text-xl text-foreground uppercase hover:text-primary py-5 lg:py-6 hover:no-underline">
+                <AccordionTrigger className="font-bebas text-left text-base md:text-lg lg:text-xl text-foreground uppercase hover:text-primary py-5 lg:py-6 hover:no-underline transition-colors">
                   {faq.q}
                 </AccordionTrigger>
                 <AccordionContent className="font-oswald text-sm md:text-base lg:text-lg text-muted-foreground leading-relaxed pb-5 lg:pb-6">
