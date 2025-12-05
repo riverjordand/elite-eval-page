@@ -13,7 +13,6 @@ import CTASection from "@/components/landing/CTASection";
 import FAQSection from "@/components/landing/FAQSection";
 import FooterSection from "@/components/landing/FooterSection";
 import EvaluationForm from "@/components/landing/EvaluationForm";
-import SectionDivider from "@/components/landing/SectionDivider";
 
 const Index = () => {
   const [showForm, setShowForm] = useState(false);
@@ -24,27 +23,16 @@ const Index = () => {
     <main className="min-h-screen bg-background">
       <Navigation onBookNowClick={openForm} />
       <HeroSection onCtaClick={openForm} />
-      <SectionDivider fromColor="#000000" toColor="#0a0a0a" />
       <StatsSection />
-      <SectionDivider fromColor="#0a0a0a" toColor="#050505" />
       <IntroSection />
-      <SectionDivider fromColor="#050505" toColor="#0a0a0a" />
       <AboutSection />
-      <SectionDivider fromColor="#0a0a0a" toColor="#030303" />
       <FacilitySection />
-      <SectionDivider fromColor="#030303" toColor="#0a0a0a" />
       <MediaSection />
-      <SectionDivider fromColor="#0a0a0a" toColor="#050505" />
       <CoachesSection />
-      <SectionDivider fromColor="#050505" toColor="#0a0a0a" />
       <TestimonialsSection />
-      <SectionDivider fromColor="#0a0a0a" toColor="#030303" />
       <ResultsSection onCtaClick={openForm} />
-      <SectionDivider fromColor="#030303" toColor="#0a0a0a" />
       <CTASection onCtaClick={openForm} />
-      <SectionDivider fromColor="#0a0a0a" toColor="#050505" />
       <FAQSection />
-      <SectionDivider fromColor="#050505" toColor="#000000" />
       <FooterSection />
       
       <EvaluationForm 
