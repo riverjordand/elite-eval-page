@@ -26,30 +26,30 @@ const pillars = [
 
 const AboutSection = () => {
   return (
-    <section className="relative py-16 lg:py-20 xl:py-24 overflow-hidden">
+    <section className="relative py-12 md:py-16 lg:py-20 xl:py-24 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-card/20 to-background" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[500px] bg-primary/6 rounded-full blur-[200px]" />
       <div className="absolute inset-0 cinematic-vignette opacity-20" />
       
-      <div className="container relative mx-auto px-6 lg:px-12">
-        {/* Desktop: Horizontal header with pillars below */}
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10 lg:mb-12">
+      <div className="container relative mx-auto px-4 md:px-6 lg:px-12">
+        {/* Header */}
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-3 md:gap-6 mb-6 md:mb-10 lg:mb-12 text-center lg:text-left">
           <div className="lg:max-w-xl">
-            <p className="font-oswald text-xs lg:text-sm text-primary uppercase tracking-[0.3em] mb-3 glow-primary">
+            <p className="font-oswald text-[10px] md:text-xs lg:text-sm text-primary uppercase tracking-[0.2em] md:tracking-[0.3em] mb-2 md:mb-3 glow-primary">
               Why 500+ Families Choose LPA
             </p>
-            <h2 className="font-bebas text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-foreground uppercase leading-none drop-shadow-lg">
+            <h2 className="font-bebas text-2xl md:text-4xl lg:text-5xl xl:text-6xl text-foreground uppercase leading-none drop-shadow-lg">
               The Unfair Advantage
             </h2>
           </div>
-          <p className="font-oswald text-sm lg:text-base text-muted-foreground lg:max-w-md lg:text-right">
+          <p className="font-oswald text-xs md:text-sm lg:text-base text-muted-foreground lg:max-w-md lg:text-right">
             The same development approach used by professional organizations to turn raw talent into recruited players.
           </p>
         </div>
         
-        {/* Pillars Grid - Optimized for desktop */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6">
+        {/* Pillars Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 lg:gap-6">
           {pillars.map((pillar, index) => (
             <div 
               key={index}

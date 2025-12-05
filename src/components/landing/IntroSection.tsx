@@ -17,7 +17,7 @@ const IntroSection = () => {
     }
     return () => observer.disconnect();
   }, []);
-  return <section ref={sectionRef} className="relative py-20 lg:py-28 xl:py-32 overflow-hidden">
+  return <section ref={sectionRef} className="relative py-12 md:py-20 lg:py-28 xl:py-32 overflow-hidden">
       {/* Background with athlete image */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-background" />
@@ -36,19 +36,19 @@ const IntroSection = () => {
         <div className="absolute inset-0 cinematic-vignette opacity-75" />
       </div>
       
-      <div className="container relative z-20 mx-auto px-6 lg:px-12">
-        <div className="max-w-2xl">
+      <div className="container relative z-20 mx-auto px-4 md:px-6 lg:px-12">
+        <div className="max-w-2xl mx-auto lg:mx-0 text-center lg:text-left">
           {/* Headline */}
-          <h2 className="font-bebas uppercase leading-[0.95] tracking-tight mb-6 lg:mb-8">
-            <span className={`block text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-foreground drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)] transition-all duration-700 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <h2 className="font-bebas uppercase leading-[0.95] tracking-tight mb-4 md:mb-6 lg:mb-8">
+            <span className={`block text-2xl md:text-4xl lg:text-5xl xl:text-6xl text-foreground drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)] transition-all duration-700 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               Welcome To
             </span>
-            <span className={`block text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-primary glow-primary-intense transition-all duration-700 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{
+            <span className={`block text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-primary glow-primary-intense transition-all duration-700 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{
             transitionDelay: '100ms'
           }}>
               Legendary Prep
             </span>
-            <span className={`block text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-foreground drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)] transition-all duration-700 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{
+            <span className={`block text-2xl md:text-4xl lg:text-5xl xl:text-6xl text-foreground drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)] transition-all duration-700 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{
             transitionDelay: '150ms'
           }}>
               Academy
@@ -56,13 +56,13 @@ const IntroSection = () => {
           </h2>
           
           {/* Body Copy */}
-          <div className="space-y-4 lg:space-y-5 mb-6 lg:mb-8">
-            <p className={`font-oswald text-base md:text-lg lg:text-xl text-foreground/85 leading-relaxed transition-all duration-700 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`} style={{
+          <div className="space-y-3 md:space-y-4 lg:space-y-5 mb-4 md:mb-6 lg:mb-8">
+            <p className={`font-oswald text-sm md:text-lg lg:text-xl text-foreground/85 leading-relaxed transition-all duration-700 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`} style={{
             transitionDelay: '250ms'
           }}>
               LPA is where Arizona's most driven baseball athletes train to reach the next level — whether that's high-level varsity, college baseball, or pro development.
             </p>
-            <p className={`font-oswald text-base md:text-lg lg:text-xl text-foreground/85 leading-relaxed transition-all duration-700 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`} style={{
+            <p className={`font-oswald text-sm md:text-lg lg:text-xl text-foreground/85 leading-relaxed transition-all duration-700 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`} style={{
             transitionDelay: '350ms'
           }}>
               Our athletes train with D1-level systems, professional coaching, and the same technology used by college programs and MLB player-development.
@@ -70,14 +70,14 @@ const IntroSection = () => {
           </div>
           
           {/* Highlight Box */}
-          <div className={`relative border-l-4 border-primary pl-5 lg:pl-6 py-4 lg:py-5 bg-gradient-to-r from-primary/15 via-primary/5 to-transparent rounded-r-lg transition-all duration-700 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`} style={{
+          <div className={`relative border-l-4 border-primary pl-4 md:pl-5 lg:pl-6 py-3 md:py-4 lg:py-5 bg-gradient-to-r from-primary/15 via-primary/5 to-transparent rounded-r-lg transition-all duration-700 ease-out text-left ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`} style={{
           transitionDelay: '450ms',
           boxShadow: '0 0 50px hsl(271 81% 56% / 0.12)'
         }}>
-            <p className="font-oswald text-base md:text-lg lg:text-xl text-foreground font-semibold mb-1">
+            <p className="font-oswald text-sm md:text-lg lg:text-xl text-foreground font-semibold mb-1">
               LPA is not a casual training facility.
             </p>
-            <p className="font-oswald text-base md:text-lg lg:text-xl text-primary italic glow-primary">
+            <p className="font-oswald text-sm md:text-lg lg:text-xl text-primary italic glow-primary">
               It's where athletes come to commit, develop, and excel.
             </p>
           </div>

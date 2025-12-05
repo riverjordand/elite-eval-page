@@ -42,7 +42,7 @@ const FAQSection = () => {
   };
 
   return (
-    <section className="relative py-20 md:py-28 lg:py-36 xl:py-44 overflow-hidden">
+    <section className="relative py-12 md:py-20 lg:py-36 xl:py-44 overflow-hidden">
       {/* Cinematic background */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-card/20 to-background" />
       
@@ -52,24 +52,24 @@ const FAQSection = () => {
       {/* Vignette */}
       <div className="absolute inset-0 cinematic-vignette opacity-30" />
       
-      <div className="container relative mx-auto px-6 lg:px-20">
+      <div className="container relative mx-auto px-4 md:px-6 lg:px-20">
         {/* Header */}
-        <div className="text-center mb-12 lg:mb-16">
-          <div className="inline-flex items-center gap-3 mb-4">
+        <div className="text-center mb-8 md:mb-12 lg:mb-16">
+          <div className="inline-flex items-center gap-2 md:gap-3 mb-3 md:mb-4">
             <div className="relative">
               <div className="absolute inset-0 bg-primary blur-lg opacity-60" style={{ transform: 'scale(1.5)' }} />
-              <div className="relative w-10 h-10 bg-primary/20 border border-primary/50 flex items-center justify-center">
-                <HelpCircle className="w-5 h-5 text-primary" />
+              <div className="relative w-8 h-8 md:w-10 md:h-10 bg-primary/20 border border-primary/50 flex items-center justify-center">
+                <HelpCircle className="w-4 h-4 md:w-5 md:h-5 text-primary" />
               </div>
             </div>
-            <span className="font-oswald text-sm lg:text-base text-primary uppercase tracking-[0.3em] glow-primary">
+            <span className="font-oswald text-xs md:text-sm lg:text-base text-primary uppercase tracking-[0.2em] md:tracking-[0.3em] glow-primary">
               Common Questions
             </span>
           </div>
-          <h2 className="font-bebas text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-foreground uppercase leading-none mb-5 drop-shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
+          <h2 className="font-bebas text-2xl md:text-5xl lg:text-6xl xl:text-7xl text-foreground uppercase leading-none mb-3 md:mb-5 drop-shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
             Everything You Need To Know
           </h2>
-          <p className="font-oswald text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="font-oswald text-sm md:text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto">
             Got questions? We've got answers. If you don't see what you're looking for, 
             reach out — we're happy to help.
           </p>
@@ -77,7 +77,7 @@ const FAQSection = () => {
         
         {/* FAQ Grid */}
         <div className="max-w-4xl mx-auto">
-          <div className="grid gap-4">
+          <div className="grid gap-3 md:gap-4">
             {faqs.map((faq, index) => {
               const isOpen = openIndex === index;
               
