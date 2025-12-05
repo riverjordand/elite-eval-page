@@ -76,7 +76,7 @@ const LandingTestimonials = ({ title, subtitle, testimonials, onCtaClick }: Land
           </div>
 
           {/* Desktop: Grid Layout */}
-          <div className="hidden md:grid md:grid-cols-4 gap-6 max-w-[1600px] mx-auto">
+          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 max-w-[1600px] mx-auto">
             {testimonials.map((testimonial, index) => (
               <div 
                 key={index}
