@@ -4,73 +4,68 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { HelpCircle } from "lucide-react";
 
 const faqs = [
   {
-    q: "What ages do you work with?",
-    a: "We train athletes ages 10-18, with programming tailored to each developmental stage."
+    q: "What exactly happens during the free evaluation?",
+    a: "Your athlete goes through velocity/metrics testing with Rapsodo, video mechanics analysis, a strength and mobility screen, and receives a personalized development plan. We also give you an honest college recruiting assessment. The whole session takes about 60 minutes."
   },
   {
-    q: "How long is the evaluation?",
-    a: "About 90 minutes. You'll walk away with actionable insights and a clear development plan."
+    q: "Is there really no catch? Why is it free?",
+    a: "No hidden fees. We offer free evaluations because once parents see the LPA difference — the coaching quality, the technology, the results — many decide to train with us. But there's zero pressure. Even if you never come back, you'll walk away with valuable insights."
   },
   {
-    q: "Is there really no cost?",
-    a: "Correct. The evaluation is completely free with no obligation to join any program."
+    q: "What age or skill level should my athlete be?",
+    a: "We work with athletes ages 10-18, from travel ball players who want to level up to varsity stars preparing for college recruitment. If your athlete is serious about improvement, they're a good fit."
   },
   {
-    q: "What should my athlete bring?",
-    a: "Baseball gear (glove, bat if hitting), athletic clothing, and water."
+    q: "What makes LPA different from other academies?",
+    a: "Three things: (1) Our coaches have actually played D1 and pro ball. (2) We use the same technology MLB teams use. (3) We develop the complete athlete — mechanics, strength, mobility, and mental game. Most academies have one of these. We have all three."
   },
   {
-    q: "Who conducts the evaluation?",
-    a: "Our D1/Pro coaching staff personally evaluates every athlete—not assistants."
+    q: "How quickly do athletes typically see results?",
+    a: "Most athletes see measurable improvements within 4-6 weeks. Our average athlete gains 3-5 MPH in their first 3 months. The real transformation happens over 6-12 months when everything compounds."
   },
   {
-    q: "What happens after?",
-    a: "You'll receive a written plan and metrics. If interested in training, we'll discuss options—zero pressure."
+    q: "Do you help with college recruiting?",
+    a: "Yes. Our coaches have connections with college programs across all levels — D1, D2, D3, NAIA, and JUCO. We've helped place 50+ athletes at the college level."
   },
 ];
 
 const FAQSection = () => {
   return (
-    <section className="relative py-16 md:py-24 lg:py-32 xl:py-40 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-card/10 to-background" />
+    <section className="relative py-20 md:py-28 lg:py-36 overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-background to-card/30" />
       
-      <div className="container relative mx-auto px-6 lg:px-16 xl:px-24">
-        {/* Desktop: Two column layout */}
-        <div className="flex flex-col lg:flex-row lg:gap-16 xl:gap-24">
-          {/* Left - Header */}
-          <div className="lg:w-1/3 mb-10 lg:mb-0">
-            <div className="lg:sticky lg:top-32">
-              <h2 className="font-bebas text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-foreground uppercase leading-none mb-4 lg:mb-6 text-center lg:text-left">
-                Questions
-              </h2>
-              <p className="font-oswald text-sm md:text-base lg:text-lg text-muted-foreground text-center lg:text-left">
-                Everything you need to know about the free evaluation.
-              </p>
-            </div>
+      <div className="container relative mx-auto px-6 lg:px-16">
+        <div className="text-center mb-12 lg:mb-16">
+          <div className="inline-flex items-center gap-2 mb-4">
+            <HelpCircle className="w-5 h-5 text-primary" />
+            <span className="font-oswald text-sm text-primary uppercase tracking-[0.3em]">Common Questions</span>
           </div>
-          
-          {/* Right - FAQ */}
-          <div className="lg:w-2/3">
-            <Accordion type="single" collapsible className="space-y-3 lg:space-y-4">
-              {faqs.map((faq, index) => (
-                <AccordionItem 
-                  key={index} 
-                  value={`faq-${index}`}
-                  className="border border-border/30 bg-card/20 px-5 lg:px-8 hover:border-primary/30 transition-colors"
-                >
-                  <AccordionTrigger className="font-bebas text-base md:text-lg lg:text-xl xl:text-2xl text-foreground uppercase hover:no-underline py-5 lg:py-6">
-                    {faq.q}
-                  </AccordionTrigger>
-                  <AccordionContent className="font-oswald text-sm md:text-base lg:text-lg text-muted-foreground pb-5 lg:pb-6">
-                    {faq.a}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
+          <h2 className="font-bebas text-4xl md:text-5xl lg:text-6xl text-foreground uppercase leading-none mb-6">
+            Everything You Need To Know
+          </h2>
+        </div>
+        
+        <div className="max-w-3xl mx-auto">
+          <Accordion type="single" collapsible className="space-y-3">
+            {faqs.map((faq, index) => (
+              <AccordionItem 
+                key={index} 
+                value={`faq-${index}`}
+                className="border border-border/40 bg-card/30 px-6 data-[state=open]:border-primary/40 transition-colors"
+              >
+                <AccordionTrigger className="font-bebas text-left text-base md:text-lg text-foreground uppercase hover:text-primary py-5 hover:no-underline">
+                  {faq.q}
+                </AccordionTrigger>
+                <AccordionContent className="font-oswald text-sm md:text-base text-muted-foreground leading-relaxed pb-5">
+                  {faq.a}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
       </div>
     </section>
