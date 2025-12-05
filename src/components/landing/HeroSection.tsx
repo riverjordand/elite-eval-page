@@ -26,35 +26,35 @@ const HeroSection = ({ onCtaClick }: HeroSectionProps) => {
       <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-black/30" />
 
       {/* Content */}
-      <div className="relative z-10 w-full py-16 lg:py-24">
-        <div className="container mx-auto px-6 lg:px-16">
-          <div className="max-w-3xl mx-auto text-center lg:text-left lg:mx-0">
+      <div className="relative z-10 w-full py-20 lg:py-32 xl:py-40">
+        <div className="container mx-auto px-6 lg:px-20">
+          <div className="max-w-4xl mx-auto text-center lg:text-left lg:mx-0">
             {/* Logo */}
             <img 
               src={lpaBolt} 
               alt="LPA" 
-              className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 mb-5 mx-auto lg:mx-0"
+              className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 xl:w-24 xl:h-24 mb-6 lg:mb-8 mx-auto lg:mx-0"
               style={{ filter: 'drop-shadow(0 0 30px hsl(271 81% 56% / 0.5))' }}
             />
 
             {/* Badge */}
-            <div className="inline-flex items-center bg-primary/20 backdrop-blur border border-primary/30 px-3 py-1.5 mb-5">
-              <Star className="w-3 h-3 text-primary mr-2" />
-              <span className="font-oswald text-xs text-primary uppercase tracking-[0.2em]">
+            <div className="inline-flex items-center bg-primary/20 backdrop-blur border border-primary/30 px-4 py-2 mb-6 lg:mb-8">
+              <Star className="w-4 h-4 text-primary mr-2" />
+              <span className="font-oswald text-sm lg:text-base text-primary uppercase tracking-[0.2em]">
                 Arizona's #1 Baseball Academy
               </span>
             </div>
 
             {/* Headline */}
-            <h1 className="font-bebas uppercase leading-[0.9] tracking-tight mb-5">
-              <span className="block text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-foreground">
+            <h1 className="font-bebas uppercase leading-[0.9] tracking-tight mb-6 lg:mb-8">
+              <span className="block text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl text-foreground">
                 Transform Your Game.
               </span>
-              <span className="block text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-foreground">
+              <span className="block text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl text-foreground">
                 Get Recruited.
               </span>
               <span 
-                className="block text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-primary mt-1"
+                className="block text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl text-primary mt-2"
                 style={{ textShadow: '0 0 60px hsl(271 81% 56% / 0.5)' }}
               >
                 Go Pro.
@@ -62,41 +62,41 @@ const HeroSection = ({ onCtaClick }: HeroSectionProps) => {
             </h1>
 
             {/* Description */}
-            <p className="font-oswald text-sm md:text-base lg:text-lg text-foreground/70 mb-6 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+            <p className="font-oswald text-base md:text-lg lg:text-xl xl:text-2xl text-foreground/70 mb-8 lg:mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
               The only Arizona academy where elite D1/pro coaches, MLB-grade technology, and complete 
               athletic development combine to build college-ready players — guaranteed.
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-6">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8 lg:mb-10">
               <Button 
                 size="lg"
                 onClick={onCtaClick}
-                className="group bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-[0.15em] text-base px-6 py-5 h-auto"
+                className="group bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-[0.15em] text-lg lg:text-xl px-8 lg:px-10 py-6 lg:py-7 h-auto"
                 style={{ boxShadow: '0 0 40px hsl(271 81% 56% / 0.4)' }}
               >
                 Start Free Evaluation
-                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button 
                 variant="outline"
                 size="lg"
-                className="group border-white/30 hover:bg-white/10 text-foreground font-bebas uppercase tracking-[0.15em] text-base px-6 py-5 h-auto"
+                className="group border-white/30 hover:bg-white/10 text-foreground font-bebas uppercase tracking-[0.15em] text-lg lg:text-xl px-8 lg:px-10 py-6 lg:py-7 h-auto"
               >
-                <Play className="mr-2 w-4 h-4" />
+                <Play className="mr-2 w-5 h-5" />
                 Watch Athletes Train
               </Button>
             </div>
 
             {/* Trust Elements */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-5 text-foreground/50">
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 lg:gap-8 text-foreground/50">
               <div className="flex items-center gap-2">
-                <Trophy className="w-4 h-4 text-primary" />
-                <span className="font-oswald text-sm">50+ College Commits</span>
+                <Trophy className="w-5 h-5 text-primary" />
+                <span className="font-oswald text-base lg:text-lg">50+ College Commits</span>
               </div>
               <div className="flex items-center gap-2">
-                <Users className="w-4 h-4 text-primary" />
-                <span className="font-oswald text-sm">500+ Athletes Trained</span>
+                <Users className="w-5 h-5 text-primary" />
+                <span className="font-oswald text-base lg:text-lg">500+ Athletes Trained</span>
               </div>
             </div>
           </div>
