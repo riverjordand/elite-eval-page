@@ -9,6 +9,8 @@ const videos = [
 const photos = [
   "/action-01.jpg", "/action-02.jpg", "/action-03.jpg", "/action-04.jpg",
   "/action-05.jpg", "/action-06.jpg", "/action-07.jpg", "/action-08.jpg",
+  "/action-09.jpg", "/action-10.jpg", "/action-11.jpg", "/action-12.jpg",
+  "/action-13.jpg", "/action-14.jpg", "/action-15.jpg", "/action-16.jpg",
 ];
 
 const MediaSection = () => {
