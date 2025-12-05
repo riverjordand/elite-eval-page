@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play, Star, Trophy, Users } from "lucide-react";
+import { ArrowRight, Star, Trophy, Users } from "lucide-react";
 import lpaBolt from "@/assets/lpa-logo-bolt.webp";
 
 interface HeroSectionProps {
@@ -77,8 +77,8 @@ const HeroSection = ({ onCtaClick }: HeroSectionProps) => {
               athletic development combine to build college-ready players — guaranteed.
             </p>
 
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8 lg:mb-10">
+            {/* CTA */}
+            <div className="flex justify-center lg:justify-start mb-8 lg:mb-10">
               <Button 
                 size="lg"
                 onClick={onCtaClick}
@@ -86,14 +86,6 @@ const HeroSection = ({ onCtaClick }: HeroSectionProps) => {
               >
                 Start Free Evaluation
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button 
-                variant="outline"
-                size="lg"
-                className="group border-white/40 hover:bg-white/10 hover:border-primary/50 text-foreground font-bebas uppercase tracking-[0.15em] text-lg lg:text-xl px-8 lg:px-10 py-6 lg:py-7 h-auto backdrop-blur-sm transition-all duration-300"
-              >
-                <Play className="mr-2 w-5 h-5" />
-                Watch Athletes Train
               </Button>
             </div>
 
