@@ -12,26 +12,26 @@ const coaches = [
     image: coachMarcus, 
     role: "Head Coach", 
     cred: "Former D1 & Pro",
-    bio: "Played at Oregon, drafted by the Diamondbacks. Knows exactly what college coaches want to see because he's been there.",
-    highlights: ["4 years D1 at Oregon", "Drafted by Arizona Diamondbacks", "50+ athletes coached to college"],
+    bio: "Played at Oregon, drafted by the Diamondbacks. Knows exactly what college coaches want to see.",
+    highlights: ["4 years D1 at Oregon", "Drafted by Arizona Diamondbacks", "50+ athletes coached"],
     specialty: "Complete Player Development"
   },
   { 
     name: "Coach Joe", 
     image: coachJoe, 
     role: "Hitting Coordinator", 
-    cred: "MLB Scout Experience",
-    bio: "Spent years evaluating talent for MLB organizations. He can spot — and fix — swing flaws that other coaches miss.",
+    cred: "MLB Scout",
+    bio: "Years evaluating talent for MLB. He spots and fixes swing flaws that other coaches miss.",
     highlights: ["MLB scouting experience", "Expert swing analysis", "Data-driven approach"],
-    specialty: "Swing Mechanics & Analysis"
+    specialty: "Swing Mechanics"
   },
   { 
     name: "Coach Eric", 
     image: coachEric, 
     role: "Pitching Coordinator", 
     cred: "2nd Round Pick",
-    bio: "A high draft pick who built an 8-year pro career. Teaches the mechanics and mentality that separate good from elite.",
-    highlights: ["2nd round MLB draft pick", "8-year pro career", "Velocity development specialist"],
+    bio: "High draft pick with an 8-year pro career. Teaches mechanics and mentality that separate elite pitchers.",
+    highlights: ["2nd round MLB draft pick", "8-year pro career", "Velocity specialist"],
     specialty: "Pitching & Velocity"
   },
   { 
@@ -39,15 +39,15 @@ const coaches = [
     image: coachTerrell, 
     role: "Development Coach", 
     cred: "D1 Player",
-    bio: "Four years at a Power 5 program. Specializes in turning raw athleticism into polished, recruitable skill sets.",
-    highlights: ["Power 5 program athlete", "Recruiting guidance expert", "Athletic development focus"],
+    bio: "Four years at a Power 5 program. Turns raw athleticism into polished, recruitable skill sets.",
+    highlights: ["Power 5 program athlete", "Recruiting expert", "Athletic development"],
     specialty: "Athletic Development"
   },
   { 
     name: "Coach Will", 
     image: coachNeil, 
     role: "Academy Director", 
-    cred: "13+ Years Development",
+    cred: "13+ Years",
     bio: "Built LPA from the ground up. Has guided hundreds of athletes from beginners to college commits.",
     highlights: ["Founded LPA", "500+ athletes developed", "Program design expert"],
     specialty: "Program Leadership"
@@ -55,8 +55,8 @@ const coaches = [
 ];
 
 const stats = [
-  { icon: Award, value: "50+", label: "Years Combined Pro Experience" },
-  { icon: Star, value: "5", label: "D1 Programs Represented" },
+  { icon: Award, value: "50+", label: "Years Pro Experience" },
+  { icon: Star, value: "5", label: "D1 Programs" },
   { icon: Users, value: "500+", label: "Athletes Developed" },
 ];
 
@@ -74,52 +74,42 @@ const CoachesSection = () => {
   };
 
   return (
-    <section className="relative py-20 md:py-28 lg:py-36 xl:py-44 overflow-hidden">
-      {/* Cinematic background */}
+    <section className="relative py-16 lg:py-20 xl:py-24 overflow-hidden">
+      {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-card/20 to-background" />
+      <div className="absolute top-1/2 left-0 w-[600px] h-[600px] bg-primary/6 rounded-full blur-[180px] -translate-y-1/2" />
+      <div className="absolute inset-0 cinematic-vignette opacity-20" />
       
-      {/* Atmospheric glows */}
-      <div className="absolute top-1/2 left-0 w-[800px] h-[800px] bg-primary/8 rounded-full blur-[200px] -translate-y-1/2" />
-      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[150px]" />
-      
-      {/* Vignette */}
-      <div className="absolute inset-0 cinematic-vignette opacity-30" />
-      
-      <div className="container relative mx-auto px-6 lg:px-20">
-        {/* Header */}
-        <div className="text-center mb-10 lg:mb-14 xl:mb-16">
-          <p className="font-oswald text-sm lg:text-base text-primary uppercase tracking-[0.3em] mb-4 glow-primary">
-            Learn From The Best
-          </p>
-          <h2 className="font-bebas text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-foreground uppercase leading-none mb-5 lg:mb-6 drop-shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
-            Coaches Who've Been There
-          </h2>
-          <p className="font-oswald text-base md:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto">
-            Every coach on staff has played at the D1 or professional level. They don't just teach baseball — 
-            they've lived the journey your athlete is trying to make.
-          </p>
-        </div>
-
-        {/* Stats Bar */}
-        <div 
-          className="grid grid-cols-3 gap-4 lg:gap-8 bg-card/40 backdrop-blur-sm border border-border/30 p-5 lg:p-8 mb-10 lg:mb-14"
-          style={{ boxShadow: '0 25px 50px -12px rgba(0,0,0,0.5), inset 0 0 60px rgba(107,63,175,0.05)' }}
-        >
-          {stats.map((stat, index) => (
-            <div key={index} className="text-center group">
-              <div className="flex items-center justify-center gap-3 mb-2">
-                <stat.icon className="w-5 h-5 lg:w-6 lg:h-6 text-primary hidden sm:block group-hover:scale-110 transition-transform" />
-                <span className="font-bebas text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-foreground glow-primary">{stat.value}</span>
+      <div className="container relative mx-auto px-6 lg:px-12">
+        {/* Header + Stats in one row on desktop */}
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-8 lg:mb-10">
+          <div className="lg:max-w-xl">
+            <p className="font-oswald text-xs lg:text-sm text-primary uppercase tracking-[0.3em] mb-3 glow-primary">
+              Learn From The Best
+            </p>
+            <h2 className="font-bebas text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-foreground uppercase leading-none drop-shadow-lg">
+              Coaches Who've Been There
+            </h2>
+          </div>
+          
+          {/* Stats inline on desktop */}
+          <div className="flex gap-6 lg:gap-8">
+            {stats.map((stat, index) => (
+              <div key={index} className="text-center lg:text-right">
+                <div className="flex items-center justify-center lg:justify-end gap-2 mb-1">
+                  <stat.icon className="w-4 h-4 text-primary hidden sm:block" />
+                  <span className="font-bebas text-2xl lg:text-3xl text-foreground glow-primary">{stat.value}</span>
+                </div>
+                <span className="font-oswald text-[10px] lg:text-xs text-muted-foreground uppercase tracking-wider">
+                  {stat.label}
+                </span>
               </div>
-              <span className="font-oswald text-xs md:text-sm lg:text-base text-muted-foreground uppercase tracking-wider">
-                {stat.label}
-              </span>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
         
-        {/* Coaches Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-5 lg:gap-6">
+        {/* Coaches Grid - All 5 in one row on desktop */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 lg:gap-4">
           {coaches.map((coach, index) => (
             <div 
               key={index} 
@@ -127,157 +117,99 @@ const CoachesSection = () => {
               className="group relative cursor-pointer"
             >
               <div 
-                className="relative aspect-[3/4] overflow-hidden bg-card transition-all duration-500 hover:ring-2 hover:ring-primary/60"
-                style={{ boxShadow: '0 25px 50px -12px rgba(0,0,0,0.6)' }}
+                className="relative aspect-[3/4] overflow-hidden bg-card hover:ring-2 hover:ring-primary/50 transition-all duration-300"
+                style={{ boxShadow: '0 15px 30px -10px rgba(0,0,0,0.5)' }}
               >
-                {/* Image */}
                 <img 
                   src={coach.image} 
                   alt={coach.name}
-                  className="absolute inset-0 w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 
                 {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
-                <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition-colors duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+                <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/15 transition-colors duration-300" />
                 
-                {/* Glowing credential badge */}
-                <div className="absolute top-3 left-3 z-10">
-                  <div className="relative">
-                    <div 
-                      className="absolute inset-0 bg-primary blur-lg opacity-60 group-hover:opacity-100 transition-opacity duration-500"
-                      style={{ transform: 'scale(1.5)' }}
-                    />
-                    <span 
-                      className="relative inline-block bg-primary text-primary-foreground font-bebas text-[10px] lg:text-xs px-2 py-1 uppercase tracking-wider"
-                      style={{ boxShadow: '0 0 20px hsl(271 81% 56% / 0.6)' }}
-                    >
-                      {coach.cred}
-                    </span>
-                  </div>
+                {/* Credential badge */}
+                <div className="absolute top-2 left-2 z-10">
+                  <span className="bg-primary text-primary-foreground font-bebas text-[9px] lg:text-[10px] px-1.5 py-0.5 uppercase"
+                    style={{ boxShadow: '0 0 12px hsl(271 81% 56% / 0.5)' }}>
+                    {coach.cred}
+                  </span>
                 </div>
                 
                 {/* Click indicator */}
-                <div className="absolute top-3 right-3 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="w-8 h-8 rounded-full bg-primary/80 backdrop-blur-sm flex items-center justify-center">
-                    <ChevronRight className="w-4 h-4 text-primary-foreground" />
+                <div className="absolute top-2 right-2 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                  <div className="w-6 h-6 rounded-full bg-primary/80 flex items-center justify-center">
+                    <ChevronRight className="w-3 h-3 text-primary-foreground" />
                   </div>
                 </div>
                 
                 {/* Info */}
-                <div className="absolute bottom-0 left-0 right-0 p-4 lg:p-5">
-                  <h3 className="font-bebas text-lg md:text-xl lg:text-2xl text-foreground uppercase drop-shadow-lg">
+                <div className="absolute bottom-0 left-0 right-0 p-3 lg:p-4">
+                  <h3 className="font-bebas text-base lg:text-lg text-foreground uppercase drop-shadow-lg leading-tight">
                     {coach.name}
                   </h3>
-                  <p className="font-oswald text-xs lg:text-sm text-primary glow-primary">
+                  <p className="font-oswald text-[10px] lg:text-xs text-primary glow-primary">
                     {coach.role}
                   </p>
                 </div>
-                
-                {/* Hover border effect */}
-                <div className="absolute inset-0 border-2 border-primary/0 group-hover:border-primary/50 transition-colors duration-500 pointer-events-none" />
               </div>
               
-              {/* Card glow on hover */}
-              <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-3/4 h-8 bg-primary/30 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              {/* Glow on hover */}
+              <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-2/3 h-4 bg-primary/25 blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
           ))}
         </div>
         
-        {/* Bottom tagline */}
-        <div className="text-center mt-12 lg:mt-16">
-          <p className="font-oswald text-sm lg:text-base text-muted-foreground">
-            <span className="text-primary glow-primary">Click</span> on any coach to learn more about their journey
+        {/* Hint text */}
+        <div className="text-center mt-8 lg:mt-10">
+          <p className="font-oswald text-xs lg:text-sm text-muted-foreground">
+            <span className="text-primary glow-primary">Click</span> any coach to learn more
           </p>
         </div>
       </div>
 
-      {/* Modal Overlay */}
+      {/* Modal */}
       {selectedCoach !== null && (
-        <div 
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-6"
-          onClick={closeModal}
-        >
-          {/* Backdrop */}
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4" onClick={closeModal}>
           <div className="absolute inset-0 bg-black/90 backdrop-blur-md" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/15 rounded-full blur-[120px] pointer-events-none" />
           
-          {/* Atmospheric glow */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[150px] pointer-events-none" />
-          
-          {/* Modal Content */}
           <div 
-            className="relative w-full max-w-3xl max-h-[90vh] overflow-hidden animate-scale-in"
+            className="relative w-full max-w-3xl max-h-[85vh] overflow-hidden animate-scale-in"
             onClick={(e) => e.stopPropagation()}
-            style={{ 
-              boxShadow: '0 0 100px hsl(271 81% 56% / 0.3), 0 40px 80px -20px rgba(0,0,0,0.8)',
-            }}
+            style={{ boxShadow: '0 0 80px hsl(271 81% 56% / 0.25)' }}
           >
-            {/* Close button */}
             <button 
               onClick={closeModal}
-              className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/60 backdrop-blur-sm border border-white/20 flex items-center justify-center hover:bg-primary/80 hover:border-primary transition-all duration-300"
+              className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/60 backdrop-blur-sm border border-white/20 flex items-center justify-center hover:bg-primary/80 transition-colors"
             >
               <X className="w-5 h-5 text-white" />
             </button>
             
             <div className="flex flex-col md:flex-row bg-card border border-border/50">
-              {/* Coach Image */}
               <div className="relative w-full md:w-2/5 aspect-[3/4] md:aspect-auto flex-shrink-0">
-                <img 
-                  src={coaches[selectedCoach].image} 
-                  alt={coaches[selectedCoach].name}
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
+                <img src={coaches[selectedCoach].image} alt={coaches[selectedCoach].name} className="absolute inset-0 w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-card via-transparent to-transparent" />
-                
-                {/* Badge on image */}
                 <div className="absolute top-4 left-4">
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-primary blur-xl opacity-80" style={{ transform: 'scale(2)' }} />
-                    <span 
-                      className="relative inline-block bg-primary text-primary-foreground font-bebas text-sm px-3 py-1.5 uppercase tracking-wider"
-                      style={{ boxShadow: '0 0 30px hsl(271 81% 56% / 0.8)' }}
-                    >
-                      {coaches[selectedCoach].cred}
-                    </span>
-                  </div>
+                  <span className="bg-primary text-primary-foreground font-bebas text-sm px-3 py-1.5 uppercase" style={{ boxShadow: '0 0 25px hsl(271 81% 56% / 0.7)' }}>
+                    {coaches[selectedCoach].cred}
+                  </span>
                 </div>
               </div>
               
-              {/* Coach Info */}
-              <div className="flex-1 p-6 md:p-8 lg:p-10 flex flex-col justify-center">
-                {/* Specialty tag */}
-                <p className="font-oswald text-xs text-primary uppercase tracking-[0.2em] mb-2 glow-primary">
-                  {coaches[selectedCoach].specialty}
-                </p>
+              <div className="flex-1 p-6 md:p-8 flex flex-col justify-center">
+                <p className="font-oswald text-xs text-primary uppercase tracking-[0.2em] mb-2 glow-primary">{coaches[selectedCoach].specialty}</p>
+                <h3 className="font-bebas text-3xl md:text-4xl lg:text-5xl text-foreground uppercase leading-none mb-2">{coaches[selectedCoach].name}</h3>
+                <p className="font-oswald text-base md:text-lg text-primary mb-4 glow-primary">{coaches[selectedCoach].role}</p>
+                <p className="font-oswald text-sm md:text-base text-foreground/80 leading-relaxed mb-6">{coaches[selectedCoach].bio}</p>
                 
-                {/* Name */}
-                <h3 className="font-bebas text-4xl md:text-5xl lg:text-6xl text-foreground uppercase leading-none mb-2">
-                  {coaches[selectedCoach].name}
-                </h3>
-                
-                {/* Role */}
-                <p className="font-oswald text-lg md:text-xl text-primary mb-6 glow-primary">
-                  {coaches[selectedCoach].role}
-                </p>
-                
-                {/* Bio */}
-                <p className="font-oswald text-base md:text-lg text-foreground/80 leading-relaxed mb-8">
-                  {coaches[selectedCoach].bio}
-                </p>
-                
-                {/* Highlights */}
                 <div>
-                  <p className="font-bebas text-sm text-muted-foreground uppercase tracking-wider mb-3">
-                    Career Highlights
-                  </p>
+                  <p className="font-bebas text-xs text-muted-foreground uppercase tracking-wider mb-3">Career Highlights</p>
                   <div className="flex flex-wrap gap-2">
                     {coaches[selectedCoach].highlights.map((highlight, hIndex) => (
-                      <span 
-                        key={hIndex}
-                        className="inline-block bg-primary/15 border border-primary/30 px-4 py-2 font-oswald text-sm text-foreground/90"
-                        style={{ boxShadow: 'inset 0 0 20px hsl(271 81% 56% / 0.1)' }}
-                      >
+                      <span key={hIndex} className="bg-primary/15 border border-primary/30 px-3 py-1.5 font-oswald text-xs text-foreground/90">
                         {highlight}
                       </span>
                     ))}
@@ -290,8 +222,6 @@ const CoachesSection = () => {
             <div className="absolute inset-0 pointer-events-none">
               <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-primary to-transparent" />
               <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-primary to-transparent" />
-              <div className="absolute top-0 left-0 w-[2px] h-full bg-gradient-to-b from-transparent via-primary to-transparent" />
-              <div className="absolute top-0 right-0 w-[2px] h-full bg-gradient-to-b from-transparent via-primary to-transparent" />
             </div>
           </div>
         </div>
