@@ -22,16 +22,34 @@ const FloatingCTA = ({ onClick }: FloatingCTAProps) => {
 
   return (
     <div
-      className={`fixed bottom-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ${
+      className={`fixed z-50 transition-all duration-300 ${
         isVisible 
           ? "opacity-100 translate-y-0" 
           : "opacity-0 translate-y-4 pointer-events-none"
-      }`}
+      } 
+      /* Mobile: full-width bar at bottom */
+      bottom-0 left-0 right-0 p-4 pb-[calc(1rem+env(safe-area-inset-bottom))]
+      bg-gradient-to-t from-background via-background/95 to-transparent
+      /* Desktop: centered floating button */
+      md:bg-transparent md:bottom-6 md:left-1/2 md:-translate-x-1/2 md:right-auto md:p-0 md:pb-0
+      `}
     >
       <Button
         onClick={onClick}
         size="lg"
-        className="group bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-[0.15em] text-base md:text-lg px-6 md:px-8 py-5 md:py-6 h-auto shadow-[0_0_30px_hsl(var(--primary)/0.5)] hover:shadow-[0_0_40px_hsl(var(--primary)/0.7)] transition-all duration-300 hover:scale-105"
+        className="
+          w-full md:w-auto
+          group bg-primary hover:bg-primary/90 text-primary-foreground 
+          font-bebas uppercase tracking-[0.15em] 
+          text-base md:text-lg 
+          px-6 md:px-8 
+          py-4 md:py-6 
+          h-auto 
+          shadow-[0_0_30px_hsl(var(--primary)/0.5)] 
+          hover:shadow-[0_0_40px_hsl(var(--primary)/0.7)] 
+          transition-all duration-300 
+          md:hover:scale-105
+        "
       >
         Book Free Evaluation
         <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
