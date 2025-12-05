@@ -1,66 +1,43 @@
 import { useState } from "react";
 import Navigation from "@/components/Navigation";
-import LandingHeroNew from "@/components/landing/LandingHeroNew";
-import LandingStatsBar from "@/components/landing/LandingStatsBar";
-import LandingAbout from "@/components/landing/LandingAbout";
-import LandingFacilityGrid from "@/components/landing/LandingFacilityGrid";
-import LandingMediaStrip from "@/components/landing/LandingMediaStrip";
-import LandingCoachesCompact from "@/components/landing/LandingCoachesCompact";
-import LandingTestimonialsCompact from "@/components/landing/LandingTestimonialsCompact";
-import LandingResults from "@/components/landing/LandingResults";
-import LandingEvaluation from "@/components/landing/LandingEvaluation";
-import LandingFAQCompact from "@/components/landing/LandingFAQCompact";
-import LandingFooterCompact from "@/components/landing/LandingFooterCompact";
+import HeroSection from "@/components/landing/HeroSection";
+import StatsSection from "@/components/landing/StatsSection";
+import AboutSection from "@/components/landing/AboutSection";
+import FacilitySection from "@/components/landing/FacilitySection";
+import MediaSection from "@/components/landing/MediaSection";
+import CoachesSection from "@/components/landing/CoachesSection";
+import TestimonialsSection from "@/components/landing/TestimonialsSection";
+import ResultsSection from "@/components/landing/ResultsSection";
+import CTASection from "@/components/landing/CTASection";
+import FAQSection from "@/components/landing/FAQSection";
+import FooterSection from "@/components/landing/FooterSection";
 import EvaluationForm from "@/components/landing/EvaluationForm";
 
 const Index = () => {
-  const [showEvaluationForm, setShowEvaluationForm] = useState(false);
+  const [showForm, setShowForm] = useState(false);
 
-  const openEvaluationForm = () => setShowEvaluationForm(true);
+  const openForm = () => setShowForm(true);
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <Navigation onBookNowClick={openEvaluationForm} />
+    <main className="min-h-screen bg-background">
+      <Navigation onBookNowClick={openForm} />
+      <HeroSection onCtaClick={openForm} />
+      <StatsSection />
+      <AboutSection />
+      <FacilitySection />
+      <MediaSection />
+      <CoachesSection />
+      <TestimonialsSection />
+      <ResultsSection onCtaClick={openForm} />
+      <CTASection onCtaClick={openForm} />
+      <FAQSection />
+      <FooterSection />
       
-      {/* Hero */}
-      <LandingHeroNew onCtaClick={openEvaluationForm} />
-      
-      {/* Stats bar */}
-      <LandingStatsBar />
-      
-      {/* Why LPA */}
-      <LandingAbout />
-      
-      {/* Facility */}
-      <LandingFacilityGrid />
-      
-      {/* Media - videos & photos */}
-      <LandingMediaStrip />
-      
-      {/* Coaches */}
-      <LandingCoachesCompact />
-      
-      {/* Testimonials */}
-      <LandingTestimonialsCompact />
-      
-      {/* Results / Commitments */}
-      <LandingResults onCtaClick={openEvaluationForm} />
-      
-      {/* Main CTA - Evaluation */}
-      <LandingEvaluation onCtaClick={openEvaluationForm} />
-      
-      {/* FAQ */}
-      <LandingFAQCompact />
-      
-      {/* Footer */}
-      <LandingFooterCompact />
-
-      {/* Form modal */}
-      <EvaluationForm
-        open={showEvaluationForm}
-        onOpenChange={setShowEvaluationForm}
+      <EvaluationForm 
+        open={showForm} 
+        onOpenChange={setShowForm} 
       />
-    </div>
+    </main>
   );
 };
 
