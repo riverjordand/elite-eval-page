@@ -43,7 +43,7 @@ const HeroSection = ({ onCtaClick }: HeroSectionProps) => {
               <img 
                 src={lpaBolt} 
                 alt="LPA" 
-                className="relative w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 xl:w-24 xl:h-24"
+                className="relative w-auto h-14 md:h-16 lg:h-20 xl:h-24 object-contain"
                 style={{ filter: 'drop-shadow(0 0 40px hsl(271 81% 56% / 0.7))' }}
               />
             </div>
