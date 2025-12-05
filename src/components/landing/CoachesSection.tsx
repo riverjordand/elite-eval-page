@@ -51,8 +51,8 @@ const stats = [
 
 const CoachesSection = () => {
   return (
-    <section className="relative py-16 md:py-20 lg:py-24 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-card/30 to-background" />
+    <section className="relative py-16 md:py-20 lg:py-24 overflow-hidden" style={{ backgroundColor: '#1a1a1a' }}>
+      <div className="absolute inset-0 bg-gradient-to-b from-[#1a1a1a] via-card/30 to-[#1a1a1a]" />
       <div className="absolute top-1/2 left-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px] -translate-y-1/2" />
       
       <div className="container relative mx-auto px-6 lg:px-16">

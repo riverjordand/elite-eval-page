@@ -47,10 +47,10 @@ const IntroSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative py-16 md:py-20 lg:py-24 overflow-hidden">
+    <section ref={sectionRef} className="relative py-16 md:py-20 lg:py-24 overflow-hidden" style={{ backgroundColor: '#1a1a1a' }}>
       {/* Multi-layer background for depth */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-background" />
+        <div className="absolute inset-0" style={{ backgroundColor: '#1a1a1a' }} />
         <img 
           ref={imageRef}
           src={welcomeAthlete} 
@@ -58,9 +58,9 @@ const IntroSection = () => {
           className="absolute right-0 top-1/2 h-[130%] w-full lg:w-3/4 xl:w-2/3 object-cover object-[70%_center] will-change-transform"
           style={{ transform: `translateY(calc(-50% + ${parallaxOffset}px))` }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1a1a1a] via-[#1a1a1a]/90 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a] via-[#1a1a1a]/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#1a1a1a]/60 via-transparent to-transparent" />
         <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
         <div className="absolute inset-0 opacity-[0.03] bg-[url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noise%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noise)%22/%3E%3C/svg%3E')]" />
       </div>

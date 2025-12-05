@@ -38,8 +38,8 @@ const pillars = [
 
 const AboutSection = () => {
   return (
-    <section className="relative py-16 md:py-20 lg:py-24 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-card/50 to-background" />
+    <section className="relative py-16 md:py-20 lg:py-24 overflow-hidden" style={{ backgroundColor: '#0a0a0a' }}>
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-card/50 to-[#0a0a0a]" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[600px] bg-primary/5 rounded-full blur-[150px]" />
       
       <div className="container relative mx-auto px-6 lg:px-16">
