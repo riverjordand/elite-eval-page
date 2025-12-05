@@ -33,7 +33,7 @@ const IntroSection = () => {
         <img 
           src={welcomeAthlete} 
           alt="LPA Athlete" 
-          className="absolute right-0 top-0 h-full w-full lg:w-3/4 xl:w-2/3 object-cover object-[70%_center]"
+          className="absolute right-0 top-12 lg:top-16 h-full w-full lg:w-3/4 xl:w-2/3 object-cover object-[70%_center]"
         />
         
         {/* Dramatic gradient fade from left */}
