@@ -19,6 +19,9 @@ const photos = [
   "/action-37.jpg", "/action-38.jpg", "/action-39.jpg", "/action-40.jpg",
   "/action-41.jpg", "/action-42.jpg", "/action-43.jpg", "/action-44.jpg",
   "/action-45.jpg", "/action-46.jpg", "/action-47.jpg", "/action-48.jpg",
+  "/action-49.jpg", "/action-50.jpg", "/action-51.jpg", "/action-52.jpg",
+  "/action-53.jpg", "/action-54.jpg", "/action-55.jpg", "/action-56.jpg",
+  "/action-57.jpg", "/action-58.jpg",
 ];
 
 const MediaSection = () => {
