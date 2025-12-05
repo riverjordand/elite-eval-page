@@ -142,57 +142,99 @@ const FacilitySection = () => {
 
       {/* Modal */}
       {selectedFacility !== null && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4" onClick={closeModal}>
-          <div className="absolute inset-0 bg-black/90 backdrop-blur-md" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/15 rounded-full blur-[120px] pointer-events-none" />
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 lg:p-8" onClick={closeModal}>
+          <div className="absolute inset-0 bg-black/95 backdrop-blur-xl" />
+          
+          {/* Ambient glow effects */}
+          <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[150px] pointer-events-none" />
+          <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-primary/10 rounded-full blur-[100px] pointer-events-none" />
           
           <div 
-            className="relative w-full max-w-4xl max-h-[85vh] overflow-hidden animate-scale-in"
+            className="relative w-full max-w-6xl xl:max-w-7xl max-h-[90vh] overflow-hidden animate-scale-in rounded-2xl lg:rounded-3xl"
             onClick={(e) => e.stopPropagation()}
-            style={{ boxShadow: '0 0 80px hsl(271 81% 56% / 0.25)' }}
           >
+            {/* Close button */}
             <button 
               onClick={closeModal}
-              className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/60 backdrop-blur-sm border border-white/20 flex items-center justify-center hover:bg-primary/80 transition-colors"
+              className="absolute top-4 right-4 lg:top-6 lg:right-6 z-30 w-12 h-12 lg:w-14 lg:h-14 rounded-full bg-black/70 backdrop-blur-md border border-white/10 flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300 group"
             >
-              <X className="w-5 h-5 text-white" />
+              <X className="w-5 h-5 lg:w-6 lg:h-6 text-white/80 group-hover:text-white transition-colors" />
             </button>
             
-            <div className="flex flex-col md:flex-row bg-card border border-border/50">
-              <div className="relative w-full md:w-1/2 aspect-video md:aspect-auto md:min-h-[400px] flex-shrink-0">
-                <img src={facilities[selectedFacility].image} alt={facilities[selectedFacility].title} className="absolute inset-0 w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-card via-card/50 to-transparent" />
-                <div className="absolute top-4 left-4">
-                  <span className="bg-primary text-primary-foreground font-bebas text-sm px-3 py-1.5 uppercase" style={{ boxShadow: '0 0 25px hsl(271 81% 56% / 0.7)' }}>
+            {/* Desktop: Side by side large layout */}
+            <div className="flex flex-col lg:flex-row bg-gradient-to-br from-card via-card to-card/95 border border-white/5 overflow-hidden">
+              {/* Image side - larger on desktop */}
+              <div className="relative w-full lg:w-3/5 aspect-video lg:aspect-auto lg:min-h-[550px] xl:min-h-[600px] flex-shrink-0">
+                <img 
+                  src={facilities[selectedFacility].image} 
+                  alt={facilities[selectedFacility].title} 
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+                {/* Gradient overlays */}
+                <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-card via-card/60 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-transparent lg:hidden" />
+                
+                {/* Stat badge - larger */}
+                <div className="absolute top-4 left-4 lg:top-8 lg:left-8">
+                  <span 
+                    className="bg-primary text-primary-foreground font-bebas text-base lg:text-xl px-4 lg:px-6 py-2 lg:py-3 uppercase tracking-wider rounded-lg" 
+                    style={{ boxShadow: '0 0 40px hsl(271 81% 56% / 0.6)' }}
+                  >
                     {facilities[selectedFacility].stat}
                   </span>
                 </div>
               </div>
               
-              <div className="flex-1 p-6 md:p-8 flex flex-col justify-center">
-                <p className="font-oswald text-xs text-primary uppercase tracking-[0.2em] mb-2 glow-primary">{facilities[selectedFacility].subtitle}</p>
-                <h3 className="font-bebas text-3xl md:text-4xl lg:text-5xl text-foreground uppercase leading-none mb-2">{facilities[selectedFacility].title}</h3>
-                <p className="font-oswald text-sm md:text-base text-primary/80 italic mb-4">"{facilities[selectedFacility].tagline}"</p>
-                <p className="font-oswald text-sm md:text-base text-foreground/80 leading-relaxed mb-6">{facilities[selectedFacility].description}</p>
-                
-                <div>
-                  <p className="font-bebas text-xs text-muted-foreground uppercase tracking-wider mb-3">What's Included</p>
-                  <div className="grid grid-cols-2 gap-2">
-                    {facilities[selectedFacility].features.map((feature, fIndex) => (
-                      <div key={fIndex} className="flex items-center gap-2 bg-primary/10 border border-primary/20 px-3 py-2">
-                        <Check className="w-3.5 h-3.5 text-primary flex-shrink-0" />
-                        <span className="font-oswald text-xs text-foreground/90">{feature}</span>
-                      </div>
-                    ))}
+              {/* Content side - more spacious */}
+              <div className="flex-1 p-6 md:p-8 lg:p-12 xl:p-16 flex flex-col justify-center">
+                <div className="space-y-6 lg:space-y-8">
+                  {/* Header */}
+                  <div>
+                    <p className="font-oswald text-xs lg:text-sm text-primary uppercase tracking-[0.3em] mb-3 lg:mb-4 glow-primary">
+                      {facilities[selectedFacility].subtitle}
+                    </p>
+                    <h3 className="font-bebas text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-foreground uppercase leading-[0.9] mb-4">
+                      {facilities[selectedFacility].title}
+                    </h3>
+                    <p className="font-oswald text-base lg:text-lg xl:text-xl text-primary/80 italic border-l-4 border-primary/40 pl-4">
+                      "{facilities[selectedFacility].tagline}"
+                    </p>
+                  </div>
+                  
+                  {/* Description */}
+                  <p className="font-oswald text-base lg:text-lg xl:text-xl text-foreground/80 leading-relaxed">
+                    {facilities[selectedFacility].description}
+                  </p>
+                  
+                  {/* Features grid */}
+                  <div>
+                    <p className="font-bebas text-sm lg:text-base text-muted-foreground uppercase tracking-wider mb-4 lg:mb-5">
+                      What's Included
+                    </p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 lg:gap-4">
+                      {facilities[selectedFacility].features.map((feature, fIndex) => (
+                        <div 
+                          key={fIndex} 
+                          className="flex items-center gap-3 lg:gap-4 bg-primary/10 border border-primary/20 px-4 lg:px-5 py-3 lg:py-4 rounded-lg hover:bg-primary/15 hover:border-primary/30 transition-colors"
+                        >
+                          <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
+                            <Check className="w-4 h-4 lg:w-5 lg:h-5 text-primary" />
+                          </div>
+                          <span className="font-oswald text-sm lg:text-base text-foreground/90">{feature}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
             
-            {/* Animated border */}
-            <div className="absolute inset-0 pointer-events-none">
-              <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-primary to-transparent" />
-              <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-primary to-transparent" />
+            {/* Animated borders */}
+            <div className="absolute inset-0 pointer-events-none rounded-2xl lg:rounded-3xl overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-primary to-transparent opacity-60" />
+              <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-primary to-transparent opacity-60" />
+              <div className="absolute top-0 left-0 h-full w-[2px] bg-gradient-to-b from-transparent via-primary to-transparent opacity-40" />
+              <div className="absolute top-0 right-0 h-full w-[2px] bg-gradient-to-b from-transparent via-primary to-transparent opacity-40" />
             </div>
           </div>
         </div>
