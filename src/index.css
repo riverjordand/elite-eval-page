@@ -218,6 +218,16 @@ All colors MUST be HSL.
   .pulse-glow {
     animation: pulse-glow 3s ease-in-out infinite;
   }
+  
+  /* Scroll animations for media carousels */
+  @keyframes scroll-right {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0%); }
+  }
+  
+  .animate-scroll-right {
+    animation: scroll-right 30s linear infinite;
+  }
 }
 
 @layer base {
