@@ -1,128 +1,102 @@
-import { Target, Cpu, Dumbbell, ChevronRight, CheckCircle2 } from "lucide-react";
+import { Target, Cpu, Dumbbell, CheckCircle2 } from "lucide-react";
 
 const pillars = [
   {
     icon: Target,
     title: "Elite Coaching",
-    stat: "50+ Years Combined Pro Experience",
-    description: "Your athlete trains under coaches who've played D1 ball, been drafted by MLB organizations, and scouted for professional teams. They don't just teach the game — they've lived it.",
-    features: [
-      "Former D1 athletes & MLB scouts on staff",
-      "1-on-1 attention & personalized feedback",
-      "College recruiting guidance & connections"
-    ]
+    stat: "50+ Years Combined",
+    description: "Train under coaches who've played D1 ball, been drafted by MLB organizations, and scouted for professional teams.",
+    features: ["Former D1 athletes & MLB scouts", "1-on-1 personalized feedback", "College recruiting guidance"]
   },
   {
     icon: Cpu,
     title: "Pro-Level Technology",
-    stat: "Same Tools Used by MLB Teams",
-    description: "We use Rapsodo, high-speed video analysis, and biomechanics breakdowns to diagnose exactly what's holding your athlete back — then fix it with data-backed training.",
-    features: [
-      "Rapsodo ball tracking & spin analysis",
-      "Multi-angle slow-motion breakdowns",
-      "Real-time metrics & progress tracking"
-    ]
+    stat: "MLB-Grade Tools",
+    description: "Rapsodo, high-speed video, and biomechanics breakdowns to diagnose and fix what's holding your athlete back.",
+    features: ["Rapsodo spin analysis", "Slow-motion breakdowns", "Real-time metrics tracking"]
   },
   {
     icon: Dumbbell,
     title: "Complete Development",
-    stat: "Mechanics + Strength + Mental Game",
-    description: "Most academies only train mechanics. We build the complete athlete — integrating strength, mobility, speed, and mental performance into one comprehensive system.",
-    features: [
-      "Baseball-specific strength programming",
-      "Mobility & injury prevention protocols",
-      "Mental performance & game IQ training"
-    ]
+    stat: "Full System",
+    description: "We build the complete athlete — integrating strength, mobility, speed, and mental performance into one system.",
+    features: ["Baseball-specific strength", "Mobility & injury prevention", "Mental performance training"]
   }
 ];
 
 const AboutSection = () => {
   return (
-    <section className="relative py-20 md:py-28 lg:py-36 xl:py-44 overflow-hidden">
-      {/* Cinematic background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-card/30 to-background" />
+    <section className="relative py-16 lg:py-20 xl:py-24 overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-card/20 to-background" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[500px] bg-primary/6 rounded-full blur-[200px]" />
+      <div className="absolute inset-0 cinematic-vignette opacity-20" />
       
-      {/* Atmospheric glows */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1400px] h-[700px] bg-primary/8 rounded-full blur-[200px]" />
-      <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px]" />
-      
-      {/* Vignette */}
-      <div className="absolute inset-0 cinematic-vignette opacity-30" />
-      
-      <div className="container relative mx-auto px-6 lg:px-20">
-        {/* Header */}
-        <div className="text-center mb-12 lg:mb-16 xl:mb-20">
-          <p className="font-oswald text-sm lg:text-base text-primary uppercase tracking-[0.3em] mb-4 glow-primary">
-            Why 500+ Families Choose LPA
-          </p>
-          <h2 className="font-bebas text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-foreground uppercase leading-none mb-5 lg:mb-6 drop-shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
-            The Unfair Advantage
-          </h2>
-          <p className="font-oswald text-base md:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto">
-            Other academies have coaches or equipment. LPA has the <span className="text-foreground font-semibold">complete system</span> — 
-            the same development approach used by professional organizations to turn raw talent into recruited players.
+      <div className="container relative mx-auto px-6 lg:px-12">
+        {/* Desktop: Horizontal header with pillars below */}
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10 lg:mb-12">
+          <div className="lg:max-w-xl">
+            <p className="font-oswald text-xs lg:text-sm text-primary uppercase tracking-[0.3em] mb-3 glow-primary">
+              Why 500+ Families Choose LPA
+            </p>
+            <h2 className="font-bebas text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-foreground uppercase leading-none drop-shadow-lg">
+              The Unfair Advantage
+            </h2>
+          </div>
+          <p className="font-oswald text-sm lg:text-base text-muted-foreground lg:max-w-md lg:text-right">
+            The same development approach used by professional organizations to turn raw talent into recruited players.
           </p>
         </div>
         
-        {/* Pillars */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
+        {/* Pillars Grid - Optimized for desktop */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6">
           {pillars.map((pillar, index) => (
             <div 
               key={index}
-              className="group relative bg-card/40 backdrop-blur-sm border border-border/30 p-6 lg:p-8 xl:p-10 hover:border-primary/50 transition-all duration-500 hover:bg-card/60"
-              style={{
-                boxShadow: '0 25px 50px -12px rgba(0,0,0,0.5)'
-              }}
+              className="group relative bg-card/40 backdrop-blur-sm border border-border/30 p-5 lg:p-6 hover:border-primary/50 transition-all duration-300"
+              style={{ boxShadow: '0 15px 30px -10px rgba(0,0,0,0.4)' }}
             >
-              {/* Hover glow effect */}
-              <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-sm" />
-              <div className="absolute -inset-px bg-gradient-to-b from-primary/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-sm" />
+              {/* Hover effects */}
+              <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute -inset-px bg-gradient-to-b from-primary/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               
-              {/* Icon & Stat */}
-              <div className="relative flex items-start gap-4 mb-5 lg:mb-6">
+              {/* Header row */}
+              <div className="relative flex items-center gap-3 mb-4">
                 <div 
-                  className="w-14 h-14 lg:w-16 lg:h-16 bg-primary/15 flex items-center justify-center group-hover:bg-primary/25 transition-all duration-500 flex-shrink-0"
-                  style={{ boxShadow: '0 0 30px hsl(271 81% 56% / 0.2)' }}
+                  className="w-10 h-10 lg:w-12 lg:h-12 bg-primary/15 flex items-center justify-center flex-shrink-0"
+                  style={{ boxShadow: '0 0 20px hsl(271 81% 56% / 0.15)' }}
                 >
-                  <pillar.icon className="w-7 h-7 lg:w-8 lg:h-8 text-primary" strokeWidth={1.5} />
+                  <pillar.icon className="w-5 h-5 lg:w-6 lg:h-6 text-primary" strokeWidth={1.5} />
                 </div>
                 <div>
-                  <h3 className="font-bebas text-2xl lg:text-3xl xl:text-4xl text-foreground uppercase mb-1">
+                  <h3 className="font-bebas text-xl lg:text-2xl text-foreground uppercase leading-tight">
                     {pillar.title}
                   </h3>
-                  <p className="font-oswald text-xs lg:text-sm text-primary uppercase tracking-wide glow-primary">
+                  <p className="font-oswald text-[10px] lg:text-xs text-primary uppercase tracking-wide glow-primary">
                     {pillar.stat}
                   </p>
                 </div>
               </div>
               
               {/* Description */}
-              <p className="relative font-oswald text-sm md:text-base lg:text-lg text-muted-foreground leading-relaxed mb-5 lg:mb-6">
+              <p className="relative font-oswald text-xs lg:text-sm text-muted-foreground leading-relaxed mb-4">
                 {pillar.description}
               </p>
               
-              {/* Features */}
-              <div className="relative space-y-3">
+              {/* Features - Compact */}
+              <div className="relative space-y-2">
                 {pillar.features.map((feature, fIndex) => (
-                  <div key={fIndex} className="flex items-start gap-3 group/item">
-                    <CheckCircle2 className="w-5 h-5 lg:w-6 lg:h-6 text-primary mt-0.5 flex-shrink-0 group-hover/item:scale-110 transition-transform" />
-                    <span className="font-oswald text-sm lg:text-base text-foreground/80">{feature}</span>
+                  <div key={fIndex} className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 lg:w-4 lg:h-4 text-primary flex-shrink-0" />
+                    <span className="font-oswald text-xs lg:text-sm text-foreground/80">{feature}</span>
                   </div>
                 ))}
               </div>
               
               {/* Bottom accent */}
-              <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-primary/80 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500" />
+              <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-primary via-primary/60 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
             </div>
           ))}
-        </div>
-
-        {/* Bottom CTA Text */}
-        <div className="text-center mt-12 lg:mt-16">
-          <p className="font-oswald text-base lg:text-lg text-muted-foreground inline-flex items-center gap-2 group cursor-pointer hover:text-foreground transition-colors">
-            See why parents say LPA changed their athlete's trajectory
-            <ChevronRight className="w-5 h-5 text-primary group-hover:translate-x-1 transition-transform" />
-          </p>
         </div>
       </div>
     </section>
