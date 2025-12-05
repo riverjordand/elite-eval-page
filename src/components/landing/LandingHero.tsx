@@ -35,38 +35,38 @@ const LandingHero = ({
       <div className="relative z-10 w-full px-6 md:px-12 lg:px-20 xl:px-32">
         <div className="max-w-[1800px] mx-auto">
           {/* Logo with glow */}
-          <div className="mb-8 lg:mb-12 animate-fade-in flex justify-center">
+          <div className="mb-6 lg:mb-8 animate-fade-in flex justify-center">
             <div className="relative">
               <div className="absolute inset-0 blur-3xl bg-primary/20 scale-150" />
               <img 
                 src={lpaBolt} 
                 alt="Legendary Prep Academy" 
-                className="relative w-28 h-28 md:w-40 md:h-40 lg:w-52 lg:h-52 xl:w-64 xl:h-64 object-contain drop-shadow-2xl"
+                className="relative w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 xl:w-48 xl:h-48 object-contain drop-shadow-2xl"
               />
             </div>
           </div>
 
-          {/* Main Headline - Dramatic sizing */}
-          <h1 className="text-center text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-[9rem] 2xl:text-[11rem] font-bebas font-black uppercase leading-[0.9] tracking-tight mb-6 lg:mb-10">
+          {/* Main Headline - Scaled down for desktop */}
+          <h1 className="text-center text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bebas font-black uppercase leading-[0.9] tracking-tight mb-6 lg:mb-8">
             <span className="block text-foreground drop-shadow-lg">Developing Elite</span>
             <span className="block text-primary glow-primary-intense">Student-Athletes</span>
             <span className="block text-foreground drop-shadow-lg">For The Next Level</span>
           </h1>
 
           {/* Sub Headline */}
-          <p className="text-center text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-foreground/90 font-oswald font-light mb-10 lg:mb-14 max-w-5xl xl:max-w-6xl mx-auto leading-relaxed tracking-wide">
+          <p className="text-center text-lg sm:text-xl md:text-xl lg:text-2xl xl:text-2xl text-foreground/90 font-oswald font-light mb-8 lg:mb-10 max-w-4xl mx-auto leading-relaxed tracking-wide">
             Where serious baseball players come to build velocity, sharpen fundamentals, and become college-ready.
           </p>
 
-          {/* CTA - Larger, more dramatic */}
-          <div className="flex justify-center mb-12 lg:mb-16">
+          {/* CTA - Refined sizing */}
+          <div className="flex justify-center mb-10 lg:mb-12">
             <Button 
               size="lg" 
-              className="group bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-widest text-xl sm:text-2xl md:text-3xl lg:text-4xl px-12 py-7 md:px-20 md:py-10 lg:px-24 lg:py-12 h-auto shadow-2xl hover:shadow-primary/30 transition-all duration-500 hover:scale-105 border-glow-intense"
+              className="group bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-widest text-xl sm:text-2xl md:text-2xl lg:text-3xl px-10 py-6 md:px-14 md:py-7 lg:px-16 lg:py-8 h-auto shadow-2xl hover:shadow-primary/30 transition-all duration-500 hover:scale-105 border-glow-intense"
               onClick={onCtaClick}
             >
               Book My Free Evaluation 
-              <ArrowRight className="ml-4 w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 group-hover:translate-x-2 transition-transform duration-300" />
+              <ArrowRight className="ml-3 w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 group-hover:translate-x-2 transition-transform duration-300" />
             </Button>
           </div>
 
