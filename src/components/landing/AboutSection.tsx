@@ -1,73 +1,111 @@
-import { Target, Cpu, Dumbbell } from "lucide-react";
+import { Target, Cpu, Dumbbell, ChevronRight, CheckCircle2 } from "lucide-react";
 
 const pillars = [
   {
     icon: Target,
     title: "Elite Coaching",
-    stat: "50+ Years Combined",
-    description: "Former D1 and professional coaches who know exactly what college programs look for."
+    stat: "50+ Years Combined Pro Experience",
+    description: "Your athlete trains under coaches who've played D1 ball, been drafted by MLB organizations, and scouted for professional teams. They don't just teach the game — they've lived it.",
+    features: [
+      "Former D1 athletes & MLB scouts on staff",
+      "1-on-1 attention & personalized feedback",
+      "College recruiting guidance & connections"
+    ]
   },
   {
     icon: Cpu,
-    title: "Pro Technology",
-    stat: "Rapsodo + Video Analysis",
-    description: "The same data-driven analysis tools used by MLB organizations to develop talent."
+    title: "Pro-Level Technology",
+    stat: "Same Tools Used by MLB Teams",
+    description: "We use Rapsodo, high-speed video analysis, and biomechanics breakdowns to diagnose exactly what's holding your athlete back — then fix it with data-backed training.",
+    features: [
+      "Rapsodo ball tracking & spin analysis",
+      "Multi-angle slow-motion breakdowns",
+      "Real-time metrics & progress tracking"
+    ]
   },
   {
     icon: Dumbbell,
-    title: "Total Development",
-    stat: "Complete System",
-    description: "Mechanics, strength, mobility, and mental game—everything integrated into one program."
+    title: "Complete Development",
+    stat: "Mechanics + Strength + Mental Game",
+    description: "Most academies only train mechanics. We build the complete athlete — integrating strength, mobility, speed, and mental performance into one comprehensive system.",
+    features: [
+      "Baseball-specific strength programming",
+      "Mobility & injury prevention protocols",
+      "Mental performance & game IQ training"
+    ]
   }
 ];
 
 const AboutSection = () => {
   return (
-    <section className="relative py-16 md:py-24 lg:py-32 xl:py-40 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-card/30 to-background" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-primary/5 rounded-full blur-[150px]" />
+    <section className="relative py-20 md:py-28 lg:py-36 overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-card/50 to-background" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[600px] bg-primary/5 rounded-full blur-[150px]" />
       
-      <div className="container relative mx-auto px-6 lg:px-16 xl:px-24">
+      <div className="container relative mx-auto px-6 lg:px-16">
         {/* Header */}
-        <div className="text-center mb-12 md:mb-16 lg:mb-20 xl:mb-24">
-          <p className="font-oswald text-xs md:text-sm lg:text-base text-primary uppercase tracking-[0.3em] mb-3 lg:mb-4">
-            The LPA Difference
+        <div className="text-center mb-16 lg:mb-20">
+          <p className="font-oswald text-sm text-primary uppercase tracking-[0.3em] mb-4">
+            Why 500+ Families Choose LPA
           </p>
-          <h2 className="font-bebas text-3xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl text-foreground uppercase leading-none">
-            Why Athletes Choose Us
+          <h2 className="font-bebas text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-foreground uppercase leading-none mb-6">
+            The Unfair Advantage
           </h2>
+          <p className="font-oswald text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
+            Other academies have coaches or equipment. LPA has the <span className="text-foreground">complete system</span> — 
+            the same development approach used by professional organizations to turn raw talent into recruited players.
+          </p>
         </div>
         
-        {/* Pillars - horizontal layout on desktop */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 xl:gap-12">
+        {/* Pillars */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
           {pillars.map((pillar, index) => (
             <div 
               key={index}
-              className="group relative bg-card/40 backdrop-blur border border-border/30 p-6 md:p-8 lg:p-10 xl:p-12 hover:border-primary/40 transition-all duration-500"
+              className="group relative bg-card/60 backdrop-blur border border-border/40 p-8 lg:p-10 hover:border-primary/50 transition-all duration-500"
             >
-              {/* Icon */}
-              <div className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 mb-5 lg:mb-6 bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                <pillar.icon className="w-7 h-7 md:w-8 md:h-8 lg:w-10 lg:h-10 text-primary" strokeWidth={1.5} />
+              {/* Icon & Stat */}
+              <div className="flex items-start gap-4 mb-6">
+                <div className="w-14 h-14 bg-primary/15 flex items-center justify-center group-hover:bg-primary/25 transition-colors flex-shrink-0">
+                  <pillar.icon className="w-7 h-7 text-primary" strokeWidth={1.5} />
+                </div>
+                <div>
+                  <h3 className="font-bebas text-2xl lg:text-3xl text-foreground uppercase mb-1">
+                    {pillar.title}
+                  </h3>
+                  <p className="font-oswald text-xs text-primary uppercase tracking-wide">
+                    {pillar.stat}
+                  </p>
+                </div>
               </div>
-              
-              {/* Stat */}
-              <div className="font-bebas text-lg md:text-xl lg:text-2xl xl:text-3xl text-primary mb-2 lg:mb-3">
-                {pillar.stat}
-              </div>
-              
-              {/* Title */}
-              <h3 className="font-bebas text-xl md:text-2xl lg:text-3xl xl:text-4xl text-foreground uppercase mb-3 lg:mb-4">
-                {pillar.title}
-              </h3>
               
               {/* Description */}
-              <p className="font-oswald text-sm md:text-base lg:text-lg text-muted-foreground leading-relaxed">
+              <p className="font-oswald text-sm md:text-base text-muted-foreground leading-relaxed mb-6">
                 {pillar.description}
               </p>
               
+              {/* Features */}
+              <div className="space-y-3">
+                {pillar.features.map((feature, fIndex) => (
+                  <div key={fIndex} className="flex items-start gap-3">
+                    <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                    <span className="font-oswald text-sm text-foreground/80">{feature}</span>
+                  </div>
+                ))}
+              </div>
+              
+              {/* Bottom accent */}
               <div className="absolute bottom-0 left-0 w-full h-1 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
             </div>
           ))}
+        </div>
+
+        {/* Bottom CTA Text */}
+        <div className="text-center mt-12 lg:mt-16">
+          <p className="font-oswald text-muted-foreground inline-flex items-center gap-2">
+            See why parents say LPA changed their athlete's trajectory
+            <ChevronRight className="w-4 h-4 text-primary" />
+          </p>
         </div>
       </div>
     </section>
