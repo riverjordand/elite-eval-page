@@ -23,7 +23,7 @@ const IntroSection = () => {
         <div className="absolute inset-0 bg-background" />
         
         {/* Athlete image positioned on right side */}
-        <img src={welcomeAthlete} alt="LPA Athlete" className="absolute right-0 top-0 h-full w-full lg:w-3/4 xl:w-2/3 object-cover object-top" />
+        <img src={welcomeAthlete} alt="LPA Athlete" className="absolute right-0 top-0 h-full w-full lg:w-3/4 xl:w-2/3 object-cover object-[center_20%]" />
         
         {/* Dramatic gradient fade from left */}
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 via-40% to-transparent" />
