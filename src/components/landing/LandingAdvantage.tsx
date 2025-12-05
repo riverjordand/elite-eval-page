@@ -28,40 +28,44 @@ const LandingAdvantage = () => {
 
   return (
     <>
-      <SectionDivider fromColor="#1a1a1a" toColor="#0a0a0a" />
-      <section className="py-16 md:py-24 lg:py-32 xl:py-40 bg-[#0a0a0a]">
-        <div className="container mx-auto px-4 md:px-8 lg:px-12 xl:px-16">
-          <div className="max-w-7xl xl:max-w-[1400px] mx-auto">
-            {/* Header */}
-            <div className="text-center mb-12 md:mb-16 lg:mb-20 xl:mb-24">
-              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bebas font-black uppercase mb-4 md:mb-6 tracking-tight leading-tight">
-                The Legendary Advantage
+      <SectionDivider fromColor="#0a0a0a" toColor="#000000" />
+      <section className="section-dark py-20 md:py-28 lg:py-40 xl:py-48">
+        <div className="px-4 md:px-8 lg:px-12 xl:px-20">
+          <div className="max-w-[1800px] mx-auto">
+            {/* Header - Dramatic typography */}
+            <div className="text-center mb-16 md:mb-20 lg:mb-28 xl:mb-36">
+              <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl 2xl:text-[10rem] font-bebas font-black uppercase tracking-tight leading-[0.9] mb-6 lg:mb-8">
+                The Legendary<br />
+                <span className="text-primary glow-primary">Advantage</span>
               </h2>
-              <p className="text-lg md:text-xl lg:text-2xl xl:text-3xl text-primary font-oswald font-semibold uppercase">
+              <p className="text-xl md:text-2xl lg:text-3xl xl:text-4xl text-muted-foreground font-oswald font-light uppercase tracking-widest">
                 Why Athletes Choose LPA
               </p>
             </div>
 
-            {/* Three Column Layout */}
-            <div className="grid md:grid-cols-3 gap-6 md:gap-8 lg:gap-10 xl:gap-12">
+            {/* Three Column Layout - Full width on desktop */}
+            <div className="grid md:grid-cols-3 gap-6 md:gap-8 lg:gap-12 xl:gap-16">
               {advantages.map((advantage, index) => {
                 const Icon = advantage.icon;
                 return (
                   <div 
                     key={index}
-                    className="bg-card border-2 border-border rounded-xl p-6 md:p-8 lg:p-10 xl:p-12 text-center hover:border-primary/50 transition-all duration-300 animate-fade-in"
+                    className="group relative bg-gradient-to-b from-card to-background border border-border/50 rounded-2xl lg:rounded-3xl p-8 md:p-10 lg:p-14 xl:p-16 text-center hover:border-primary/50 transition-all duration-500 animate-fade-in"
                     style={{ animationDelay: `${index * 150}ms` }}
                   >
+                    {/* Glow effect on hover */}
+                    <div className="absolute inset-0 rounded-2xl lg:rounded-3xl bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    
                     {/* Icon */}
-                    <div className="w-14 h-14 md:w-18 md:h-18 lg:w-20 lg:h-20 xl:w-24 xl:h-24 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-5 md:mb-6 lg:mb-8">
-                      <Icon className="w-7 h-7 md:w-9 md:h-9 lg:w-10 lg:h-10 xl:w-12 xl:h-12 text-primary" />
+                    <div className="relative w-20 h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 xl:w-40 xl:h-40 bg-primary/10 border border-primary/20 rounded-2xl lg:rounded-3xl flex items-center justify-center mx-auto mb-8 lg:mb-12 group-hover:border-primary/40 transition-colors duration-500">
+                      <Icon className="w-10 h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 xl:w-20 xl:h-20 text-primary" />
                     </div>
 
                     {/* Content */}
-                    <h3 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bebas font-black uppercase mb-3 md:mb-4 lg:mb-5 text-foreground leading-tight">
+                    <h3 className="relative text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bebas font-black uppercase mb-4 lg:mb-6 text-foreground leading-tight">
                       {advantage.title}
                     </h3>
-                    <p className="text-base md:text-lg lg:text-xl xl:text-2xl text-muted-foreground font-oswald leading-relaxed">
+                    <p className="relative text-base md:text-lg lg:text-xl xl:text-2xl text-muted-foreground font-oswald leading-relaxed">
                       {advantage.description}
                     </p>
                   </div>
