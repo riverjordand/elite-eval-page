@@ -22,7 +22,7 @@ const facilities = [
     description: "Built for rotational athletes with Olympic platforms, baseball-specific machines, and sport-focused programming.",
     image: facilityStrength,
     features: ["Olympic lifting platforms", "Baseball-specific machines", "Power & speed equipment", "Mobility stations"],
-    stat: "Full Gym"
+    stat: "Full Training Facility"
   },
   { 
     title: "Video Analysis Lab", 
