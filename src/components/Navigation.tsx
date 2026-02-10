@@ -35,6 +35,12 @@ const Navigation = () => {
               Schedule
             </Link>
             <Link 
+              to="/sponsors" 
+              className="font-bebas text-sm md:text-base lg:text-lg text-foreground/80 hover:text-primary uppercase tracking-wider transition-colors"
+            >
+              Sponsors
+            </Link>
+            <Link 
               to="/contact" 
               className="font-bebas text-sm md:text-base lg:text-lg text-foreground/80 hover:text-primary uppercase tracking-wider transition-colors"
             >
