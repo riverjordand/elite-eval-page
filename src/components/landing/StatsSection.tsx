@@ -9,7 +9,6 @@ const stats = [
 
 const CountUp = ({ target, suffix, decimal, triggered }: { target: number; suffix: string; decimal?: boolean; triggered: boolean }) => {
   const [current, setCurrent] = useState(0);
-
   useEffect(() => {
     if (!triggered) return;
     let frame: number;
@@ -25,7 +24,6 @@ const CountUp = ({ target, suffix, decimal, triggered }: { target: number; suffi
     frame = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(frame);
   }, [triggered, target]);
-
   const display = decimal ? current.toFixed(1) : Math.round(current).toString();
   return <>{display}{suffix}</>;
 };
@@ -47,23 +45,23 @@ const StatsSection = () => {
   }, [onIntersect]);
 
   return (
-    <section ref={ref} className="relative bg-card border-y border-border/20">
-      <div className="container mx-auto px-6 lg:px-16 py-8 md:py-10">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+    <section ref={ref} className="border-y border-border/10">
+      <div className="container mx-auto px-6 lg:px-16">
+        <div className="grid grid-cols-4 divide-x divide-border/10">
           {stats.map((stat, index) => (
             <div
               key={index}
-              className="text-center transition-all duration-700"
+              className="py-8 md:py-10 lg:py-12 text-center transition-all duration-700"
               style={{
                 opacity: visible ? 1 : 0,
-                transform: visible ? "translateY(0)" : "translateY(16px)",
-                transitionDelay: `${index * 100}ms`,
+                transform: visible ? "translateY(0)" : "translateY(10px)",
+                transitionDelay: `${index * 80}ms`,
               }}
             >
-              <div className="font-bebas text-3xl md:text-4xl lg:text-5xl text-primary leading-none mb-1">
+              <div className="font-bebas text-2xl md:text-4xl lg:text-5xl text-primary leading-none mb-1">
                 <CountUp target={stat.value} suffix={stat.suffix} decimal={stat.decimal} triggered={visible} />
               </div>
-              <div className="font-bebas text-xs md:text-sm text-foreground/50 uppercase tracking-widest">
+              <div className="font-oswald text-[9px] md:text-[11px] text-foreground/30 uppercase tracking-[0.25em]">
                 {stat.label}
               </div>
             </div>

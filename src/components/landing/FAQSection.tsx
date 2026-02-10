@@ -1,98 +1,74 @@
 import { useState } from "react";
-import { ChevronDown, MessageCircle } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const faqs = [
-  {
-    q: "Who do we play?",
-    a: "Spring: LPA competes in Division II of the Canyon Athletic Association (CAA). Fall: LPA plays a heavy JUCO circuit and participates in various college scrimmages. Summer: The team stays active with training, development, and club/high-school tournaments."
-  },
-  {
-    q: "When does the school year start and end?",
-    a: "The first day of school is August 5th and the official last day of school is May 2nd. For detailed dates and breaks, refer to the Premier Prep academic calendar — our online school partner."
-  },
-  {
-    q: "What does the summer schedule look like?",
-    a: "Summer at LPA focuses on continued training and development. The program includes various tournaments — usually club or high-school-level events — spaced throughout the summer to maintain competitive play and skill building."
-  },
-  {
-    q: "What does the curriculum look like with Premier Prep?",
-    a: "LPA partners with Premier Prep, an online charter high school that specializes in working with student-athletes. The curriculum is flexible, rigorous, and designed with the student-athlete in mind, making it easier to balance academics and athletics."
-  },
-  {
-    q: "What does a typical day at LPA look like?",
-    a: "LPA's schedule is designed to mirror a college athletics experience. Report times typically start around 7:00 AM, with a combination of academic work and athletic training sessions throughout the day. The day usually wraps up by early afternoon."
-  },
-  {
-    q: "How can I learn more or apply?",
-    a: "Book a tour to see the facilities and meet the staff in person. Our team can walk you through the application process and answer any remaining questions you have about the program."
-  },
+  { q: "Who do we play?", a: "Spring: LPA competes in Division II of the Canyon Athletic Association (CAA). Fall: LPA plays a heavy JUCO circuit and participates in various college scrimmages. Summer: The team stays active with training, development, and club/high-school tournaments." },
+  { q: "When does the school year start and end?", a: "The first day of school is August 5th and the official last day of school is May 2nd. For detailed dates and breaks, refer to the Premier Prep academic calendar — our online school partner." },
+  { q: "What does the summer schedule look like?", a: "Summer at LPA focuses on continued training and development. The program includes various tournaments — usually club or high-school-level events — spaced throughout the summer to maintain competitive play and skill building." },
+  { q: "What does the curriculum look like with Premier Prep?", a: "LPA partners with Premier Prep, an online charter high school that specializes in working with student-athletes. The curriculum is flexible, rigorous, and designed with the student-athlete in mind." },
+  { q: "What does a typical day at LPA look like?", a: "LPA's schedule is designed to mirror a college athletics experience. Report times typically start around 7:00 AM, with a combination of academic work and athletic training sessions throughout the day." },
+  { q: "How can I learn more or apply?", a: "Book a tour to see the facilities and meet the staff in person. Our team can walk you through the application process and answer any remaining questions." },
 ];
 
 const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="relative py-16 md:py-24 lg:py-36 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-card/10 to-background" />
-      
+    <section className="relative py-20 md:py-28 lg:py-36 border-t border-border/10">
       <div className="container relative mx-auto px-6 lg:px-16">
-        {/* Header */}
-        <div className="text-center mb-10 md:mb-14">
-          <p className="font-oswald text-xs text-accent uppercase tracking-[0.3em] mb-3">
-            Common Questions
-          </p>
-          <h2 className="font-bebas text-3xl md:text-5xl lg:text-6xl text-foreground uppercase leading-none mb-4">
-            Everything You Need To Know
-          </h2>
-          <p className="font-oswald text-sm text-foreground/50 max-w-xl mx-auto">
-            Got questions about LPA? We've got answers.
-          </p>
-        </div>
-        
-        {/* FAQ Items */}
-        <div className="max-w-3xl mx-auto space-y-2">
-          {faqs.map((faq, index) => {
-            const isOpen = openIndex === index;
-            
-            return (
-              <div
-                key={index}
-                className="border border-border/15 bg-card/30 hover:bg-card/50 transition-colors duration-300"
-              >
-                <button
-                  onClick={() => setOpenIndex(isOpen ? null : index)}
-                  className="w-full flex items-center justify-between gap-4 p-5 lg:p-6 text-left"
-                >
-                  <div className="flex items-center gap-4">
-                    <span className={`font-bebas text-sm w-8 text-center transition-colors duration-300 ${isOpen ? 'text-primary' : 'text-foreground/30'}`}>
-                      {String(index + 1).padStart(2, '0')}
-                    </span>
-                    <h3 className={`font-bebas text-lg md:text-xl uppercase leading-tight transition-colors duration-300 ${isOpen ? 'text-primary' : 'text-foreground'}`}>
-                      {faq.q}
-                    </h3>
-                  </div>
-                  <ChevronDown className={`w-5 h-5 text-foreground/40 flex-shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180 text-primary' : ''}`} />
-                </button>
-                
-                <div className={`overflow-hidden transition-all duration-400 ease-out ${isOpen ? 'max-h-[400px] opacity-100' : 'max-h-0 opacity-0'}`}>
-                  <div className="px-5 lg:px-6 pb-6 pl-[4.25rem] lg:pl-[4.75rem]">
-                    <p className="font-oswald text-sm md:text-base text-foreground/60 leading-relaxed border-l border-primary/20 pl-4">
-                      {faq.a}
-                    </p>
-                  </div>
-                </div>
+        {/* Two column - editorial layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+          {/* Left - header */}
+          <div className="lg:col-span-4">
+            <div className="lg:sticky lg:top-32">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-8 h-px bg-primary" />
+                <span className="font-oswald text-[10px] text-accent uppercase tracking-[0.4em]">FAQ</span>
               </div>
-            );
-          })}
-        </div>
-        
-        {/* Contact CTA */}
-        <div className="text-center mt-10 md:mt-14">
-          <Link to="/contact" className="inline-flex items-center gap-2 text-foreground/50 hover:text-primary transition-colors group">
-            <MessageCircle className="w-4 h-4 group-hover:scale-110 transition-transform" />
-            <span className="font-oswald text-sm">Still have questions? <span className="text-primary">Contact us</span></span>
-          </Link>
+              <h2 className="font-bebas text-4xl md:text-5xl lg:text-6xl text-foreground uppercase leading-[0.88] mb-4">
+                Common<br /><span className="text-primary">Questions</span>
+              </h2>
+              <p className="font-oswald text-sm text-foreground/30 leading-relaxed mb-6">
+                Everything you need to know about the academy and the program.
+              </p>
+              <Link to="/contact" className="font-oswald text-xs text-primary hover:text-primary/80 uppercase tracking-[0.2em] transition-colors">
+                Contact Us →
+              </Link>
+            </div>
+          </div>
+          
+          {/* Right - accordion */}
+          <div className="lg:col-span-8">
+            <div className="divide-y divide-border/10">
+              {faqs.map((faq, i) => {
+                const isOpen = openIndex === i;
+                return (
+                  <div key={i}>
+                    <button
+                      onClick={() => setOpenIndex(isOpen ? null : i)}
+                      className="w-full flex items-center justify-between gap-6 py-6 text-left group"
+                    >
+                      <div className="flex items-start gap-5">
+                        <span className="font-bebas text-sm text-foreground/15 pt-0.5">{String(i + 1).padStart(2, '0')}</span>
+                        <h3 className={`font-bebas text-lg md:text-xl uppercase leading-tight transition-colors ${isOpen ? 'text-primary' : 'text-foreground group-hover:text-foreground/70'}`}>
+                          {faq.q}
+                        </h3>
+                      </div>
+                      <ChevronDown className={`w-4 h-4 text-foreground/20 flex-shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180 text-primary' : ''}`} />
+                    </button>
+                    <div className={`overflow-hidden transition-all duration-400 ${isOpen ? 'max-h-[300px] opacity-100' : 'max-h-0 opacity-0'}`}>
+                      <div className="pb-6 pl-10 md:pl-12">
+                        <p className="font-oswald text-sm text-foreground/40 leading-relaxed">
+                          {faq.a}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
     </section>
