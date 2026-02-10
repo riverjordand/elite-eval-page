@@ -75,7 +75,7 @@ const StatsSection = () => {
               }}
             >
               <div className="flex items-center justify-center gap-2 mb-1">
-                <TrendingUp className="w-4 h-4 lg:w-5 lg:h-5 text-primary-foreground/60 hidden lg:block group-hover:scale-110 transition-transform" />
+                <TrendingUp className="w-4 h-4 lg:w-5 lg:h-5 text-accent/70 hidden lg:block group-hover:scale-110 transition-transform" />
                 <div 
                   className="font-bebas text-3xl md:text-4xl lg:text-5xl text-primary-foreground leading-none"
                   style={{ textShadow: '0 4px 30px rgba(0,0,0,0.3)' }}

@@ -5,7 +5,7 @@ import lpaArch from "@/assets/lpa-arch.png";
 const FooterSection = () => {
   return (
     <footer className="relative bg-black pt-16 pb-8">
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent" />
       
       <div className="container mx-auto px-6 lg:px-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
