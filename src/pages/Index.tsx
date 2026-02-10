@@ -5,6 +5,7 @@ import StatsSection from "@/components/landing/StatsSection";
 import IntroSection from "@/components/landing/IntroSection";
 import AboutSection from "@/components/landing/AboutSection";
 import FacilitySection from "@/components/landing/FacilitySection";
+import ExperienceSection from "@/components/landing/ExperienceSection";
 import MediaSection from "@/components/landing/MediaSection";
 import TestimonialsSection from "@/components/landing/TestimonialsSection";
 import ResultsSection from "@/components/landing/ResultsSection";
@@ -22,6 +23,7 @@ const Index = () => {
       <ResultsSection />
       <AboutSection />
       <FacilitySection />
+      <ExperienceSection />
       <MediaSection />
       <TestimonialsSection />
       <FAQSection />
