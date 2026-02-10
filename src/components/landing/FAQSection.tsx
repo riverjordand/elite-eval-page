@@ -3,28 +3,28 @@ import { ChevronDown, HelpCircle, MessageCircle } from "lucide-react";
 
 const faqs = [
   {
-    q: "What ages and skill levels do you work with?",
-    a: "We work with athletes in grades 6-12 and post-grad. Whether your athlete is just getting serious about baseball or already competing at a high level, our coaches tailor training to meet them where they are and push them to the next level."
+    q: "Who do we play?",
+    a: "Spring: LPA competes in Division II of the Canyon Athletic Association (CAA). Fall: LPA plays a heavy JUCO circuit and participates in various college scrimmages. Summer: The team stays active with training, development, and club/high-school tournaments."
   },
   {
-    q: "What makes LPA different from other academies?",
-    a: "Three things set us apart: (1) Our coaches have played D1 and professional baseball — they've lived it. (2) We use the same technology MLB organizations use. (3) We develop the complete athlete — mechanics, strength, mobility, academics, and mental game."
+    q: "When does the school year start and end?",
+    a: "The first day of school is August 5th and the official last day of school is May 2nd. For detailed dates and breaks, refer to the Premier Prep academic calendar — our online school partner."
   },
   {
-    q: "Do you help with college recruiting?",
-    a: "Yes. Our coaches have direct connections with college programs across D1, D2, D3, NAIA, and JUCO levels. We've helped place 50+ athletes at the college level and actively guide families through the recruiting process."
+    q: "What does the summer schedule look like?",
+    a: "Summer at LPA focuses on continued training and development. The program includes various tournaments — usually club or high-school-level events — spaced throughout the summer to maintain competitive play and skill building."
   },
   {
-    q: "What does a typical training day look like?",
-    a: "Athletes go through structured sessions that include on-field skill work, video and data-driven analysis, strength and conditioning, and recovery. Every session is designed with purpose — no wasted reps."
+    q: "What does the curriculum look like with Premier Prep?",
+    a: "LPA partners with Premier Prep, an online charter high school that specializes in working with student-athletes. The curriculum is flexible, rigorous, and designed with the student-athlete in mind, making it easier to balance academics and athletics."
   },
   {
-    q: "Do you offer academics alongside training?",
-    a: "Yes. We partner with a fully accredited online charter school so student-athletes can train at an elite level while staying on track academically. Academics are built into the daily schedule."
+    q: "What does a typical day at LPA look like?",
+    a: "LPA's schedule is designed to mirror a college athletics experience. Report times typically start around 7:00 AM, with a combination of academic work and athletic training sessions throughout the day. The day usually wraps up by early afternoon."
   },
   {
-    q: "Is housing available for out-of-state athletes?",
-    a: "Yes. We offer host family housing for out-of-state athletes who want to train full-time at LPA. This allows athletes from anywhere in the country to access our program year-round."
+    q: "How can I learn more or apply?",
+    a: "Book a tour to see the facilities and meet the staff in person. Our team can walk you through the application process and answer any remaining questions you have about the program."
   },
 ];
 
