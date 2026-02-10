@@ -1,4 +1,5 @@
 import { MapPin, Phone, Mail, Instagram, Facebook, Youtube } from "lucide-react";
+import { Link } from "react-router-dom";
 import lpaArch from "@/assets/lpa-arch.png";
 
 const FooterSection = () => {
@@ -28,7 +29,7 @@ const FooterSection = () => {
             <ul className="space-y-2">
               <li><a href="#" className="font-oswald text-sm text-muted-foreground hover:text-primary">Free Evaluation</a></li>
               <li><a href="#" className="font-oswald text-sm text-muted-foreground hover:text-primary">Training Programs</a></li>
-              <li><a href="#" className="font-oswald text-sm text-muted-foreground hover:text-primary">Meet the Coaches</a></li>
+              <li><Link to="/staff" className="font-oswald text-sm text-muted-foreground hover:text-primary">Meet the Staff</Link></li>
               <li><a href="#" className="font-oswald text-sm text-muted-foreground hover:text-primary">Success Stories</a></li>
             </ul>
           </div>
