@@ -76,7 +76,7 @@ const HeroSection = () => {
 
             {/* CTA */}
             <div className="flex justify-center lg:justify-start mb-6 md:mb-8 lg:mb-10">
-              <Link to="/apply">
+              <Link to="/appointments">
                 <Button 
                   size="lg"
                   className="group bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-[0.1em] md:tracking-[0.15em] text-base md:text-lg lg:text-xl px-6 md:px-8 lg:px-10 py-4 md:py-6 lg:py-7 h-auto border-glow-ultra transition-all duration-300 hover:scale-105"

@@ -51,7 +51,7 @@ const ResultsSection = () => {
         </div>
 
         <div className="text-center">
-          <Link to="/apply">
+          <Link to="/appointments">
             <Button size="lg" className="group bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-[0.15em] text-lg px-10 py-6 h-auto">
               Apply Now
               <ArrowRight className="ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform" />

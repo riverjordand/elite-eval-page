@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronDown } from "lucide-react";
+import { Link } from "react-router-dom";
 import lpaBolt from "@/assets/lpa-badge-cactus.png";
 
 interface LandingHeroNewProps {
@@ -74,16 +75,17 @@ const LandingHeroNew = ({ onCtaClick }: LandingHeroNewProps) => {
         </p>
 
         {/* CTA with intense glow */}
-        <Button 
-          size="lg" 
-          className="group bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-[0.15em] text-lg md:text-2xl lg:text-3xl px-8 md:px-14 lg:px-16 py-5 md:py-7 lg:py-8 h-auto shadow-2xl border-glow-intense transition-all duration-500 hover:scale-105"
-          onClick={onCtaClick}
-        >
-          <span className="flex items-center">
-            Book My Free Evaluation
-            <ArrowRight className="ml-3 w-5 h-5 md:w-7 md:h-7 lg:w-8 lg:h-8 group-hover:translate-x-2 transition-transform" />
-          </span>
-        </Button>
+        <Link to="/appointments">
+          <Button 
+            size="lg" 
+            className="group bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-[0.15em] text-lg md:text-2xl lg:text-3xl px-8 md:px-14 lg:px-16 py-5 md:py-7 lg:py-8 h-auto shadow-2xl border-glow-intense transition-all duration-500 hover:scale-105"
+          >
+            <span className="flex items-center">
+              Book My Free Evaluation
+              <ArrowRight className="ml-3 w-5 h-5 md:w-7 md:h-7 lg:w-8 lg:h-8 group-hover:translate-x-2 transition-transform" />
+            </span>
+          </Button>
+        </Link>
       </div>
 
       {/* Scroll indicator */}
