@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import logoBolt from "@/assets/lpa-logo-bolt.webp";
+import logoBolt from "@/assets/lpa-badge-cactus.png";
 const Hero = () => {
   return <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Video with Overlay */}
