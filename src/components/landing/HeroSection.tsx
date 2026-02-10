@@ -1,12 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Star } from "lucide-react";
+import { Link } from "react-router-dom";
 import lpaBolt from "@/assets/lpa-badge-cactus.png";
 
-interface HeroSectionProps {
-  onCtaClick?: () => void;
-}
-
-const HeroSection = ({ onCtaClick }: HeroSectionProps) => {
+const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Video Background */}
@@ -79,14 +76,15 @@ const HeroSection = ({ onCtaClick }: HeroSectionProps) => {
 
             {/* CTA */}
             <div className="flex justify-center lg:justify-start mb-6 md:mb-8 lg:mb-10">
-              <Button 
-                size="lg"
-                onClick={onCtaClick}
-                className="group bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-[0.1em] md:tracking-[0.15em] text-base md:text-lg lg:text-xl px-6 md:px-8 lg:px-10 py-4 md:py-6 lg:py-7 h-auto border-glow-ultra transition-all duration-300 hover:scale-105"
-              >
-                Start Free Evaluation
-                <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
+              <Link to="/apply">
+                <Button 
+                  size="lg"
+                  className="group bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-[0.1em] md:tracking-[0.15em] text-base md:text-lg lg:text-xl px-6 md:px-8 lg:px-10 py-4 md:py-6 lg:py-7 h-auto border-glow-ultra transition-all duration-300 hover:scale-105"
+                >
+                  Apply Now
+                  <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
             </div>
 
           </div>

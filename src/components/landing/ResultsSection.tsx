@@ -1,12 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, GraduationCap, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 import brayanMoreno from "@/assets/athletes/brayan-moreno-southwestern.jpg";
 import milesKeogh from "@/assets/athletes/miles-keogh-coastal.jpg";
 import prestonFrancis from "@/assets/athletes/preston-francis-glendale.jpg";
-
-interface ResultsSectionProps {
-  onCtaClick?: () => void;
-}
 
 const commits = [
   { name: "Brayan Moreno", school: "Southwestern CC", position: "RHP", stat: "+8 MPH", image: brayanMoreno },
@@ -14,7 +11,7 @@ const commits = [
   { name: "Preston Francis", school: "Glendale CC", position: "OF", stat: "3 Offers", image: prestonFrancis },
 ];
 
-const ResultsSection = ({ onCtaClick }: ResultsSectionProps) => {
+const ResultsSection = () => {
   return (
     <section className="relative py-20 md:py-28 lg:py-36 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-black via-card/20 to-background" />
@@ -54,10 +51,12 @@ const ResultsSection = ({ onCtaClick }: ResultsSectionProps) => {
         </div>
 
         <div className="text-center">
-          <Button size="lg" onClick={onCtaClick} className="group bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-[0.15em] text-lg px-10 py-6 h-auto">
-            See If Your Athlete Qualifies
-            <ArrowRight className="ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </Button>
+          <Link to="/apply">
+            <Button size="lg" className="group bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-[0.15em] text-lg px-10 py-6 h-auto">
+              Apply Now
+              <ArrowRight className="ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </Link>
         </div>
       </div>
     </section>
