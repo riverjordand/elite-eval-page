@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/landing/HeroSection";
 import StatsSection from "@/components/landing/StatsSection";
@@ -8,38 +7,23 @@ import FacilitySection from "@/components/landing/FacilitySection";
 import MediaSection from "@/components/landing/MediaSection";
 import TestimonialsSection from "@/components/landing/TestimonialsSection";
 import ResultsSection from "@/components/landing/ResultsSection";
-import CTASection from "@/components/landing/CTASection";
 import FAQSection from "@/components/landing/FAQSection";
 import FooterSection from "@/components/landing/FooterSection";
-import EvaluationForm from "@/components/landing/EvaluationForm";
-import FloatingCTA from "@/components/FloatingCTA";
 
 const Index = () => {
-  const [showForm, setShowForm] = useState(false);
-
-  const openForm = () => setShowForm(true);
-
   return (
     <main className="min-h-screen bg-background">
-      <Navigation onBookNowClick={openForm} />
-      <HeroSection onCtaClick={openForm} />
+      <Navigation />
+      <HeroSection />
       <StatsSection />
       <IntroSection />
       <AboutSection />
       <FacilitySection />
       <MediaSection />
       <TestimonialsSection />
-      <ResultsSection onCtaClick={openForm} />
-      <CTASection onCtaClick={openForm} />
+      <ResultsSection />
       <FAQSection />
       <FooterSection />
-      
-      <EvaluationForm 
-        open={showForm} 
-        onOpenChange={setShowForm} 
-      />
-      
-      <FloatingCTA onClick={openForm} />
     </main>
   );
 };

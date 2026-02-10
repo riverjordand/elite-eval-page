@@ -2,7 +2,6 @@ import { useState } from "react";
 import { ArrowLeft, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
-import EvaluationForm from "@/components/landing/EvaluationForm";
 import FloatingCTA from "@/components/FloatingCTA";
 import coachMarcus from "@/assets/coach-marcus.webp";
 import coachJoe from "@/assets/coach-joe.webp";
@@ -69,13 +68,11 @@ const staff = [
 ];
 
 const Staff = () => {
-  const [showForm, setShowForm] = useState(false);
   const [selectedCoach, setSelectedCoach] = useState<number | null>(null);
-  const openForm = () => setShowForm(true);
 
   return (
     <main className="min-h-screen bg-background">
-      <Navigation onBookNowClick={openForm} />
+      <Navigation />
 
       {/* Hero */}
       <section className="relative pt-28 md:pt-36 lg:pt-40 pb-12 md:pb-16 lg:pb-20 overflow-hidden">
@@ -224,8 +221,7 @@ const Staff = () => {
         </div>
       )}
 
-      <EvaluationForm open={showForm} onOpenChange={setShowForm} />
-      <FloatingCTA onClick={openForm} />
+      <FloatingCTA />
     </main>
   );
 };
