@@ -46,79 +46,62 @@ const ExperienceSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative py-12 md:py-16 lg:py-20 xl:py-24 overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-card/30 to-background" />
-      <div className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-primary/6 rounded-full blur-[180px]" />
-      <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-primary/4 rounded-full blur-[150px]" />
+    <section ref={sectionRef} className="relative py-16 md:py-24 lg:py-32 overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-card/10 to-background" />
 
-      <div className="container relative mx-auto px-4 md:px-6 lg:px-12">
+      <div className="container relative mx-auto px-6 lg:px-16">
         {/* Header */}
-        <div className={`text-center lg:text-left mb-8 md:mb-10 lg:mb-12 transition-all duration-700 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
-          <p className="font-oswald text-[10px] md:text-xs lg:text-sm text-accent uppercase tracking-[0.2em] md:tracking-[0.3em] mb-2 md:mb-3 glow-accent">
+        <div className={`max-w-2xl mb-10 md:mb-14 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+          <p className="font-oswald text-xs text-accent uppercase tracking-[0.3em] mb-3">
             The Full Athlete Experience
           </p>
-          <h2 className="font-bebas text-2xl md:text-4xl lg:text-5xl xl:text-6xl text-foreground uppercase leading-none drop-shadow-lg mb-3 md:mb-4">
-            More Than <span className="text-primary glow-primary-intense">Training</span>
+          <h2 className="font-bebas text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-foreground uppercase leading-none mb-3">
+            More Than <span className="text-primary">Training</span>
           </h2>
-          <p className="font-oswald text-xs md:text-sm lg:text-base text-muted-foreground max-w-2xl mx-auto lg:mx-0">
-            At LPA, athletes don't just train — they belong. From personal locker rooms to pro-grade equipment and branded team attire, every detail builds identity and pride.
+          <p className="font-oswald text-sm md:text-base text-foreground/50">
+            At LPA, athletes don't just train — they belong. From personal locker rooms to pro-grade equipment and branded team attire.
           </p>
         </div>
 
-        {/* Photo Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 lg:gap-6 mb-8 md:mb-10">
+        {/* Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6 mb-10">
           {highlights.map((item, index) => (
             <div
               key={index}
-              className={`group relative overflow-hidden transition-all duration-700 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+              className={`group relative overflow-hidden transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
               style={{ transitionDelay: `${200 + index * 150}ms` }}
             >
-              {/* Image */}
               <div className="relative aspect-[4/3] overflow-hidden">
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   loading="lazy"
                 />
-                {/* Overlays */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/10" />
-                <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/15 transition-colors duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
 
-                {/* Icon badge */}
-                <div className="absolute top-3 left-3 z-10">
-                  <div
-                    className="w-10 h-10 lg:w-12 lg:h-12 bg-primary/90 flex items-center justify-center"
-                    style={{ boxShadow: '0 0 20px hsl(var(--primary) / 0.4)' }}
-                  >
-                    <item.icon className="w-5 h-5 lg:w-6 lg:h-6 text-primary-foreground" strokeWidth={1.5} />
+                {/* Icon */}
+                <div className="absolute top-3 left-3">
+                  <div className="w-9 h-9 bg-primary flex items-center justify-center">
+                    <item.icon className="w-4 h-4 text-primary-foreground" strokeWidth={1.5} />
                   </div>
                 </div>
 
-                {/* Content overlay */}
-                <div className="absolute bottom-0 left-0 right-0 p-4 lg:p-5">
-                  <h3 className="font-bebas text-xl md:text-2xl lg:text-2xl text-foreground uppercase leading-tight mb-1 drop-shadow-lg">
-                    {item.title}
-                  </h3>
-                  <p className="font-oswald text-xs lg:text-sm text-foreground/80 leading-relaxed">
-                    {item.description}
-                  </p>
+                <div className="absolute bottom-0 left-0 right-0 p-4">
+                  <h3 className="font-bebas text-xl text-foreground uppercase mb-1">{item.title}</h3>
+                  <p className="font-oswald text-xs text-foreground/70 leading-relaxed">{item.description}</p>
                 </div>
-
-                {/* Hover border */}
-                <div className="absolute inset-0 border-2 border-primary/0 group-hover:border-primary/40 transition-colors duration-300 pointer-events-none" />
               </div>
             </div>
           ))}
         </div>
 
         {/* CTA */}
-        <div className={`text-center transition-all duration-700 ease-out delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+        <div className={`text-center transition-all duration-700 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
           <Link to="/experience">
             <Button
               variant="outline"
-              className="group font-bebas uppercase tracking-widest text-sm lg:text-base border-primary/40 text-primary hover:bg-primary hover:text-primary-foreground px-6 py-5 h-auto transition-all duration-300"
+              className="group font-bebas uppercase tracking-widest text-sm border-border/30 text-foreground/70 hover:bg-primary hover:text-primary-foreground hover:border-primary px-8 py-5 h-auto transition-all duration-300"
             >
               See the Full Experience
               <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
