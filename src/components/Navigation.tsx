@@ -24,6 +24,12 @@ const Navigation = ({ onBookNowClick }: NavigationProps) => {
             >
               Meet The Staff
             </Link>
+            <Link 
+              to="/apply" 
+              className="font-bebas text-sm md:text-base lg:text-lg text-foreground/80 hover:text-primary uppercase tracking-wider transition-colors"
+            >
+              Apply
+            </Link>
 
             <Button 
               size="lg" 
