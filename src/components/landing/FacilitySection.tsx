@@ -34,13 +34,13 @@ const facilities = [
     stat: "Game IQ"
   },
   { 
-    title: "Sports Medicine", 
-    subtitle: "Stay Sharp",
-    tagline: "Prevention is better than recovery",
-    description: "Recovery protocols, arm care programs, and mobility work built into every athlete's training plan.",
+    title: "Recovery & Arm Care", 
+    subtitle: "Recover Faster",
+    tagline: "Built-in recovery keeps athletes healthy",
+    description: "Dedicated recovery area with arm care protocols, mobility stations, and tools to keep athletes performing at their best.",
     image: facilitySports,
-    features: ["Arm care protocols", "Recovery equipment", "Mobility programming", "Injury prevention"],
-    stat: "Integrated"
+    features: ["Arm care programs", "Mobility stations", "Recovery tools & equipment", "Soft tissue work"],
+    stat: "Full Recovery"
   },
 ];
 
