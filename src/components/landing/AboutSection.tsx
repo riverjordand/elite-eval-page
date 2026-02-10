@@ -1,3 +1,4 @@
+import { useState, useEffect, useRef } from "react";
 import { Target, Cpu, Dumbbell, CheckCircle2 } from "lucide-react";
 
 const pillars = [
@@ -25,8 +26,24 @@ const pillars = [
 ];
 
 const AboutSection = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
   return (
-    <section className="relative py-12 md:py-16 lg:py-20 xl:py-24 overflow-hidden">
+    <section ref={sectionRef} className="relative py-12 md:py-16 lg:py-20 xl:py-24 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-card/20 to-background" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[500px] bg-primary/6 rounded-full blur-[200px]" />
@@ -34,7 +51,7 @@ const AboutSection = () => {
       
       <div className="container relative mx-auto px-4 md:px-6 lg:px-12">
         {/* Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-3 md:gap-6 mb-6 md:mb-10 lg:mb-12 text-center lg:text-left">
+        <div className={`flex flex-col lg:flex-row lg:items-end lg:justify-between gap-3 md:gap-6 mb-6 md:mb-10 lg:mb-12 text-center lg:text-left transition-all duration-700 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
           <div className="lg:max-w-xl">
             <p className="font-oswald text-[10px] md:text-xs lg:text-sm text-primary uppercase tracking-[0.2em] md:tracking-[0.3em] mb-2 md:mb-3 glow-primary">
               Why 500+ Families Choose LPA
@@ -53,8 +70,11 @@ const AboutSection = () => {
           {pillars.map((pillar, index) => (
             <div 
               key={index}
-              className="group relative bg-card/40 backdrop-blur-sm border border-border/30 p-5 lg:p-6 hover:border-primary/50 transition-all duration-300"
-              style={{ boxShadow: '0 15px 30px -10px rgba(0,0,0,0.4)' }}
+              className={`group relative bg-card/40 backdrop-blur-sm border border-border/30 p-5 lg:p-6 hover:border-primary/50 transition-all duration-700 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+              style={{ 
+                boxShadow: '0 15px 30px -10px rgba(0,0,0,0.4)',
+                transitionDelay: `${200 + index * 150}ms`
+              }}
             >
               {/* Hover effects */}
               <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
