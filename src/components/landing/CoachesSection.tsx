@@ -133,7 +133,7 @@ const CoachesSection = () => {
                 {/* Credential badge */}
                 <div className="absolute top-2 left-2 z-10">
                   <span className="bg-primary text-primary-foreground font-bebas text-[9px] lg:text-[10px] px-1.5 py-0.5 uppercase"
-                    style={{ boxShadow: '0 0 12px hsl(271 81% 56% / 0.5)' }}>
+                    style={{ boxShadow: '0 0 12px hsl(var(--primary) / 0.5)' }}>
                     {coach.cred}
                   </span>
                 </div>
@@ -208,7 +208,7 @@ const CoachesSection = () => {
                 <div className="absolute top-4 left-4 lg:top-8 lg:left-8">
                   <span 
                     className="bg-primary text-primary-foreground font-bebas text-base lg:text-xl px-4 lg:px-6 py-2 lg:py-3 uppercase tracking-wider rounded-lg" 
-                    style={{ boxShadow: '0 0 40px hsl(271 81% 56% / 0.6)' }}
+                    style={{ boxShadow: '0 0 40px hsl(var(--primary) / 0.6)' }}
                   >
                     {coaches[selectedCoach].cred}
                   </span>

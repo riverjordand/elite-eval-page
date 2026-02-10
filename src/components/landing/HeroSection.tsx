@@ -44,7 +44,7 @@ const HeroSection = ({ onCtaClick }: HeroSectionProps) => {
                 src={lpaBolt} 
                 alt="LPA" 
                 className="relative w-auto h-10 md:h-14 lg:h-20 xl:h-24 object-contain"
-                style={{ filter: 'drop-shadow(0 0 40px hsl(271 81% 56% / 0.7))' }}
+                style={{ filter: 'drop-shadow(0 0 40px hsl(var(--primary) / 0.7))' }}
               />
             </div>
 

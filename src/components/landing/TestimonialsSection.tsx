@@ -88,7 +88,7 @@ const TestimonialsSection = () => {
                 <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
                   <div 
                     className="w-12 h-12 bg-primary rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
-                    style={{ boxShadow: '0 0 25px hsl(271 81% 56% / 0.6)' }}
+                    style={{ boxShadow: '0 0 25px hsl(var(--primary) / 0.6)' }}
                   >
                     <Play className="w-5 h-5 text-primary-foreground ml-0.5" fill="currentColor" />
                   </div>
@@ -97,7 +97,7 @@ const TestimonialsSection = () => {
                 {/* Highlight badge */}
                 <div className="absolute top-2 left-2">
                   <span className="bg-primary text-primary-foreground font-bebas text-[10px] lg:text-xs px-2 py-0.5 uppercase"
-                    style={{ boxShadow: '0 0 12px hsl(271 81% 56% / 0.5)' }}>
+                    style={{ boxShadow: '0 0 12px hsl(var(--primary) / 0.5)' }}>
                     {item.highlight}
                   </span>
                 </div>
@@ -137,7 +137,7 @@ const TestimonialsSection = () => {
             </button>
             
             <div className="relative aspect-[9/16] overflow-hidden bg-card"
-              style={{ boxShadow: '0 0 80px hsl(271 81% 56% / 0.2)' }}>
+              style={{ boxShadow: '0 0 80px hsl(var(--primary) / 0.2)' }}>
               <video 
                 src={testimonials[activeVideo].video} 
                 autoPlay 

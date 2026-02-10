@@ -120,7 +120,7 @@ const FacilitySection = () => {
             {/* Stat badge */}
             <div className="absolute top-3 left-3 z-10">
               <span className="bg-primary text-primary-foreground font-bebas text-[10px] lg:text-xs px-2 py-1 uppercase"
-                style={{ boxShadow: '0 0 15px hsl(271 81% 56% / 0.5)' }}>
+                style={{ boxShadow: '0 0 15px hsl(var(--primary) / 0.5)' }}>
                 {facility.stat}
               </span>
             </div>
@@ -178,7 +178,7 @@ const FacilitySection = () => {
                 <div className="absolute top-4 left-4 lg:top-8 lg:left-8">
                   <span 
                     className="bg-primary text-primary-foreground font-bebas text-base lg:text-xl px-4 lg:px-6 py-2 lg:py-3 uppercase tracking-wider rounded-lg" 
-                    style={{ boxShadow: '0 0 40px hsl(271 81% 56% / 0.6)' }}
+                    style={{ boxShadow: '0 0 40px hsl(var(--primary) / 0.6)' }}
                   >
                     {facilities[selectedFacility].stat}
                   </span>
