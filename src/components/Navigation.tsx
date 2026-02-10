@@ -29,6 +29,12 @@ const Navigation = () => {
               Apply
             </Link>
             <Link 
+              to="/schedule" 
+              className="font-bebas text-sm md:text-base lg:text-lg text-foreground/80 hover:text-primary uppercase tracking-wider transition-colors"
+            >
+              Schedule
+            </Link>
+            <Link 
               to="/contact" 
               className="font-bebas text-sm md:text-base lg:text-lg text-foreground/80 hover:text-primary uppercase tracking-wider transition-colors"
             >
