@@ -12,6 +12,7 @@ import Sponsors from "./pages/Sponsors";
 import Appointments from "./pages/Appointments";
 import Admin from "./pages/Admin";
 import Auth from "./pages/Auth";
+import Experience from "./pages/Experience";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -34,6 +35,7 @@ const App = () => (
           <Route path="/appointments" element={<Appointments />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/auth" element={<Auth />} />
+          <Route path="/experience" element={<Experience />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
