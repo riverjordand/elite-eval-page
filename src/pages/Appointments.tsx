@@ -13,7 +13,7 @@ import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import Navigation from "@/components/Navigation";
 import FooterSection from "@/components/landing/FooterSection";
-import lpaLogoBolt from "@/assets/lpa-logo-bolt.webp";
+import lpaOutlawsMascot from "@/assets/lpa-outlaws-mascot.png";
 
 const timeSlots = [
   "3:00 PM", "4:00 PM", "5:00 PM",
@@ -135,7 +135,7 @@ const Appointments = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-16 pb-16 md:pb-20 max-w-4xl">
         {/* Service Card */}
         <div className="bg-card/60 border border-border/30 rounded-xl p-5 md:p-8 mb-8 flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
-          <img src={lpaLogoBolt} alt="LPA" className="w-16 h-16 md:w-20 md:h-20 object-contain" />
+          <img src={lpaOutlawsMascot} alt="LPA Outlaws" className="w-16 h-16 md:w-20 md:h-20 object-contain" />
           <div className="text-center sm:text-left">
             <h2 className="font-bebas text-2xl md:text-3xl uppercase">LPA Tour</h2>
             <p className="font-oswald text-sm md:text-base text-muted-foreground mt-1">
