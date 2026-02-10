@@ -1,5 +1,6 @@
 import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/landing/HeroSection";
+import CommitmentsGrid from "@/components/landing/CommitmentsGrid";
 import StatsSection from "@/components/landing/StatsSection";
 import IntroSection from "@/components/landing/IntroSection";
 import AboutSection from "@/components/landing/AboutSection";
@@ -15,6 +16,7 @@ const Index = () => {
     <main className="min-h-screen bg-background">
       <Navigation />
       <HeroSection />
+      <CommitmentsGrid />
       <StatsSection />
       <IntroSection />
       <AboutSection />
