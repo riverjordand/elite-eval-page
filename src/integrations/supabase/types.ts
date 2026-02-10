@@ -164,6 +164,48 @@ export type Database = {
         }
         Relationships: []
       }
+      contact_submissions: {
+        Row: {
+          athlete_first_name: string
+          athlete_last_name: string
+          consent_marketing: boolean
+          consent_sms: boolean
+          created_at: string
+          email: string
+          id: string
+          notes: string | null
+          parent_guardian_name: string | null
+          phone: string
+          reviewed: boolean
+        }
+        Insert: {
+          athlete_first_name: string
+          athlete_last_name: string
+          consent_marketing?: boolean
+          consent_sms?: boolean
+          created_at?: string
+          email: string
+          id?: string
+          notes?: string | null
+          parent_guardian_name?: string | null
+          phone: string
+          reviewed?: boolean
+        }
+        Update: {
+          athlete_first_name?: string
+          athlete_last_name?: string
+          consent_marketing?: boolean
+          consent_sms?: boolean
+          created_at?: string
+          email?: string
+          id?: string
+          notes?: string | null
+          parent_guardian_name?: string | null
+          phone?: string
+          reviewed?: boolean
+        }
+        Relationships: []
+      }
       lead_submissions: {
         Row: {
           appointment_date: string | null
