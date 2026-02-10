@@ -25,13 +25,13 @@ const facilities = [
     stat: "Full Training Facility"
   },
   { 
-    title: "Video Analysis Lab", 
-    subtitle: "See What Others Miss",
-    tagline: "College-level breakdown technology",
-    description: "Multi-angle high-speed cameras at 240+ fps. Frame-by-frame analysis comparing to college and pro standards.",
+    title: "Classrooms & Film Study", 
+    subtitle: "Train the Mind",
+    tagline: "Where game IQ meets preparation",
+    description: "Dedicated classroom space for film study, scouting reports, game strategy, and college recruitment workshops.",
     image: facilityVideo,
-    features: ["High-speed cameras (240+ fps)", "Frame-by-frame analysis", "Pro comparisons", "Progress tracking"],
-    stat: "240+ FPS"
+    features: ["Film study & game review", "Scouting report breakdowns", "Recruiting workshops", "Game strategy sessions"],
+    stat: "Game IQ"
   },
   { 
     title: "Sports Medicine", 
