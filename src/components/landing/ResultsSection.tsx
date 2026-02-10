@@ -20,7 +20,7 @@ const ResultsSection = () => {
         <div className="text-center mb-12 lg:mb-16">
           <div className="inline-flex items-center gap-2 mb-4">
             <GraduationCap className="w-5 h-5 text-primary" />
-            <span className="font-oswald text-sm text-primary uppercase tracking-[0.3em]">50+ College Commits</span>
+            <span className="font-oswald text-sm text-accent uppercase tracking-[0.3em] glow-accent">50+ College Commits</span>
           </div>
           <h2 className="font-bebas text-4xl md:text-5xl lg:text-6xl text-foreground uppercase leading-none mb-4">
             Athlete <span className="text-primary">Success Stories</span>

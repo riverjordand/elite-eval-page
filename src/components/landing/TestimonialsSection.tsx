@@ -59,7 +59,7 @@ const TestimonialsSection = () => {
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-8 lg:mb-10">
           <div>
-            <p className="font-oswald text-xs lg:text-sm text-primary uppercase tracking-[0.3em] mb-3 glow-primary">
+            <p className="font-oswald text-xs lg:text-sm text-accent uppercase tracking-[0.3em] mb-3 glow-accent">
               Real Stories, Real Results
             </p>
             <h2 className="font-bebas text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-foreground uppercase leading-none drop-shadow-lg">

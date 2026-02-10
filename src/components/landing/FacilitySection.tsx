@@ -70,7 +70,7 @@ const FacilitySection = () => {
           <div>
             <div className="flex items-center justify-center lg:justify-start gap-1.5 md:gap-2 mb-2 md:mb-3">
               <MapPin className="w-3 h-3 md:w-4 md:h-4 text-primary" />
-              <span className="font-oswald text-[10px] md:text-xs lg:text-sm text-primary uppercase tracking-[0.15em] md:tracking-[0.2em] glow-primary">
+              <span className="font-oswald text-[10px] md:text-xs lg:text-sm text-accent uppercase tracking-[0.15em] md:tracking-[0.2em] glow-accent">
                 Gilbert, Arizona
               </span>
             </div>

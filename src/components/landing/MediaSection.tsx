@@ -79,7 +79,7 @@ const MediaSection = () => {
         {/* Header */}
         <div className="container mx-auto px-6 lg:px-16 xl:px-24 mb-10 md:mb-14 lg:mb-16 xl:mb-20 relative z-10">
           <div className="text-center">
-            <p className="font-oswald text-xs md:text-sm lg:text-base text-primary uppercase tracking-[0.3em] mb-3 lg:mb-4">
+            <p className="font-oswald text-xs md:text-sm lg:text-base text-accent uppercase tracking-[0.3em] mb-3 lg:mb-4 glow-accent">
               See It In Action
             </p>
             <h2 className="font-bebas text-3xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl text-foreground uppercase leading-none">
