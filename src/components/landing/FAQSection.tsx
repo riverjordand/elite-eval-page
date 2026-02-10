@@ -3,34 +3,28 @@ import { ChevronDown, HelpCircle, MessageCircle } from "lucide-react";
 
 const faqs = [
   {
-    category: "evaluation",
-    q: "What exactly happens during the free evaluation?",
-    a: "Your athlete goes through velocity/metrics testing with Rapsodo, video mechanics analysis, a strength and mobility screen, and receives a personalized development plan. We also give you an honest college recruiting assessment. The whole session takes about 60 minutes."
+    q: "What ages and skill levels do you work with?",
+    a: "We work with athletes in grades 6-12 and post-grad. Whether your athlete is just getting serious about baseball or already competing at a high level, our coaches tailor training to meet them where they are and push them to the next level."
   },
   {
-    category: "evaluation",
-    q: "Is there really no catch? Why is it free?",
-    a: "No hidden fees. We offer free evaluations because once parents see the LPA difference — the coaching quality, the technology, the results — many decide to train with us. But there's zero pressure. Even if you never come back, you'll walk away with valuable insights."
-  },
-  {
-    category: "program",
-    q: "What age or skill level should my athlete be?",
-    a: "We work with athletes ages 10-18, from travel ball players who want to level up to varsity stars preparing for college recruitment. If your athlete is serious about improvement, they're a good fit."
-  },
-  {
-    category: "program",
     q: "What makes LPA different from other academies?",
-    a: "Three things: (1) Our coaches have actually played D1 and pro ball. (2) We use the same technology MLB teams use. (3) We develop the complete athlete — mechanics, strength, mobility, and mental game. Most academies have one of these. We have all three."
+    a: "Three things set us apart: (1) Our coaches have played D1 and professional baseball — they've lived it. (2) We use the same technology MLB organizations use. (3) We develop the complete athlete — mechanics, strength, mobility, academics, and mental game."
   },
   {
-    category: "results",
-    q: "How quickly do athletes typically see results?",
-    a: "Most athletes see measurable improvements within 4-6 weeks. Our average athlete gains 3-5 MPH in their first 3 months. The real transformation happens over 6-12 months when everything compounds."
-  },
-  {
-    category: "results",
     q: "Do you help with college recruiting?",
-    a: "Yes. Our coaches have connections with college programs across all levels — D1, D2, D3, NAIA, and JUCO. We've helped place 50+ athletes at the college level."
+    a: "Yes. Our coaches have direct connections with college programs across D1, D2, D3, NAIA, and JUCO levels. We've helped place 50+ athletes at the college level and actively guide families through the recruiting process."
+  },
+  {
+    q: "What does a typical training day look like?",
+    a: "Athletes go through structured sessions that include on-field skill work, video and data-driven analysis, strength and conditioning, and recovery. Every session is designed with purpose — no wasted reps."
+  },
+  {
+    q: "Do you offer academics alongside training?",
+    a: "Yes. We partner with a fully accredited online charter school so student-athletes can train at an elite level while staying on track academically. Academics are built into the daily schedule."
+  },
+  {
+    q: "Is housing available for out-of-state athletes?",
+    a: "Yes. We offer host family housing for out-of-state athletes who want to train full-time at LPA. This allows athletes from anywhere in the country to access our program year-round."
   },
 ];
 
@@ -70,7 +64,7 @@ const FAQSection = () => {
             Everything You Need To Know
           </h2>
           <p className="font-oswald text-sm md:text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto">
-            Got questions? We've got answers. If you don't see what you're looking for, 
+            Got questions about LPA? We've got answers. If you don't see what you're looking for, 
             reach out — we're happy to help.
           </p>
         </div>
