@@ -98,7 +98,7 @@ const FAQSection = () => {
                     } border backdrop-blur-sm`}
                     style={{ 
                       boxShadow: isOpen 
-                        ? '0 0 60px hsl(271 81% 56% / 0.2), 0 20px 40px -15px rgba(0,0,0,0.5)' 
+                        ? '0 0 60px hsl(var(--primary) / 0.2), 0 20px 40px -15px rgba(0,0,0,0.5)' 
                         : '0 15px 30px -10px rgba(0,0,0,0.4)' 
                     }}
                   >

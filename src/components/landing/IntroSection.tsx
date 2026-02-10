@@ -72,7 +72,7 @@ const IntroSection = () => {
           {/* Highlight Box */}
           <div className={`relative border-l-4 border-primary pl-4 md:pl-5 lg:pl-6 py-3 md:py-4 lg:py-5 bg-gradient-to-r from-primary/15 via-primary/5 to-transparent rounded-r-lg transition-all duration-700 ease-out text-left ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`} style={{
           transitionDelay: '450ms',
-          boxShadow: '0 0 50px hsl(271 81% 56% / 0.12)'
+          boxShadow: '0 0 50px hsl(var(--primary) / 0.12)'
         }}>
             <p className="font-oswald text-sm md:text-lg lg:text-xl text-foreground font-semibold mb-1">
               LPA is not a casual training facility.

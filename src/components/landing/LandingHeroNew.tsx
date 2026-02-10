@@ -46,7 +46,7 @@ const LandingHeroNew = ({ onCtaClick }: LandingHeroNewProps) => {
             src={lpaBolt} 
             alt="LPA" 
             className="w-20 h-20 md:w-28 md:h-28 lg:w-36 lg:h-36 xl:w-44 xl:h-44 mx-auto drop-shadow-2xl animate-fade-in"
-            style={{ filter: 'drop-shadow(0 0 40px hsl(271 81% 56% / 0.4))' }}
+            style={{ filter: 'drop-shadow(0 0 40px hsl(var(--primary) / 0.4))' }}
           />
         </div>
 

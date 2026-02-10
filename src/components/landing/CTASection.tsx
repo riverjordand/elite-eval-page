@@ -83,7 +83,7 @@ const CTASection = ({ onCtaClick }: CTASectionProps) => {
         <div className="text-center">
           <div 
             className="inline-block bg-background/60 backdrop-blur-sm border border-primary/30 p-5 md:p-8 lg:p-12"
-            style={{ boxShadow: '0 0 100px hsl(271 81% 56% / 0.2), 0 40px 80px -20px rgba(0,0,0,0.6)' }}
+            style={{ boxShadow: '0 0 100px hsl(var(--primary) / 0.2), 0 40px 80px -20px rgba(0,0,0,0.6)' }}
           >
             <p className="font-bebas text-lg md:text-2xl lg:text-3xl text-muted-foreground mb-1 md:mb-2">
               Total Value: <span className="line-through opacity-70">$375+</span>
@@ -96,7 +96,7 @@ const CTASection = ({ onCtaClick }: CTASectionProps) => {
               size="lg"
               onClick={onCtaClick}
               className="group bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-[0.1em] md:tracking-[0.15em] text-base md:text-xl lg:text-2xl px-6 md:px-10 lg:px-12 py-4 md:py-6 lg:py-8 h-auto mb-4 md:mb-6 transition-all duration-300 hover:scale-105"
-              style={{ boxShadow: '0 0 80px hsl(271 81% 56% / 0.5), 0 20px 40px -10px rgba(0,0,0,0.5)' }}
+              style={{ boxShadow: '0 0 80px hsl(var(--primary) / 0.5), 0 20px 40px -10px rgba(0,0,0,0.5)' }}
             >
               Book My Free Evaluation
               <ArrowRight className="ml-2 md:ml-3 w-4 h-4 md:w-6 md:h-6 group-hover:translate-x-1 transition-transform" />
