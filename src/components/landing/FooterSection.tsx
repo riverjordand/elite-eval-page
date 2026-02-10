@@ -1,5 +1,5 @@
 import { MapPin, Phone, Mail, Instagram, Facebook, Youtube } from "lucide-react";
-import lpaBolt from "@/assets/lpa-logo-bolt.webp";
+import lpaBolt from "@/assets/lpa-badge-cactus.png";
 
 const FooterSection = () => {
   return (

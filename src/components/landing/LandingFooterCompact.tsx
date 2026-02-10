@@ -1,4 +1,4 @@
-import lpaBolt from "@/assets/lpa-logo-bolt.webp";
+import lpaBolt from "@/assets/lpa-badge-cactus.png";
 
 const LandingFooterCompact = () => {
   return (

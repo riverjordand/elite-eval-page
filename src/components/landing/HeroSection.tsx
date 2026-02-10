@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Star } from "lucide-react";
-import lpaBolt from "@/assets/lpa-logo-bolt.webp";
+import lpaBolt from "@/assets/lpa-badge-cactus.png";
 
 interface HeroSectionProps {
   onCtaClick?: () => void;
