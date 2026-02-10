@@ -1,5 +1,5 @@
 import { MapPin, Phone, Mail, Instagram, Facebook, Youtube } from "lucide-react";
-import lpaBolt from "@/assets/lpa-badge-cactus.png";
+import lpaArch from "@/assets/lpa-arch.png";
 
 const FooterSection = () => {
   return (
@@ -10,7 +10,7 @@ const FooterSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <img src={lpaBolt} alt="LPA" className="w-8 h-8" />
+              <img src={lpaArch} alt="LPA" className="h-8 w-auto" />
               <span className="font-bebas text-lg text-foreground uppercase tracking-wider">Legendary Prep Academy</span>
             </div>
             <p className="font-oswald text-sm text-muted-foreground mb-4">

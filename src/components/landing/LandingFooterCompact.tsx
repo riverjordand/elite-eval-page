@@ -1,4 +1,4 @@
-import lpaBolt from "@/assets/lpa-badge-cactus.png";
+import lpaArch from "@/assets/lpa-arch.png";
 
 const LandingFooterCompact = () => {
   return (
@@ -18,9 +18,9 @@ const LandingFooterCompact = () => {
           <div className="relative mb-6 md:mb-8">
             <div className="absolute inset-0 bg-primary/30 blur-2xl rounded-full scale-150" />
             <img 
-              src={lpaBolt} 
+              src={lpaArch} 
               alt="LPA" 
-              className="relative w-16 h-16 md:w-24 md:h-24 lg:w-28 lg:h-28 opacity-80"
+              className="relative h-12 md:h-16 lg:h-20 w-auto opacity-80"
             />
           </div>
           
