@@ -54,7 +54,7 @@ const Experience = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-card via-background/80 to-background" />
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/10 rounded-full blur-[160px]" />
           <div className="relative text-center px-4">
-            <p className="font-oswald text-xs md:text-sm text-primary uppercase tracking-[0.3em] mb-2 glow-primary">
+            <p className="font-oswald text-xs md:text-sm text-accent uppercase tracking-[0.3em] mb-2 glow-accent">
               The Full Athlete Experience
             </p>
             <h1 className="font-bebas text-4xl sm:text-5xl md:text-7xl lg:text-8xl uppercase leading-none">
