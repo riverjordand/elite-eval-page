@@ -40,42 +40,40 @@ const CommitmentsGrid = () => {
   }, [onIntersect]);
 
   return (
-    <section ref={ref} className="relative py-12 md:py-16 lg:py-20 bg-card/30 overflow-hidden">
-      {/* Subtle glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/5 rounded-full blur-[160px]" />
+    <section ref={ref} className="relative py-14 md:py-20 lg:py-24 overflow-hidden">
+      <div className="container relative mx-auto px-6 lg:px-16">
+        <div className="text-center mb-10 md:mb-14">
+          <p className={`font-oswald text-xs text-accent uppercase tracking-[0.3em] mb-3 transition-all duration-700 ${visible ? 'opacity-100' : 'opacity-0'}`}>
+            Where Our Athletes Play
+          </p>
+          <h2
+            className={`font-bebas text-2xl md:text-4xl lg:text-5xl uppercase leading-none transition-all duration-700`}
+            style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(16px)" }}
+          >
+            Recent Player <span className="text-primary">Commitments</span>
+          </h2>
+        </div>
 
-      <div className="container relative mx-auto px-4 sm:px-6 lg:px-16">
-        <h2
-          className="font-bebas text-2xl sm:text-3xl md:text-4xl lg:text-5xl uppercase text-center mb-8 md:mb-12 transition-all duration-700"
-          style={{
-            opacity: visible ? 1 : 0,
-            transform: visible ? "translateY(0)" : "translateY(20px)",
-          }}
-        >
-          Recent Player <span className="text-primary">Commitments</span>
-        </h2>
-
-        {/* Logo Grid */}
-        <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-10 gap-4 md:gap-6 lg:gap-8">
+        <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-10 gap-6 md:gap-8">
           {commitments.map((school, i) => (
             <div
               key={school.name}
               className="flex flex-col items-center gap-2 group transition-all duration-500"
               style={{
                 opacity: visible ? 1 : 0,
-                transform: visible ? "translateY(0) scale(1)" : "translateY(20px) scale(0.9)",
-                transitionDelay: `${100 + i * 50}ms`,
+                transform: visible ? "translateY(0)" : "translateY(12px)",
+                transitionDelay: `${80 + i * 40}ms`,
               }}
             >
-              <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <img
                   src={school.logo}
                   alt={school.name}
-                  className="max-w-full max-h-full object-contain drop-shadow-lg"
+                  className="max-w-full max-h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300"
                   loading="lazy"
                 />
               </div>
-              <span className="font-bebas text-[8px] sm:text-[9px] md:text-xs text-muted-foreground uppercase tracking-wide text-center leading-tight">
+              <span className="font-bebas text-[7px] sm:text-[8px] md:text-[10px] text-foreground/40 uppercase tracking-wide text-center leading-tight group-hover:text-foreground/70 transition-colors">
                 {school.name}
               </span>
             </div>

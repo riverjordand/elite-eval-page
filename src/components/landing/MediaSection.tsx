@@ -28,7 +28,6 @@ const photos = [
   "/action-65.jpg", "/action-66.jpg", "/action-67.jpg", "/action-68.jpg",
 ];
 
-// Shuffle array function
 const shuffleArray = <T,>(array: T[]): T[] => {
   const shuffled = [...array];
   for (let i = shuffled.length - 1; i > 0; i--) {
@@ -40,8 +39,6 @@ const shuffleArray = <T,>(array: T[]): T[] => {
 
 const MediaSection = () => {
   const [lightbox, setLightbox] = useState<{ type: 'photo' | 'video'; src: string; index: number } | null>(null);
-  
-  // Randomize photos on mount
   const randomizedPhotos = useMemo(() => shuffleArray(photos), []);
   
   const [videoRef] = useEmblaCarousel(
@@ -62,57 +59,48 @@ const MediaSection = () => {
 
   const navigateLightbox = (direction: 'prev' | 'next') => {
     if (!lightbox) return;
-    
     const items = lightbox.type === 'photo' ? randomizedPhotos : videos;
     const newIndex = direction === 'next' 
       ? (lightbox.index + 1) % items.length 
       : (lightbox.index - 1 + items.length) % items.length;
-    
     setLightbox({ ...lightbox, src: items[newIndex], index: newIndex });
   };
 
   return (
     <>
-      <section className="relative py-16 md:py-24 lg:py-32 xl:py-40 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-card/20 to-black" />
+      <section className="relative py-20 md:py-28 lg:py-36 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-card/5 to-background" />
         
         {/* Header */}
-        <div className="container mx-auto px-6 lg:px-16 xl:px-24 mb-10 md:mb-14 lg:mb-16 xl:mb-20 relative z-10">
+        <div className="container mx-auto px-6 lg:px-16 mb-12 md:mb-16 relative z-10">
           <div className="text-center">
-            <p className="font-oswald text-xs md:text-sm lg:text-base text-accent uppercase tracking-[0.3em] mb-3 lg:mb-4 glow-accent">
+            <p className="font-oswald text-xs text-accent uppercase tracking-[0.3em] mb-3">
               See It In Action
             </p>
-            <h2 className="font-bebas text-3xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl text-foreground uppercase leading-none">
+            <h2 className="font-bebas text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-foreground uppercase leading-none">
               Training In Motion
             </h2>
           </div>
         </div>
         
-        {/* Videos Carousel */}
-        <div className="relative mb-4 lg:mb-6 xl:mb-8">
-          <div className="absolute left-0 top-0 bottom-0 w-16 lg:w-32 xl:w-48 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-16 lg:w-32 xl:w-48 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+        {/* Videos */}
+        <div className="relative mb-3 lg:mb-4">
+          <div className="absolute left-0 top-0 bottom-0 w-20 lg:w-40 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-20 lg:w-40 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
           
           <div className="overflow-hidden" ref={videoRef}>
-            <div className="flex gap-3 lg:gap-4 xl:gap-6">
+            <div className="flex gap-2 lg:gap-3">
               {videos.map((video, index) => (
                 <div 
                   key={index} 
-                  className="flex-[0_0_auto] min-w-0 w-56 md:w-80 lg:w-[420px] xl:w-[520px] 2xl:w-[600px] cursor-pointer group"
+                  className="flex-[0_0_auto] min-w-0 w-60 md:w-80 lg:w-[440px] xl:w-[520px] cursor-pointer group"
                   onClick={() => openLightbox('video', video, index)}
                 >
-                  <div className="aspect-video relative overflow-hidden rounded-lg">
-                    <video
-                      src={video}
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
-                      <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                        <div className="w-0 h-0 border-t-6 border-t-transparent border-l-8 border-l-white border-b-6 border-b-transparent ml-1" />
+                  <div className="aspect-video relative overflow-hidden">
+                    <video src={video} autoPlay loop muted playsInline className="w-full h-full object-cover" />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors flex items-center justify-center">
+                      <div className="w-12 h-12 rounded-full bg-primary/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div className="w-0 h-0 border-t-6 border-t-transparent border-l-8 border-l-primary-foreground border-b-6 border-b-transparent ml-1" />
                       </div>
                     </div>
                   </div>
@@ -122,24 +110,24 @@ const MediaSection = () => {
           </div>
         </div>
         
-        {/* Photos Carousel */}
+        {/* Photos */}
         <div className="relative">
-          <div className="absolute left-0 top-0 bottom-0 w-16 lg:w-32 xl:w-48 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-16 lg:w-32 xl:w-48 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-20 lg:w-40 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-20 lg:w-40 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
           
           <div className="overflow-hidden" ref={photoRef}>
-            <div className="flex gap-3 lg:gap-4 xl:gap-6">
+            <div className="flex gap-2 lg:gap-3">
               {randomizedPhotos.map((photo, index) => (
                 <div 
                   key={index} 
-                  className="flex-[0_0_auto] min-w-0 w-40 md:w-60 lg:w-80 xl:w-96 2xl:w-[420px] cursor-pointer group"
+                  className="flex-[0_0_auto] min-w-0 w-44 md:w-64 lg:w-80 xl:w-96 cursor-pointer group"
                   onClick={() => openLightbox('photo', photo, index)}
                 >
-                  <div className="aspect-square relative overflow-hidden rounded-lg">
+                  <div className="aspect-square relative overflow-hidden">
                     <img 
                       src={photo} 
                       alt={`Training ${index + 1}`}
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       loading="lazy"
                     />
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
@@ -153,50 +141,21 @@ const MediaSection = () => {
 
       {/* Lightbox */}
       {lightbox && (
-        <div 
-          className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center"
-          onClick={closeLightbox}
-        >
-          {/* Close button */}
-          <button 
-            className="absolute top-4 right-4 z-50 p-2 text-white/70 hover:text-white transition-colors"
-            onClick={closeLightbox}
-          >
+        <div className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center" onClick={closeLightbox}>
+          <button className="absolute top-4 right-4 z-50 p-2 text-foreground/60 hover:text-foreground transition-colors" onClick={closeLightbox}>
             <X className="w-8 h-8" />
           </button>
-          
-          {/* Navigation */}
-          <button 
-            className="absolute left-4 top-1/2 -translate-y-1/2 z-50 p-2 text-white/70 hover:text-white transition-colors"
-            onClick={(e) => { e.stopPropagation(); navigateLightbox('prev'); }}
-          >
+          <button className="absolute left-4 top-1/2 -translate-y-1/2 z-50 p-2 text-foreground/60 hover:text-foreground transition-colors" onClick={(e) => { e.stopPropagation(); navigateLightbox('prev'); }}>
             <ChevronLeft className="w-10 h-10" />
           </button>
-          <button 
-            className="absolute right-4 top-1/2 -translate-y-1/2 z-50 p-2 text-white/70 hover:text-white transition-colors"
-            onClick={(e) => { e.stopPropagation(); navigateLightbox('next'); }}
-          >
+          <button className="absolute right-4 top-1/2 -translate-y-1/2 z-50 p-2 text-foreground/60 hover:text-foreground transition-colors" onClick={(e) => { e.stopPropagation(); navigateLightbox('next'); }}>
             <ChevronRight className="w-10 h-10" />
           </button>
-          
-          {/* Content */}
-          <div 
-            className="max-w-[90vw] max-h-[90vh]"
-            onClick={(e) => e.stopPropagation()}
-          >
+          <div className="max-w-[90vw] max-h-[90vh]" onClick={(e) => e.stopPropagation()}>
             {lightbox.type === 'photo' ? (
-              <img 
-                src={lightbox.src} 
-                alt="Training" 
-                className="max-w-full max-h-[90vh] object-contain"
-              />
+              <img src={lightbox.src} alt="Training" className="max-w-full max-h-[90vh] object-contain" />
             ) : (
-              <video
-                src={lightbox.src}
-                controls
-                autoPlay
-                className="max-w-full max-h-[90vh]"
-              />
+              <video src={lightbox.src} controls autoPlay className="max-w-full max-h-[90vh]" />
             )}
           </div>
         </div>
