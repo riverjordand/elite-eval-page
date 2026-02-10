@@ -7,24 +7,9 @@ import equipmentImg from "@/assets/experience-equipment.jpg";
 import attireImg from "@/assets/experience-attire.jpg";
 
 const highlights = [
-  {
-    icon: Crown,
-    title: "Personal Locker Room",
-    description: "Every athlete gets their own assigned space — a home base built for focus and accountability.",
-    image: lockerRoomImg,
-  },
-  {
-    icon: Shield,
-    title: "Pro-Grade Equipment",
-    description: "Game bats, training gear, and tech tools provided — no guessing what you need.",
-    image: equipmentImg,
-  },
-  {
-    icon: Shirt,
-    title: "LPA Branded Attire",
-    description: "Custom jerseys, training gear, and team apparel that builds identity and pride.",
-    image: attireImg,
-  },
+  { icon: Crown, title: "Personal Locker Room", description: "Every athlete gets their own assigned space — a home base built for focus.", image: lockerRoomImg },
+  { icon: Shield, title: "Pro-Grade Equipment", description: "Game bats, training gear, and tech tools provided for every athlete.", image: equipmentImg },
+  { icon: Shirt, title: "LPA Branded Attire", description: "Custom jerseys, training gear, and team apparel that builds identity.", image: attireImg },
 ];
 
 const ExperienceSection = () => {
@@ -32,77 +17,60 @@ const ExperienceSection = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.1 }
-    );
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) { setIsVisible(true); observer.disconnect(); }
+    }, { threshold: 0.1 });
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative py-16 md:py-24 lg:py-32 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-card/10 to-background" />
-
+    <section ref={sectionRef} className="relative py-20 md:py-28 lg:py-36">
       <div className="container relative mx-auto px-6 lg:px-16">
         {/* Header */}
-        <div className={`max-w-2xl mb-10 md:mb-14 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
-          <p className="font-oswald text-xs text-accent uppercase tracking-[0.3em] mb-3">
-            The Full Athlete Experience
-          </p>
-          <h2 className="font-bebas text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-foreground uppercase leading-none mb-3">
-            More Than <span className="text-primary">Training</span>
-          </h2>
-          <p className="font-oswald text-sm md:text-base text-foreground/50">
-            At LPA, athletes don't just train — they belong. From personal locker rooms to pro-grade equipment and branded team attire.
+        <div className={`flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-12 md:mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+          <div>
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-8 h-px bg-primary" />
+              <span className="font-oswald text-[10px] text-accent uppercase tracking-[0.4em]">The Full Experience</span>
+            </div>
+            <h2 className="font-bebas text-4xl md:text-5xl lg:text-6xl text-foreground uppercase leading-[0.88]">
+              More Than<br /><span className="text-primary">Training</span>
+            </h2>
+          </div>
+          <p className="font-oswald text-xs text-foreground/30 lg:max-w-xs lg:text-right">
+            Athletes don't just train — they belong. Every detail builds identity and pride.
           </p>
         </div>
 
-        {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6 mb-10">
+        {/* Three editorial image cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-0.5 mb-12">
           {highlights.map((item, index) => (
             <div
               key={index}
-              className={`group relative overflow-hidden transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+              className={`group relative aspect-[3/4] overflow-hidden cursor-default transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
               style={{ transitionDelay: `${200 + index * 150}ms` }}
             >
-              <div className="relative aspect-[4/3] overflow-hidden">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+              <img src={item.image} alt={item.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700" loading="lazy" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
 
-                {/* Icon */}
-                <div className="absolute top-3 left-3">
-                  <div className="w-9 h-9 bg-primary flex items-center justify-center">
-                    <item.icon className="w-4 h-4 text-primary-foreground" strokeWidth={1.5} />
-                  </div>
+              <div className="absolute top-4 left-4">
+                <div className="w-8 h-8 bg-primary flex items-center justify-center">
+                  <item.icon className="w-4 h-4 text-primary-foreground" strokeWidth={1.5} />
                 </div>
+              </div>
 
-                <div className="absolute bottom-0 left-0 right-0 p-4">
-                  <h3 className="font-bebas text-xl text-foreground uppercase mb-1">{item.title}</h3>
-                  <p className="font-oswald text-xs text-foreground/70 leading-relaxed">{item.description}</p>
-                </div>
+              <div className="absolute bottom-0 left-0 right-0 p-5 lg:p-6">
+                <h3 className="font-bebas text-xl lg:text-2xl text-foreground uppercase mb-1">{item.title}</h3>
+                <p className="font-oswald text-xs text-foreground/50 leading-relaxed">{item.description}</p>
               </div>
             </div>
           ))}
         </div>
 
-        {/* CTA */}
-        <div className={`text-center transition-all duration-700 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+        <div className={`flex justify-center transition-all duration-700 delay-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
           <Link to="/experience">
-            <Button
-              variant="outline"
-              className="group font-bebas uppercase tracking-widest text-sm border-border/30 text-foreground/70 hover:bg-primary hover:text-primary-foreground hover:border-primary px-8 py-5 h-auto transition-all duration-300"
-            >
+            <Button variant="ghost" className="group font-bebas uppercase tracking-[0.2em] text-sm text-foreground/40 hover:text-primary px-0 h-auto py-2">
               See the Full Experience
               <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
             </Button>

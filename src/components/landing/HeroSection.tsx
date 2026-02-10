@@ -5,7 +5,7 @@ import lpaBolt from "@/assets/lpa-badge-cactus.png";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-end overflow-hidden">
+    <section className="relative h-screen flex flex-col overflow-hidden">
       {/* Video Background */}
       <video
         autoPlay
@@ -17,67 +17,61 @@ const HeroSection = () => {
         <source src="/hero-training.mp4" type="video/mp4" />
       </video>
       
-      {/* Clean overlay - just darken, no noise */}
-      <div className="absolute inset-0 bg-black/60" />
-      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
-      <div className="absolute inset-0 bg-gradient-to-r from-background/60 via-transparent to-transparent" />
+      {/* Simple dark overlay */}
+      <div className="absolute inset-0 bg-black/55" />
+      <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-black/40" />
 
-      {/* Content */}
-      <div className="relative z-10 w-full pb-20 md:pb-28 lg:pb-32 pt-32">
-        <div className="container mx-auto px-6 lg:px-16">
-          <div className="max-w-3xl">
-            {/* Logo mark */}
-            <img 
-              src={lpaBolt} 
-              alt="LPA" 
-              className="w-auto h-10 md:h-14 lg:h-16 object-contain mb-6 md:mb-8 opacity-90"
-            />
+      {/* Content - centered, editorial */}
+      <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6">
+        {/* Small logo mark */}
+        <img 
+          src={lpaBolt} 
+          alt="LPA" 
+          className="w-auto h-8 md:h-10 object-contain mb-8 opacity-80"
+        />
 
-            {/* Headline - clean, no glow noise */}
-            <h1 className="font-bebas uppercase leading-[0.88] tracking-tight mb-6 md:mb-8">
-              <span className="block text-4xl md:text-6xl lg:text-7xl xl:text-8xl text-foreground">
-                Transform Your Game.
-              </span>
-              <span className="block text-4xl md:text-6xl lg:text-7xl xl:text-8xl text-foreground">
-                Get Recruited.
-              </span>
-              <span className="block text-5xl md:text-7xl lg:text-8xl xl:text-9xl text-primary mt-1">
-                Go Pro.
-              </span>
-            </h1>
+        {/* Editorial headline - massive, clean */}
+        <h1 className="font-bebas uppercase leading-[0.85] tracking-tight mb-6">
+          <span className="block text-5xl md:text-7xl lg:text-8xl xl:text-[10rem] text-foreground">
+            Built Different.
+          </span>
+          <span className="block text-5xl md:text-7xl lg:text-8xl xl:text-[10rem] text-primary">
+            Play Different.
+          </span>
+        </h1>
 
-            {/* Description - tighter */}
-            <p className="font-oswald text-sm md:text-base lg:text-lg text-foreground/70 mb-8 md:mb-10 max-w-xl leading-relaxed">
-              Arizona's premier baseball academy where elite coaching, MLB-grade technology, and complete athletic development build college-ready players.
-            </p>
+        {/* Tagline */}
+        <p className="font-oswald text-xs md:text-sm uppercase tracking-[0.4em] text-foreground/50 mb-10 max-w-lg">
+          Arizona's premier baseball development academy
+        </p>
 
-            {/* CTA row */}
-            <div className="flex flex-col sm:flex-row gap-3">
-              <Link to="/appointments">
-                <Button 
-                  size="lg"
-                  className="group bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-widest text-base md:text-lg px-8 md:px-10 py-5 md:py-6 h-auto transition-all duration-300 hover:scale-[1.02]"
-                >
-                  Apply Now
-                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </Link>
-              <Link to="/experience">
-                <Button 
-                  size="lg"
-                  variant="outline"
-                  className="font-bebas uppercase tracking-widest text-base md:text-lg px-8 md:px-10 py-5 md:py-6 h-auto border-foreground/20 text-foreground/80 hover:bg-foreground/10 hover:border-foreground/40 transition-all duration-300"
-                >
-                  Explore LPA
-                </Button>
-              </Link>
-            </div>
-          </div>
+        {/* Dual CTA */}
+        <div className="flex flex-col sm:flex-row gap-3">
+          <Link to="/appointments">
+            <Button 
+              size="lg"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-[0.2em] text-sm md:text-base px-10 py-5 h-auto transition-all duration-300"
+            >
+              Apply Now
+              <ArrowRight className="ml-2 w-4 h-4" />
+            </Button>
+          </Link>
+          <Link to="/experience">
+            <Button 
+              size="lg"
+              variant="ghost"
+              className="font-bebas uppercase tracking-[0.2em] text-sm md:text-base px-10 py-5 h-auto text-foreground/60 hover:text-foreground hover:bg-foreground/5 transition-all duration-300"
+            >
+              Explore the Academy
+            </Button>
+          </Link>
         </div>
       </div>
 
-      {/* Clean bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
+      {/* Bottom line accent */}
+      <div className="relative z-10 flex justify-center pb-8">
+        <div className="w-12 h-px bg-primary" />
+      </div>
     </section>
   );
 };
