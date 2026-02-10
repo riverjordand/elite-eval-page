@@ -36,16 +36,6 @@ const FooterSection = () => {
           </div>
 
           <div>
-            <h4 className="font-bebas text-foreground uppercase mb-4">Programs</h4>
-            <ul className="space-y-2">
-              <li><a href="#" className="font-oswald text-sm text-muted-foreground hover:text-primary">Elite Membership</a></li>
-              <li><a href="#" className="font-oswald text-sm text-muted-foreground hover:text-primary">Private Lessons</a></li>
-              <li><a href="#" className="font-oswald text-sm text-muted-foreground hover:text-primary">Pitching Development</a></li>
-              <li><a href="#" className="font-oswald text-sm text-muted-foreground hover:text-primary">Hitting Academy</a></li>
-            </ul>
-          </div>
-
-          <div>
             <h4 className="font-bebas text-foreground uppercase mb-4">Contact</h4>
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
