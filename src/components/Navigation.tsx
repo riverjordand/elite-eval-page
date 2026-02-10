@@ -5,6 +5,7 @@ import { Menu, X } from "lucide-react";
 import logoArch from "@/assets/lpa-arch.png";
 
 const navLinks = [
+  { to: "/experience", label: "The LPA Experience" },
   { to: "/staff", label: "Meet The Staff" },
   { to: "/schedule", label: "Schedule" },
   { to: "/sponsors", label: "Sponsors" },
