@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Star, Trophy, Users } from "lucide-react";
+import { ArrowRight, Star } from "lucide-react";
 import lpaBolt from "@/assets/lpa-logo-bolt.webp";
 
 interface HeroSectionProps {
@@ -89,17 +89,6 @@ const HeroSection = ({ onCtaClick }: HeroSectionProps) => {
               </Button>
             </div>
 
-            {/* Trust Elements */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 md:gap-6 lg:gap-8 text-foreground/60">
-              <div className="flex items-center gap-1.5 md:gap-2 group">
-                <Trophy className="w-4 h-4 md:w-5 md:h-5 text-primary group-hover:scale-110 transition-transform" />
-                <span className="font-oswald text-sm md:text-base lg:text-lg">50+ College Commits</span>
-              </div>
-              <div className="flex items-center gap-1.5 md:gap-2 group">
-                <Users className="w-4 h-4 md:w-5 md:h-5 text-primary group-hover:scale-110 transition-transform" />
-                <span className="font-oswald text-sm md:text-base lg:text-lg">500+ Athletes Trained</span>
-              </div>
-            </div>
           </div>
         </div>
       </div>
