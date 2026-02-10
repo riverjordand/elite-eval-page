@@ -14,6 +14,156 @@ export type Database = {
   }
   public: {
     Tables: {
+      applications: {
+        Row: {
+          additional_info: string | null
+          bats: string
+          best_60_yard: string | null
+          city: string
+          commitment_details: string | null
+          community_service: string | null
+          consent_marketing: boolean
+          consent_transactional: boolean
+          country: string
+          created_at: string
+          current_school: string
+          date_of_birth: string
+          dietary_restrictions: string | null
+          email: string
+          extracurricular: string
+          first_name: string
+          gpa: string
+          grade_level: string
+          guardian1_email: string
+          guardian1_name: string
+          guardian1_phone: string
+          guardian2_email: string | null
+          guardian2_name: string | null
+          guardian2_phone: string | null
+          host_family_needed: boolean
+          hs_grad_year: string
+          id: string
+          last_name: string
+          long_term_goals: string
+          max_exit_velo: string | null
+          max_pitching_speed: string | null
+          medical_conditions: string | null
+          phone: string
+          player_video_url: string | null
+          postal_code: string
+          primary_position: string
+          projected_start_date: string
+          reviewed: boolean
+          secondary_position: string
+          short_term_goals: string
+          sport: string
+          sport_experience: string
+          state: string
+          street_address: string
+          throws: string
+          tour_status: string
+          verbal_commitment: boolean
+        }
+        Insert: {
+          additional_info?: string | null
+          bats: string
+          best_60_yard?: string | null
+          city: string
+          commitment_details?: string | null
+          community_service?: string | null
+          consent_marketing?: boolean
+          consent_transactional?: boolean
+          country?: string
+          created_at?: string
+          current_school: string
+          date_of_birth: string
+          dietary_restrictions?: string | null
+          email: string
+          extracurricular: string
+          first_name: string
+          gpa: string
+          grade_level: string
+          guardian1_email: string
+          guardian1_name: string
+          guardian1_phone: string
+          guardian2_email?: string | null
+          guardian2_name?: string | null
+          guardian2_phone?: string | null
+          host_family_needed?: boolean
+          hs_grad_year: string
+          id?: string
+          last_name: string
+          long_term_goals: string
+          max_exit_velo?: string | null
+          max_pitching_speed?: string | null
+          medical_conditions?: string | null
+          phone: string
+          player_video_url?: string | null
+          postal_code: string
+          primary_position: string
+          projected_start_date: string
+          reviewed?: boolean
+          secondary_position: string
+          short_term_goals: string
+          sport: string
+          sport_experience: string
+          state: string
+          street_address: string
+          throws: string
+          tour_status?: string
+          verbal_commitment?: boolean
+        }
+        Update: {
+          additional_info?: string | null
+          bats?: string
+          best_60_yard?: string | null
+          city?: string
+          commitment_details?: string | null
+          community_service?: string | null
+          consent_marketing?: boolean
+          consent_transactional?: boolean
+          country?: string
+          created_at?: string
+          current_school?: string
+          date_of_birth?: string
+          dietary_restrictions?: string | null
+          email?: string
+          extracurricular?: string
+          first_name?: string
+          gpa?: string
+          grade_level?: string
+          guardian1_email?: string
+          guardian1_name?: string
+          guardian1_phone?: string
+          guardian2_email?: string | null
+          guardian2_name?: string | null
+          guardian2_phone?: string | null
+          host_family_needed?: boolean
+          hs_grad_year?: string
+          id?: string
+          last_name?: string
+          long_term_goals?: string
+          max_exit_velo?: string | null
+          max_pitching_speed?: string | null
+          medical_conditions?: string | null
+          phone?: string
+          player_video_url?: string | null
+          postal_code?: string
+          primary_position?: string
+          projected_start_date?: string
+          reviewed?: boolean
+          secondary_position?: string
+          short_term_goals?: string
+          sport?: string
+          sport_experience?: string
+          state?: string
+          street_address?: string
+          throws?: string
+          tour_status?: string
+          verbal_commitment?: boolean
+        }
+        Relationships: []
+      }
       lead_submissions: {
         Row: {
           appointment_date: string | null
