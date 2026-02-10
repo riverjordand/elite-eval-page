@@ -23,7 +23,7 @@ const ResultsSection = () => {
             <span className="font-oswald text-sm text-primary uppercase tracking-[0.3em]">50+ College Commits</span>
           </div>
           <h2 className="font-bebas text-4xl md:text-5xl lg:text-6xl text-foreground uppercase leading-none mb-4">
-            Where LPA Athletes <span className="text-primary">End Up</span>
+            Athlete <span className="text-primary">Success Stories</span>
           </h2>
           <p className="font-oswald text-base text-muted-foreground max-w-xl mx-auto">
             These athletes started where yours is now. With the right training, they're now playing at the next level.
