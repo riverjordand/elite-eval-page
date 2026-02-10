@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useIsMobile } from "@/hooks/use-mobile";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -63,7 +64,12 @@ const DAYS_SHORT = ["S", "M", "T", "W", "T", "F", "S"];
 const Schedule = () => {
   const [currentDate, setCurrentDate] = useState(new Date(2026, 1, 1));
   const [selectedTeam, setSelectedTeam] = useState("All Teams");
-  const [viewMode, setViewMode] = useState<"calendar" | "list">("list");
+  const isMobile = useIsMobile();
+  const [viewMode, setViewMode] = useState<"calendar" | "list">(isMobile ? "list" : "calendar");
+
+  useEffect(() => {
+    setViewMode(isMobile ? "list" : "calendar");
+  }, [isMobile]);
 
   const year = currentDate.getFullYear();
   const month = currentDate.getMonth();
