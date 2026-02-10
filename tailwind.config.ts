@@ -64,8 +64,9 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        'bebas': ['Bebas Neue', 'sans-serif'],
-        'oswald': ['Oswald', 'sans-serif'],
+        'house': ['"House of Cards"', 'sans-serif'],
+        'bebas': ['"House of Cards"', 'sans-serif'],
+        'oswald': ['"House of Cards"', 'sans-serif'],
       },
       keyframes: {
         "accordion-down": {

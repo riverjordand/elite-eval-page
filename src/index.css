@@ -2,6 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
+/* House of Cards font family */
+@font-face {
+  font-family: 'House of Cards';
+  src: url('/fonts/HouseOfCards_Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'House of Cards';
+  src: url('/fonts/HouseOfCards_Regular_Italic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'House of Cards';
+  src: url('/fonts/HouseOfCards_Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'House of Cards';
+  src: url('/fonts/HouseOfCards_Bold_Italic.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
 */
@@ -236,6 +266,6 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground font-oswald;
+    @apply bg-background text-foreground font-house;
   }
 }
