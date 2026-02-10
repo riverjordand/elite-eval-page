@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
-import logoText from "@/assets/lpa-logo-text.webp";
-import logoBolt from "@/assets/lpa-logo-bolt.webp";
+import logoLegendary from "@/assets/lpa-logo-legendary.png";
 
 interface NavigationProps {
   onBookNowClick?: () => void;
@@ -11,16 +10,10 @@ const Navigation = ({ onBookNowClick }: NavigationProps) => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/30">
       <div className="w-full px-4 md:px-6 lg:px-12 xl:px-20 py-3 md:py-4 lg:py-5">
         <div className="flex items-center justify-between max-w-[1800px] mx-auto">
-          {/* Mobile: Bolt logo, Desktop: Text logo */}
           <img 
-            src={logoBolt} 
-            alt="LPA" 
-            className="h-8 w-auto md:hidden"
-          />
-          <img 
-            src={logoText} 
+            src={logoLegendary} 
             alt="Legendary Prep Academy" 
-            className="hidden md:block h-10 lg:h-12 xl:h-14 w-auto"
+            className="h-8 md:h-10 lg:h-12 w-auto"
           />
 
           <Button 
