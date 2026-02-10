@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import brayanMoreno from "@/assets/athletes/brayan-moreno-southwestern.jpg";
 import milesKeogh from "@/assets/athletes/miles-keogh-coastal.jpg";
 import prestonFrancis from "@/assets/athletes/preston-francis-glendale.jpg";
@@ -75,14 +76,15 @@ const LandingResults = ({ onCtaClick }: LandingResultsProps) => {
 
         {/* CTA */}
         <div className="text-center">
-          <Button 
-            size="lg" 
-            className="group bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-widest text-base md:text-xl lg:text-2xl px-8 md:px-12 lg:px-14 py-4 md:py-6 lg:py-7 h-auto shadow-2xl border-glow transition-all duration-500 hover:scale-105"
-            onClick={onCtaClick}
-          >
-            Start Your Journey
-            <ArrowRight className="ml-3 w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 group-hover:translate-x-2 transition-transform" />
-          </Button>
+          <Link to="/appointments">
+            <Button 
+              size="lg" 
+              className="group bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-widest text-base md:text-xl lg:text-2xl px-8 md:px-12 lg:px-14 py-4 md:py-6 lg:py-7 h-auto shadow-2xl border-glow transition-all duration-500 hover:scale-105"
+            >
+              Start Your Journey
+              <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

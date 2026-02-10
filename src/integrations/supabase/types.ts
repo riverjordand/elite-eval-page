@@ -248,6 +248,75 @@ export type Database = {
         }
         Relationships: []
       }
+      tour_bookings: {
+        Row: {
+          address: string | null
+          athlete_dob: string | null
+          athlete_positions: string | null
+          booking_date: string
+          booking_time: string
+          consent_sms: boolean
+          created_at: string
+          current_school: string | null
+          email: string
+          first_name: string
+          how_heard: string | null
+          id: string
+          last_name: string
+          parent_name: string | null
+          parent_phone: string | null
+          parent2_name: string | null
+          phone: string
+          referring_contact: string | null
+          special_requests: string | null
+          status: string
+        }
+        Insert: {
+          address?: string | null
+          athlete_dob?: string | null
+          athlete_positions?: string | null
+          booking_date: string
+          booking_time: string
+          consent_sms?: boolean
+          created_at?: string
+          current_school?: string | null
+          email: string
+          first_name: string
+          how_heard?: string | null
+          id?: string
+          last_name: string
+          parent_name?: string | null
+          parent_phone?: string | null
+          parent2_name?: string | null
+          phone: string
+          referring_contact?: string | null
+          special_requests?: string | null
+          status?: string
+        }
+        Update: {
+          address?: string | null
+          athlete_dob?: string | null
+          athlete_positions?: string | null
+          booking_date?: string
+          booking_time?: string
+          consent_sms?: boolean
+          created_at?: string
+          current_school?: string | null
+          email?: string
+          first_name?: string
+          how_heard?: string | null
+          id?: string
+          last_name?: string
+          parent_name?: string | null
+          parent_phone?: string | null
+          parent2_name?: string | null
+          phone?: string
+          referring_contact?: string | null
+          special_requests?: string | null
+          status?: string
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           created_at: string

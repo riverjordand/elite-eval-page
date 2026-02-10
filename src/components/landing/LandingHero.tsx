@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronDown } from "lucide-react";
+import { Link } from "react-router-dom";
 import lpaBolt from "@/assets/lpa-badge-cactus.png";
 
 interface LandingHeroProps {
@@ -60,14 +61,15 @@ const LandingHero = ({
 
           {/* CTA - Refined sizing */}
           <div className="flex justify-center mb-10 lg:mb-12">
-            <Button 
-              size="lg" 
-              className="group bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-widest text-xl sm:text-2xl md:text-2xl lg:text-3xl px-10 py-6 md:px-14 md:py-7 lg:px-16 lg:py-8 h-auto shadow-2xl hover:shadow-primary/30 transition-all duration-500 hover:scale-105 border-glow-intense"
-              onClick={onCtaClick}
-            >
-              Book My Free Evaluation 
-              <ArrowRight className="ml-3 w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 group-hover:translate-x-2 transition-transform duration-300" />
-            </Button>
+            <Link to="/appointments">
+              <Button 
+                size="lg" 
+                className="group bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-widest text-xl sm:text-2xl md:text-2xl lg:text-3xl px-10 py-6 md:px-14 md:py-7 lg:px-16 lg:py-8 h-auto shadow-2xl hover:shadow-primary/30 transition-all duration-500 hover:scale-105 border-glow-intense"
+              >
+                Book My Free Evaluation 
+                <ArrowRight className="ml-3 w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 group-hover:translate-x-2 transition-transform duration-300" />
+              </Button>
+            </Link>
           </div>
 
           {/* Bottom Tagline */}

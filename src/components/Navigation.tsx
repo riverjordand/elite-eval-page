@@ -41,7 +41,7 @@ const Navigation = () => {
                 {link.label}
               </Link>
             ))}
-            <Link to="/apply">
+            <Link to="/appointments">
               <Button 
                 size="lg" 
                 className="bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-widest border-glow text-base xl:text-lg px-8 xl:px-10 py-5 lg:py-6 h-auto min-h-[48px] transition-all duration-300 hover:scale-105"
@@ -53,7 +53,7 @@ const Navigation = () => {
 
           {/* Mobile: Book Now + Hamburger */}
           <div className="flex items-center gap-3 lg:hidden">
-            <Link to="/apply" onClick={() => setMobileOpen(false)}>
+            <Link to="/appointments" onClick={() => setMobileOpen(false)}>
               <Button 
                 className="bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-wider text-sm px-4 py-2.5 h-auto border-glow"
               >

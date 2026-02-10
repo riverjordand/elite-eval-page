@@ -1,4 +1,5 @@
 import { GraduationCap } from "lucide-react";
+import { Link } from "react-router-dom";
 import SectionDivider from "./SectionDivider";
 
 interface Commitment {
@@ -75,12 +76,13 @@ const LandingCommitments = ({ title, subtitle, commitments, totalCount, onCtaCli
               <p className="text-base md:text-lg lg:text-xl xl:text-2xl text-muted-foreground font-oswald mb-10 lg:mb-14 leading-relaxed max-w-4xl mx-auto">
                 Get a clear development roadmap and the confidence to reach the next level.
               </p>
-              <button
-                onClick={onCtaClick}
-                className="bg-primary hover:bg-primary/90 text-primary-foreground px-12 md:px-16 lg:px-20 py-6 md:py-8 lg:py-10 rounded-xl lg:rounded-2xl font-bebas text-xl md:text-2xl lg:text-3xl xl:text-4xl uppercase tracking-widest transition-all duration-500 hover:scale-105 shadow-2xl hover:shadow-primary/30 border-glow-intense"
-              >
-                → Book Your Free Evaluation
-              </button>
+              <Link to="/appointments">
+                <button
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground px-12 md:px-16 lg:px-20 py-6 md:py-8 lg:py-10 rounded-xl lg:rounded-2xl font-bebas text-xl md:text-2xl lg:text-3xl xl:text-4xl uppercase tracking-widest transition-all duration-500 hover:scale-105 shadow-2xl hover:shadow-primary/30 border-glow-intense"
+                >
+                  → Book Your Free Evaluation
+                </button>
+              </Link>
             </div>
           </div>
         </div>

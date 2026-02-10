@@ -27,6 +27,7 @@ const FooterSection = () => {
           <div>
             <h4 className="font-bebas text-foreground uppercase mb-4">Quick Links</h4>
             <ul className="space-y-2">
+              <li><Link to="/appointments" className="font-oswald text-sm text-muted-foreground hover:text-primary">Book a Tour</Link></li>
               <li><Link to="/apply" className="font-oswald text-sm text-muted-foreground hover:text-primary">Apply</Link></li>
               <li><Link to="/schedule" className="font-oswald text-sm text-muted-foreground hover:text-primary">Schedule</Link></li>
               <li><Link to="/sponsors" className="font-oswald text-sm text-muted-foreground hover:text-primary">Sponsors</Link></li>

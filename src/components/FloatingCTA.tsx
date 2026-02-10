@@ -28,7 +28,7 @@ const FloatingCTA = () => {
       md:bg-transparent md:bottom-6 md:left-1/2 md:-translate-x-1/2 md:right-auto md:p-0 md:pb-0
       `}
     >
-      <Link to="/apply">
+      <Link to="/appointments">
         <Button
           size="lg"
           className="
@@ -45,7 +45,7 @@ const FloatingCTA = () => {
             md:hover:scale-105
           "
         >
-          Apply Now
+          Book Free Evaluation
           <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
         </Button>
       </Link>
