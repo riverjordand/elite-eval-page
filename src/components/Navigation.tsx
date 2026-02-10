@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import logoLegendary from "@/assets/lpa-logo-legendary.png";
+import logoArch from "@/assets/lpa-arch.png";
 
 interface NavigationProps {
   onBookNowClick?: () => void;
@@ -11,9 +11,9 @@ const Navigation = ({ onBookNowClick }: NavigationProps) => {
       <div className="w-full px-4 md:px-6 lg:px-12 xl:px-20 py-3 md:py-4 lg:py-5">
         <div className="flex items-center justify-between max-w-[1800px] mx-auto">
           <img 
-            src={logoLegendary} 
+            src={logoArch} 
             alt="Legendary Prep Academy" 
-            className="h-12 md:h-14 lg:h-16 w-auto -my-2 md:-my-3"
+            className="h-10 md:h-12 lg:h-14 w-auto -my-1 md:-my-2"
           />
 
           <Button 
