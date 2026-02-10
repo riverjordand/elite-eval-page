@@ -51,12 +51,12 @@ const FAQSection = () => {
         <div className="text-center mb-8 md:mb-12 lg:mb-16">
           <div className="inline-flex items-center gap-2 md:gap-3 mb-3 md:mb-4">
             <div className="relative">
-              <div className="absolute inset-0 bg-primary blur-lg opacity-60" style={{ transform: 'scale(1.5)' }} />
-              <div className="relative w-8 h-8 md:w-10 md:h-10 bg-primary/20 border border-primary/50 flex items-center justify-center">
-                <HelpCircle className="w-4 h-4 md:w-5 md:h-5 text-primary" />
+              <div className="absolute inset-0 bg-accent blur-lg opacity-60" style={{ transform: 'scale(1.5)' }} />
+              <div className="relative w-8 h-8 md:w-10 md:h-10 bg-accent/20 border border-accent/50 flex items-center justify-center">
+                <HelpCircle className="w-4 h-4 md:w-5 md:h-5 text-accent" />
               </div>
             </div>
-            <span className="font-oswald text-xs md:text-sm lg:text-base text-primary uppercase tracking-[0.2em] md:tracking-[0.3em] glow-primary">
+            <span className="font-oswald text-xs md:text-sm lg:text-base text-accent uppercase tracking-[0.2em] md:tracking-[0.3em] glow-accent">
               Common Questions
             </span>
           </div>

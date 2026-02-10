@@ -105,6 +105,14 @@ All colors MUST be HSL.
   .text-gradient-brand {
     @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
   }
+
+  .glow-accent {
+    text-shadow: 0 0 30px hsl(var(--accent) / 0.5);
+  }
+
+  .border-glow-accent {
+    box-shadow: 0 0 20px hsl(var(--accent) / 0.3);
+  }
   
   .glow-primary {
     text-shadow: 0 0 30px hsl(var(--primary) / 0.5);

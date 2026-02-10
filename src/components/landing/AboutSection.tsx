@@ -53,7 +53,7 @@ const AboutSection = () => {
         {/* Header */}
         <div className={`flex flex-col lg:flex-row lg:items-end lg:justify-between gap-3 md:gap-6 mb-6 md:mb-10 lg:mb-12 text-center lg:text-left transition-all duration-700 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
           <div className="lg:max-w-xl">
-            <p className="font-oswald text-[10px] md:text-xs lg:text-sm text-primary uppercase tracking-[0.2em] md:tracking-[0.3em] mb-2 md:mb-3 glow-primary">
+            <p className="font-oswald text-[10px] md:text-xs lg:text-sm text-accent uppercase tracking-[0.2em] md:tracking-[0.3em] mb-2 md:mb-3 glow-accent">
               Why 500+ Families Choose LPA
             </p>
             <h2 className="font-bebas text-2xl md:text-4xl lg:text-5xl xl:text-6xl text-foreground uppercase leading-none drop-shadow-lg">

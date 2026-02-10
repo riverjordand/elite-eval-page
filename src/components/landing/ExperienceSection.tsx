@@ -55,7 +55,7 @@ const ExperienceSection = () => {
       <div className="container relative mx-auto px-4 md:px-6 lg:px-12">
         {/* Header */}
         <div className={`text-center lg:text-left mb-8 md:mb-10 lg:mb-12 transition-all duration-700 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
-          <p className="font-oswald text-[10px] md:text-xs lg:text-sm text-primary uppercase tracking-[0.2em] md:tracking-[0.3em] mb-2 md:mb-3 glow-primary">
+          <p className="font-oswald text-[10px] md:text-xs lg:text-sm text-accent uppercase tracking-[0.2em] md:tracking-[0.3em] mb-2 md:mb-3 glow-accent">
             The Full Athlete Experience
           </p>
           <h2 className="font-bebas text-2xl md:text-4xl lg:text-5xl xl:text-6xl text-foreground uppercase leading-none drop-shadow-lg mb-3 md:mb-4">
