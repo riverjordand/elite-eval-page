@@ -65,43 +65,43 @@ const Sponsors = () => {
 
       {/* Hero */}
       <section className="relative pt-20 md:pt-24 overflow-hidden">
-        <div className="relative h-48 md:h-64 flex items-center justify-center overflow-hidden">
+        <div className="relative h-36 md:h-64 flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b from-card via-background/80 to-background" />
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/10 rounded-full blur-[160px]" />
-          <h1 className="relative font-bebas text-5xl sm:text-6xl md:text-7xl lg:text-8xl uppercase text-center leading-none">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/10 rounded-full blur-[160px]" />
+          <h1 className="relative font-bebas text-4xl sm:text-5xl md:text-7xl lg:text-8xl uppercase text-center leading-none">
             <span className="text-primary">Sponsors</span>
           </h1>
         </div>
       </section>
 
       {/* Sponsors Grid */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-16 pb-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-16 pb-16 md:pb-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
           {sponsors.map((sponsor) => (
             <div
               key={sponsor.name}
               className="group bg-card/60 border border-border/30 rounded-lg overflow-hidden hover:border-primary/30 transition-all duration-500"
-              style={{ boxShadow: "0 20px 40px -15px rgba(0,0,0,0.4)" }}
             >
               {/* Logo */}
-              <div className="bg-black flex items-center justify-center p-8 md:p-12 aspect-[16/10]">
+              <div className="bg-black flex items-center justify-center p-6 md:p-10 aspect-[16/10]">
                 <img
                   src={sponsor.logo}
                   alt={sponsor.name}
-                  className="max-h-40 md:max-h-52 w-auto object-contain group-hover:scale-105 transition-transform duration-500"
+                  className="max-h-28 md:max-h-40 w-auto object-contain group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
                 />
               </div>
 
               {/* Info */}
-              <div className="p-5 md:p-6">
-                <h2 className="font-bebas text-2xl md:text-3xl uppercase text-foreground mb-3">
+              <div className="p-4 md:p-5">
+                <h2 className="font-bebas text-xl md:text-2xl uppercase text-foreground mb-2">
                   {sponsor.name}
                 </h2>
-                <ul className="space-y-2">
+                <ul className="space-y-1.5">
                   {sponsor.benefits.map((benefit, i) => (
                     <li key={i} className="flex items-start gap-2">
-                      <span className="text-primary mt-1.5 text-xs">•</span>
-                      <span className="font-oswald text-sm md:text-base text-foreground/80 font-medium">
+                      <span className="text-primary mt-1 text-[10px]">•</span>
+                      <span className="font-oswald text-xs md:text-sm text-foreground/80">
                         {benefit}
                       </span>
                     </li>

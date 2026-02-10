@@ -121,12 +121,12 @@ const Contact = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
 
-      <div className="pt-28 sm:pt-32 pb-16 px-4 sm:px-6">
+      <div className="pt-24 sm:pt-32 pb-12 sm:pb-16 px-4 sm:px-6">
         <div className="max-w-xl mx-auto">
-          <h1 className="font-bebas text-5xl sm:text-6xl md:text-7xl uppercase text-center mb-4 leading-none">
+          <h1 className="font-bebas text-4xl sm:text-5xl md:text-7xl uppercase text-center mb-3 sm:mb-4 leading-none">
             Contact <span className="text-primary">Us</span>
           </h1>
-          <p className="font-oswald text-center text-muted-foreground text-base sm:text-lg mb-10 max-w-md mx-auto">
+          <p className="font-oswald text-center text-muted-foreground text-sm sm:text-lg mb-8 sm:mb-10 max-w-md mx-auto">
             Have questions? Fill out the form below and our team will get back to you.
           </p>
 

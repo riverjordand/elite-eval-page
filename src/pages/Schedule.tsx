@@ -29,7 +29,6 @@ const teamColors: Record<string, string> = {
 
 const teams = ["All Teams", "Varsity", "Junior Varsity", "14U", "13U"];
 
-// Sample schedule data for February 2026
 const sampleGames: GameEvent[] = [
   { date: 1, time: "12a", team: "Junior Varsity", opponent: "SWWB Pre-Season Classic", color: "bg-orange-500" },
   { date: 3, time: "4p", team: "Junior Varsity", opponent: "Thunderbird", color: "bg-orange-500" },
@@ -58,11 +57,13 @@ const sampleGames: GameEvent[] = [
   { date: 28, time: "10a", team: "Varsity", opponent: "CAA Doubleheader", color: "bg-red-600" },
 ];
 
-const DAYS = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+const DAYS_FULL = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+const DAYS_SHORT = ["S", "M", "T", "W", "T", "F", "S"];
 
 const Schedule = () => {
-  const [currentDate, setCurrentDate] = useState(new Date(2026, 1, 1)); // Feb 2026
+  const [currentDate, setCurrentDate] = useState(new Date(2026, 1, 1));
   const [selectedTeam, setSelectedTeam] = useState("All Teams");
+  const [viewMode, setViewMode] = useState<"calendar" | "list">("list");
 
   const year = currentDate.getFullYear();
   const month = currentDate.getMonth();
@@ -72,7 +73,6 @@ const Schedule = () => {
 
   const prevMonth = () => setCurrentDate(new Date(year, month - 1, 1));
   const nextMonth = () => setCurrentDate(new Date(year, month + 1, 1));
-  const goToday = () => setCurrentDate(new Date());
 
   const filteredGames = sampleGames.filter(
     (g) => selectedTeam === "All Teams" || g.team === selectedTeam
@@ -86,115 +86,173 @@ const Schedule = () => {
   for (let d = 1; d <= daysInMonth; d++) cells.push(d);
   while (cells.length % 7 !== 0) cells.push(null);
 
+  // List view: group games by date
+  const gamesByDate = filteredGames.reduce<Record<number, GameEvent[]>>((acc, g) => {
+    if (!acc[g.date]) acc[g.date] = [];
+    acc[g.date].push(g);
+    return acc;
+  }, {});
+  const sortedDates = Object.keys(gamesByDate).map(Number).sort((a, b) => a - b);
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
 
-      {/* Hero Banner */}
+      {/* Hero */}
       <section className="relative pt-20 md:pt-24 overflow-hidden">
-        <div className="relative h-48 md:h-64 flex items-center justify-center overflow-hidden">
+        <div className="relative h-36 md:h-64 flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b from-card via-background/80 to-background" />
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/10 rounded-full blur-[160px]" />
-          <h1 className="relative font-bebas text-5xl sm:text-6xl md:text-7xl lg:text-8xl uppercase text-center leading-none">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/10 rounded-full blur-[160px]" />
+          <h1 className="relative font-bebas text-4xl sm:text-5xl md:text-7xl lg:text-8xl uppercase text-center leading-none">
             Game <span className="text-primary">Schedule</span>
           </h1>
         </div>
       </section>
 
-      {/* Calendar */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-16 pb-16">
+      <div className="container mx-auto px-3 sm:px-6 lg:px-16 pb-16">
         {/* Controls */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6">
-          <div className="flex items-center gap-2">
-            <Select value={selectedTeam} onValueChange={setSelectedTeam}>
-              <SelectTrigger className="w-[180px] h-10 font-oswald">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                {teams.map((t) => (
-                  <SelectItem key={t} value={t} className="font-oswald">{t}</SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
+        <div className="flex flex-wrap items-center justify-between gap-3 mb-4 md:mb-6">
+          <Select value={selectedTeam} onValueChange={setSelectedTeam}>
+            <SelectTrigger className="w-[150px] sm:w-[180px] h-9 font-oswald text-sm">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              {teams.map((t) => (
+                <SelectItem key={t} value={t} className="font-oswald">{t}</SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
 
-          <div className="flex items-center gap-3">
-            <Button variant="outline" size="icon" onClick={prevMonth} className="h-9 w-9">
+          <div className="flex items-center gap-2">
+            <Button variant="outline" size="icon" onClick={prevMonth} className="h-8 w-8">
               <ChevronLeft className="w-4 h-4" />
             </Button>
-            <Button variant="outline" size="icon" onClick={nextMonth} className="h-9 w-9">
+            <h2 className="font-bebas text-lg sm:text-2xl md:text-3xl uppercase tracking-wide min-w-[140px] text-center">
+              {monthName} {year}
+            </h2>
+            <Button variant="outline" size="icon" onClick={nextMonth} className="h-8 w-8">
               <ChevronRight className="w-4 h-4" />
-            </Button>
-            <Button variant="outline" onClick={goToday} className="h-9 font-oswald text-sm px-4">
-              Today
             </Button>
           </div>
 
-          <h2 className="font-bebas text-2xl md:text-3xl uppercase tracking-wide">
-            {monthName} {year}
-          </h2>
+          {/* View toggle - mobile shows list by default */}
+          <div className="flex gap-1 bg-card/60 rounded-md p-0.5 border border-border/30">
+            <button
+              onClick={() => setViewMode("list")}
+              className={`font-bebas text-xs sm:text-sm px-3 py-1.5 rounded transition-colors ${
+                viewMode === "list" ? "bg-primary text-primary-foreground" : "text-muted-foreground"
+              }`}
+            >
+              List
+            </button>
+            <button
+              onClick={() => setViewMode("calendar")}
+              className={`font-bebas text-xs sm:text-sm px-3 py-1.5 rounded transition-colors ${
+                viewMode === "calendar" ? "bg-primary text-primary-foreground" : "text-muted-foreground"
+              }`}
+            >
+              Calendar
+            </button>
+          </div>
         </div>
 
-        {/* Calendar Grid */}
-        <div className="border border-border/40 rounded-lg overflow-hidden">
-          {/* Day Headers */}
-          <div className="grid grid-cols-7 bg-card/60">
-            {DAYS.map((day) => (
-              <div key={day} className="py-2 text-center font-bebas text-sm md:text-base text-muted-foreground uppercase tracking-wider border-b border-border/30">
-                {day}
+        {/* List View */}
+        {viewMode === "list" && (
+          <div className="space-y-2">
+            {sortedDates.length === 0 && (
+              <p className="text-center text-muted-foreground font-oswald py-12">No games scheduled this month.</p>
+            )}
+            {sortedDates.map((date) => (
+              <div key={date} className="bg-card/40 border border-border/20 rounded-lg overflow-hidden">
+                <div className="bg-card/80 px-4 py-2 border-b border-border/20">
+                  <span className="font-bebas text-base md:text-lg text-foreground">
+                    {monthName} {date}, {year}
+                  </span>
+                </div>
+                <div className="divide-y divide-border/10">
+                  {gamesByDate[date].map((game, gi) => (
+                    <div key={gi} className="flex items-center gap-3 px-4 py-3">
+                      <div className={`w-1.5 h-10 rounded-full ${game.color} flex-shrink-0`} />
+                      <div className="flex-1 min-w-0">
+                        <p className="font-oswald text-sm md:text-base text-foreground truncate">
+                          {game.team} — LPA vs {game.opponent}
+                        </p>
+                        <p className="font-oswald text-xs text-muted-foreground">{game.time}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             ))}
           </div>
+        )}
 
-          {/* Weeks */}
-          <div className="grid grid-cols-7">
-            {cells.map((day, i) => {
-              const games = day ? getGamesForDay(day) : [];
-              return (
-                <div
-                  key={i}
-                  className={`min-h-[80px] md:min-h-[120px] border-b border-r border-border/20 p-1 md:p-2 ${
-                    day ? "bg-background" : "bg-card/20"
-                  }`}
-                >
-                  {day && (
-                    <>
-                      <span className="font-bebas text-sm md:text-base text-foreground/70">{day}</span>
-                      <div className="mt-1 space-y-1">
-                        {games.slice(0, 3).map((game, gi) => (
-                          <div
-                            key={gi}
-                            className={`${game.color} rounded px-1 md:px-2 py-0.5 md:py-1 text-white cursor-default`}
-                          >
-                            <p className="font-oswald text-[9px] md:text-xs leading-tight truncate">
-                              <span className="hidden md:inline">{game.team} — </span>LPA vs {game.opponent}
-                            </p>
-                            <p className="font-oswald text-[8px] md:text-[10px] opacity-80">{game.time}</p>
-                          </div>
-                        ))}
-                        {games.length > 3 && (
-                          <p className="font-oswald text-[9px] md:text-xs text-muted-foreground text-center">
-                            +{games.length - 3} more
-                          </p>
+        {/* Calendar View */}
+        {viewMode === "calendar" && (
+          <>
+            <div className="border border-border/40 rounded-lg overflow-x-auto">
+              <div className="min-w-[500px]">
+                {/* Day Headers */}
+                <div className="grid grid-cols-7 bg-card/60">
+                  {DAYS_FULL.map((day, i) => (
+                    <div key={day} className="py-2 text-center font-bebas text-xs md:text-base text-muted-foreground uppercase tracking-wider border-b border-border/30">
+                      <span className="hidden sm:inline">{day}</span>
+                      <span className="sm:hidden">{DAYS_SHORT[i]}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Weeks */}
+                <div className="grid grid-cols-7">
+                  {cells.map((day, i) => {
+                    const games = day ? getGamesForDay(day) : [];
+                    return (
+                      <div
+                        key={i}
+                        className={`min-h-[60px] md:min-h-[120px] border-b border-r border-border/20 p-0.5 md:p-2 ${
+                          day ? "bg-background" : "bg-card/20"
+                        }`}
+                      >
+                        {day && (
+                          <>
+                            <span className="font-bebas text-xs md:text-base text-foreground/70">{day}</span>
+                            <div className="mt-0.5 space-y-0.5">
+                              {games.slice(0, 2).map((game, gi) => (
+                                <div
+                                  key={gi}
+                                  className={`${game.color} rounded px-0.5 md:px-2 py-0.5 text-white`}
+                                >
+                                  <p className="font-oswald text-[7px] md:text-xs leading-tight truncate">
+                                    vs {game.opponent}
+                                  </p>
+                                </div>
+                              ))}
+                              {games.length > 2 && (
+                                <p className="font-oswald text-[7px] md:text-xs text-muted-foreground text-center">
+                                  +{games.length - 2}
+                                </p>
+                              )}
+                            </div>
+                          </>
                         )}
                       </div>
-                    </>
-                  )}
+                    );
+                  })}
                 </div>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Legend */}
-        <div className="flex flex-wrap gap-4 mt-6 justify-center">
-          {Object.entries(teamColors).map(([team, color]) => (
-            <div key={team} className="flex items-center gap-2">
-              <div className={`w-3 h-3 rounded ${color}`} />
-              <span className="font-oswald text-xs md:text-sm text-muted-foreground">{team}</span>
+              </div>
             </div>
-          ))}
-        </div>
+
+            {/* Legend */}
+            <div className="flex flex-wrap gap-3 mt-4 justify-center">
+              {Object.entries(teamColors).map(([team, color]) => (
+                <div key={team} className="flex items-center gap-1.5">
+                  <div className={`w-2.5 h-2.5 rounded-full ${color}`} />
+                  <span className="font-oswald text-[10px] md:text-sm text-muted-foreground">{team}</span>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
       </div>
 
       <FooterSection />
