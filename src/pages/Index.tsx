@@ -6,7 +6,6 @@ import IntroSection from "@/components/landing/IntroSection";
 import AboutSection from "@/components/landing/AboutSection";
 import FacilitySection from "@/components/landing/FacilitySection";
 import MediaSection from "@/components/landing/MediaSection";
-import CoachesSection from "@/components/landing/CoachesSection";
 import TestimonialsSection from "@/components/landing/TestimonialsSection";
 import ResultsSection from "@/components/landing/ResultsSection";
 import CTASection from "@/components/landing/CTASection";
@@ -29,7 +28,6 @@ const Index = () => {
       <AboutSection />
       <FacilitySection />
       <MediaSection />
-      <CoachesSection />
       <TestimonialsSection />
       <ResultsSection onCtaClick={openForm} />
       <CTASection onCtaClick={openForm} />
