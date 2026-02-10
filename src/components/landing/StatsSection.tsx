@@ -4,7 +4,7 @@ import { TrendingUp } from "lucide-react";
 const stats = [
   { value: 50, suffix: "+", label: "College Commits", sublabel: "D1, D2, D3 & JUCO" },
   { value: 16, suffix: "K", label: "Sq Ft Facility", sublabel: "Indoor Training Complex" },
-  { value: 5, suffix: "", label: "D1 Programs", sublabel: "On Coaching Staff" },
+  { value: 4, suffix: "", label: "Pro Coaches", sublabel: "Former Pro & D1 Players" },
   { value: 8.5, suffix: "", label: "Avg MPH Gain", sublabel: "First 6 Months", decimal: true },
 ];
 
