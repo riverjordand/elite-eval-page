@@ -47,21 +47,33 @@ const StatsSection = () => {
   return (
     <section ref={ref} className="border-y border-border/10">
       <div className="container mx-auto px-6 lg:px-16">
-        <div className="grid grid-cols-4 divide-x divide-border/10">
+        <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-border/10">
           {stats.map((stat, index) => (
             <div
               key={index}
-              className="py-8 md:py-10 lg:py-12 text-center transition-all duration-700"
+              className="py-8 md:py-10 lg:py-14 text-center transition-all duration-1000 ease-out"
               style={{
                 opacity: visible ? 1 : 0,
-                transform: visible ? "translateY(0)" : "translateY(10px)",
-                transitionDelay: `${index * 80}ms`,
+                transform: visible ? "translateY(0) scale(1)" : "translateY(20px) scale(0.9)",
+                transitionDelay: `${index * 150}ms`,
               }}
             >
-              <div className="font-bebas text-2xl md:text-4xl lg:text-5xl text-primary leading-none mb-1">
+              <div
+                className="font-bebas text-3xl md:text-5xl lg:text-6xl text-primary leading-none mb-2 transition-all duration-700"
+                style={{
+                  textShadow: visible ? '0 0 30px hsl(var(--primary) / 0.3), 0 0 60px hsl(var(--primary) / 0.1)' : 'none',
+                  transitionDelay: `${300 + index * 150}ms`,
+                }}
+              >
                 <CountUp target={stat.value} suffix={stat.suffix} decimal={stat.decimal} triggered={visible} />
               </div>
-              <div className="font-oswald text-[9px] md:text-[11px] text-foreground/30 uppercase tracking-[0.25em]">
+              <div
+                className="font-oswald text-[9px] md:text-[11px] text-foreground/30 uppercase tracking-[0.3em] transition-all duration-700"
+                style={{
+                  opacity: visible ? 1 : 0,
+                  transitionDelay: `${500 + index * 150}ms`,
+                }}
+              >
                 {stat.label}
               </div>
             </div>
