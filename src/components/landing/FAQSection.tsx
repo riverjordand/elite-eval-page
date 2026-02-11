@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const faqs = [
   { q: "Who do we play?", a: "Spring: LPA competes in Division II of the Canyon Athletic Association (CAA). Fall: LPA plays a heavy JUCO circuit and participates in various college scrimmages. Summer: The team stays active with training, development, and club/high-school tournaments." },
@@ -12,15 +13,14 @@ const faqs = [
 ];
 
 const FAQSection = () => {
+  const { ref, isVisible } = useScrollReveal();
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="relative py-20 md:py-28 lg:py-36 border-t border-border/10">
+    <section ref={ref} className="relative py-20 md:py-28 lg:py-36 border-t border-border/10">
       <div className="container relative mx-auto px-6 lg:px-16">
-        {/* Two column - editorial layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
-          {/* Left - header */}
-          <div className="lg:col-span-4">
+          <div className={`lg:col-span-4 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
             <div className="lg:sticky lg:top-32">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-8 h-px bg-primary" />
@@ -37,31 +37,23 @@ const FAQSection = () => {
               </Link>
             </div>
           </div>
-          
-          {/* Right - accordion */}
-          <div className="lg:col-span-8">
+
+          <div className={`lg:col-span-8 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <div className="divide-y divide-border/10">
               {faqs.map((faq, i) => {
                 const isOpen = openIndex === i;
                 return (
                   <div key={i}>
-                    <button
-                      onClick={() => setOpenIndex(isOpen ? null : i)}
-                      className="w-full flex items-center justify-between gap-6 py-6 text-left group"
-                    >
+                    <button onClick={() => setOpenIndex(isOpen ? null : i)} className="w-full flex items-center justify-between gap-6 py-6 text-left group">
                       <div className="flex items-start gap-5">
                         <span className="font-bebas text-sm text-foreground/15 pt-0.5">{String(i + 1).padStart(2, '0')}</span>
-                        <h3 className={`font-bebas text-lg md:text-xl uppercase leading-tight transition-colors ${isOpen ? 'text-primary' : 'text-foreground group-hover:text-foreground/70'}`}>
-                          {faq.q}
-                        </h3>
+                        <h3 className={`font-bebas text-lg md:text-xl uppercase leading-tight transition-colors ${isOpen ? 'text-primary' : 'text-foreground group-hover:text-foreground/70'}`}>{faq.q}</h3>
                       </div>
                       <ChevronDown className={`w-4 h-4 text-foreground/20 flex-shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180 text-primary' : ''}`} />
                     </button>
                     <div className={`overflow-hidden transition-all duration-400 ${isOpen ? 'max-h-[300px] opacity-100' : 'max-h-0 opacity-0'}`}>
                       <div className="pb-6 pl-10 md:pl-12">
-                        <p className="font-oswald text-sm text-foreground/40 leading-relaxed">
-                          {faq.a}
-                        </p>
+                        <p className="font-oswald text-sm text-foreground/40 leading-relaxed">{faq.a}</p>
                       </div>
                     </div>
                   </div>

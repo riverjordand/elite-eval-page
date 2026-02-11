@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 import brayanMoreno from "@/assets/athletes/brayan-moreno-southwestern.jpg";
 import milesKeogh from "@/assets/athletes/miles-keogh-coastal.jpg";
 import prestonFrancis from "@/assets/athletes/preston-francis-glendale.jpg";
@@ -12,11 +13,12 @@ const commits = [
 ];
 
 const ResultsSection = () => {
+  const { ref, isVisible } = useScrollReveal();
+
   return (
-    <section className="relative py-20 md:py-28 lg:py-36">
+    <section ref={ref} className="relative py-20 md:py-28 lg:py-36">
       <div className="container relative mx-auto px-6 lg:px-16">
-        {/* Header */}
-        <div className="text-center mb-14 md:mb-20">
+        <div className={`text-center mb-14 md:mb-20 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="w-8 h-px bg-primary" />
             <span className="font-oswald text-[10px] text-accent uppercase tracking-[0.4em]">Success Stories</span>
@@ -30,18 +32,18 @@ const ResultsSection = () => {
           </p>
         </div>
 
-        {/* Athlete cards - editorial magazine layout */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-0.5 mb-16">
           {commits.map((commit, i) => (
-            <div key={i} className="group relative aspect-[3/4] overflow-hidden">
+            <div
+              key={i}
+              className={`group relative aspect-[3/4] overflow-hidden transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+              style={{ transitionDelay: `${200 + i * 150}ms` }}
+            >
               <img src={commit.image} alt={commit.name} className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-              
-              {/* Stat pill */}
               <div className="absolute top-4 left-4">
                 <span className="bg-primary text-primary-foreground font-bebas text-[10px] px-2.5 py-1 uppercase tracking-wider">{commit.stat}</span>
               </div>
-              
               <div className="absolute bottom-0 left-0 right-0 p-5 lg:p-7">
                 <div className="flex items-center gap-2 text-primary mb-2">
                   <MapPin className="w-3 h-3" />
@@ -54,12 +56,10 @@ const ResultsSection = () => {
           ))}
         </div>
 
-        {/* CTA */}
-        <div className="text-center">
+        <div className={`text-center transition-all duration-700 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
           <Link to="/appointments">
             <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-[0.2em] text-sm md:text-base px-12 py-6 h-auto transition-all duration-300">
-              Start Your Journey
-              <ArrowRight className="ml-2 w-4 h-4" />
+              Start Your Journey <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
           </Link>
         </div>
