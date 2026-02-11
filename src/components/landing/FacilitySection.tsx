@@ -37,25 +37,31 @@ const FacilitySection = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-0.5">
-        {facilities.map((f, i) => (
-          <div
-            key={i}
-            onClick={() => openModal(i)}
-            className={`group relative aspect-[16/10] lg:aspect-[16/9] overflow-hidden cursor-pointer transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-            style={{ transitionDelay: `${200 + i * 120}ms` }}
-          >
-            <img src={f.image} alt={f.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700" />
-            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors duration-300" />
-            <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 lg:p-8">
-              <p className="font-oswald text-[9px] md:text-[10px] text-primary uppercase tracking-[0.3em] mb-1">{f.subtitle}</p>
-              <h3 className="font-bebas text-lg md:text-2xl lg:text-3xl text-foreground uppercase leading-tight">{f.title}</h3>
-            </div>
-            <div className="absolute top-3 left-3 md:top-5 md:left-5">
-              <span className="bg-primary text-primary-foreground font-bebas text-[9px] md:text-xs px-2.5 py-1 uppercase tracking-wider">{f.stat}</span>
-            </div>
+      {/* Scrollable horizontal strip */}
+      <div className={`relative transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+        <div className="absolute left-0 top-0 bottom-0 w-16 lg:w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-16 lg:w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+        <div className="overflow-x-auto scrollbar-hide">
+          <div className="flex gap-2 px-6 lg:px-16 pb-4" style={{ width: 'max-content' }}>
+            {facilities.map((f, i) => (
+              <div
+                key={i}
+                onClick={() => openModal(i)}
+                className="group relative w-72 md:w-80 lg:w-[420px] aspect-[4/5] overflow-hidden cursor-pointer flex-shrink-0"
+              >
+                <img src={f.image} alt={f.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700" />
+                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors duration-300" />
+                <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 lg:p-8">
+                  <p className="font-oswald text-[9px] md:text-[10px] text-primary uppercase tracking-[0.3em] mb-1">{f.subtitle}</p>
+                  <h3 className="font-bebas text-lg md:text-2xl lg:text-3xl text-foreground uppercase leading-tight">{f.title}</h3>
+                </div>
+                <div className="absolute top-3 left-3 md:top-5 md:left-5">
+                  <span className="bg-primary text-primary-foreground font-bebas text-[9px] md:text-xs px-2.5 py-1 uppercase tracking-wider">{f.stat}</span>
+                </div>
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
 
       {/* Modal */}
