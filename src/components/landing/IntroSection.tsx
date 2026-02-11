@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState } from "react";
+import { useParallax } from "@/hooks/useParallax";
 import welcomeAthlete from "@/assets/welcome-athlete-batting.jpg";
 
 const IntroSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const { ref: parallaxRef, offset: imgOffset } = useParallax(0.15);
   
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
@@ -56,11 +58,12 @@ const IntroSection = () => {
           
           {/* Image column */}
           <div className={`transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <div className="relative aspect-[3/4] overflow-hidden">
+            <div ref={parallaxRef as React.RefObject<HTMLDivElement>} className="relative aspect-[3/4] overflow-hidden">
               <img 
                 src={welcomeAthlete} 
                 alt="LPA Athlete Training" 
-                className="w-full h-full object-cover object-[center_20%]"
+                className="w-full h-full object-cover object-[center_20%] will-change-transform scale-110"
+                style={{ transform: `translateY(${imgOffset}px) scale(1.1)` }}
               />
               {/* Subtle overlay gradient */}
               <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent" />

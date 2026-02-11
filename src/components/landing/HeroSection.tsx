@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -6,17 +6,38 @@ import lpaBolt from "@/assets/lpa-badge-cactus.png";
 
 const HeroSection = () => {
   const [loaded, setLoaded] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
+  const sectionRef = useRef<HTMLElement>(null);
+
   useEffect(() => { const t = setTimeout(() => setLoaded(true), 150); return () => clearTimeout(t); }, []);
 
+  const onScroll = useCallback(() => {
+    setScrollY(window.scrollY);
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [onScroll]);
+
   return (
-    <section className="relative h-screen flex flex-col overflow-hidden">
-      <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
+    <section ref={sectionRef} className="relative h-screen flex flex-col overflow-hidden">
+      {/* Parallax video — moves slower than scroll */}
+      <video
+        autoPlay loop muted playsInline
+        className="absolute inset-0 w-full h-full object-cover will-change-transform"
+        style={{ transform: `translateY(${scrollY * 0.35}px) scale(1.15)` }}
+      >
         <source src="/hero-training.mp4" type="video/mp4" />
       </video>
       <div className="absolute inset-0 bg-black/55" />
       <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-black/40" />
 
-      <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6">
+      {/* Content — moves slightly opposite for depth */}
+      <div
+        className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6 will-change-transform"
+        style={{ transform: `translateY(${scrollY * -0.08}px)` }}
+      >
         <img
           src={lpaBolt}
           alt="LPA"

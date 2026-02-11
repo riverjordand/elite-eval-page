@@ -51,7 +51,7 @@ const ExperienceSection = () => {
               className={`group relative aspect-[3/4] overflow-hidden cursor-default transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
               style={{ transitionDelay: `${200 + index * 150}ms` }}
             >
-              <img src={item.image} alt={item.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700" loading="lazy" />
+              <img src={item.image} alt={item.title} className="absolute inset-0 w-full h-full object-cover scale-110 group-hover:scale-[1.13] transition-transform duration-700" loading="lazy" style={{ transform: `translateY(${index * 2}%) scale(1.1)` }} />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
 
               <div className="absolute top-4 left-4">
