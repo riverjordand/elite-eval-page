@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Check, X } from "lucide-react";
+import { useState, useRef, useCallback } from "react";
+import { Check, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import facilityTraining from "@/assets/facility-training-area.jpg";
 import facilityStrength from "@/assets/facility-strength-conditioning.jpg";
@@ -16,9 +16,17 @@ const facilities = [
 const FacilitySection = () => {
   const { ref, isVisible } = useScrollReveal();
   const [selected, setSelected] = useState<number | null>(null);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const openModal = (i: number) => { setSelected(i); document.body.style.overflow = 'hidden'; };
   const closeModal = () => { setSelected(null); document.body.style.overflow = 'unset'; };
+
+  const scroll = useCallback((dir: 'left' | 'right') => {
+    const el = scrollContainerRef.current;
+    if (!el) return;
+    const amount = dir === 'left' ? -420 : 420;
+    el.scrollBy({ left: amount, behavior: 'smooth' });
+  }, []);
 
   return (
     <section ref={ref} className="relative py-20 md:py-28 lg:py-36 border-t border-border/10">
@@ -41,7 +49,7 @@ const FacilitySection = () => {
       <div className={`relative transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
         <div className="absolute left-0 top-0 bottom-0 w-16 lg:w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-16 lg:w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
-        <div className="overflow-x-auto scrollbar-hide">
+        <div ref={scrollContainerRef} className="overflow-x-auto scrollbar-hide">
           <div className="flex gap-2 px-6 lg:px-16 pb-4" style={{ width: 'max-content' }}>
             {facilities.map((f, i) => (
               <div
@@ -62,6 +70,20 @@ const FacilitySection = () => {
             ))}
           </div>
         </div>
+
+        {/* Arrow buttons - desktop only */}
+        <button
+          onClick={() => scroll('left')}
+          className="hidden lg:flex absolute left-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-background/80 border border-border/20 items-center justify-center hover:bg-primary hover:border-primary transition-colors group"
+        >
+          <ChevronLeft className="w-5 h-5 text-foreground/50 group-hover:text-primary-foreground transition-colors" />
+        </button>
+        <button
+          onClick={() => scroll('right')}
+          className="hidden lg:flex absolute right-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-background/80 border border-border/20 items-center justify-center hover:bg-primary hover:border-primary transition-colors group"
+        >
+          <ChevronRight className="w-5 h-5 text-foreground/50 group-hover:text-primary-foreground transition-colors" />
+        </button>
       </div>
 
       {/* Modal */}
