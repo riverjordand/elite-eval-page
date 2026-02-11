@@ -47,7 +47,7 @@ const StatsSection = () => {
   return (
     <section ref={ref} className="border-y border-border/10">
       <div className="container mx-auto px-6 lg:px-16">
-        <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-border/10">
+        <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-border/10 max-w-5xl mx-auto">
           {stats.map((stat, index) => (
             <div
               key={index}
