@@ -1,66 +1,29 @@
 import { useState } from "react";
 import { Check, X } from "lucide-react";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 import facilityTraining from "@/assets/facility-training-area.jpg";
 import facilityStrength from "@/assets/facility-strength-conditioning.jpg";
 import facilityVideo from "@/assets/facility-video-analysis.jpg";
 import facilitySports from "@/assets/facility-sports-medicine.jpg";
 
 const facilities = [
-  { 
-    title: "Training Area", 
-    subtitle: "Game Speed",
-    tagline: "Every rep simulates game conditions",
-    description: "Indoor turf with game-environment spacing, real-time data feedback from Rapsodo, and pro-level equipment.",
-    image: facilityTraining,
-    features: ["Full regulation mounds", "Live batting metrics", "Velocity & spin tracking", "Game-environment spacing"],
-    stat: "10K+ sq ft"
-  },
-  { 
-    title: "Strength & Conditioning", 
-    subtitle: "Power Building",
-    tagline: "Where raw potential becomes elite performance",
-    description: "Built for rotational athletes with Olympic platforms, baseball-specific machines, and sport-focused programming.",
-    image: facilityStrength,
-    features: ["Olympic lifting platforms", "Baseball-specific machines", "Power & speed equipment", "Mobility stations"],
-    stat: "Full Gym"
-  },
-  { 
-    title: "Classrooms & Film", 
-    subtitle: "Train the Mind",
-    tagline: "Where game IQ meets preparation",
-    description: "Dedicated classroom space for film study, scouting reports, game strategy, and college recruitment workshops.",
-    image: facilityVideo,
-    features: ["Film study & game review", "Scouting report breakdowns", "Recruiting workshops", "Game strategy sessions"],
-    stat: "Game IQ"
-  },
-  { 
-    title: "Recovery & Arm Care", 
-    subtitle: "Recover Faster",
-    tagline: "Built-in recovery keeps athletes healthy",
-    description: "Dedicated recovery area with arm care protocols, mobility stations, and tools to keep athletes performing at their best.",
-    image: facilitySports,
-    features: ["Arm care programs", "Mobility stations", "Recovery tools & equipment", "Soft tissue work"],
-    stat: "Full Recovery"
-  },
+  { title: "Training Area", subtitle: "Game Speed", tagline: "Every rep simulates game conditions", description: "Indoor turf with game-environment spacing, real-time data feedback from Rapsodo, and pro-level equipment.", image: facilityTraining, features: ["Full regulation mounds", "Live batting metrics", "Velocity & spin tracking", "Game-environment spacing"], stat: "10K+ sq ft" },
+  { title: "Strength & Conditioning", subtitle: "Power Building", tagline: "Where raw potential becomes elite performance", description: "Built for rotational athletes with Olympic platforms, baseball-specific machines, and sport-focused programming.", image: facilityStrength, features: ["Olympic lifting platforms", "Baseball-specific machines", "Power & speed equipment", "Mobility stations"], stat: "Full Gym" },
+  { title: "Classrooms & Film", subtitle: "Train the Mind", tagline: "Where game IQ meets preparation", description: "Dedicated classroom space for film study, scouting reports, game strategy, and college recruitment workshops.", image: facilityVideo, features: ["Film study & game review", "Scouting report breakdowns", "Recruiting workshops", "Game strategy sessions"], stat: "Game IQ" },
+  { title: "Recovery & Arm Care", subtitle: "Recover Faster", tagline: "Built-in recovery keeps athletes healthy", description: "Dedicated recovery area with arm care protocols, mobility stations, and tools to keep athletes performing at their best.", image: facilitySports, features: ["Arm care programs", "Mobility stations", "Recovery tools & equipment", "Soft tissue work"], stat: "Full Recovery" },
 ];
 
 const FacilitySection = () => {
+  const { ref, isVisible } = useScrollReveal();
   const [selected, setSelected] = useState<number | null>(null);
 
-  const openModal = (i: number) => {
-    setSelected(i);
-    document.body.style.overflow = 'hidden';
-  };
-  const closeModal = () => {
-    setSelected(null);
-    document.body.style.overflow = 'unset';
-  };
+  const openModal = (i: number) => { setSelected(i); document.body.style.overflow = 'hidden'; };
+  const closeModal = () => { setSelected(null); document.body.style.overflow = 'unset'; };
 
   return (
-    <section className="relative py-20 md:py-28 lg:py-36 border-t border-border/10">
+    <section ref={ref} className="relative py-20 md:py-28 lg:py-36 border-t border-border/10">
       <div className="container mx-auto px-6 lg:px-16">
-        {/* Editorial header */}
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-12 md:mb-16">
+        <div className={`flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-12 md:mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
           <div>
             <div className="flex items-center gap-3 mb-3">
               <div className="w-8 h-px bg-primary" />
@@ -70,42 +33,26 @@ const FacilitySection = () => {
               The <span className="text-primary">Facility</span>
             </h2>
           </div>
-          <p className="font-oswald text-xs text-foreground/30 uppercase tracking-[0.2em]">
-            16,000 Sq Ft · Open 365 Days
-          </p>
+          <p className="font-oswald text-xs text-foreground/30 uppercase tracking-[0.2em]">16,000 Sq Ft · Open 365 Days</p>
         </div>
       </div>
-      
-      {/* Full-width image grid — 2x2 */}
+
       <div className="grid grid-cols-2 gap-0.5">
         {facilities.map((f, i) => (
-          <div 
-            key={i} 
+          <div
+            key={i}
             onClick={() => openModal(i)}
-            className="group relative aspect-[16/10] lg:aspect-[16/9] overflow-hidden cursor-pointer"
+            className={`group relative aspect-[16/10] lg:aspect-[16/9] overflow-hidden cursor-pointer transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+            style={{ transitionDelay: `${200 + i * 120}ms` }}
           >
-            <img 
-              src={f.image} 
-              alt={f.title}
-              className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
-            />
+            <img src={f.image} alt={f.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700" />
             <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors duration-300" />
-            
-            {/* Label */}
             <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 lg:p-8">
-              <p className="font-oswald text-[9px] md:text-[10px] text-primary uppercase tracking-[0.3em] mb-1">
-                {f.subtitle}
-              </p>
-              <h3 className="font-bebas text-lg md:text-2xl lg:text-3xl text-foreground uppercase leading-tight">
-                {f.title}
-              </h3>
+              <p className="font-oswald text-[9px] md:text-[10px] text-primary uppercase tracking-[0.3em] mb-1">{f.subtitle}</p>
+              <h3 className="font-bebas text-lg md:text-2xl lg:text-3xl text-foreground uppercase leading-tight">{f.title}</h3>
             </div>
-            
-            {/* Stat pill */}
             <div className="absolute top-3 left-3 md:top-5 md:left-5">
-              <span className="bg-primary text-primary-foreground font-bebas text-[9px] md:text-xs px-2.5 py-1 uppercase tracking-wider">
-                {f.stat}
-              </span>
+              <span className="bg-primary text-primary-foreground font-bebas text-[9px] md:text-xs px-2.5 py-1 uppercase tracking-wider">{f.stat}</span>
             </div>
           </div>
         ))}

@@ -2,6 +2,7 @@ import { useState, useMemo } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 const videos = [
   "/training-video-01.mp4", "/training-video-02.mp4", "/training-video-03.mp4",
@@ -20,9 +21,10 @@ const shuffleArray = <T,>(array: T[]): T[] => {
 };
 
 const MediaSection = () => {
+  const { ref, isVisible } = useScrollReveal();
   const [lightbox, setLightbox] = useState<{ type: 'photo' | 'video'; src: string; index: number } | null>(null);
   const randomizedPhotos = useMemo(() => shuffleArray(photos), []);
-  
+
   const [videoRef] = useEmblaCarousel(
     { loop: true, dragFree: true, align: 'start' },
     [Autoplay({ delay: 2200, stopOnInteraction: false, stopOnMouseEnter: false })]
@@ -42,9 +44,8 @@ const MediaSection = () => {
 
   return (
     <>
-      <section className="relative py-20 md:py-28 lg:py-36 border-t border-border/10 overflow-hidden">
-        {/* Header */}
-        <div className="container mx-auto px-6 lg:px-16 mb-14 md:mb-20">
+      <section ref={ref} className="relative py-20 md:py-28 lg:py-36 border-t border-border/10 overflow-hidden">
+        <div className={`container mx-auto px-6 lg:px-16 mb-14 md:mb-20 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
           <div className="text-center">
             <div className="flex items-center justify-center gap-3 mb-4">
               <div className="w-8 h-px bg-primary" />
@@ -56,9 +57,8 @@ const MediaSection = () => {
             </h2>
           </div>
         </div>
-        
-        {/* Videos */}
-        <div className="relative mb-3">
+
+        <div className={`relative mb-3 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="absolute left-0 top-0 bottom-0 w-24 lg:w-48 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
           <div className="absolute right-0 top-0 bottom-0 w-24 lg:w-48 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
           <div className="overflow-hidden" ref={videoRef}>
@@ -78,9 +78,8 @@ const MediaSection = () => {
             </div>
           </div>
         </div>
-        
-        {/* Photos */}
-        <div className="relative">
+
+        <div className={`relative transition-all duration-700 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="absolute left-0 top-0 bottom-0 w-24 lg:w-48 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
           <div className="absolute right-0 top-0 bottom-0 w-24 lg:w-48 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
           <div className="overflow-hidden" ref={photoRef}>
@@ -98,7 +97,6 @@ const MediaSection = () => {
         </div>
       </section>
 
-      {/* Lightbox */}
       {lightbox && (
         <div className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center" onClick={closeLightbox}>
           <button className="absolute top-4 right-4 z-50 p-2 text-foreground/50 hover:text-foreground" onClick={closeLightbox}><X className="w-7 h-7" /></button>

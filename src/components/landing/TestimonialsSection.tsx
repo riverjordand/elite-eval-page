@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Play, Star, X } from "lucide-react";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const testimonials = [
   { video: "/testimonials/parent-testimonial-1.mp4", thumb: "/testimonials/parent-testimonial-1-thumb.jpg", quote: "In 6 months, my son gained 7 MPH on his fastball. The coaches see things others miss.", name: "Mike D.", role: "Father of 2024 D2 Commit", highlight: "+7 MPH" },
@@ -9,15 +10,15 @@ const testimonials = [
 ];
 
 const TestimonialsSection = () => {
+  const { ref, isVisible } = useScrollReveal();
   const [activeVideo, setActiveVideo] = useState<number | null>(null);
   const openVideo = (i: number) => { setActiveVideo(i); document.body.style.overflow = 'hidden'; };
   const closeVideo = () => { setActiveVideo(null); document.body.style.overflow = 'unset'; };
 
   return (
-    <section className="relative py-20 md:py-28 lg:py-36 border-t border-border/10">
+    <section ref={ref} className="relative py-20 md:py-28 lg:py-36 border-t border-border/10">
       <div className="container relative mx-auto px-6 lg:px-16">
-        {/* Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-12 md:mb-16">
+        <div className={`flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-12 md:mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
           <div>
             <div className="flex items-center gap-3 mb-3">
               <div className="w-8 h-px bg-primary" />
@@ -31,11 +32,14 @@ const TestimonialsSection = () => {
             Real parents sharing real experiences from their athlete's journey.
           </p>
         </div>
-        
-        {/* Grid */}
+
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
           {testimonials.map((item, i) => (
-            <div key={i} className="group">
+            <div
+              key={i}
+              className={`group transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+              style={{ transitionDelay: `${200 + i * 120}ms` }}
+            >
               <div className="relative aspect-[9/14] mb-4 cursor-pointer overflow-hidden" onClick={() => openVideo(i)}>
                 <img src={item.thumb} alt={item.name} className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500" />
                 <div className="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-colors flex items-center justify-center">
@@ -47,7 +51,6 @@ const TestimonialsSection = () => {
                   <span className="bg-primary text-primary-foreground font-bebas text-[9px] px-2 py-0.5 uppercase tracking-wider">{item.highlight}</span>
                 </div>
               </div>
-              
               <div className="flex gap-0.5 mb-2">
                 {[...Array(5)].map((_, s) => <Star key={s} className="w-2.5 h-2.5 fill-primary text-primary" />)}
               </div>
@@ -59,7 +62,6 @@ const TestimonialsSection = () => {
         </div>
       </div>
 
-      {/* Modal */}
       {activeVideo !== null && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4" onClick={closeVideo}>
           <div className="absolute inset-0 bg-black/95" />
