@@ -49,8 +49,8 @@ const FacilitySection = () => {
       <div className={`relative transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
         <div className="absolute left-0 top-0 bottom-0 w-16 lg:w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-16 lg:w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
-        <div ref={scrollContainerRef} className="overflow-x-auto scrollbar-hide">
-          <div className="flex gap-2 px-6 lg:px-16 pb-4" style={{ width: 'max-content' }}>
+        <div ref={scrollContainerRef} className="overflow-x-auto scrollbar-hide flex justify-center">
+          <div className="flex gap-2 px-6 lg:px-16 pb-4 w-max">
             {facilities.map((f, i) => (
               <div
                 key={i}
