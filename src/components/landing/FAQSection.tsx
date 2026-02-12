@@ -14,7 +14,7 @@ const faqs = [
 
 const FAQSection = () => {
   const { ref, isVisible } = useScrollReveal();
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openIndices, setOpenIndices] = useState<Set<number>>(new Set());
 
   return (
     <section ref={ref} className="relative py-20 md:py-28 lg:py-36 border-t border-border/10">
@@ -41,10 +41,10 @@ const FAQSection = () => {
           <div className={`lg:col-span-8 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <div className="divide-y divide-border/10">
               {faqs.map((faq, i) => {
-                const isOpen = openIndex === i;
+                const isOpen = openIndices.has(i);
                 return (
                   <div key={i}>
-                    <button onClick={() => setOpenIndex(isOpen ? null : i)} className="w-full flex items-center justify-between gap-6 py-6 text-left group">
+                    <button onClick={() => setOpenIndices(prev => { const next = new Set(prev); if (next.has(i)) next.delete(i); else next.add(i); return next; })} className="w-full flex items-center justify-between gap-6 py-6 text-left group">
                       <div className="flex items-start gap-5">
                         <span className="font-bebas text-sm text-foreground/15 pt-0.5">{String(i + 1).padStart(2, '0')}</span>
                         <h3 className={`font-bebas text-lg md:text-xl uppercase leading-tight transition-colors ${isOpen ? 'text-primary' : 'text-foreground group-hover:text-foreground/70'}`}>{faq.q}</h3>
