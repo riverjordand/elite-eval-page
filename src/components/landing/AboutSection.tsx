@@ -38,12 +38,7 @@ const advantages: Advantage[] = [
     title: "Pro-Level Tech",
     stat: "MLB-Grade Tools",
     description: "Trackman, HitTrax, Rapsodo, VALD force plates & speed lasers, and Kinvent GPS speed to assess and adjust to ensure our athletes are performing at the highest level.",
-    features: [
-      "Trackman",
-      "HitTrax",
-      "Rapsodo",
-      "VALD",
-    ],
+    features: ["Trackman", "HitTrax", "Rapsodo", "VALD"],
   },
   {
     number: "04",
@@ -62,6 +57,7 @@ const advantages: Advantage[] = [
 const AboutSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -77,64 +73,96 @@ const AboutSection = () => {
     return () => observer.disconnect();
   }, []);
 
+  const active = advantages[activeIndex];
+
   return (
-    <section ref={sectionRef} className="relative py-24 md:py-32 lg:py-40">
-      <div className="container relative mx-auto px-6 lg:px-16 max-w-6xl">
+    <section ref={sectionRef} id="advantages" className="relative py-24 md:py-32 lg:py-40 border-t border-border/10">
+      <div className="container relative mx-auto px-6 lg:px-16">
         {/* Header */}
-        <div className={`mb-16 md:mb-20 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-8 h-px bg-primary" />
-            <span className="font-oswald text-[10px] text-accent uppercase tracking-[0.4em]">
-              Why Families Choose LPA
-            </span>
+        <div className={`flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 md:mb-20 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+          <div>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-8 h-px bg-primary" />
+              <span className="font-oswald text-[10px] text-accent uppercase tracking-[0.4em]">
+                Why Families Choose LPA
+              </span>
+            </div>
+            <h2 className="font-bebas text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-foreground uppercase leading-[0.88]">
+              The <span className="text-primary">Outlaw Advantage</span>
+            </h2>
           </div>
-          <h2 className="font-bebas text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-foreground uppercase leading-[0.88]">
-            The <span className="text-primary">Outlaw Advantage</span>
-          </h2>
+          <p className="font-oswald text-xs text-foreground/25 uppercase tracking-[0.2em] md:pb-2">
+            4 Pillars of Development
+          </p>
         </div>
 
-        {/* Advantages grid — 2x2 */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border/10">
-          {advantages.map((adv, index) => (
-            <div
-              key={index}
-              className={`bg-background p-8 md:p-10 lg:p-12 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-              style={{ transitionDelay: `${150 + index * 120}ms` }}
-            >
-              {/* Number + Title */}
-              <div className="flex items-baseline gap-4 mb-1">
-                <span className="font-bebas text-4xl lg:text-5xl text-primary/15 leading-none">
+        {/* Tabs + Content layout */}
+        <div className={`transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          {/* Tab row */}
+          <div className="grid grid-cols-2 md:grid-cols-4 border-b border-border/10">
+            {advantages.map((adv, i) => (
+              <button
+                key={i}
+                onClick={() => setActiveIndex(i)}
+                className={`relative text-left py-5 md:py-6 px-4 md:px-6 transition-all duration-300 group ${
+                  activeIndex === i ? 'bg-card/30' : 'hover:bg-card/10'
+                }`}
+              >
+                <span className={`font-bebas text-3xl md:text-4xl leading-none transition-colors duration-300 ${
+                  activeIndex === i ? 'text-primary' : 'text-foreground/15 group-hover:text-foreground/30'
+                }`}>
                   {adv.number}
                 </span>
-                <h3 className="font-bebas text-xl md:text-2xl lg:text-3xl text-foreground uppercase leading-tight">
+                <p className={`font-bebas text-sm md:text-base uppercase tracking-wide mt-1 transition-colors duration-300 ${
+                  activeIndex === i ? 'text-foreground' : 'text-foreground/30 group-hover:text-foreground/50'
+                }`}>
                   {adv.title}
-                </h3>
+                </p>
+                {/* Active indicator */}
+                {activeIndex === i && (
+                  <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-primary" />
+                )}
+              </button>
+            ))}
+          </div>
+
+          {/* Active content panel */}
+          <div className="bg-card/20 border-x border-b border-border/10 p-8 md:p-12 lg:p-16">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
+              {/* Left — description */}
+              <div>
+                <div className="flex items-center gap-4 mb-2">
+                  <h3 className="font-bebas text-3xl md:text-4xl lg:text-5xl text-foreground uppercase leading-tight">
+                    {active.title}
+                  </h3>
+                </div>
+                <p className="font-oswald text-[10px] md:text-xs text-primary uppercase tracking-[0.3em] mb-6">
+                  {active.stat}
+                </p>
+                <p className="font-oswald text-base md:text-lg text-foreground/45 leading-relaxed max-w-xl">
+                  {active.description}
+                </p>
               </div>
 
-              <p className="font-oswald text-[10px] text-primary uppercase tracking-[0.3em] mb-5 ml-0">
-                {adv.stat}
-              </p>
-
-              {/* Description */}
-              <p className="font-oswald text-sm md:text-[15px] text-foreground/45 leading-relaxed mb-8">
-                {adv.description}
-              </p>
-
-              {/* Numbered features */}
-              <div className="space-y-3 border-t border-border/10 pt-6">
-                {adv.features.map((feature, fIndex) => (
-                  <div key={fIndex} className="flex items-start gap-3">
-                    <span className="font-bebas text-lg text-primary/30 leading-none shrink-0 w-6 pt-px">
-                      {fIndex + 1}.
-                    </span>
-                    <span className="font-oswald text-xs md:text-sm text-foreground/55 uppercase tracking-wide">
-                      {feature}
-                    </span>
-                  </div>
-                ))}
+              {/* Right — numbered features */}
+              <div className="flex flex-col justify-center">
+                <div className="space-y-6">
+                  {active.features.map((feature, fIndex) => (
+                    <div key={fIndex} className="flex items-start gap-5 group">
+                      <span className="font-bebas text-2xl md:text-3xl text-primary/30 leading-none shrink-0 w-8 group-hover:text-primary/60 transition-colors">
+                        {fIndex + 1}.
+                      </span>
+                      <div className="border-b border-border/10 pb-5 flex-1">
+                        <span className="font-oswald text-sm md:text-base text-foreground/60 uppercase tracking-wide group-hover:text-foreground/80 transition-colors">
+                          {feature}
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </section>
