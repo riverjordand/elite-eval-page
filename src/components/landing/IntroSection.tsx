@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useParallax } from "@/hooks/useParallax";
-import welcomeAthlete from "@/assets/welcome-athlete-batting.jpg";
+import milesKeogh from "@/assets/athletes/miles-keogh-coastal.jpg";
 
 const IntroSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -38,20 +38,17 @@ const IntroSection = () => {
             
             <div className="space-y-5 mb-8">
               <p className="font-oswald text-sm md:text-base text-foreground/50 leading-relaxed">
-                LPA is where Arizona's most driven baseball athletes train to reach the next level — whether that's high-level varsity, college baseball, or pro development.
+                LPA is where the most driven middle and high school baseball athletes come to develop and maximize their potential.
               </p>
               <p className="font-oswald text-sm md:text-base text-foreground/50 leading-relaxed">
-                Our athletes train with D1-level systems, professional coaching, and the same technology used by college programs and MLB player-development.
+                Our athletes train in a professional environment and system with coaches, scouts, and technology found at the most elite level of the game.
               </p>
             </div>
             
             {/* Pull quote */}
             <div className="border-l-2 border-primary pl-6">
-              <p className="font-bebas text-lg md:text-xl text-foreground/80 uppercase leading-tight">
-                "This is not a casual training facility."
-              </p>
-              <p className="font-oswald text-sm text-primary mt-1">
-                It's where athletes commit, develop, and excel.
+              <p className="font-oswald text-sm md:text-base text-foreground/70 leading-relaxed italic">
+                "Winning for LPA is a by-product of a strategic and synergistic relationship of baseball skill development, strength and conditioning, injury prevention, and mental performance all under one roof in a culture designed to bulletproof a player for the next level."
               </p>
             </div>
           </div>
@@ -60,19 +57,33 @@ const IntroSection = () => {
           <div className={`transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <div ref={parallaxRef as React.RefObject<HTMLDivElement>} className="relative aspect-[3/4] overflow-hidden">
               <img 
-                src={welcomeAthlete} 
-                alt="LPA Athlete Training" 
+                src={milesKeogh} 
+                alt="Miles Keogh - Committed to Coastal Carolina" 
                 className="w-full h-full object-cover object-[center_20%] will-change-transform scale-110"
                 style={{ transform: `translateY(${imgOffset}px) scale(1.1)` }}
               />
-              {/* Subtle overlay gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent" />
+              {/* Overlay gradient */}
+              <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
               
-              {/* Editorial caption */}
+              {/* Committed badge with Coastal logo */}
+              <div className="absolute top-4 right-4 lg:top-6 lg:right-6">
+                <div className="bg-primary text-primary-foreground font-bebas text-xs md:text-sm px-3 py-1.5 uppercase tracking-[0.2em]">
+                  Committed
+                </div>
+              </div>
+              
+              {/* Athlete info + school logo */}
               <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-primary" />
-                  <span className="font-oswald text-[10px] text-foreground/60 uppercase tracking-[0.3em]">Gilbert, Arizona</span>
+                <div className="flex items-end justify-between">
+                  <div>
+                    <h3 className="font-bebas text-2xl md:text-3xl text-foreground uppercase leading-tight">Miles Keogh</h3>
+                    <p className="font-oswald text-xs text-primary uppercase tracking-[0.2em]">Coastal Carolina</p>
+                  </div>
+                  <img 
+                    src="/colleges/east-carolina.png" 
+                    alt="Coastal Carolina" 
+                    className="w-12 h-12 md:w-16 md:h-16 object-contain brightness-0 invert opacity-60"
+                  />
                 </div>
               </div>
             </div>
