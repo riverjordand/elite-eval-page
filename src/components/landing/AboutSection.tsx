@@ -56,7 +56,7 @@ const AboutSection = () => {
             <span className="font-oswald text-[10px] text-accent uppercase tracking-[0.4em]">Why Families Choose LPA</span>
           </div>
           <h2 className="font-bebas text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-foreground uppercase leading-[0.88]">
-            The Unfair<br />
+            The<br />
             <span className="text-primary">Outlaw Advantage</span>
           </h2>
         </div>
