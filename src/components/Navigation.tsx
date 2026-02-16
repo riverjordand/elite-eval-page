@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import logoArch from "@/assets/lpa-arch.png";
+import logoBadge from "@/assets/lpa-badge-seafoam.png";
 
 const navLinks = [
 { to: "/experience", label: "The LPA Experience" },
@@ -23,9 +23,9 @@ const Navigation = () => {
         <div className="flex items-center justify-between max-w-[1800px] mx-auto">
           <Link to="/" onClick={() => setMobileOpen(false)}>
             <img
-              src={logoArch}
+              src={logoBadge}
               alt="Legendary Prep Academy"
-              className="h-10 md:h-12 lg:h-14 w-auto -my-1 md:-my-2" />
+              className="h-12 md:h-14 lg:h-16 w-auto" />
 
           </Link>
 
