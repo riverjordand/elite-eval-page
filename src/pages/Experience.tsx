@@ -1,4 +1,4 @@
-import { Crown, Shield, Shirt, Users, Star, Dumbbell } from "lucide-react";
+import { Trophy, Shield, Shirt, Users, Star, Dumbbell } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
@@ -6,10 +6,10 @@ import FooterSection from "@/components/landing/FooterSection";
 
 const experienceItems = [
   {
-    icon: Crown,
-    title: "Personal Locker Room",
-    description: "Every athlete receives their own dedicated locker space — a professional home base that reinforces ownership, accountability, and daily routine. It's not just storage — it's a symbol of commitment.",
-    features: ["Assigned personal locker", "Secure storage for gear", "Professional team environment", "Builds daily discipline"]
+    icon: Trophy,
+    title: "College & MLB Recruiting",
+    description: "The coaching staff has access through their playing careers to high level college and MLB scouts. Being open for little over a year LPA has already put 12 athletes at the next level.",
+    features: ["12 players committed in 18 months", "MLB 4-corners scout on staff", "D1, SEC, and MiLB experience", "Scout focused tournaments and showcases"]
   },
   {
     icon: Shield,
@@ -31,9 +31,9 @@ const experienceItems = [
   },
   {
     icon: Dumbbell,
-    title: "Training-Ready Every Day",
-    description: "With gear on-site and everything organized, athletes walk in and get to work. No excuses, no missing equipment — just focused development from day one.",
-    features: ["Everything on-site", "No gear to carry daily", "Organized & ready", "Zero wasted time"]
+    title: "Development Focused",
+    description: "Winning is not the LPA focus, it is the by-product of development. We focus on getting the player to the next level, period.",
+    features: ["Position specific", "Strength & conditioning", "Recovery & rehab", "Mental performance"]
   },
   {
     icon: Star,
@@ -68,7 +68,7 @@ const Experience = () => {
       <div className="container mx-auto px-4 md:px-6 lg:px-16 max-w-5xl pb-8 md:pb-12">
         <div className="text-center max-w-3xl mx-auto">
           <p className="font-oswald text-sm md:text-base lg:text-lg text-muted-foreground leading-relaxed">
-            At LPA, every detail is designed to build identity, discipline, and pride. From personal locker rooms to pro-grade equipment and custom branded attire — athletes don't just train here, they belong here.
+            At LPA, every detail is designed to build identity, discipline, and pride. From our elite level coaching mentorship to pro-grade facilities and custom branded attire — athletes don't just train here, they belong here.
           </p>
         </div>
       </div>
