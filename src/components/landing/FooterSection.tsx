@@ -62,9 +62,9 @@ const FooterSection = () => {
             <div>
               <h4 className="font-bebas text-xs text-foreground/30 uppercase tracking-[0.3em] mb-4">Contact</h4>
               <ul className="space-y-3">
-                <li className="flex items-start gap-2.5"><MapPin className="w-3 h-3 text-primary mt-0.5 flex-shrink-0" /><span className="font-oswald text-[11px] text-foreground/25">2855 S Higley Rd, Suite 102<br />Gilbert, AZ 85295</span></li>
-                <li className="flex items-center gap-2.5"><Phone className="w-3 h-3 text-primary flex-shrink-0" /><a href="tel:+14805551234" className="font-oswald text-[11px] text-foreground/25 hover:text-primary transition-colors">(480) 555-1234</a></li>
-                <li className="flex items-center gap-2.5"><Mail className="w-3 h-3 text-primary flex-shrink-0" /><a href="mailto:info@legendaryprepaz.com" className="font-oswald text-[11px] text-foreground/25 hover:text-primary transition-colors">info@legendaryprepaz.com</a></li>
+                <li className="flex items-start gap-2.5"><MapPin className="w-3 h-3 text-primary mt-0.5 flex-shrink-0" /><span className="font-oswald text-[11px] text-foreground/25">9382 E Bahia Drive, Suite B101<br />Scottsdale, AZ 85260</span></li>
+                <li className="flex items-center gap-2.5"><Phone className="w-3 h-3 text-primary flex-shrink-0" /><a href="tel:+14804854855" className="font-oswald text-[11px] text-foreground/25 hover:text-primary transition-colors">(480) 485-4855</a></li>
+                <li className="flex items-center gap-2.5"><Mail className="w-3 h-3 text-primary flex-shrink-0" /><a href="mailto:info@legendaryprepacademy.com" className="font-oswald text-[11px] text-foreground/25 hover:text-primary transition-colors">info@legendaryprepacademy.com</a></li>
               </ul>
             </div>
           </div>
