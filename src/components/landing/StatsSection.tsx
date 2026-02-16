@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 
 const stats = [
-  { value: 12, suffix: "", label: "College Commits" },
-  { value: 4, suffix: "", label: "Teams" },
-  { value: 12, suffix: "", label: "Staff & Coaches" },
+  { value: 12, suffix: "", label: "College Commits", sub: "D1, D2, D3 & JUCO" },
+  { value: 4, suffix: "", label: "Teams", sub: "Competitive Programs" },
+  { value: 12, suffix: "", label: "Staff & Coaches", sub: "Former Pro & D1 Players" },
 ];
 
-const CountUp = ({ target, suffix, decimal, triggered }: { target: number; suffix: string; decimal?: boolean; triggered: boolean }) => {
+const CountUp = ({ target, suffix, triggered }: { target: number; suffix: string; triggered: boolean }) => {
   const [current, setCurrent] = useState(0);
   useEffect(() => {
     if (!triggered) return;
@@ -23,8 +23,7 @@ const CountUp = ({ target, suffix, decimal, triggered }: { target: number; suffi
     frame = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(frame);
   }, [triggered, target]);
-  const display = decimal ? current.toFixed(1) : Math.round(current).toString();
-  return <>{display}{suffix}</>;
+  return <>{Math.round(current)}{suffix}</>;
 };
 
 const StatsSection = () => {
@@ -44,36 +43,39 @@ const StatsSection = () => {
   }, [onIntersect]);
 
   return (
-    <section ref={ref} className="border-y border-border/10">
+    <section ref={ref} className="bg-primary py-10 md:py-14">
       <div className="container mx-auto px-6 lg:px-16">
-        <div className="grid grid-cols-3 divide-x divide-border/10 max-w-4xl mx-auto">
+        <div className="grid grid-cols-3 divide-x divide-primary-foreground/20 max-w-4xl mx-auto">
           {stats.map((stat, index) => (
             <div
               key={index}
-              className="py-8 md:py-10 lg:py-14 text-center transition-all duration-1000 ease-out"
+              className="text-center px-4 transition-all duration-1000 ease-out"
               style={{
                 opacity: visible ? 1 : 0,
                 transform: visible ? "translateY(0) scale(1)" : "translateY(20px) scale(0.9)",
                 transitionDelay: `${index * 150}ms`,
               }}
             >
-              <div
-                className="font-bebas text-3xl md:text-5xl lg:text-6xl text-primary leading-none mb-2 transition-all duration-700"
-                style={{
-                  textShadow: visible ? '0 0 30px hsl(var(--primary) / 0.3), 0 0 60px hsl(var(--primary) / 0.1)' : 'none',
-                  transitionDelay: `${300 + index * 150}ms`,
-                }}
-              >
+              {/* Decorative accent */}
+              <div className="flex justify-center mb-2">
+                <svg width="20" height="12" viewBox="0 0 20 12" fill="none" className="text-primary-foreground/50">
+                  <path d="M2 6 L6 2 L10 6 L14 2 L18 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                </svg>
+              </div>
+
+              {/* Number */}
+              <div className="font-bebas text-4xl md:text-5xl lg:text-6xl text-primary-foreground leading-none mb-1">
                 <CountUp target={stat.value} suffix={stat.suffix} triggered={visible} />
               </div>
-              <div
-                className="font-oswald text-[9px] md:text-[11px] text-foreground/30 uppercase tracking-[0.3em] transition-all duration-700"
-                style={{
-                  opacity: visible ? 1 : 0,
-                  transitionDelay: `${500 + index * 150}ms`,
-                }}
-              >
+
+              {/* Label */}
+              <div className="font-oswald text-[10px] md:text-xs text-primary-foreground font-semibold uppercase tracking-[0.2em] mb-1">
                 {stat.label}
+              </div>
+
+              {/* Subtitle */}
+              <div className="font-oswald text-[8px] md:text-[10px] text-primary-foreground/50 uppercase tracking-[0.15em]">
+                {stat.sub}
               </div>
             </div>
           ))}
