@@ -7,9 +7,9 @@ import equipmentImg from "@/assets/experience-equipment.jpg";
 import attireImg from "@/assets/experience-attire.jpg";
 
 const highlights = [
-  { icon: Crown, title: "Personal Locker Room", description: "Every athlete gets their own assigned space — a home base built for focus.", image: lockerRoomImg },
-  { icon: Shield, title: "Pro-Grade Equipment", description: "Game bats, training gear, and tech tools provided for every athlete.", image: equipmentImg },
-  { icon: Shirt, title: "LPA Branded Attire", description: "Custom jerseys, training gear, and team apparel that builds identity.", image: attireImg },
+  { icon: Crown, title: "Personal Locker Rooms", description: "Every athlete gets their own assigned locker — split between middle & high school.", image: lockerRoomImg },
+  { icon: Shield, title: "Pro-Grade Equipment", description: "Game bats, batting gloves, position-specific gloves, helmets, and training gear for each athlete.", image: equipmentImg },
+  { icon: Shirt, title: "LPA Branded Attire", description: "Game uniforms, practice gear, travel gear, and team apparel that builds identity.", image: attireImg },
 ];
 
 const ExperienceSection = () => {
