@@ -58,6 +58,18 @@ const AboutSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [animating, setAnimating] = useState(false);
+  const [displayIndex, setDisplayIndex] = useState(0);
+
+  const handleTabChange = (i: number) => {
+    if (i === activeIndex || animating) return;
+    setAnimating(true);
+    setActiveIndex(i);
+    setTimeout(() => {
+      setDisplayIndex(i);
+      setAnimating(false);
+    }, 200);
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -73,7 +85,7 @@ const AboutSection = () => {
     return () => observer.disconnect();
   }, []);
 
-  const active = advantages[activeIndex];
+  const active = advantages[displayIndex];
 
   return (
     <section ref={sectionRef} id="advantages" className="relative py-24 md:py-32 lg:py-40 border-t border-border/10">
@@ -103,7 +115,7 @@ const AboutSection = () => {
             {advantages.map((adv, i) => (
               <button
                 key={i}
-                onClick={() => setActiveIndex(i)}
+                onClick={() => handleTabChange(i)}
                 className={`relative text-left py-5 md:py-6 px-4 md:px-6 transition-all duration-300 group ${
                   activeIndex === i ? 'bg-card/30' : 'hover:bg-card/10'
                 }`}
@@ -127,7 +139,7 @@ const AboutSection = () => {
           </div>
 
           {/* Active content panel */}
-          <div className="bg-card/20 border-x border-b border-border/10 p-8 md:p-12 lg:p-16">
+          <div className={`bg-card/20 border-x border-b border-border/10 p-8 md:p-12 lg:p-16 transition-all duration-300 ${animating ? 'opacity-0 translate-y-2' : 'opacity-100 translate-y-0'}`}>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
               {/* Left — description */}
               <div>
