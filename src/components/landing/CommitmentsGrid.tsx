@@ -47,14 +47,14 @@ const CommitmentsGrid = () => {
           <div>
             <div className="flex items-center gap-3 mb-3">
               <div className="w-8 h-px bg-primary" />
-              <span className="font-oswald text-[10px] text-accent uppercase tracking-[0.4em]">Where Our Athletes Play</span>
+              <span className="font-oswald text-[10px] text-accent uppercase tracking-[0.4em]">Our Athletes at the Next Level</span>
             </div>
             <h2 className={`font-bebas text-3xl md:text-4xl lg:text-5xl uppercase leading-none transition-all duration-700 ${visible ? 'opacity-100' : 'opacity-0'}`}>
-              Player <span className="text-primary">Commitments</span>
+              Recent <span className="text-primary">Commitments</span>
             </h2>
           </div>
           <p className={`font-oswald text-xs text-foreground/30 uppercase tracking-[0.2em] transition-all duration-700 ${visible ? 'opacity-100' : 'opacity-0'}`}>
-            20 Programs & Counting
+            And Counting
           </p>
         </div>
 
@@ -69,15 +69,15 @@ const CommitmentsGrid = () => {
                 transitionDelay: `${60 + i * 30}ms`,
               }}
             >
-              <div className="w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <div className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <img
                   src={school.logo}
                   alt={school.name}
-                  className="max-w-full max-h-full object-contain opacity-40 group-hover:opacity-90 transition-opacity duration-300"
+                  className="max-w-full max-h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300"
                   loading="lazy"
                 />
               </div>
-              <span className="font-oswald text-[7px] md:text-[8px] text-foreground/20 uppercase tracking-wider text-center leading-tight group-hover:text-foreground/50 transition-colors hidden md:block">
+              <span className="font-oswald text-[8px] md:text-[9px] text-foreground/40 uppercase tracking-wider text-center leading-tight group-hover:text-foreground/70 transition-colors hidden md:block">
                 {school.name}
               </span>
             </div>
