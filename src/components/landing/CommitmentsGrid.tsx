@@ -73,7 +73,7 @@ const CommitmentsGrid = () => {
                 <img
                   src={school.logo}
                   alt={school.name}
-                  className="max-w-full max-h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300"
+                  className="max-w-full max-h-full object-contain opacity-100 brightness-125 group-hover:scale-105 transition-all duration-300"
                   loading="lazy"
                 />
               </div>
