@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 
 const stats = [
-  { value: 12, suffix: "", label: "Commits in 18 Months" },
   { value: 12, suffix: "", label: "College Commits" },
   { value: 4, suffix: "", label: "Teams" },
   { value: 12, suffix: "", label: "Staff & Coaches" },
@@ -47,7 +46,7 @@ const StatsSection = () => {
   return (
     <section ref={ref} className="border-y border-border/10">
       <div className="container mx-auto px-6 lg:px-16">
-        <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-border/10 max-w-5xl mx-auto">
+        <div className="grid grid-cols-3 divide-x divide-border/10 max-w-4xl mx-auto">
           {stats.map((stat, index) => (
             <div
               key={index}
