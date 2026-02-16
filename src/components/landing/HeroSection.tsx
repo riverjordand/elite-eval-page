@@ -52,7 +52,7 @@ const HeroSection = () => {
           Legendary Prep Academy
         </p>
         <p className={`font-oswald text-xs md:text-sm uppercase tracking-[0.4em] text-foreground/50 mb-10 max-w-lg transition-all duration-700 delay-[700ms] ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-          Arizona's Premier Baseball Development Academy
+          Arizona's Premier Baseball Development Academy for Middle and High School Athletes
         </p>
 
         <div className={`flex flex-col sm:flex-row gap-3 transition-all duration-700 delay-[800ms] ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
