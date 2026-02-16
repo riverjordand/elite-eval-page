@@ -64,14 +64,22 @@ const IntroSection = () => {
                 style={{ transform: `translateY(${imgOffset}px) scale(1.1)` }}
               />
               {/* Overlay gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
               
-              {/* Editorial caption */}
-              <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-primary" />
-                  <span className="font-oswald text-[10px] text-foreground/60 uppercase tracking-[0.3em]">Gilbert, Arizona</span>
+              {/* Committed badge */}
+              <div className="absolute top-4 right-4 lg:top-6 lg:right-6">
+                <div className="bg-primary text-primary-foreground font-bebas text-xs md:text-sm px-3 py-1.5 uppercase tracking-[0.2em]">
+                  Committed
                 </div>
+              </div>
+              
+              {/* Outlaws logo */}
+              <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
+                <img 
+                  src={outlawsLogo} 
+                  alt="LPA Outlaws" 
+                  className="w-28 md:w-36 object-contain opacity-80"
+                />
               </div>
             </div>
           </div>
