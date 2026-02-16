@@ -7,9 +7,10 @@ import milesKeogh from "@/assets/athletes/miles-keogh-coastal.jpg";
 import prestonFrancis from "@/assets/athletes/preston-francis-glendale.jpg";
 
 const commits = [
-  { name: "Brayan Moreno", school: "Southwestern CC", position: "RHP", stat: "+8 MPH", image: brayanMoreno },
-  { name: "Miles Keogh", school: "Coastal Carolina", position: "INF", stat: "D1 Commit", image: milesKeogh },
-  { name: "Preston Francis", school: "Glendale CC", position: "OF", stat: "3 Offers", image: prestonFrancis },
+  { name: "Coastal Carolina", school: "Coastal Carolina", position: "", stat: "Committed", image: milesKeogh },
+  { name: "Texas Tech", school: "Texas Tech", position: "", stat: "Committed", image: brayanMoreno },
+  { name: "Ole Miss", school: "Ole Miss", position: "", stat: "Committed", image: prestonFrancis },
+  { name: "Utah Valley", school: "Utah Valley", position: "", stat: "Committed", image: prestonFrancis },
 ];
 
 const ResultsSection = () => {
@@ -25,14 +26,14 @@ const ResultsSection = () => {
             <div className="w-8 h-px bg-primary" />
           </div>
           <h2 className="font-bebas text-4xl md:text-5xl lg:text-7xl text-foreground uppercase leading-none mb-4">
-            Where They <span className="text-primary">Ended Up</span>
+            Signed and <span className="text-primary">Committed</span>
           </h2>
-          <p className="font-oswald text-sm text-foreground/30 max-w-md mx-auto">
-            These athletes started where yours is now. With the right training, they're playing at the next level.
+          <p className="font-oswald text-sm text-foreground/30 max-w-lg mx-auto">
+            These athletes started where yours is now. With the right training and development, they're playing at the next level.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-0.5 mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-0.5 mb-16">
           {commits.map((commit, i) => (
             <div
               key={i}
