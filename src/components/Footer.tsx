@@ -59,19 +59,19 @@ const Footer = () => {
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
                 <span className="text-muted-foreground">
-                  Phoenix, Arizona
+                  9382 E Bahia Drive, Suite B101<br />Scottsdale, AZ 85260
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-primary flex-shrink-0" />
-                <a href="tel:+1234567890" className="text-muted-foreground hover:text-primary transition-colors">
-                  (123) 456-7890
+                <a href="tel:+14804854855" className="text-muted-foreground hover:text-primary transition-colors">
+                  (480) 485-4855
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-primary flex-shrink-0" />
-                <a href="mailto:info@legendaryprep.com" className="text-muted-foreground hover:text-primary transition-colors">
-                  info@legendaryprep.com
+                <a href="mailto:info@legendaryprepacademy.com" className="text-muted-foreground hover:text-primary transition-colors">
+                  info@legendaryprepacademy.com
                 </a>
               </li>
             </ul>
