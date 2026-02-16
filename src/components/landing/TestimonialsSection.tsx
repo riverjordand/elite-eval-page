@@ -6,7 +6,7 @@ const testimonials = [
   { video: "/testimonials/parent-testimonial-1.mp4", thumb: "/testimonials/parent-testimonial-1-thumb.jpg", quote: "In 6 months, my son gained 7 MPH on his fastball. The coaches see things others miss.", name: "Mike D.", role: "Father of 2024 D2 Commit", highlight: "+7 MPH" },
   { video: "/testimonials/parent-testimonial-2.mp4", thumb: "/testimonials/parent-testimonial-2-thumb.jpg", quote: "All of us push each other to improve and it's really made us come together as a team. Being able to work with the pitching coaches every day has really made me have confidence.", name: "Adam Hayes", role: "2025 Graduate · Committed to Texas Tech", highlight: "Texas Tech" },
   { video: "/testimonials/parent-testimonial-3.mp4", thumb: "/testimonials/parent-testimonial-3-thumb.jpg", quote: "We've seen incredible gains — not only on the baseball side, but the physical and strength side. The confidence and authority taught here by the coaches has helped him outside LPA.", name: "LPA Parent", role: "Parent of LPA Athlete", highlight: "Parent" },
-  { video: "/testimonials/parent-testimonial-4.mp4", thumb: "/testimonials/parent-testimonial-4-thumb.jpg", quote: "My son's confidence transformed. He went from doubting himself to team captain.", name: "Linda M.", role: "Mother of Varsity Starter", highlight: "Captain" },
+  { video: "/testimonials/parent-testimonial-4.mp4", thumb: "/testimonials/parent-testimonial-4-thumb.jpg", quote: "I made so many new friends so quickly. We're like brothers here. I got way stronger — I'm starting to see definition on my body. My swing and mechanics have improved so much.", name: "Cash Kelly", role: "Class of 2030 · Shortstop", highlight: "2030" },
 ];
 
 const TestimonialsSection = () => {
