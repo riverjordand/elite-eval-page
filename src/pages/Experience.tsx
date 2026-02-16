@@ -1,4 +1,4 @@
-import { Trophy, Shield, Shirt, Dumbbell, Utensils, Scissors, Lock, Zap, ChevronRight } from "lucide-react";
+import { Trophy, Shield, Shirt, Dumbbell, Utensils, Scissors, Lock, Zap, ChevronRight, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -28,40 +28,39 @@ const lifestylePerks = [
     icon: Utensils,
     title: "Daily Meals",
     description: "Athletes are fed daily — fueling performance with proper nutrition so they can focus on development.",
+    image: "/action-10.jpg",
   },
   {
     icon: Scissors,
     title: "On-Site Barber",
     description: "Look good, play good. Our on-site barber keeps athletes sharp and camera-ready for game day and showcases.",
+    image: "/action-15.jpg",
   },
   {
     icon: Shirt,
     title: "Gear & Swag Drops",
     description: "Seasonal branded apparel drops — custom jerseys, practice gear, travel fits, and exclusive LPA merch.",
+    image: attireImg,
   },
   {
     icon: Lock,
     title: "Personal Locker Room",
     description: "Every athlete gets their own assigned locker — a professional home base that builds routine and accountability.",
+    image: lockerRoomImg,
   },
   {
     icon: Shield,
     title: "Pro-Grade Equipment",
     description: "Game bats, HitTrax, Rapsodo, weighted balls — the same tools used at the collegiate and professional level.",
+    image: equipmentImg,
   },
   {
     icon: Zap,
     title: "Recovery & Arm Care",
     description: "Dedicated recovery protocols, arm care programming, and injury prevention built into every training day.",
+    image: "/action-20.jpg",
   },
 ];
-
-const EditorialImage = ({ src, alt, className = "" }: { src: string; alt: string; className?: string }) => (
-  <div className={`relative overflow-hidden ${className}`}>
-    <img src={src} alt={alt} className="w-full h-full object-cover" loading="lazy" />
-    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-  </div>
-);
 
 const SectionReveal = ({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) => {
   const { ref, isVisible } = useScrollReveal(0.1);
@@ -108,13 +107,47 @@ const Experience = () => {
         </SectionReveal>
       </div>
 
-      {/* Editorial Photo Strip */}
-      <div className="container mx-auto px-4 md:px-6 lg:px-16 max-w-7xl pb-16 md:pb-24">
+      {/* Day in the Life Video */}
+      <div className="container mx-auto px-4 md:px-6 lg:px-16 max-w-6xl pb-16 md:pb-24">
         <SectionReveal>
-          <div className="grid grid-cols-3 gap-0.5 h-48 md:h-72 lg:h-96">
-            <EditorialImage src={lockerRoomImg} alt="LPA locker room" />
-            <EditorialImage src={equipmentImg} alt="Pro-grade equipment" />
-            <EditorialImage src={attireImg} alt="LPA branded attire" />
+          <div className="flex items-center gap-3 mb-3">
+            <div className="w-8 h-px bg-primary" />
+            <span className="font-oswald text-[10px] text-accent uppercase tracking-[0.4em]">See It For Yourself</span>
+          </div>
+          <h2 className="font-bebas text-3xl md:text-4xl lg:text-5xl text-foreground uppercase leading-[0.88] mb-8 md:mb-10">
+            A Day in <span className="text-primary">the Life</span>
+          </h2>
+
+          {/* Main video placeholder */}
+          <div className="relative aspect-video bg-card/60 border border-border/30 overflow-hidden group cursor-pointer mb-4">
+            <img src="/action-05.jpg" alt="Day in the life at LPA" className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-50 transition-opacity duration-500" />
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+            <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
+              <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-primary/90 flex items-center justify-center group-hover:scale-110 transition-transform duration-300" style={{ boxShadow: '0 0 40px hsl(var(--primary) / 0.4)' }}>
+                <Play className="w-7 h-7 md:w-8 md:h-8 text-primary-foreground ml-1" fill="currentColor" />
+              </div>
+              <p className="font-bebas text-lg md:text-xl text-foreground/60 uppercase tracking-wider">Coming Soon</p>
+            </div>
+          </div>
+
+          {/* Secondary video placeholders */}
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-4">
+            {[
+              { src: "/action-12.jpg", label: "Morning Training" },
+              { src: "/action-25.jpg", label: "Team Culture" },
+              { src: "/action-30.jpg", label: "Game Day Prep" },
+            ].map((vid, i) => (
+              <div key={i} className="relative aspect-video bg-card/60 border border-border/20 overflow-hidden group cursor-pointer">
+                <img src={vid.src} alt={vid.label} className="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-40 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
+                  <div className="w-10 h-10 rounded-full bg-primary/80 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <Play className="w-4 h-4 text-primary-foreground ml-0.5" fill="currentColor" />
+                  </div>
+                  <p className="font-bebas text-xs md:text-sm text-foreground/50 uppercase tracking-wider">{vid.label}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </SectionReveal>
       </div>
@@ -136,23 +169,13 @@ const Experience = () => {
             <SectionReveal key={index} delay={index * 150}>
               <div className="group relative bg-card/40 backdrop-blur-sm border border-border/30 p-6 lg:p-8 hover:border-primary/50 transition-all duration-300 h-full">
                 <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
                 <div className="relative flex items-center gap-3 mb-4">
-                  <div
-                    className="w-10 h-10 lg:w-12 lg:h-12 bg-primary/15 flex items-center justify-center flex-shrink-0"
-                    style={{ boxShadow: '0 0 20px hsl(var(--primary) / 0.15)' }}
-                  >
+                  <div className="w-10 h-10 lg:w-12 lg:h-12 bg-primary/15 flex items-center justify-center flex-shrink-0" style={{ boxShadow: '0 0 20px hsl(var(--primary) / 0.15)' }}>
                     <item.icon className="w-5 h-5 lg:w-6 lg:h-6 text-primary" strokeWidth={1.5} />
                   </div>
-                  <h3 className="font-bebas text-xl lg:text-2xl text-foreground uppercase leading-tight">
-                    {item.title}
-                  </h3>
+                  <h3 className="font-bebas text-xl lg:text-2xl text-foreground uppercase leading-tight">{item.title}</h3>
                 </div>
-
-                <p className="relative font-oswald text-xs lg:text-sm text-muted-foreground leading-relaxed mb-5">
-                  {item.description}
-                </p>
-
+                <p className="relative font-oswald text-xs lg:text-sm text-muted-foreground leading-relaxed mb-5">{item.description}</p>
                 <div className="relative space-y-2">
                   {item.features.map((feature, fIndex) => (
                     <div key={fIndex} className="flex items-center gap-2">
@@ -161,7 +184,6 @@ const Experience = () => {
                     </div>
                   ))}
                 </div>
-
                 <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-primary via-primary/60 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
               </div>
             </SectionReveal>
@@ -189,13 +211,25 @@ const Experience = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
             {lifestylePerks.map((perk, index) => (
               <SectionReveal key={index} delay={index * 100}>
-                <div className="group relative bg-background/60 border border-border/20 p-5 lg:p-6 hover:border-primary/40 transition-all duration-300 h-full">
-                  <div className="absolute inset-0 bg-primary/[0.03] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-                  <div className="relative">
-                    <div className="w-9 h-9 bg-primary/10 flex items-center justify-center mb-4">
-                      <perk.icon className="w-4 h-4 text-primary" strokeWidth={1.5} />
+                <div className="group relative bg-background/60 border border-border/20 overflow-hidden hover:border-primary/40 transition-all duration-300 h-full">
+                  {/* Image */}
+                  <div className="relative h-40 md:h-48 overflow-hidden">
+                    <img
+                      src={perk.image}
+                      alt={perk.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
+                    <div className="absolute top-3 left-3">
+                      <div className="w-8 h-8 bg-primary/90 flex items-center justify-center">
+                        <perk.icon className="w-4 h-4 text-primary-foreground" strokeWidth={1.5} />
+                      </div>
                     </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-5">
                     <h3 className="font-bebas text-lg lg:text-xl text-foreground uppercase mb-2">{perk.title}</h3>
                     <p className="font-oswald text-xs text-muted-foreground leading-relaxed">{perk.description}</p>
                   </div>
@@ -216,9 +250,7 @@ const Experience = () => {
               Ready to see it in person?
             </p>
             <Link to="/appointments">
-              <Button
-                className="bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-widest text-base md:text-lg px-8 md:px-12 py-5 md:py-6 h-auto border-glow transition-all duration-300 hover:scale-105"
-              >
+              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-widest text-base md:text-lg px-8 md:px-12 py-5 md:py-6 h-auto border-glow transition-all duration-300 hover:scale-105">
                 Book a Tour <ChevronRight className="ml-2 w-5 h-5" />
               </Button>
             </Link>
