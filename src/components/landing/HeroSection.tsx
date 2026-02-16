@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import lpaBolt from "@/assets/lpa-badge-cactus.png";
+
 
 const HeroSection = () => {
   const [loaded, setLoaded] = useState(false);
@@ -38,11 +38,6 @@ const HeroSection = () => {
         className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6 will-change-transform"
         style={{ transform: `translateY(${scrollY * -0.08}px)` }}
       >
-        <img
-          src={lpaBolt}
-          alt="LPA"
-          className={`w-auto h-8 md:h-10 object-contain mb-8 transition-all duration-700 ${loaded ? 'opacity-80 translate-y-0' : 'opacity-0 translate-y-4'}`}
-        />
 
         <h1 className="font-bebas uppercase leading-[0.85] tracking-tight mb-6">
           <span className={`block text-5xl md:text-7xl lg:text-8xl xl:text-[10rem] text-foreground transition-all duration-700 delay-200 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
