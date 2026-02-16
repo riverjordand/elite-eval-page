@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useParallax } from "@/hooks/useParallax";
 import milesKeogh from "@/assets/athletes/miles-keogh-coastal.jpg";
+import outlawsLogo from "@/assets/outlaws-burnt-orange.png";
 
 const IntroSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -80,9 +81,9 @@ const IntroSection = () => {
                     <p className="font-oswald text-xs text-primary uppercase tracking-[0.2em]">Coastal Carolina</p>
                   </div>
                   <img 
-                    src="/colleges/east-carolina.png" 
-                    alt="Coastal Carolina" 
-                    className="w-12 h-12 md:w-16 md:h-16 object-contain brightness-0 invert opacity-60"
+                    src={outlawsLogo} 
+                    alt="LPA Outlaws" 
+                    className="w-24 md:w-32 object-contain opacity-80"
                   />
                 </div>
               </div>
