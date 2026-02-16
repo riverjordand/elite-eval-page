@@ -23,8 +23,8 @@ const pillars = [
     number: "03",
     title: "Complete Development",
     stat: "Full System",
-    description: "We build the complete athlete — integrating strength, mobility, speed, and mental performance into one system.",
-    features: ["Baseball-specific strength", "Mobility & injury prevention", "Mental performance training"]
+    description: "We build the complete athlete — strategic development, integrated strength, mobility, speed, recovery, and mental performance all combined into one system under one roof.",
+    features: ["Position-specific development", "Baseball-specific strength & conditioning", "Mobility & injury prevention", "Mental performance training"]
   }
 ];
 
@@ -57,7 +57,7 @@ const AboutSection = () => {
           </div>
           <h2 className="font-bebas text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-foreground uppercase leading-[0.88]">
             The Unfair<br />
-            <span className="text-primary">Advantage</span>
+            <span className="text-primary">Outlaw Advantage</span>
           </h2>
         </div>
         
