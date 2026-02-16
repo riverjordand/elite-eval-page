@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useParallax } from "@/hooks/useParallax";
-import milesKeogh from "@/assets/athletes/miles-keogh-coastal.jpg";
+import welcomeAthlete from "@/assets/welcome-athlete-batting.jpg";
 import outlawsLogo from "@/assets/outlaws-burnt-orange.png";
 
 const IntroSection = () => {
@@ -58,33 +58,19 @@ const IntroSection = () => {
           <div className={`transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <div ref={parallaxRef as React.RefObject<HTMLDivElement>} className="relative aspect-[3/4] overflow-hidden">
               <img 
-                src={milesKeogh} 
-                alt="Miles Keogh - Committed to Coastal Carolina" 
+                src={welcomeAthlete} 
+                alt="LPA Athlete Training" 
                 className="w-full h-full object-cover object-[center_20%] will-change-transform scale-110"
                 style={{ transform: `translateY(${imgOffset}px) scale(1.1)` }}
               />
               {/* Overlay gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent" />
               
-              {/* Committed badge with Coastal logo */}
-              <div className="absolute top-4 right-4 lg:top-6 lg:right-6">
-                <div className="bg-primary text-primary-foreground font-bebas text-xs md:text-sm px-3 py-1.5 uppercase tracking-[0.2em]">
-                  Committed
-                </div>
-              </div>
-              
-              {/* Athlete info + school logo */}
+              {/* Editorial caption */}
               <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
-                <div className="flex items-end justify-between">
-                  <div>
-                    <h3 className="font-bebas text-2xl md:text-3xl text-foreground uppercase leading-tight">Miles Keogh</h3>
-                    <p className="font-oswald text-xs text-primary uppercase tracking-[0.2em]">Coastal Carolina</p>
-                  </div>
-                  <img 
-                    src={outlawsLogo} 
-                    alt="LPA Outlaws" 
-                    className="w-24 md:w-32 object-contain opacity-80"
-                  />
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary" />
+                  <span className="font-oswald text-[10px] text-foreground/60 uppercase tracking-[0.3em]">Gilbert, Arizona</span>
                 </div>
               </div>
             </div>
