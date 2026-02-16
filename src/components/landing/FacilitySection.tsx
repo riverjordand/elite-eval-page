@@ -7,10 +7,10 @@ import facilityVideo from "@/assets/facility-video-analysis.jpg";
 import facilitySports from "@/assets/facility-sports-medicine.jpg";
 
 const facilities = [
-  { title: "Training Area", subtitle: "Game Speed", tagline: "Every rep simulates game conditions", description: "Indoor turf with game-environment spacing, real-time data feedback from Rapsodo, and pro-level equipment.", image: facilityTraining, features: ["Full regulation mounds", "Live batting metrics", "Velocity & spin tracking", "Game-environment spacing"], stat: "10K+ sq ft" },
-  { title: "Strength & Conditioning", subtitle: "Power Building", tagline: "Where raw potential becomes elite performance", description: "Built for rotational athletes with Olympic platforms, baseball-specific machines, and sport-focused programming.", image: facilityStrength, features: ["Olympic lifting platforms", "Baseball-specific machines", "Power & speed equipment", "Mobility stations"], stat: "Full Gym" },
-  { title: "Classrooms & Film", subtitle: "Train the Mind", tagline: "Where game IQ meets preparation", description: "Dedicated classroom space for film study, scouting reports, game strategy, and college recruitment workshops.", image: facilityVideo, features: ["Film study & game review", "Scouting report breakdowns", "Recruiting workshops", "Game strategy sessions"], stat: "Game IQ" },
-  { title: "Recovery & Arm Care", subtitle: "Recover Faster", tagline: "Built-in recovery keeps athletes healthy", description: "Dedicated recovery area with arm care protocols, mobility stations, and tools to keep athletes performing at their best.", image: facilitySports, features: ["Arm care programs", "Mobility stations", "Recovery tools & equipment", "Soft tissue work"], stat: "Full Recovery" },
+  { title: "Training Area", subtitle: "Game Speed", tagline: "Every rep simulates game conditions", description: "Indoor turf, retractable hitting tunnels, real-time data feedback from elite-level equipment.", image: facilityTraining, features: ["Trackman", "HitTrax", "Rapsodo", "2K sq ft game simulation"], stat: "24K sq ft" },
+  { title: "Strength & Conditioning", subtitle: "Power", tagline: "Where raw potential becomes elite performance", description: "Built for rotational athletes with power platforms, athlete-specific machines, and sport-focused programming.", image: facilityStrength, features: ["Keiser PRT technology", "Rogue power racks", "VALD Forcedecks & speed lasers", "Kinvent speed sensors"], stat: "Full Gym" },
+  { title: "Classroom", subtitle: "Online Schooling", tagline: "Education built for athletes", description: "Dedicated classroom space where middle and high school student-athletes spend 2 hours per day ensuring grades are met with an advisor.", image: facilityVideo, features: ["NCAA-approved standards", "Fully accredited by Cognia", "Weekly grade checks", "College prep focused", "Flexible scheduling"], stat: "Academics" },
+  { title: "Recovery & Rehab", subtitle: "Injury Prevention", tagline: "Built-in recovery and rehab keeps athletes on the field", description: "Dedicated recovery area, arm care protocols, mobility focused, and onsite physical therapy by licensed PTs.", image: facilitySports, features: ["Spooner PT on-site (weekly)", "Soft tissue work", "Saunas & red-light therapy", "Hot & cold therapies"], stat: "Full Recovery" },
 ];
 
 const FacilitySection = () => {
@@ -35,13 +35,13 @@ const FacilitySection = () => {
           <div>
             <div className="flex items-center gap-3 mb-3">
               <div className="w-8 h-px bg-primary" />
-              <span className="font-oswald text-[10px] text-accent uppercase tracking-[0.4em]">Gilbert, Arizona</span>
+              <span className="font-oswald text-[10px] text-accent uppercase tracking-[0.4em]">Scottsdale, Arizona</span>
             </div>
             <h2 className="font-bebas text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-foreground uppercase leading-[0.88]">
               The <span className="text-primary">Facility</span>
             </h2>
           </div>
-          <p className="font-oswald text-xs text-foreground/30 uppercase tracking-[0.2em]">16,000 Sq Ft · Open 365 Days</p>
+          <p className="font-oswald text-xs text-foreground/30 uppercase tracking-[0.2em]">24,000 Sq Ft · Open 365 Days</p>
         </div>
       </div>
 
