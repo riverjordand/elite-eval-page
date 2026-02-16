@@ -3,10 +3,10 @@ import { Play, Star, X } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const testimonials = [
-  { video: "/testimonials/parent-testimonial-1.mp4", thumb: "/testimonials/parent-testimonial-1-thumb.jpg", quote: "Leaving IMG was tough, but for my recruiting process and development, I felt it was crucial to come to LPA. The environment and coaching here have been amazing.", name: "Austin Smith", role: "3B / C / Pitcher · Crowdaddies", highlight: "From IMG" },
-  { video: "/testimonials/parent-testimonial-2.mp4", thumb: "/testimonials/parent-testimonial-2-thumb.jpg", quote: "All of us push each other to improve and it's really made us come together as a team. Being able to work with the pitching coaches every day has really made me have confidence.", name: "Adam Hayes", role: "2025 Graduate · Committed to Texas Tech", highlight: "Texas Tech" },
-  { video: "/testimonials/parent-testimonial-3.mp4", thumb: "/testimonials/parent-testimonial-3-thumb.jpg", quote: "We've seen incredible gains — not only on the baseball side, but the physical and strength side. The confidence and authority taught here by the coaches has helped him outside LPA.", name: "LPA Parent", role: "Parent of LPA Athlete", highlight: "Parent" },
-  { video: "/testimonials/parent-testimonial-4.mp4", thumb: "/testimonials/parent-testimonial-4-thumb.jpg", quote: "I made so many new friends so quickly. We're like brothers here. I got way stronger — I'm starting to see definition on my body. My swing and mechanics have improved so much.", name: "Cash Kelly", role: "Class of 2030 · Shortstop", highlight: "2030" },
+  { video: "/testimonials/parent-testimonial-1.mp4", thumb: "/testimonials/parent-testimonial-1-thumb.jpg", quote: "Leaving IMG was tough, but coming to LPA was the best decision for my development.", name: "Austin Smith", role: "3B / C / Pitcher · Crowdaddies", highlight: "From IMG" },
+  { video: "/testimonials/parent-testimonial-2.mp4", thumb: "/testimonials/parent-testimonial-2-thumb.jpg", quote: "We all push each other to improve — it's made us come together as a team.", name: "Adam Hayes", role: "2025 Graduate · Committed to Texas Tech", highlight: "Texas Tech" },
+  { video: "/testimonials/parent-testimonial-3.mp4", thumb: "/testimonials/parent-testimonial-3-thumb.jpg", quote: "We've seen incredible gains — not only baseball, but physical and strength too.", name: "LPA Parent", role: "Parent of LPA Athlete", highlight: "Parent" },
+  { video: "/testimonials/parent-testimonial-4.mp4", thumb: "/testimonials/parent-testimonial-4-thumb.jpg", quote: "I made so many new friends so quickly. We're like brothers here.", name: "Cash Kelly", role: "Class of 2030 · Shortstop", highlight: "2030" },
 ];
 
 const TestimonialsSection = () => {
