@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 
 const stats = [
-  { value: 50, suffix: "+", label: "College Commits" },
-  { value: 16, suffix: "K", label: "Sq Ft Facility" },
-  { value: 4, suffix: "", label: "Pro Coaches" },
-  { value: 8.5, suffix: "", label: "Avg MPH Gain", decimal: true },
+  { value: 12, suffix: "", label: "Commits in 18 Months" },
+  { value: 12, suffix: "", label: "College Commits" },
+  { value: 4, suffix: "", label: "Teams" },
+  { value: 12, suffix: "", label: "Staff & Coaches" },
 ];
 
 const CountUp = ({ target, suffix, decimal, triggered }: { target: number; suffix: string; decimal?: boolean; triggered: boolean }) => {
@@ -65,7 +65,7 @@ const StatsSection = () => {
                   transitionDelay: `${300 + index * 150}ms`,
                 }}
               >
-                <CountUp target={stat.value} suffix={stat.suffix} decimal={stat.decimal} triggered={visible} />
+                <CountUp target={stat.value} suffix={stat.suffix} triggered={visible} />
               </div>
               <div
                 className="font-oswald text-[9px] md:text-[11px] text-foreground/30 uppercase tracking-[0.3em] transition-all duration-700"
