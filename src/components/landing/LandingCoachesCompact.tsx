@@ -14,7 +14,7 @@ const coaches = [
 
 const LandingCoachesCompact = () => {
   return (
-    <section className="relative py-16 md:py-24 lg:py-32 overflow-hidden">
+    <section className="relative py-fluid-section overflow-hidden">
       {/* Cinematic background */}
       <div className="absolute inset-0 section-dark" />
       
@@ -22,25 +22,25 @@ const LandingCoachesCompact = () => {
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[120px]" />
       <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-primary/8 rounded-full blur-[100px]" />
       
-      <div className="container relative mx-auto px-4">
+      <div className="container relative mx-auto px-fluid-container-px">
         {/* Section header */}
-        <div className="text-center mb-10 md:mb-14 lg:mb-20">
-          <div className="inline-block bg-primary/20 backdrop-blur-sm text-primary font-bebas text-xs md:text-sm lg:text-base px-4 md:px-6 py-1.5 mb-4 md:mb-5 uppercase tracking-[0.15em] border border-primary/30 rounded-sm">
+        <div className="text-center mb-fluid-xl">
+          <div className="inline-block bg-primary/20 backdrop-blur-sm text-primary font-bebas text-fluid-xs px-fluid-sm py-1.5 mb-fluid-xs uppercase tracking-[0.15em] border border-primary/30 rounded-sm">
             D1 & Pro Experience
           </div>
-          <h2 className="font-bebas text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-foreground uppercase tracking-tight mb-3 md:mb-4 glow-primary">
+          <h2 className="font-bebas text-fluid-4xl text-foreground uppercase tracking-tight mb-fluid-xs glow-primary">
             Meet The Coaches
           </h2>
-          <p className="font-oswald text-sm md:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="font-oswald text-fluid-base text-muted-foreground max-w-2xl mx-auto">
             Coaches who've lived it—and know exactly what it takes
           </p>
         </div>
         
         {/* Coaches grid */}
-        <div className="flex justify-center gap-5 md:gap-10 lg:gap-14 overflow-x-auto pb-2 scrollbar-hide">
+        <div className="flex justify-center gap-fluid-gap-lg overflow-x-auto pb-2 scrollbar-hide">
           {coaches.map((coach, index) => (
             <div key={index} className="flex-none text-center group">
-              <div className="relative w-28 h-28 md:w-40 md:h-40 lg:w-52 lg:h-52 xl:w-60 xl:h-60 mb-4 md:mb-5">
+              <div className="relative w-28 h-28 md:w-40 md:h-40 lg:w-52 lg:h-52 xl:w-60 xl:h-60 mb-fluid-xs">
                 {/* Glow ring on hover */}
                 <div className="absolute -inset-2 bg-gradient-to-br from-primary/40 to-primary/10 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500" />
                 
@@ -56,12 +56,12 @@ const LandingCoachesCompact = () => {
                 </div>
                 
                 {/* Credential badge */}
-                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground font-bebas text-[9px] md:text-xs lg:text-sm px-3 md:px-4 py-1 md:py-1.5 rounded whitespace-nowrap shadow-lg border-glow">
+                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground font-bebas text-fluid-xs px-3 md:px-4 py-1 md:py-1.5 rounded whitespace-nowrap shadow-lg border-glow">
                   {coach.credential}
                 </div>
               </div>
-              <div className="font-bebas text-base md:text-xl lg:text-2xl text-foreground uppercase group-hover:text-primary transition-colors">{coach.name}</div>
-              <div className="font-oswald text-xs md:text-base lg:text-lg text-muted-foreground">{coach.title}</div>
+              <div className="font-bebas text-fluid-lg text-foreground uppercase group-hover:text-primary transition-colors">{coach.name}</div>
+              <div className="font-oswald text-fluid-sm text-muted-foreground">{coach.title}</div>
             </div>
           ))}
         </div>

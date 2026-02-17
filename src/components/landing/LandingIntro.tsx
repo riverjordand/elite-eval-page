@@ -20,28 +20,28 @@ const LandingIntro = () => {
             
             {/* Overlaid content */}
             <div className="absolute inset-0 flex items-center">
-              <div className="w-full max-w-7xl mx-auto px-8 lg:px-12">
+              <div className="w-full max-w-7xl mx-auto px-fluid-container-px">
                 <div className="max-w-2xl">
-                  <h2 className="text-5xl xl:text-6xl font-bebas font-black uppercase mb-5 leading-[0.95]">
+                  <h2 className="text-fluid-4xl font-bebas font-black uppercase mb-fluid-sm leading-[0.95]">
                     Welcome to<br />
                     <span className="text-primary glow-primary">Legendary Prep</span><br />
                     Academy
                   </h2>
                   
-                  <div className="space-y-4">
-                    <p className="text-lg xl:text-xl text-foreground/80 font-oswald leading-relaxed">
+                  <div className="space-y-fluid-xs">
+                    <p className="text-fluid-lg text-foreground/80 font-oswald leading-relaxed">
                       LPA is where Arizona's most driven baseball athletes train to reach the next level — whether that's high-level varsity, college baseball, or pro development.
                     </p>
                     
-                    <p className="text-lg xl:text-xl text-foreground/80 font-oswald leading-relaxed">
+                    <p className="text-fluid-lg text-foreground/80 font-oswald leading-relaxed">
                       Our athletes train with D1-level systems, professional coaching, and the same technology used by college programs and MLB player-development.
                     </p>
 
-                    <div className="pt-4 border-t border-border/30">
-                      <p className="text-xl xl:text-2xl font-oswald font-semibold text-foreground">
+                    <div className="pt-fluid-xs border-t border-border/30">
+                      <p className="text-fluid-xl font-oswald font-semibold text-foreground">
                         LPA is not a casual training facility.
                       </p>
-                      <p className="text-xl xl:text-2xl font-oswald font-semibold text-primary italic mt-1">
+                      <p className="text-fluid-xl font-oswald font-semibold text-primary italic mt-1">
                         It's where athletes come to commit, develop, and excel.
                       </p>
                     </div>
@@ -53,14 +53,14 @@ const LandingIntro = () => {
         </div>
 
         {/* Mobile/Tablet: Stacked layout */}
-        <div className="lg:hidden py-16 md:py-24">
-          <div className="px-4 md:px-8">
+        <div className="lg:hidden py-fluid-section">
+          <div className="px-fluid-container-px">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-4xl sm:text-5xl md:text-6xl font-bebas font-black uppercase text-center mb-8 md:mb-12 leading-tight">
+              <h2 className="text-fluid-3xl font-bebas font-black uppercase text-center mb-fluid-md leading-tight">
                 Welcome to Legendary Prep Academy
               </h2>
 
-              <div className="rounded-xl overflow-hidden border-2 border-border mb-8 md:mb-12">
+              <div className="rounded-xl overflow-hidden border-2 border-border mb-fluid-md">
                 <img 
                   src={welcomeImage} 
                   alt="LPA athlete at bat"
@@ -68,20 +68,20 @@ const LandingIntro = () => {
                 />
               </div>
 
-              <div className="space-y-6 text-center">
-                <p className="text-base sm:text-lg md:text-xl text-muted-foreground font-oswald leading-relaxed">
+              <div className="space-y-fluid-sm text-center">
+                <p className="text-fluid-base text-muted-foreground font-oswald leading-relaxed">
                   LPA is where Arizona's most driven baseball athletes train to reach the next level — whether that's high-level varsity, college baseball, or pro development.
                 </p>
                 
-                <p className="text-base sm:text-lg md:text-xl text-muted-foreground font-oswald leading-relaxed">
+                <p className="text-fluid-base text-muted-foreground font-oswald leading-relaxed">
                   Our athletes train with D1-level systems, professional coaching, and the same technology used by college programs and MLB player-development.
                 </p>
 
-                <div className="space-y-3 pt-6">
-                  <p className="text-lg sm:text-xl md:text-2xl font-oswald font-semibold text-foreground">
+                <div className="space-y-3 pt-fluid-sm">
+                  <p className="text-fluid-xl font-oswald font-semibold text-foreground">
                     LPA is not a casual training facility.
                   </p>
-                  <p className="text-lg sm:text-xl md:text-2xl font-oswald font-semibold text-foreground italic">
+                  <p className="text-fluid-xl font-oswald font-semibold text-foreground italic">
                     It's where athletes come to commit, develop, and excel.
                   </p>
                 </div>

@@ -40,9 +40,9 @@ const LandingHeroNew = ({ onCtaClick }: LandingHeroNewProps) => {
       </div>
       
       {/* Content */}
-      <div className="relative z-10 text-center px-4 md:px-8 max-w-7xl mx-auto">
+      <div className="relative z-10 text-center px-fluid-container-px max-w-7xl mx-auto">
         {/* Logo with glow */}
-        <div className="mb-6 md:mb-8 lg:mb-10">
+        <div className="mb-fluid-md">
           <img 
             src={lpaBolt} 
             alt="LPA" 
@@ -52,25 +52,25 @@ const LandingHeroNew = ({ onCtaClick }: LandingHeroNewProps) => {
         </div>
 
         {/* Pre-headline badge */}
-        <div className="inline-block bg-primary/80 backdrop-blur-sm text-primary-foreground font-bebas text-xs md:text-sm lg:text-base px-5 md:px-8 py-2 md:py-2.5 mb-4 md:mb-6 uppercase tracking-[0.2em] border border-primary/50 rounded-sm">
+        <div className="inline-block bg-primary/80 backdrop-blur-sm text-primary-foreground font-bebas text-fluid-sm px-fluid-md py-2 mb-fluid-sm uppercase tracking-[0.2em] border border-primary/50 rounded-sm">
           Arizona's Premier Baseball Academy
         </div>
 
         {/* Main Headline with glow effect */}
-        <h1 className="font-bebas font-black uppercase leading-[0.85] tracking-tight mb-5 md:mb-8">
-          <span className="block text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl text-foreground drop-shadow-lg">
+        <h1 className="font-bebas font-black uppercase leading-[0.85] tracking-tight mb-fluid-md">
+          <span className="block text-fluid-5xl text-foreground drop-shadow-lg">
             Developing Elite
           </span>
-          <span className="block text-5xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-[10rem] text-primary glow-primary-intense">
+          <span className="block text-fluid-hero text-primary glow-primary-intense">
             Student-Athletes
           </span>
-          <span className="block text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl text-foreground drop-shadow-lg">
+          <span className="block text-fluid-4xl text-foreground drop-shadow-lg">
             For The Next Level
           </span>
         </h1>
 
         {/* Subheadline */}
-        <p className="text-sm sm:text-base md:text-xl lg:text-2xl xl:text-3xl text-foreground/70 font-oswald mb-8 md:mb-10 lg:mb-12 max-w-4xl mx-auto leading-relaxed">
+        <p className="text-fluid-xl text-foreground/70 font-oswald mb-fluid-lg max-w-4xl mx-auto leading-relaxed">
           Where serious players build velocity, sharpen fundamentals, and become college-ready.
         </p>
 
@@ -78,7 +78,7 @@ const LandingHeroNew = ({ onCtaClick }: LandingHeroNewProps) => {
         <Link to="/appointments">
           <Button 
             size="lg" 
-            className="group bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-[0.15em] text-lg md:text-2xl lg:text-3xl px-8 md:px-14 lg:px-16 py-5 md:py-7 lg:py-8 h-auto shadow-2xl border-glow-intense transition-all duration-500 hover:scale-105"
+            className="group bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-[0.15em] text-fluid-2xl px-fluid-lg py-fluid-md h-auto shadow-2xl border-glow-intense transition-all duration-500 hover:scale-105"
           >
             <span className="flex items-center">
               Book My Free Evaluation

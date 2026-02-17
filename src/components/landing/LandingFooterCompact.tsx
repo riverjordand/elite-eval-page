@@ -2,7 +2,7 @@ import lpaArch from "@/assets/lpa-arch.png";
 
 const LandingFooterCompact = () => {
   return (
-    <footer className="relative py-16 md:py-20 lg:py-24 overflow-hidden">
+    <footer className="relative py-fluid-xl overflow-hidden">
       {/* Dark cinematic background */}
       <div className="absolute inset-0 bg-black" />
       
@@ -12,10 +12,10 @@ const LandingFooterCompact = () => {
       {/* Top accent line */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
       
-      <div className="container relative mx-auto px-4">
+      <div className="container relative mx-auto px-fluid-container-px">
         <div className="flex flex-col items-center">
           {/* Logo with glow */}
-          <div className="relative mb-6 md:mb-8">
+          <div className="relative mb-fluid-sm">
             <div className="absolute inset-0 bg-primary/30 blur-2xl rounded-full scale-150" />
             <img 
               src={lpaArch} 
@@ -25,15 +25,15 @@ const LandingFooterCompact = () => {
           </div>
           
           {/* Info */}
-          <p className="font-bebas text-2xl md:text-3xl lg:text-4xl text-foreground uppercase tracking-widest mb-2 md:mb-3">
+          <p className="font-bebas text-fluid-2xl text-foreground uppercase tracking-widest mb-fluid-xs">
             Legendary Prep Academy
           </p>
-          <p className="font-oswald text-base md:text-xl lg:text-2xl text-muted-foreground mb-8 md:mb-10">
+          <p className="font-oswald text-fluid-lg text-muted-foreground mb-fluid-md">
             Scottsdale, Arizona
           </p>
           
           {/* Copyright */}
-          <p className="font-oswald text-sm md:text-base lg:text-lg text-muted-foreground/50">
+          <p className="font-oswald text-fluid-sm text-muted-foreground/50">
             © {new Date().getFullYear()} All rights reserved.
           </p>
         </div>

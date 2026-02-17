@@ -28,7 +28,7 @@ const LandingMediaStrip = () => {
   );
 
   return (
-    <section className="relative py-14 md:py-20 lg:py-28 overflow-hidden">
+    <section className="relative py-fluid-xl overflow-hidden">
       {/* Cinematic gradient background */}
       <div className="absolute inset-0 section-darker" />
       
@@ -37,27 +37,27 @@ const LandingMediaStrip = () => {
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[400px] bg-primary/8 rounded-full blur-[150px]" />
       
-      <div className="container mx-auto px-4 mb-8 md:mb-12 lg:mb-16">
+      <div className="container mx-auto px-fluid-container-px mb-fluid-lg">
         <div className="text-center">
-          <div className="inline-block bg-primary/20 backdrop-blur-sm text-primary font-bebas text-xs md:text-sm lg:text-base px-4 md:px-6 py-1.5 mb-4 md:mb-5 uppercase tracking-[0.15em] border border-primary/30 rounded-sm">
+          <div className="inline-block bg-primary/20 backdrop-blur-sm text-primary font-bebas text-fluid-xs px-fluid-sm py-1.5 mb-fluid-xs uppercase tracking-[0.15em] border border-primary/30 rounded-sm">
             Live Training
           </div>
-          <h2 className="font-bebas text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-foreground uppercase tracking-tight mb-2 md:mb-3 glow-primary">
+          <h2 className="font-bebas text-fluid-4xl text-foreground uppercase tracking-tight mb-fluid-xs glow-primary">
             Training In Motion
           </h2>
-          <p className="font-oswald text-sm md:text-lg lg:text-xl text-muted-foreground">
+          <p className="font-oswald text-fluid-base text-muted-foreground">
             The energy, culture, and work that pushes players to grow
           </p>
         </div>
       </div>
       
       {/* Videos row */}
-      <div className="relative mb-4 md:mb-6 lg:mb-8 overflow-hidden" ref={videoRef}>
+      <div className="relative mb-fluid-sm overflow-hidden" ref={videoRef}>
         {/* Side fades for cinematic effect */}
         <div className="absolute left-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
         
-        <div className="flex gap-3 md:gap-5 lg:gap-6">
+        <div className="flex gap-fluid-gap">
           {videos.map((video, index) => (
             <div key={index} className="flex-none w-48 md:w-80 lg:w-[420px] xl:w-[500px] aspect-video rounded-xl lg:rounded-2xl overflow-hidden border border-border/20 shadow-2xl">
               <video
@@ -79,7 +79,7 @@ const LandingMediaStrip = () => {
         <div className="absolute left-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
         
-        <div className="flex gap-3 md:gap-5 lg:gap-6">
+        <div className="flex gap-fluid-gap">
           {photos.map((photo, index) => (
             <div key={index} className="flex-none w-36 md:w-60 lg:w-80 xl:w-[360px] aspect-square rounded-xl lg:rounded-2xl overflow-hidden border border-border/20 shadow-2xl">
               <img 

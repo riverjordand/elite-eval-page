@@ -35,8 +35,8 @@ const FloatingCTA = () => {
             w-full md:w-auto
             group bg-primary hover:bg-primary/90 text-primary-foreground 
             font-bebas uppercase tracking-[0.15em] 
-            text-base md:text-lg 
-            px-6 md:px-8 
+            text-fluid-base
+            px-fluid-md 
             py-4 md:py-6 
             h-auto 
             shadow-[0_0_30px_hsl(var(--primary)/0.5)] 

@@ -36,7 +36,7 @@ const LandingTestimonialsCompact = () => {
   const [playingIndex, setPlayingIndex] = useState<number | null>(null);
 
   return (
-    <section className="relative py-16 md:py-24 lg:py-32 overflow-hidden">
+    <section className="relative py-fluid-section overflow-hidden">
       {/* Dark cinematic background */}
       <div className="absolute inset-0 bg-black" />
       
@@ -45,24 +45,24 @@ const LandingTestimonialsCompact = () => {
       <div className="absolute top-0 left-0 w-full h-40 bg-gradient-to-b from-background to-transparent" />
       <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-background to-transparent" />
       
-      <div className="container relative mx-auto px-4">
+      <div className="container relative mx-auto px-fluid-container-px">
         {/* Section header */}
-        <div className="text-center mb-10 md:mb-14 lg:mb-20">
-          <div className="inline-block bg-primary/20 backdrop-blur-sm text-primary font-bebas text-xs md:text-sm lg:text-base px-4 md:px-6 py-1.5 mb-4 md:mb-5 uppercase tracking-[0.15em] border border-primary/30 rounded-sm">
+        <div className="text-center mb-fluid-xl">
+          <div className="inline-block bg-primary/20 backdrop-blur-sm text-primary font-bebas text-fluid-xs px-fluid-sm py-1.5 mb-fluid-xs uppercase tracking-[0.15em] border border-primary/30 rounded-sm">
             Real Results
           </div>
-          <h2 className="font-bebas text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-foreground uppercase tracking-tight glow-primary">
+          <h2 className="font-bebas text-fluid-4xl text-foreground uppercase tracking-tight glow-primary">
             Hear From LPA Families
           </h2>
         </div>
         
         {/* Testimonials grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-8 lg:gap-10 max-w-7xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-fluid-gap-lg max-w-7xl mx-auto">
           {testimonials.map((item, index) => (
             <div key={index} className="group">
               {/* Video thumbnail */}
               <div 
-                className="relative aspect-[9/16] rounded-xl lg:rounded-2xl overflow-hidden cursor-pointer mb-4 md:mb-5 shadow-2xl"
+                className="relative aspect-[9/16] rounded-xl lg:rounded-2xl overflow-hidden cursor-pointer mb-fluid-xs shadow-2xl"
                 onClick={() => setPlayingIndex(playingIndex === index ? null : index)}
               >
                 {/* Border glow */}
@@ -99,9 +99,9 @@ const LandingTestimonialsCompact = () => {
               </div>
               
               {/* Quote & name */}
-              <p className="font-oswald text-xs md:text-base lg:text-lg text-foreground/70 italic mb-2 md:mb-3 line-clamp-2">"{item.quote}"</p>
-              <p className="font-bebas text-sm md:text-base lg:text-lg text-primary">{item.name}</p>
-              <p className="font-oswald text-[10px] md:text-sm lg:text-base text-muted-foreground">{item.role}</p>
+              <p className="font-oswald text-fluid-sm text-foreground/70 italic mb-fluid-xs line-clamp-2">"{item.quote}"</p>
+              <p className="font-bebas text-fluid-base text-primary">{item.name}</p>
+              <p className="font-oswald text-fluid-xs text-muted-foreground">{item.role}</p>
             </div>
           ))}
         </div>
