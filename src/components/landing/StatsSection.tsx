@@ -4,6 +4,7 @@ const stats = [
   { value: 12, suffix: "", label: "College Commits", sub: "D1, D2, D3 & JUCO" },
   { value: 4, suffix: "", label: "Teams", sub: "Competitive Programs" },
   { value: 12, suffix: "", label: "Staff & Coaches", sub: "Former Pro & D1 Players" },
+  { value: 24, suffix: "K", label: "Sq Ft Facility", sub: "Elite Training Space" },
 ];
 
 const CountUp = ({ target, suffix, triggered }: { target: number; suffix: string; triggered: boolean }) => {
@@ -45,7 +46,7 @@ const StatsSection = () => {
   return (
     <section ref={ref} className="bg-primary py-10 md:py-14">
       <div className="container mx-auto px-6 lg:px-16">
-        <div className="grid grid-cols-3 divide-x divide-primary-foreground/20 max-w-4xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-primary-foreground/20 max-w-5xl mx-auto">
           {stats.map((stat, index) => (
             <div
               key={index}
