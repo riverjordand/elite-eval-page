@@ -730,7 +730,58 @@ const Slide20Traction = () => (
   </SlideWrapper>
 );
 
-const slides = [Slide1Title, Slide2Foundation, Slide3Divider, Slide4Video, Slide5Facility, Slide6Coaching, Slide7Academics, Slide8GoalsRemaining, Slide9Phase2, Slide10FacilityVision, Slide11PonoVision, Slide12Budget, Slide13Architecture, Slide14Renderings, Slide15Financials, Slide16ProfitMargin, Slide17BusinessModel, Slide18Phase3, Slide19PathToDomination, Slide20Traction];
+// Slide 21: Investment Tiers and Competitive Advantages
+const Slide21Investment = () => (
+  <SlideWrapper>
+    <div className="absolute inset-0 bg-gradient-to-r from-card/30 via-background to-background" />
+    <div className="relative z-10 max-w-5xl mx-auto px-12 w-full">
+      <div className="grid grid-cols-2 gap-12 items-start">
+        <div className="relative aspect-[3/4] overflow-hidden border border-foreground/20">
+          <img src="/action-50.jpg" alt="LPA athlete training" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/40" />
+        </div>
+        <div>
+          <h2 className="font-bebas text-3xl md:text-4xl lg:text-5xl uppercase leading-[0.88] mb-10">
+            Investment Tiers and Competitive <span className="text-primary">Advantages</span>
+          </h2>
+
+          <div className="mb-10">
+            <span className="font-bebas text-5xl text-primary italic">$5M</span>
+            <div className="flex items-center gap-2 my-2">
+              <div className="flex-1 h-0.5 bg-foreground/30" />
+              <ChevronRight className="w-5 h-5 text-foreground/30" />
+            </div>
+            <h3 className="font-bebas text-xl text-foreground uppercase mb-3">Initial Growth</h3>
+            <ul className="space-y-1">
+              {[
+                "Renovate current building for female locker room and more equipment",
+                "Secure professional level field rentals and elite level tournament play",
+                "Addition of softball players plus coaching staff (Uniforms, gear, travel)",
+                "Addition of media team members",
+                "Addition of administrative staff",
+                "New travel buses and multiple rented homes for out of state transfers",
+              ].map((item, i) => (
+                <li key={i} className="font-oswald text-xs text-foreground/50 leading-relaxed">{item}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <span className="font-bebas text-5xl text-primary italic">$40-50M</span>
+            <div className="flex items-center gap-2 my-2">
+              <div className="flex-1 h-0.5 bg-foreground/30" />
+              <ChevronRight className="w-5 h-5 text-foreground/30" />
+            </div>
+            <h3 className="font-bebas text-xl text-foreground uppercase mb-2">Mini Campus</h3>
+            <p className="font-oswald text-xs text-foreground/50">Phase 2 build details (slides 12)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </SlideWrapper>
+);
+
+const slides = [Slide1Title, Slide2Foundation, Slide3Divider, Slide4Video, Slide5Facility, Slide6Coaching, Slide7Academics, Slide8GoalsRemaining, Slide9Phase2, Slide10FacilityVision, Slide11PonoVision, Slide12Budget, Slide13Architecture, Slide14Renderings, Slide15Financials, Slide16ProfitMargin, Slide17BusinessModel, Slide18Phase3, Slide19PathToDomination, Slide20Traction, Slide21Investment];
 
 const PitchDeck = () => {
   const [current, setCurrent] = useState(0);
