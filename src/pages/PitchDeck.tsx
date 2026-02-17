@@ -5,16 +5,16 @@ import facilityImg from "@/assets/facility-interior.jpg";
 import strengthImg from "@/assets/facility-strength-conditioning.jpg";
 import sportsMedImg from "@/assets/facility-sports-medicine.jpg";
 
-// ── Base slide wrapper – fills viewport, scrollable if content overflows ──
+// ── Base slide wrapper – fills viewport, vertically centers on desktop, scrollable if overflow ──
 const S = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => (
-  <div className={`w-full h-full bg-background overflow-y-auto ${className}`}>
+  <div className={`w-full h-full bg-background overflow-y-auto flex flex-col justify-center ${className}`}>
     {children}
   </div>
 );
 
 // ── Slide inner container with consistent padding ──
 const Inner = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => (
-  <div className={`w-full max-w-6xl mx-auto px-6 md:px-12 py-10 md:py-16 ${className}`}>
+  <div className={`w-full max-w-6xl mx-auto px-6 md:px-12 py-8 md:py-12 ${className}`}>
     {children}
   </div>
 );
