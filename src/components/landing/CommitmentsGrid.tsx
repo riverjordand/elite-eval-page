@@ -1,17 +1,17 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 
 const commitments = [
-  { name: "Scottsdale CC", logo: "/colleges/scottsdale-cc.png?v=2" },
-  { name: "Southwestern College", logo: "/colleges/southwestern-college.png?v=2" },
+  { name: "Ole Miss", logo: "/colleges/ole-miss.png" },
+  { name: "Coastal Carolina", logo: "/colleges/coastal-carolina.png" },
   { name: "Texas Tech University", logo: "/colleges/texas-tech.png" },
   { name: "University of Mary", logo: "/colleges/university-of-mary.png" },
-  { name: "Coastal Carolina", logo: "/colleges/coastal-carolina.png" },
-  { name: "Ole Miss", logo: "/colleges/ole-miss.png" },
   { name: "Utah Valley University", logo: "/colleges/utah-valley.png?v=3" },
   { name: "New Mexico St. University", logo: "/colleges/new-mexico-state.png?v=2" },
+  { name: "Youngstown St. University", logo: "/colleges/youngstown-state.png?v=2" },
+  { name: "Southwestern College", logo: "/colleges/southwestern-college.png?v=2" },
+  { name: "Scottsdale CC", logo: "/colleges/scottsdale-cc.png?v=2" },
   { name: "Glendale CC", logo: "/colleges/glendale-cc.png?v=2" },
   { name: "Justice University", logo: "/colleges/justice-university.png?v=2" },
-  { name: "Youngstown St. University", logo: "/colleges/youngstown-state.png?v=2" },
 ];
 
 const CommitmentsGrid = () => {
@@ -49,18 +49,18 @@ const CommitmentsGrid = () => {
           </p>
         </div>
 
-        {/* Logo rows */}
-        <div className="flex flex-wrap justify-center gap-x-8 gap-y-8 md:gap-x-12 lg:gap-x-14">
+        {/* Logo grid - uniform sizing, alternating rows */}
+        <div className="grid grid-cols-4 md:grid-cols-4 lg:grid-cols-6 gap-6 md:gap-8 lg:gap-10 items-center justify-items-center">
           {commitments.map((school, i) => (
             <div
               key={school.name}
-              className="flex flex-col items-center gap-2.5 group transition-all duration-500"
+              className="flex flex-col items-center gap-3 group transition-all duration-500"
               style={{
                 opacity: visible ? 1 : 0,
                 transitionDelay: `${60 + i * 30}ms`,
               }}
             >
-              <div className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <div className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <img
                   src={school.logo}
                   alt={school.name}
@@ -68,7 +68,7 @@ const CommitmentsGrid = () => {
                   loading="lazy"
                 />
               </div>
-              <span className="font-oswald text-[8px] md:text-[9px] text-foreground/40 uppercase tracking-wider text-center leading-tight group-hover:text-foreground/70 transition-colors hidden md:block">
+              <span className="font-oswald text-[8px] md:text-[9px] text-foreground/40 uppercase tracking-wider text-center leading-tight group-hover:text-foreground/70 transition-colors">
                 {school.name}
               </span>
             </div>
