@@ -43,13 +43,14 @@ const advantages: Advantage[] = [
   {
     number: "04",
     title: "Education",
-    stat: "Coaching & Education in One",
-    description: "We build the complete athlete — integrated strength, speed, mobility, position skill, mental performance, and their entire middle and high school education built into one system.",
+    stat: "Academics Built for Athletes",
+    description: "Dedicated classroom space where middle and high school student-athletes spend 2 hours per day ensuring grades are met with an advisor.",
     features: [
-      "Baseball-specific strength & conditioning",
-      "Position-specific skill development",
-      "Mobility & injury prevention",
-      "Mental performance & full middle/high school education",
+      "NCAA-approved standards",
+      "Fully accredited by Cognia",
+      "Weekly grade checks",
+      "College prep focused",
+      "Flexible scheduling",
     ],
   },
 ];
