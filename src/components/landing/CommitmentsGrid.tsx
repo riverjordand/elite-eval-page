@@ -12,7 +12,7 @@ const row1 = [
 
 const row2 = [
   { name: "Youngstown St. University", logo: "/colleges/youngstown-state.png?v=2", scale: 1.4 },
-  { name: "Southwestern College", logo: "/colleges/southwestern-college.png?v=2" },
+  { name: "Southwestern College", logo: "/colleges/southwestern-college.png?v=2", scale: 1.4 },
   { name: "Scottsdale CC", logo: "/colleges/scottsdale-cc.png?v=2" },
   { name: "Glendale CC", logo: "/colleges/glendale-cc.png?v=2" },
   { name: "Justice University", logo: "/colleges/justice-university.png?v=2" },
