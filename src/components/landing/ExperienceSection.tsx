@@ -7,8 +7,8 @@ import equipmentImg from "@/assets/experience-equipment.jpg";
 import attireImg from "@/assets/experience-attire.jpg";
 
 const highlights = [
-  { icon: Crown, title: "College & MLB Recruiting", description: "12 players committed in 18 months with MLB scouts and D1 connections on staff.", image: lockerRoomImg },
   { icon: Shield, title: "Pro-Grade Equipment", description: "Game bats, batting gloves, position-specific gloves, helmets, and training gear for each athlete.", image: equipmentImg },
+  { icon: Crown, title: "College & MLB Recruiting", description: "12 players committed in 18 months with MLB scouts and D1 connections on staff.", image: lockerRoomImg },
   { icon: Shirt, title: "LPA Branded Attire", description: "Game uniforms, practice gear, travel gear, and team apparel that builds identity.", image: attireImg },
 ];
 
