@@ -68,11 +68,9 @@ const IntroSection = () => {
               
               {/* Athlete info */}
               <div className="absolute top-4 left-4 lg:top-6 lg:left-6">
-                <div className="bg-primary text-primary-foreground font-bebas text-base md:text-lg px-3 py-1.5 uppercase tracking-[0.15em] leading-tight">
-                  AJ Juarez
-                </div>
-                <div className="bg-primary/90 text-primary-foreground font-oswald text-[10px] md:text-xs px-3 py-1 uppercase tracking-[0.2em] mt-0.5">
-                  2030 Grad
+                <div className="bg-primary text-primary-foreground font-bebas px-3 py-1.5 uppercase tracking-[0.15em] leading-tight flex items-baseline gap-2">
+                  <span className="text-base md:text-lg">AJ Juarez</span>
+                  <span className="font-oswald text-[10px] md:text-xs tracking-[0.2em]">2030 Grad</span>
                 </div>
                 <div className="bg-primary/80 text-primary-foreground font-oswald text-[10px] md:text-xs px-3 py-1 uppercase tracking-[0.2em] mt-0.5">
                   58th NTL – 3rd ST
