@@ -7,7 +7,7 @@ const row1 = [
   { name: "Texas Tech University", logo: "/colleges/texas-tech.png" },
   { name: "University of Mary", logo: "/colleges/university-of-mary.png" },
   { name: "Utah Valley University", logo: "/colleges/utah-valley.png?v=3" },
-  { name: "New Mexico St. University", logo: "/colleges/new-mexico-state.png?v=2" },
+  { name: "New Mexico St. University", logo: "/colleges/new-mexico-state.png?v=2", scale: 1.4 },
 ];
 
 const row2 = [
@@ -20,27 +20,25 @@ const row2 = [
 
 const allRows = [row1, row2];
 
-const LogoItem = ({ school, visible, delay, size }: { school: { name: string; logo: string }; visible: boolean; delay: number; size?: string }) => {
-  const sizeClass = size || "w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24";
-  return (
-    <div
-      className="flex flex-col items-center gap-3 group transition-all duration-500"
-      style={{ opacity: visible ? 1 : 0, transitionDelay: `${delay}ms` }}
-    >
-      <div className={`${sizeClass} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
-        <img
-          src={school.logo}
-          alt={school.name}
-          className="w-full h-full object-contain brightness-125 group-hover:scale-105 transition-all duration-300"
-          loading="lazy"
-        />
-      </div>
+const LogoItem = ({ school, visible, delay }: { school: { name: string; logo: string; scale?: number }; visible: boolean; delay: number }) => (
+  <div
+    className="flex flex-col items-center gap-3 group transition-all duration-500"
+    style={{ opacity: visible ? 1 : 0, transitionDelay: `${delay}ms` }}
+  >
+    <div className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 overflow-hidden">
+      <img
+        src={school.logo}
+        alt={school.name}
+        className="w-full h-full object-contain brightness-125 group-hover:scale-105 transition-all duration-300"
+        style={school.scale ? { transform: `scale(${school.scale})` } : undefined}
+        loading="lazy"
+      />
+    </div>
     <span className="font-oswald text-[8px] md:text-[9px] text-foreground/40 uppercase tracking-wider text-center leading-tight group-hover:text-foreground/70 transition-colors max-w-[80px]">
       {school.name}
     </span>
   </div>
-  );
-};
+);
 
 const CommitmentsGrid = () => {
   const ref = useRef<HTMLDivElement>(null);
