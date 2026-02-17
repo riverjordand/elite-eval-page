@@ -21,7 +21,7 @@ const row2 = [
 const allRows = [row1, row2];
 
 const LogoItem = ({ school, visible, delay, size }: { school: { name: string; logo: string }; visible: boolean; delay: number; size?: string }) => {
-  const sizeClass = size || "w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20";
+  const sizeClass = size || "w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24";
   return (
     <div
       className="flex flex-col items-center gap-3 group transition-all duration-500"
@@ -86,8 +86,7 @@ const CommitmentsGrid = () => {
               {row.map((school) => {
                 const delay = 60 + globalIndex * 30;
                 globalIndex++;
-                const bigSize = school.name === "New Mexico St. University" ? "w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28" : undefined;
-                return <LogoItem key={school.name} school={school} visible={visible} delay={delay} size={bigSize} />;
+                return <LogoItem key={school.name} school={school} visible={visible} delay={delay} />;
               })}
             </div>
           ))}
