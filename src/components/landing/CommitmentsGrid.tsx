@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 
 const commitments = [
-  { name: "Scottsdale CC", logo: "/colleges/scottsdale-cc.png" },
+  { name: "Scottsdale CC", logo: "/colleges/scottsdale-cc.png?v=2" },
   { name: "Southwestern College", logo: "/colleges/southwestern-college.png" },
   { name: "Texas Tech University", logo: "/colleges/texas-tech.png" },
   { name: "University of Mary", logo: "/colleges/university-of-mary.png" },
