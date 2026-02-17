@@ -3,7 +3,7 @@ import { Crown, Shield, Shirt, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import lockerRoomImg from "@/assets/experience-locker-room.jpg";
-import equipmentImg from "@/assets/experience-equipment.jpg";
+const equipmentImg = "https://xhqqxukgsaxabyvbfinn.supabase.co/storage/v1/object/public/video/Pro-GradeEquipment";
 import attireImg from "@/assets/experience-attire.jpg";
 
 const RECRUITING_VIDEO_URL = `https://xhqqxukgsaxabyvbfinn.supabase.co/storage/v1/object/public/video/080824_player%20lounge.mp4`;
