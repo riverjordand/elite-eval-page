@@ -49,7 +49,7 @@ const IntroSection = () => {
             {/* Pull quote */}
             <div className="border-l-2 border-primary pl-6">
               <p className="font-oswald text-sm md:text-base text-foreground/70 leading-relaxed italic">
-                "Winning for LPA is a by-product of a strategic and synergistic relationship of baseball skill development, strength and conditioning, injury prevention, and mental performance all under one roof in a culture designed to bulletproof a player for the next level."
+                "Winning for LPA is a by-product of a strategic and synergistic relationship of baseball skill development, strength and conditioning, injury prevention, and mental performance in a culture designed to bulletproof a player for the next level." - Will, CEO   
               </p>
             </div>
           </div>
