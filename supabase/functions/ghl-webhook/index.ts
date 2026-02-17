@@ -11,11 +11,6 @@ serve(async (req) => {
   }
 
   try {
-    const GHL_WEBHOOK_URL = Deno.env.get('GHL_WEBHOOK_URL');
-    if (!GHL_WEBHOOK_URL) {
-      throw new Error('GHL_WEBHOOK_URL is not configured');
-    }
-
     const body = await req.json();
     const { form_type, data } = body;
 
@@ -26,7 +21,16 @@ serve(async (req) => {
       });
     }
 
-    const response = await fetch(GHL_WEBHOOK_URL, {
+    // Route to the correct GHL webhook based on form type
+    const webhookUrl = form_type === 'application'
+      ? Deno.env.get('GHL_APPLICATION_WEBHOOK_URL')
+      : Deno.env.get('GHL_WEBHOOK_URL');
+
+    if (!webhookUrl) {
+      throw new Error(`Webhook URL not configured for form_type: ${form_type}`);
+    }
+
+    const response = await fetch(webhookUrl, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ form_type, ...data }),
