@@ -12,7 +12,7 @@ const row1 = [
 
 const row2 = [
   { name: "Youngstown St. University", logo: "/colleges/youngstown-state.png?v=2", scale: 1.4 },
-  { name: "Southwestern College", logo: "/colleges/southwestern-college.png?v=2", scale: 3 },
+  { name: "Southwestern College", logo: "/colleges/southwestern-college.png?v=2", scale: 3, offsetY: -4 },
   { name: "Scottsdale CC", logo: "/colleges/scottsdale-cc.png?v=2", scale: 1.4 },
   { name: "Glendale CC", logo: "/colleges/glendale-cc.png?v=2" },
   { name: "Justice University", logo: "/colleges/justice-university.png?v=2" },
@@ -20,7 +20,7 @@ const row2 = [
 
 const allRows = [row1, row2];
 
-const LogoItem = ({ school, visible, delay }: { school: { name: string; logo: string; scale?: number }; visible: boolean; delay: number }) => (
+const LogoItem = ({ school, visible, delay }: { school: { name: string; logo: string; scale?: number; offsetY?: number }; visible: boolean; delay: number }) => (
   <div
     className="flex flex-col items-center gap-3 group transition-all duration-500"
     style={{ opacity: visible ? 1 : 0, transitionDelay: `${delay}ms` }}
@@ -30,7 +30,10 @@ const LogoItem = ({ school, visible, delay }: { school: { name: string; logo: st
         src={school.logo}
         alt={school.name}
         className="w-full h-full object-contain brightness-125 group-hover:scale-105 transition-all duration-300"
-        style={school.scale ? { transform: `scale(${school.scale})` } : undefined}
+        style={{
+          ...(school.scale ? { transform: `scale(${school.scale})${school.offsetY ? ` translateY(${school.offsetY}px)` : ''}` } : {}),
+          ...(!school.scale && school.offsetY ? { transform: `translateY(${school.offsetY}px)` } : {}),
+        }}
         loading="lazy"
       />
     </div>
