@@ -68,15 +68,15 @@ const Sponsors = () => {
         <div className="relative h-36 md:h-64 flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b from-card via-background/80 to-background" />
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/10 rounded-full blur-[160px]" />
-          <h1 className="relative font-bebas text-4xl sm:text-5xl md:text-7xl lg:text-8xl uppercase text-center leading-none">
+          <h1 className="relative font-bebas text-fluid-5xl uppercase text-center leading-none">
             <span className="text-primary">Sponsors</span>
           </h1>
         </div>
       </section>
 
       {/* Sponsors Grid */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-16 pb-16 md:pb-20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
+      <div className="container mx-auto px-fluid-container-px pb-fluid-xl">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-fluid-gap-lg">
           {sponsors.map((sponsor) => (
             <div
               key={sponsor.name}
@@ -93,8 +93,8 @@ const Sponsors = () => {
               </div>
 
               {/* Info */}
-              <div className="p-4 md:p-5">
-                <h2 className="font-bebas text-xl md:text-2xl uppercase text-foreground mb-2">
+              <div className="p-fluid-sm">
+                <h2 className="font-bebas text-fluid-xl uppercase text-foreground mb-2">
                   {sponsor.name}
                 </h2>
                 <ul className="space-y-1.5">

@@ -126,13 +126,13 @@ const Appointments = () => {
         <div className="relative h-36 md:h-64 flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b from-card via-background/80 to-background" />
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/10 rounded-full blur-[160px]" />
-          <h1 className="relative font-bebas text-4xl sm:text-5xl md:text-7xl lg:text-8xl uppercase text-center leading-none">
+          <h1 className="relative font-bebas text-fluid-5xl uppercase text-center leading-none">
             Book a <span className="text-primary">Tour</span>
           </h1>
         </div>
       </section>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-16 pb-16 md:pb-20 max-w-4xl">
+      <div className="container mx-auto px-fluid-container-px pb-fluid-xl max-w-4xl">
         {/* Service Card */}
         <div className="bg-card/60 border border-border/30 rounded-xl p-5 md:p-8 mb-8 flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
           <img src={lpaOutlawsMascot} alt="LPA Outlaws" className="w-16 h-16 md:w-20 md:h-20 object-contain" />

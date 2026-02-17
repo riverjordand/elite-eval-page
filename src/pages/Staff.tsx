@@ -100,9 +100,9 @@ const executiveStaff: StaffMember[] = [
 const StaffCard = ({ member, onClick, size = "large" }: { member: StaffMember; onClick?: () => void; size?: "large" | "compact" }) => {
   if (size === "compact") {
     return (
-      <div className="group bg-card/40 border border-border/30 p-4 lg:p-5 hover:border-primary/40 transition-all duration-300">
-        <p className="font-oswald text-[10px] text-primary uppercase tracking-[0.2em] mb-1">{member.title}</p>
-        <h3 className="font-bebas text-lg lg:text-xl text-foreground uppercase leading-none">{member.name}</h3>
+      <div className="group bg-card/40 border border-border/30 p-fluid-sm hover:border-primary/40 transition-all duration-300">
+        <p className="font-oswald text-fluid-xs text-primary uppercase tracking-[0.2em] mb-1">{member.title}</p>
+        <h3 className="font-bebas text-fluid-lg text-foreground uppercase leading-none">{member.name}</h3>
       </div>
     );
   }
@@ -126,9 +126,9 @@ const StaffCard = ({ member, onClick, size = "large" }: { member: StaffMember; o
           </div>
         )}
 
-        <div className="flex-1 p-5 md:p-6 lg:p-8 flex flex-col justify-center">
-          <p className="font-oswald text-xs text-primary uppercase tracking-[0.2em] mb-2 glow-primary">{member.title}</p>
-          <h2 className="font-bebas text-2xl md:text-3xl lg:text-4xl text-foreground uppercase leading-none mb-4">{member.name}</h2>
+        <div className="flex-1 p-fluid-md flex flex-col justify-center">
+          <p className="font-oswald text-fluid-xs text-primary uppercase tracking-[0.2em] mb-2 glow-primary">{member.title}</p>
+          <h2 className="font-bebas text-fluid-2xl text-foreground uppercase leading-none mb-4">{member.name}</h2>
           {member.credentials && (
             <ul className="space-y-2">
               {member.credentials.slice(0, 3).map((cred, i) => (
@@ -158,32 +158,32 @@ const Staff = () => {
       <Navigation />
 
       {/* Hero */}
-      <section className="relative pt-28 md:pt-36 lg:pt-40 pb-12 md:pb-16 lg:pb-20 overflow-hidden">
+      <section className="relative pt-28 md:pt-36 lg:pt-40 pb-fluid-lg overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-card via-background to-background" />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/10 rounded-full blur-[160px]" />
         <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
 
-        <div className="container relative mx-auto px-4 md:px-6 lg:px-12">
-          <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors font-oswald text-sm uppercase tracking-wider mb-6 md:mb-8">
+        <div className="container relative mx-auto px-fluid-container-px">
+          <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors font-oswald text-fluid-sm uppercase tracking-wider mb-fluid-md">
             <ArrowLeft className="w-4 h-4" /> Back to Home
           </Link>
-          <h1 className="font-bebas text-4xl md:text-6xl lg:text-7xl xl:text-8xl text-foreground uppercase leading-none mb-4">
+          <h1 className="font-bebas text-fluid-5xl text-foreground uppercase leading-none mb-fluid-xs">
             Meet The Staff
           </h1>
-          <p className="font-oswald text-base md:text-lg lg:text-xl text-muted-foreground max-w-3xl">
+          <p className="font-oswald text-fluid-base text-muted-foreground max-w-3xl">
             Our coaching, administrative, and executive staff are a carefully selected group of high performing individuals across college baseball, professional baseball, and business administration.
           </p>
         </div>
       </section>
 
       {/* Coaching Staff */}
-      <section className="relative pb-16 md:pb-24">
-        <div className="container relative mx-auto px-4 md:px-6 lg:px-12">
-          <div className="flex items-center gap-3 mb-8 md:mb-12">
+      <section className="relative pb-fluid-xl">
+        <div className="container relative mx-auto px-fluid-container-px">
+          <div className="flex items-center gap-3 mb-fluid-md">
             <div className="w-8 h-px bg-primary" />
-            <span className="font-oswald text-[10px] text-accent uppercase tracking-[0.4em]">Coaching Staff</span>
+            <span className="font-oswald text-fluid-xs text-accent uppercase tracking-[0.4em]">Coaching Staff</span>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-fluid-gap-lg">
             {coachingStaff.map((member, index) => (
               <StaffCard key={index} member={member} onClick={() => setSelectedMember(member)} />
             ))}
@@ -192,11 +192,11 @@ const Staff = () => {
       </section>
 
       {/* Administration Staff */}
-      <section className="relative pb-16 md:pb-24">
-        <div className="container relative mx-auto px-4 md:px-6 lg:px-12">
-          <div className="flex items-center gap-3 mb-8 md:mb-12">
+      <section className="relative pb-fluid-xl">
+        <div className="container relative mx-auto px-fluid-container-px">
+          <div className="flex items-center gap-3 mb-fluid-md">
             <div className="w-8 h-px bg-primary" />
-            <span className="font-oswald text-[10px] text-accent uppercase tracking-[0.4em]">Administration Staff</span>
+            <span className="font-oswald text-fluid-xs text-accent uppercase tracking-[0.4em]">Administration Staff</span>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
             {administrationStaff.map((member, index) => (
@@ -207,24 +207,24 @@ const Staff = () => {
       </section>
 
       {/* Executive Staff */}
-      <section className="relative pb-20 md:pb-28">
-        <div className="container relative mx-auto px-4 md:px-6 lg:px-12">
-          <div className="flex items-center gap-3 mb-8 md:mb-12">
+      <section className="relative pb-fluid-section">
+        <div className="container relative mx-auto px-fluid-container-px">
+          <div className="flex items-center gap-3 mb-fluid-md">
             <div className="w-8 h-px bg-primary" />
-            <span className="font-oswald text-[10px] text-accent uppercase tracking-[0.4em]">Executive Staff</span>
+            <span className="font-oswald text-fluid-xs text-accent uppercase tracking-[0.4em]">Executive Staff</span>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-fluid-gap-lg">
             {executiveStaff.map((member, index) => (
               member.credentials ? (
                 <StaffCard key={index} member={member} onClick={() => setSelectedMember(member)} />
               ) : (
-                <div key={index} className="group bg-card/40 border border-border/30 p-5 lg:p-6 hover:border-primary/40 transition-all duration-300 flex items-center gap-4">
+                <div key={index} className="group bg-card/40 border border-border/30 p-fluid-sm hover:border-primary/40 transition-all duration-300 flex items-center gap-4">
                   <div className="w-12 h-12 bg-card/80 flex items-center justify-center flex-shrink-0">
                     <span className="font-bebas text-xl text-foreground/20">{member.name.charAt(0)}</span>
                   </div>
                   <div>
-                    <p className="font-oswald text-[10px] text-primary uppercase tracking-[0.2em] mb-1">{member.title}</p>
-                    <h3 className="font-bebas text-xl lg:text-2xl text-foreground uppercase leading-none">{member.name}</h3>
+                    <p className="font-oswald text-fluid-xs text-primary uppercase tracking-[0.2em] mb-1">{member.title}</p>
+                    <h3 className="font-bebas text-fluid-xl text-foreground uppercase leading-none">{member.name}</h3>
                   </div>
                 </div>
               )
