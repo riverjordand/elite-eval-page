@@ -72,6 +72,21 @@ const Contact = () => {
 
       if (error) throw error;
 
+      // Forward to GHL (fire-and-forget, don't block submission)
+      supabase.functions.invoke("ghl-webhook", {
+        body: {
+          form_type: "contact",
+          data: {
+            first_name: validated.athleteFirstName,
+            last_name: validated.athleteLastName,
+            phone: validated.phone,
+            email: validated.email,
+            parent_guardian_name: validated.parentGuardianName || "",
+            notes: validated.notes || "",
+          },
+        },
+      }).catch((err) => console.error("GHL webhook error:", err));
+
       setSubmitted(true);
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (error) {
