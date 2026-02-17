@@ -166,7 +166,9 @@ const AboutSection = () => {
                       </span>
                       <div className="border-b border-border/10 pb-5 flex-1">
                         <span className="font-oswald text-sm md:text-base text-foreground/60 uppercase tracking-wide group-hover:text-foreground/80 transition-colors">
-                          {feature}
+                          {feature.split(/(MiLB)/).map((part, i) =>
+                            part === 'MiLB' ? <span key={i} className="normal-case">MiLB</span> : part
+                          )}
                         </span>
                       </div>
                     </div>
