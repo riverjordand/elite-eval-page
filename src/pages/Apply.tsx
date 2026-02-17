@@ -193,6 +193,7 @@ const Apply = () => {
             guardian1_phone: validated.guardian1Phone,
             guardian1_email: validated.guardian1Email,
             sport: validated.sport,
+            projected_start_date: validated.projectedStartDate,
           },
         },
       }).catch((err) => console.error("GHL webhook error:", err));
