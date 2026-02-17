@@ -10,7 +10,7 @@ const RECRUITING_VIDEO_URL = `https://xhqqxukgsaxabyvbfinn.supabase.co/storage/v
 
 const highlights = [
   { icon: Shield, title: "Pro-Grade Equipment", description: "Game bats, batting gloves, position-specific gloves, helmets, and training gear for each athlete.", image: equipmentImg },
-  { icon: Crown, title: "College & MLB Recruiting", description: "12 players committed in 18 months with MLB scouts and D1 connections on staff.", image: lockerRoomImg, video: RECRUITING_VIDEO_URL },
+  { icon: Crown, title: "Pro-Grade Locker Room", description: "12 players committed in 18 months with MLB scouts and D1 connections on staff.", image: lockerRoomImg, video: RECRUITING_VIDEO_URL },
   { icon: Shirt, title: "Pro-Grade Uniforms", description: "Game uniforms, practice gear, travel gear, and team apparel that builds identity.", image: attireImg },
 ];
 
