@@ -93,6 +93,32 @@ All colors MUST be HSL.
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* ── Fluid Typography Scale (375px → 1920px) ── */
+    --fluid-xs: clamp(0.6875rem, 0.6rem + 0.26vw, 0.875rem);        /* 11px → 14px */
+    --fluid-sm: clamp(0.75rem, 0.65rem + 0.32vw, 1rem);              /* 12px → 16px */
+    --fluid-base: clamp(0.875rem, 0.75rem + 0.39vw, 1.125rem);       /* 14px → 18px */
+    --fluid-lg: clamp(1rem, 0.85rem + 0.52vw, 1.375rem);             /* 16px → 22px */
+    --fluid-xl: clamp(1.125rem, 0.9rem + 0.71vw, 1.625rem);          /* 18px → 26px */
+    --fluid-2xl: clamp(1.375rem, 1rem + 1.17vw, 2.25rem);            /* 22px → 36px */
+    --fluid-3xl: clamp(1.75rem, 1.15rem + 1.88vw, 3.125rem);         /* 28px → 50px */
+    --fluid-4xl: clamp(2.25rem, 1.35rem + 2.85vw, 4.375rem);         /* 36px → 70px */
+    --fluid-5xl: clamp(2.75rem, 1.5rem + 3.9vw, 5.625rem);           /* 44px → 90px */
+    --fluid-hero: clamp(3.25rem, 1.5rem + 5.5vw, 7.5rem);            /* 52px → 120px */
+
+    /* ── Fluid Spacing Scale ── */
+    --fluid-space-xs: clamp(0.25rem, 0.15rem + 0.32vw, 0.5rem);      /* 4px → 8px */
+    --fluid-space-sm: clamp(0.5rem, 0.3rem + 0.65vw, 1rem);          /* 8px → 16px */
+    --fluid-space-md: clamp(1rem, 0.6rem + 1.3vw, 2rem);             /* 16px → 32px */
+    --fluid-space-lg: clamp(1.5rem, 0.85rem + 1.95vw, 3rem);         /* 24px → 48px */
+    --fluid-space-xl: clamp(2rem, 1rem + 3.25vw, 4.5rem);            /* 32px → 72px */
+    --fluid-space-2xl: clamp(3rem, 1.5rem + 4.87vw, 6.75rem);        /* 48px → 108px */
+    --fluid-space-section: clamp(4rem, 2rem + 6.5vw, 9rem);          /* 64px → 144px */
+
+    /* ── Fluid Container Padding ── */
+    --fluid-container-px: clamp(1rem, 0.35rem + 2.08vw, 2.5rem);     /* 16px → 40px */
+    --fluid-gap: clamp(0.75rem, 0.4rem + 1.04vw, 1.5rem);            /* 12px → 24px */
+    --fluid-gap-lg: clamp(1.5rem, 0.75rem + 2.27vw, 3rem);           /* 24px → 48px */
   }
 
   .dark {
