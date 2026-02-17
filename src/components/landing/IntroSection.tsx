@@ -73,7 +73,7 @@ const IntroSection = () => {
                   <span className="font-oswald text-[10px] md:text-xs tracking-[0.2em]">2030 Grad</span>
                 </div>
                 <div className="bg-primary/80 text-primary-foreground font-oswald text-[10px] md:text-xs px-3 py-1 uppercase tracking-[0.2em] mt-0.5">
-                  58th NTL – 3rd ST
+                  Ranked 58th NTL – 3rd AZ
                 </div>
               </div>
               
