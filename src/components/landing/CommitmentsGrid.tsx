@@ -49,8 +49,8 @@ const CommitmentsGrid = () => {
           </p>
         </div>
 
-        {/* Logo grid */}
-        <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-11 gap-y-10 gap-x-6">
+        {/* Logo rows */}
+        <div className="flex flex-wrap justify-center gap-x-8 gap-y-8 md:gap-x-12 lg:gap-x-14">
           {commitments.map((school, i) => (
             <div
               key={school.name}
