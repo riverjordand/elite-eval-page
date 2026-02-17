@@ -5,10 +5,11 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 import brayanMoreno from "@/assets/athletes/brayan-moreno-southwestern.jpg";
 import milesKeogh from "@/assets/athletes/miles-keogh-coastal.jpg";
 import prestonFrancis from "@/assets/athletes/preston-francis-glendale.jpg";
+import juarezBatting from "@/assets/athletes/juarez-batting.jpg";
 
 const commits = [
   { name: "Coastal Carolina", school: "Coastal Carolina", position: "", stat: "Committed", image: milesKeogh },
-  { name: "Texas Tech", school: "Texas Tech", position: "", stat: "Committed", image: brayanMoreno },
+  { name: "Texas Tech", school: "Texas Tech", position: "", stat: "Committed", image: juarezBatting },
   { name: "Ole Miss", school: "Ole Miss", position: "", stat: "Committed", image: prestonFrancis },
   { name: "Utah Valley", school: "Utah Valley", position: "", stat: "Committed", image: prestonFrancis },
 ];
