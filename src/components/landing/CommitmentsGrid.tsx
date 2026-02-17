@@ -1,17 +1,17 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 
 const commitments = [
-  { name: "Scottsdale CC" },
-  { name: "Southwestern College" },
-  { name: "Texas Tech University" },
-  { name: "University of Mary" },
-  { name: "Coastal Carolina" },
-  { name: "Ole Miss" },
-  { name: "Utah Valley University" },
-  { name: "New Mexico St. University" },
-  { name: "Glendale CC" },
-  { name: "Justice University" },
-  { name: "Youngstown St. University" },
+  { name: "Scottsdale CC", logo: "/colleges/scottsdale-cc.png" },
+  { name: "Southwestern College", logo: "/colleges/southwestern-college.png" },
+  { name: "Texas Tech University", logo: "/colleges/texas-tech.png" },
+  { name: "University of Mary", logo: "/colleges/university-of-mary.png" },
+  { name: "Coastal Carolina", logo: "/colleges/coastal-carolina.png" },
+  { name: "Ole Miss", logo: "/colleges/ole-miss.png" },
+  { name: "Utah Valley University", logo: "/colleges/utah-valley.png" },
+  { name: "New Mexico St. University", logo: "/colleges/new-mexico-state.png" },
+  { name: "Glendale CC", logo: "/colleges/glendale-cc.png" },
+  { name: "Justice University", logo: "/colleges/justice-university.png" },
+  { name: "Youngstown St. University", logo: "/colleges/youngstown-state.png" },
 ];
 
 const CommitmentsGrid = () => {
@@ -49,8 +49,8 @@ const CommitmentsGrid = () => {
           </p>
         </div>
 
-        {/* Logo grid - clean, evenly spaced */}
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-y-8 gap-x-6">
+        {/* Logo grid */}
+        <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-11 gap-y-10 gap-x-6">
           {commitments.map((school, i) => (
             <div
               key={school.name}
@@ -60,10 +60,15 @@ const CommitmentsGrid = () => {
                 transitionDelay: `${60 + i * 30}ms`,
               }}
             >
-              <div className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 flex items-center justify-center rounded-full border border-border/30 bg-card/50 group-hover:border-primary/40 group-hover:scale-110 transition-all duration-300">
-                <span className="font-bebas text-lg md:text-xl lg:text-2xl text-primary">{school.name.charAt(0)}</span>
+              <div className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <img
+                  src={school.logo}
+                  alt={school.name}
+                  className="max-w-full max-h-full object-contain opacity-100 brightness-125 group-hover:scale-105 transition-all duration-300"
+                  loading="lazy"
+                />
               </div>
-              <span className="font-oswald text-[9px] md:text-[10px] text-foreground/50 uppercase tracking-wider text-center leading-tight group-hover:text-foreground/80 transition-colors">
+              <span className="font-oswald text-[8px] md:text-[9px] text-foreground/40 uppercase tracking-wider text-center leading-tight group-hover:text-foreground/70 transition-colors hidden md:block">
                 {school.name}
               </span>
             </div>
