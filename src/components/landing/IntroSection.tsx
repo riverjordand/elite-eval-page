@@ -73,17 +73,16 @@ const IntroSection = () => {
                   <span className="font-oswald text-[10px] md:text-xs tracking-[0.2em]">2030 Grad</span>
                 </div>
                 <div className="bg-primary/80 text-primary-foreground font-oswald text-[10px] md:text-xs px-3 py-1 uppercase tracking-[0.2em] mt-0.5">
-                  Ranked 58th NTL – 3rd AZ
+                  Ranked 58th Nat'l – 3rd AZ
                 </div>
               </div>
               
               {/* Outlaws logo */}
-              <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
+              <div className="absolute bottom-0 right-0 p-6 lg:p-8">
                 <img
                   src={outlawsLogo}
                   alt="LPA Outlaws"
-                  className="w-28 md:w-36 object-contain opacity-80" />
-
+                  className="w-28 md:w-36 object-contain opacity-80 ml-auto" />
               </div>
             </div>
           </div>
