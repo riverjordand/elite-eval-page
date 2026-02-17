@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, useCallback } from "react";
 
 const stats = [
   { value: 12, suffix: "", label: "College Commits", sub: "D1, D2, D3 & JUCO" },
-  { value: 4, suffix: "", label: "Teams", sub: "Competitive Programs" },
+  { value: 4, suffix: "", label: "Teams", sub: "13U · 14U · JV · Varsity" },
   { value: 12, suffix: "", label: "Staff & Coaches", sub: "Former Pro & D1 Players" },
   { value: 24, suffix: "K", label: "Sq Ft Facility", sub: "Elite Training Space" },
 ];
