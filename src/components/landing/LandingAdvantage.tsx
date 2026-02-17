@@ -10,14 +10,14 @@ interface Advantage {
 const LandingAdvantage = () => {
   const advantages: Advantage[] = [
     {
-      icon: Award,
-      title: "Elite Coaching",
-      description: "Train with former college and pro-level coaches who've guided 50+ athletes to college programs."
-    },
-    {
       icon: Zap,
       title: "Professional-Grade Technology",
       description: "Hit and pitch with tech that gives instant feedback — Rapsodo, slow-motion analysis, biomechanics breakdowns."
+    },
+    {
+      icon: Award,
+      title: "Elite Coaching",
+      description: "Train with former college and pro-level coaches who've guided 50+ athletes to college programs."
     },
     {
       icon: TrendingUp,
