@@ -89,7 +89,7 @@ const initialFormData: FormData = {
 };
 
 const SectionHeading = ({ children }: { children: React.ReactNode }) => (
-  <h3 className="font-bebas text-2xl sm:text-3xl uppercase tracking-wide text-primary border-b border-primary/20 pb-2 mb-6">
+  <h3 className="font-bebas text-fluid-2xl uppercase tracking-wide text-primary border-b border-primary/20 pb-2 mb-6">
     {children}
   </h3>
 );
@@ -246,16 +246,16 @@ const Apply = () => {
     return (
       <div className="min-h-screen bg-background">
         <Navigation />
-        <div className="pt-32 pb-24 px-6 text-center">
+        <div className="pt-32 pb-24 px-fluid-container-px text-center">
           <div className="max-w-2xl mx-auto">
-            <h1 className="font-bebas text-5xl sm:text-6xl md:text-7xl uppercase mb-6">
+            <h1 className="font-bebas text-fluid-4xl uppercase mb-fluid-sm">
               Application <span className="text-primary">Submitted</span>
             </h1>
-            <p className="font-oswald text-lg text-muted-foreground mb-8">
+            <p className="font-oswald text-fluid-lg text-muted-foreground mb-fluid-md">
               Thank you for applying to Legendary Prep Academy. Our team will review your application and reach out within 48 hours.
             </p>
             <Link to="/">
-              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-wider text-lg px-10 py-6">
+              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-wider text-fluid-lg px-fluid-lg py-6">
                 Back to Home
               </Button>
             </Link>
@@ -270,12 +270,12 @@ const Apply = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      <div className="pt-24 sm:pt-32 pb-12 sm:pb-16 px-4 sm:px-6">
+      <div className="pt-24 sm:pt-32 pb-fluid-lg px-fluid-container-px">
         <div className="max-w-3xl mx-auto">
-          <h1 className="font-bebas text-4xl sm:text-5xl md:text-7xl uppercase text-center mb-3 sm:mb-4 leading-none">
+          <h1 className="font-bebas text-fluid-4xl uppercase text-center mb-fluid-xs leading-none">
             Student-Athlete <span className="text-primary">Application</span>
           </h1>
-          <p className="font-oswald text-center text-muted-foreground text-sm sm:text-lg mb-8 sm:mb-10 max-w-xl mx-auto">
+          <p className="font-oswald text-center text-muted-foreground text-fluid-base mb-fluid-md max-w-xl mx-auto">
             Complete the form below to begin your journey at Legendary Prep Academy.
           </p>
 
