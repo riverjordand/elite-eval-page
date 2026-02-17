@@ -1,16 +1,12 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 
-// Alternating rows: 6 - 5
-const row1 = [
+const allSchools = [
   { name: "Ole Miss", logo: "/colleges/ole-miss.png" },
   { name: "Coastal Carolina", logo: "/colleges/coastal-carolina.png" },
   { name: "Texas Tech University", logo: "/colleges/texas-tech.png" },
   { name: "University of Mary", logo: "/colleges/university-of-mary.png" },
   { name: "Utah Valley University", logo: "/colleges/utah-valley.png?v=3" },
   { name: "New Mexico St. University", logo: "/colleges/new-mexico-state.png?v=2", scale: 1.4 },
-];
-
-const row2 = [
   { name: "Youngstown St. University", logo: "/colleges/youngstown-state.png?v=2", scale: 1.4 },
   { name: "Southwestern College", logo: "/colleges/southwestern-college.png?v=2", scale: 3, offsetY: -4 },
   { name: "Scottsdale CC", logo: "/colleges/scottsdale-cc.png?v=2", scale: 1.4 },
@@ -18,14 +14,23 @@ const row2 = [
   { name: "Justice University", logo: "/colleges/justice-university.png?v=2" },
 ];
 
-const allRows = [row1, row2];
+// Desktop: 6 top / 5 bottom
+const desktopRow1 = allSchools.slice(0, 6);
+const desktopRow2 = allSchools.slice(6);
 
-const LogoItem = ({ school, visible, delay }: { school: { name: string; logo: string; scale?: number; offsetY?: number }; visible: boolean; delay: number }) => (
+// Mobile: 4 / 4 / 3
+const mobileRow1 = allSchools.slice(0, 4);
+const mobileRow2 = allSchools.slice(4, 8);
+const mobileRow3 = allSchools.slice(8);
+
+type School = { name: string; logo: string; scale?: number; offsetY?: number };
+
+const LogoItem = ({ school, visible, delay }: { school: School; visible: boolean; delay: number }) => (
   <div
-    className="flex flex-col items-center gap-3 group transition-all duration-500"
+    className="flex flex-col items-center gap-2 group transition-all duration-500"
     style={{ opacity: visible ? 1 : 0, transitionDelay: `${delay}ms` }}
   >
-    <div className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 overflow-hidden">
+    <div className="w-14 h-14 md:w-20 md:h-20 lg:w-24 lg:h-24 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 overflow-hidden">
       <img
         src={school.logo}
         alt={school.name}
@@ -37,7 +42,7 @@ const LogoItem = ({ school, visible, delay }: { school: { name: string; logo: st
         loading="lazy"
       />
     </div>
-    <span className="font-oswald text-[8px] md:text-[9px] text-foreground/40 uppercase tracking-wider text-center leading-tight group-hover:text-foreground/70 transition-colors max-w-[80px]">
+    <span className="font-oswald text-[7px] md:text-[9px] text-foreground/40 uppercase tracking-wider text-center leading-tight group-hover:text-foreground/70 transition-colors max-w-[70px] md:max-w-[80px]">
       {school.name}
     </span>
   </div>
@@ -59,13 +64,11 @@ const CommitmentsGrid = () => {
     return () => obs.disconnect();
   }, [onIntersect]);
 
-  let globalIndex = 0;
-
   return (
-    <section ref={ref} className="relative py-16 md:py-24 lg:py-28 border-y border-border/10">
-      <div className="container relative mx-auto px-6 lg:px-16">
+    <section ref={ref} className="relative py-12 md:py-24 lg:py-28 border-y border-border/10">
+      <div className="container relative mx-auto px-4 md:px-6 lg:px-16">
         {/* Editorial header */}
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12 md:mb-16">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-3 md:gap-4 mb-8 md:mb-16">
           <div>
             <div className="flex items-center gap-3 mb-3">
               <div className="w-8 h-px bg-primary" />
@@ -80,14 +83,25 @@ const CommitmentsGrid = () => {
           </p>
         </div>
 
-        {/* Alternating rows: 4 - 3 - 4 */}
-        <div className="flex flex-col gap-10 md:gap-12">
-          {allRows.map((row, rowIdx) => (
-            <div key={rowIdx} className="flex justify-center gap-8 md:gap-12 lg:gap-16 flex-wrap">
-              {row.map((school) => {
-                const delay = 60 + globalIndex * 30;
-                globalIndex++;
-                return <LogoItem key={school.name} school={school} visible={visible} delay={delay} />;
+        {/* Mobile: 4-4-3 grid */}
+        <div className="md:hidden flex flex-col gap-6">
+          {[mobileRow1, mobileRow2, mobileRow3].map((row, rowIdx) => (
+            <div key={rowIdx} className="flex justify-center gap-4">
+              {row.map((school, i) => {
+                const idx = (rowIdx === 0 ? 0 : rowIdx === 1 ? 4 : 8) + i;
+                return <LogoItem key={school.name} school={school} visible={visible} delay={60 + idx * 30} />;
+              })}
+            </div>
+          ))}
+        </div>
+
+        {/* Desktop: 6-5 alternating */}
+        <div className="hidden md:flex flex-col gap-12">
+          {[desktopRow1, desktopRow2].map((row, rowIdx) => (
+            <div key={rowIdx} className="flex justify-center gap-12 lg:gap-16">
+              {row.map((school, i) => {
+                const idx = (rowIdx === 0 ? 0 : 6) + i;
+                return <LogoItem key={school.name} school={school} visible={visible} delay={60 + idx * 30} />;
               })}
             </div>
           ))}
