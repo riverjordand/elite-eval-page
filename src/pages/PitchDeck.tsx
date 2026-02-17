@@ -7,7 +7,7 @@ import sportsMedImg from "@/assets/facility-sports-medicine.jpg";
 
 // ── Slide wrapper: fills viewport, vertically centers, scrollable on overflow ──
 const S = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => (
-  <div className={`w-full h-full bg-background overflow-y-auto flex flex-col justify-center ${className}`}>
+  <div className={`w-full h-full bg-background overflow-y-auto flex flex-col md:justify-center ${className}`}>
     {children}
   </div>
 );
@@ -838,8 +838,8 @@ const PitchDeck = () => {
         <CurrentSlide />
       </div>
 
-      {/* Click navigation zones */}
-      <div className="absolute inset-0 z-40 flex pointer-events-none">
+      {/* Click navigation zones – desktop only */}
+      <div className="absolute inset-0 z-40 hidden md:flex pointer-events-none">
         <div className="w-1/3 h-full cursor-w-resize pointer-events-auto" onClick={prev} />
         <div className="w-1/3 h-full" />
         <div className="w-1/3 h-full cursor-e-resize pointer-events-auto" onClick={next} />
