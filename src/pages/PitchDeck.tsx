@@ -785,10 +785,29 @@ const slides = [Slide1Title, Slide2Foundation, Slide3Divider, Slide4Video, Slide
 
 const PitchDeck = () => {
   const [current, setCurrent] = useState(0);
+  const [displayed, setDisplayed] = useState(0);
+  const [transitioning, setTransitioning] = useState(false);
+  const [direction, setDirection] = useState<"next" | "prev">("next");
   const [isFullscreen, setIsFullscreen] = useState(false);
 
-  const next = useCallback(() => setCurrent((c) => Math.min(c + 1, slides.length - 1)), []);
-  const prev = useCallback(() => setCurrent((c) => Math.max(c - 1, 0)), []);
+  const goTo = useCallback((target: number, dir: "next" | "prev") => {
+    if (transitioning || target === current) return;
+    setDirection(dir);
+    setTransitioning(true);
+    setTimeout(() => {
+      setDisplayed(target);
+      setCurrent(target);
+      setTimeout(() => setTransitioning(false), 50);
+    }, 300);
+  }, [current, transitioning]);
+
+  const next = useCallback(() => {
+    if (current < slides.length - 1) goTo(current + 1, "next");
+  }, [current, goTo]);
+
+  const prev = useCallback(() => {
+    if (current > 0) goTo(current - 1, "prev");
+  }, [current, goTo]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -815,11 +834,19 @@ const PitchDeck = () => {
     else document.exitFullscreen?.();
   };
 
-  const CurrentSlide = slides[current];
+  const CurrentSlide = slides[displayed];
+
+  const slideStyle: React.CSSProperties = {
+    transition: "opacity 0.4s ease, transform 0.4s ease",
+    opacity: transitioning ? 0 : 1,
+    transform: transitioning
+      ? `translateX(${direction === "next" ? "40px" : "-40px"})`
+      : "translateX(0)",
+  };
 
   return (
     <div className="fixed inset-0 bg-background select-none">
-      <div className="absolute inset-0">
+      <div className="absolute inset-0" style={slideStyle}>
         <CurrentSlide />
       </div>
 
