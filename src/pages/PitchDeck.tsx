@@ -1,146 +1,186 @@
-import { useState, useEffect, useCallback } from "react";
-import { ChevronLeft, ChevronRight, Maximize, Minimize, Users, Home, Trophy, Building2, GraduationCap, Target, Dumbbell, Star, TrendingUp, MapPin, DollarSign, BarChart3, Layers } from "lucide-react";
+import { useState, useEffect, useCallback, useRef } from "react";
+import { ChevronLeft, ChevronRight, Maximize, Minimize, Users, Home, Trophy, Building2, GraduationCap, Target, Dumbbell, Star } from "lucide-react";
 import lpaBadge from "@/assets/lpa-badge-cactus.png";
-import lpaArch from "@/assets/lpa-arch.png";
 import facilityImg from "@/assets/facility-interior.jpg";
 import strengthImg from "@/assets/facility-strength-conditioning.jpg";
 import sportsMedImg from "@/assets/facility-sports-medicine.jpg";
-import coachEric from "@/assets/coach-eric.webp";
-import coachJoe from "@/assets/coach-joe.webp";
-import coachMarcus from "@/assets/coach-marcus.webp";
-import coachNeil from "@/assets/coach-neil.webp";
-import coachTerrell from "@/assets/coach-terrell.webp";
 
-// --- SLIDE COMPONENTS ---
+// ── SCALING ENGINE ──
+// All slides render at 1920×1080 then scale to fit any viewport.
+const SLIDE_W = 1920;
+const SLIDE_H = 1080;
 
-const SlideWrapper = ({ children, bg }: { children: React.ReactNode; bg?: string }) => (
-  <div className="absolute inset-0 flex items-center justify-center overflow-hidden" style={{ background: bg || "hsl(var(--background))" }}>
+const useSlideScale = (containerRef: React.RefObject<HTMLDivElement | null>) => {
+  const [scale, setScale] = useState(1);
+  useEffect(() => {
+    const update = () => {
+      if (!containerRef.current) return;
+      const { clientWidth: w, clientHeight: h } = containerRef.current;
+      setScale(Math.min(w / SLIDE_W, h / SLIDE_H));
+    };
+    update();
+    window.addEventListener("resize", update);
+    const obs = new ResizeObserver(update);
+    if (containerRef.current) obs.observe(containerRef.current);
+    return () => { window.removeEventListener("resize", update); obs.disconnect(); };
+  }, [containerRef]);
+  return scale;
+};
+
+// Wrapper renders children at fixed 1920×1080
+const SlideFrame = ({ children, scale }: { children: React.ReactNode; scale: number }) => (
+  <div
+    className="absolute slide-content"
+    style={{
+      width: SLIDE_W,
+      height: SLIDE_H,
+      left: "50%",
+      top: "50%",
+      marginLeft: -SLIDE_W / 2,
+      marginTop: -SLIDE_H / 2,
+      transform: `scale(${scale})`,
+      transformOrigin: "center center",
+    }}
+  >
     {children}
   </div>
 );
 
-// Slide 1: Title
-const Slide1Title = () => (
-  <SlideWrapper>
+// Base for every slide – fills the 1920×1080 frame
+const S = ({ children }: { children: React.ReactNode }) => (
+  <div className="absolute inset-0 bg-background overflow-hidden">
+    {children}
+  </div>
+);
+
+// ── SLIDE 1: Title ──
+const Slide1 = () => (
+  <S>
     <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover opacity-30">
       <source src="/hero-training.mp4" type="video/mp4" />
     </video>
     <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/50 to-black/80" />
-    <div className="relative z-10 text-center px-12">
-      <img src={lpaBadge} alt="LPA" className="w-28 h-28 md:w-40 md:h-40 mx-auto mb-8 drop-shadow-2xl" style={{ filter: "drop-shadow(0 0 40px hsl(var(--primary) / 0.4))" }} />
-      <p className="font-oswald text-sm md:text-base uppercase tracking-[0.4em] text-primary mb-4">The Blueprint</p>
-      <h1 className="font-bebas text-5xl md:text-7xl lg:text-8xl xl:text-9xl uppercase leading-[0.85] mb-6">
-        <span className="text-foreground">Legendary Prep</span><br />
-        <span className="text-primary">Academy</span>
-      </h1>
-      <p className="font-oswald text-base md:text-xl text-foreground/60 max-w-2xl mx-auto italic">
-        "Arizona's premier player development academy for middle and high school athletes"
-      </p>
+    <div className="absolute inset-0 flex items-center justify-center">
+      <div className="text-center px-[120px]">
+        <img src={lpaBadge} alt="LPA" className="mx-auto mb-[40px]" style={{ width: 180, height: 180, filter: "drop-shadow(0 0 40px hsl(var(--primary) / 0.4))" }} />
+        <p className="font-oswald uppercase tracking-[0.4em] text-primary mb-[20px]" style={{ fontSize: 22 }}>The Blueprint</p>
+        <h1 className="font-bebas uppercase leading-[0.85] mb-[30px]" style={{ fontSize: 160 }}>
+          <span className="text-foreground">Legendary Prep</span><br />
+          <span className="text-primary">Academy</span>
+        </h1>
+        <p className="font-oswald text-foreground/60 italic mx-auto" style={{ fontSize: 28, maxWidth: 900 }}>
+          "Arizona's premier player development academy for middle and high school athletes"
+        </p>
+      </div>
     </div>
-  </SlideWrapper>
+  </S>
 );
 
-// Slide 2: Phase 1 - Laying the Foundation (Completed)
-const Slide2Foundation = () => (
-  <SlideWrapper>
+// ── SLIDE 2: Phase 1 Foundation ──
+const Slide2 = () => (
+  <S>
     <div className="absolute inset-0 bg-gradient-to-br from-card via-background to-card" />
-    <div className="relative z-10 max-w-5xl mx-auto px-12 w-full">
-      <div className="flex items-center justify-between mb-10">
-        <h2 className="font-bebas text-4xl md:text-5xl lg:text-6xl uppercase leading-[0.88]">
-          <span className="text-primary">Phase 1</span> <span className="text-foreground/40">|</span> Laying The Foundation
-        </h2>
-        <div className="bg-primary/20 border border-primary/40 px-4 py-1.5 rounded-sm">
-          <span className="font-bebas text-lg text-primary uppercase tracking-wider">Completed</span>
+    <div className="absolute inset-0 flex items-center justify-center">
+      <div style={{ width: 1560, padding: "0 60px" }}>
+        <div className="flex items-center justify-between" style={{ marginBottom: 50 }}>
+          <h2 className="font-bebas uppercase leading-[0.88]" style={{ fontSize: 90 }}>
+            <span className="text-primary">Phase 1</span> <span className="text-foreground/40">|</span> Laying The Foundation
+          </h2>
+          <div className="bg-primary/20 border border-primary/40 rounded-sm" style={{ padding: "8px 24px" }}>
+            <span className="font-bebas text-primary uppercase tracking-wider" style={{ fontSize: 28 }}>Completed</span>
+          </div>
+        </div>
+        <div className="grid grid-cols-2" style={{ gap: 30 }}>
+          {[
+            { num: "1", title: "Secure Funding", desc: "$1M raised to kickstart our vision and build a cost-efficient facility." },
+            { num: "2", title: "Build Elite Staff", desc: "5 Pro-level coaches and 1 MLB scouts assembled." },
+            { num: "3", title: "Establish Partnerships", desc: "Wilson, EvoShield, Louisville Slugger, DeMarini, Under Armour secured contracts." },
+            { num: "4", title: "Field First Team", desc: "65 enrolled players\n2030 class | 6 state ranked\n2029 class | 2 state ranked\n2028 class | 2 state ranked" },
+          ].map((item) => (
+            <div key={item.num} className="bg-card/60 border border-border/30 flex" style={{ padding: 40, gap: 24 }}>
+              <span className="font-bebas text-foreground/20 flex-shrink-0" style={{ fontSize: 60 }}>{item.num}</span>
+              <div>
+                <h3 className="font-bebas uppercase text-foreground" style={{ fontSize: 32, marginBottom: 12 }}>{item.title}</h3>
+                <p className="font-oswald text-foreground/50 leading-relaxed whitespace-pre-line" style={{ fontSize: 20 }}>{item.desc}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-      <div className="grid grid-cols-2 gap-6">
-        {[
-          { num: "1", title: "Secure Funding", desc: "$1M raised to kickstart our vision and build a cost-efficient facility." },
-          { num: "2", title: "Build Elite Staff", desc: "5 Pro-level coaches and 1 MLB scouts assembled." },
-          { num: "3", title: "Establish Partnerships", desc: "Wilson, EvoShield, Louisville Slugger, DeMarini, Under Armour secured contracts." },
-          { num: "4", title: "Field First Team", desc: "65 enrolled players\n2030 class | 6 state ranked\n2029 class | 2 state ranked\n2028 class | 2 state ranked" },
-        ].map((item) => (
-          <div key={item.num} className="bg-card/60 border border-border/30 p-8 flex gap-5">
-            <span className="font-bebas text-4xl text-foreground/20 flex-shrink-0">{item.num}</span>
-            <div>
-              <h3 className="font-bebas text-xl uppercase text-foreground mb-3">{item.title}</h3>
-              <p className="font-oswald text-sm text-foreground/50 leading-relaxed whitespace-pre-line">{item.desc}</p>
-            </div>
-          </div>
-        ))}
-      </div>
     </div>
-  </SlideWrapper>
+  </S>
 );
 
-// Slide 3: Phase 1 - What We Have Built (Section Divider)
-const Slide3Divider = () => (
-  <SlideWrapper>
+// ── SLIDE 3: Divider ──
+const Slide3 = () => (
+  <S>
     <div className="absolute inset-0 bg-gradient-to-b from-background via-card/30 to-background" />
-    <div className="absolute top-24 left-12 right-12 h-px bg-primary/60" />
-    <div className="absolute bottom-24 left-12 right-12 h-px bg-primary/60" />
-    <div className="relative z-10 text-center px-12">
-      <h2 className="font-bebas text-5xl md:text-6xl lg:text-7xl xl:text-8xl uppercase leading-[0.88]">
+    <div className="absolute bg-primary/60" style={{ top: 120, left: 80, right: 80, height: 1 }} />
+    <div className="absolute bg-primary/60" style={{ bottom: 120, left: 80, right: 80, height: 1 }} />
+    <div className="absolute inset-0 flex items-center justify-center">
+      <h2 className="font-bebas uppercase leading-[0.88] text-center" style={{ fontSize: 120, padding: "0 80px" }}>
         <span className="text-primary">Phase 1</span> <span className="text-foreground/40">|</span> What We Have Built…
       </h2>
     </div>
-  </SlideWrapper>
+  </S>
 );
 
-// Slide 4: Cinematic Pitch Video
-const Slide4Video = () => (
-  <SlideWrapper>
+// ── SLIDE 4: Video ──
+const Slide4 = () => (
+  <S>
     <div className="absolute inset-0 bg-black" />
-    <div className="relative z-10 w-full max-w-5xl mx-auto px-12">
-      <div className="relative aspect-video bg-card/20 border border-border/30 overflow-hidden">
+    <div className="absolute inset-0 flex items-center justify-center" style={{ padding: "0 120px" }}>
+      <div className="relative w-full bg-card/20 border border-border/30 overflow-hidden" style={{ aspectRatio: "16/9" }}>
         <video autoPlay loop muted playsInline className="w-full h-full object-cover">
           <source src="/hero-training.mp4" type="video/mp4" />
         </video>
-        <div className="absolute bottom-4 left-4 bg-black/60 backdrop-blur-sm px-4 py-2">
-          <p className="font-bebas text-sm text-foreground/70 uppercase tracking-wider">LPA Cinematic Pitch Video</p>
+        <div className="absolute bg-black/60 backdrop-blur-sm" style={{ bottom: 20, left: 20, padding: "10px 20px" }}>
+          <p className="font-bebas text-foreground/70 uppercase tracking-wider" style={{ fontSize: 20 }}>LPA Cinematic Pitch Video</p>
         </div>
       </div>
     </div>
-  </SlideWrapper>
+  </S>
 );
 
-// Slide 5: Facility
-const Slide5Facility = () => (
-  <SlideWrapper>
+// ── SLIDE 5: Facility ──
+const Slide5 = () => (
+  <S>
     <div className="absolute inset-0 bg-gradient-to-b from-background via-card/20 to-background" />
-    <div className="relative z-10 max-w-6xl mx-auto px-12 w-full">
-      <div className="grid grid-cols-4 gap-4 mb-8">
-        {[
-          { img: facilityImg, label: "Training Area" },
-          { img: "/action-20.jpg", label: "Recovery Center" },
-          { img: strengthImg, label: "Strength Conditioning" },
-          { img: sportsMedImg, label: "Sports Medicine" },
-        ].map((f) => (
-          <div key={f.label} className="relative aspect-[3/4] overflow-hidden border border-foreground/20">
-            <img src={f.img} alt={f.label} className="w-full h-full object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
-            <h3 className="absolute bottom-4 left-4 right-4 font-bebas text-lg md:text-xl text-foreground uppercase leading-tight">{f.label}</h3>
-          </div>
-        ))}
-      </div>
-      <div className="grid grid-cols-4 gap-4">
-        {[
-          { text: "Our academy offers", highlight: "over 18,000 sq. ft. of dedicated space", after: "for baseball training." },
-          { text: "Features", highlight: "cutting-edge recovery tools", after: "like hyperbaric chambers and infrared saunas." },
-          { text: "Advanced weight room with", highlight: "$250,000 of equipment", after: "for athletic enhancement." },
-          { text: "Weekly visits from", highlight: "Spooner Physical Therapy", after: "experts for injury prevention." },
-        ].map((item, i) => (
-          <p key={i} className="font-oswald text-xs md:text-sm text-foreground/60 leading-relaxed uppercase">
-            {item.text} <span className="text-primary">{item.highlight}</span> {item.after}
-          </p>
-        ))}
+    <div className="absolute inset-0 flex items-center justify-center">
+      <div style={{ width: 1680, padding: "0 60px" }}>
+        <div className="grid grid-cols-4" style={{ gap: 20, marginBottom: 40 }}>
+          {[
+            { img: facilityImg, label: "Training Area" },
+            { img: "/action-20.jpg", label: "Recovery Center" },
+            { img: strengthImg, label: "Strength Conditioning" },
+            { img: sportsMedImg, label: "Sports Medicine" },
+          ].map((f) => (
+            <div key={f.label} className="relative overflow-hidden border border-foreground/20" style={{ aspectRatio: "3/4" }}>
+              <img src={f.img} alt={f.label} className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
+              <h3 className="absolute font-bebas text-foreground uppercase leading-tight" style={{ bottom: 20, left: 20, right: 20, fontSize: 28 }}>{f.label}</h3>
+            </div>
+          ))}
+        </div>
+        <div className="grid grid-cols-4" style={{ gap: 20 }}>
+          {[
+            { text: "Our academy offers", hl: "over 18,000 sq. ft. of dedicated space", after: "for baseball training." },
+            { text: "Features", hl: "cutting-edge recovery tools", after: "like hyperbaric chambers and infrared saunas." },
+            { text: "Advanced weight room with", hl: "$250,000 of equipment", after: "for athletic enhancement." },
+            { text: "Weekly visits from", hl: "Spooner Physical Therapy", after: "experts for injury prevention." },
+          ].map((item, i) => (
+            <p key={i} className="font-oswald text-foreground/60 leading-relaxed uppercase" style={{ fontSize: 18 }}>
+              {item.text} <span className="text-primary">{item.hl}</span> {item.after}
+            </p>
+          ))}
+        </div>
       </div>
     </div>
-  </SlideWrapper>
+  </S>
 );
 
-// Slide 6: Coaching Staff
-const Slide6Coaching = () => {
+// ── SLIDE 6: Coaching Staff ──
+const Slide6 = () => {
   const staff = [
     { name: "Josh Garcia", title: "Head Strength & Conditioning", creds: ["Bachelor of Science in Kinesiology", "Certified S&C Specialist (CSCS)", "Performance Enhancement Specialist (PES)", "EXOS Performance Specialist (XPS)", "16 years of experience as a performance coach"] },
     { name: "Mark Karaviotis", title: "Head Baseball Coach | Athletic Director", creds: ["Former Division 1 baseball player at Oregon", "Drafted 19th round by the Arizona Diamondbacks", "2016 Hillsboro Hops batting champion", "3x MiLB All Star", "7 years of professional baseball experience"] },
@@ -149,610 +189,576 @@ const Slide6Coaching = () => {
     { name: "Eric Smith", title: "Recruiting Coordinator | Assistant Coach", creds: ["Former Division 1 baseball player at the University of Rhode Island", "Drafted 2nd round by Arizona Diamondbacks", "6 years of professional baseball experience"] },
     { name: "Terrell Hudson", title: "Assistant & Pitching Coach", creds: ["Former Division 1 baseball player at the University of New Mexico", "Extensive experience in training and managing ELITE youth baseball"] },
   ];
-
   return (
-    <SlideWrapper>
+    <S>
       <div className="absolute inset-0 bg-gradient-to-br from-background via-card/20 to-background" />
-      <div className="absolute right-8 top-1/2 -translate-y-1/2">
-        <p className="font-bebas text-7xl text-foreground/5 uppercase writing-mode-vertical" style={{ writingMode: "vertical-rl" }}>Coaching Staff</p>
-      </div>
-      <div className="relative z-10 max-w-6xl mx-auto px-12 w-full">
-        <div className="grid grid-cols-3 gap-4">
-          {staff.map((s) => (
-            <div key={s.name} className="bg-card/40 border border-border/30 p-4">
-              <h3 className="font-bebas text-lg text-foreground uppercase leading-tight">{s.name}</h3>
-              <p className="font-oswald text-[10px] text-primary uppercase tracking-wider mb-3">{s.title}</p>
-              <ul className="space-y-1">
-                {s.creds.map((c, i) => (
-                  <li key={i} className="flex items-start gap-1.5">
-                    <div className="w-1 h-1 bg-primary rounded-full flex-shrink-0 mt-1.5" />
-                    <span className="font-oswald text-[10px] text-foreground/50 leading-relaxed">{c}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div style={{ width: 1680, padding: "0 60px" }}>
+          <div className="grid grid-cols-3" style={{ gap: 24 }}>
+            {staff.map((s) => (
+              <div key={s.name} className="bg-card/40 border border-border/30" style={{ padding: 24 }}>
+                <h3 className="font-bebas text-foreground uppercase leading-tight" style={{ fontSize: 28 }}>{s.name}</h3>
+                <p className="font-oswald text-primary uppercase tracking-wider" style={{ fontSize: 16, marginBottom: 16 }}>{s.title}</p>
+                <ul style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+                  {s.creds.map((c, i) => (
+                    <li key={i} className="flex items-start" style={{ gap: 8 }}>
+                      <div className="bg-primary rounded-full flex-shrink-0" style={{ width: 6, height: 6, marginTop: 8 }} />
+                      <span className="font-oswald text-foreground/50 leading-relaxed" style={{ fontSize: 16 }}>{c}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-    </SlideWrapper>
+    </S>
   );
 };
 
-// Slide 7: Academic Excellence
-const Slide7Academics = () => (
-  <SlideWrapper>
+// ── SLIDE 7: Academic Excellence ──
+const Slide7 = () => (
+  <S>
     <div className="absolute inset-0 bg-gradient-to-br from-background via-card/30 to-background" />
-    <div className="relative z-10 max-w-5xl mx-auto px-12 w-full">
-      <h2 className="font-bebas text-4xl md:text-5xl lg:text-6xl uppercase leading-[0.88] mb-2">
-        Academic Excellence:
-      </h2>
-      <h2 className="font-bebas text-3xl md:text-4xl lg:text-5xl uppercase leading-[0.88] text-primary mb-10">
-        Simplified
-      </h2>
-      <div className="flex gap-12">
-        <div className="flex-1">
-          <p className="font-bebas text-lg text-foreground uppercase mb-2">Key Benefits of Our Streamlined</p>
-          <p className="font-bebas text-lg text-primary uppercase mb-8">Academic Program</p>
-          <ul className="space-y-5">
-            {[
-              "Tailored curriculum designed to integrate with the student's athletic training schedule.",
-              "Focusing instead on essential learning objectives and preparation to play at the NCAA Division 1 Level.",
-              "Access to a dedicated Academic Advisor.",
-              "Flexible online course structure that accommodates travel and training commitments.",
-              "Collaboration with Premier Prep Academy ensures a high-quality educational experience that aligns with athletic goals.",
-            ].map((item, i) => (
-              <li key={i} className="font-oswald text-sm text-foreground/60 leading-relaxed">{item}</li>
-            ))}
-          </ul>
-        </div>
-        <div className="w-72 flex flex-col items-center justify-center gap-4">
-          <div className="w-48 h-48 bg-card/40 border border-border/20 flex items-center justify-center">
-            <GraduationCap className="w-20 h-20 text-primary/40" />
+    <div className="absolute inset-0 flex items-center justify-center">
+      <div style={{ width: 1400, padding: "0 60px" }}>
+        <h2 className="font-bebas uppercase leading-[0.88]" style={{ fontSize: 90, marginBottom: 8 }}>Academic Excellence:</h2>
+        <h2 className="font-bebas uppercase leading-[0.88] text-primary" style={{ fontSize: 72, marginBottom: 50 }}>Simplified</h2>
+        <div className="flex" style={{ gap: 60 }}>
+          <div className="flex-1">
+            <p className="font-bebas text-foreground uppercase" style={{ fontSize: 26, marginBottom: 8 }}>Key Benefits of Our Streamlined</p>
+            <p className="font-bebas text-primary uppercase" style={{ fontSize: 26, marginBottom: 40 }}>Academic Program</p>
+            <ul style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+              {[
+                "Tailored curriculum designed to integrate with the student's athletic training schedule.",
+                "Focusing instead on essential learning objectives and preparation to play at the NCAA Division 1 Level.",
+                "Access to a dedicated Academic Advisor.",
+                "Flexible online course structure that accommodates travel and training commitments.",
+                "Collaboration with Premier Prep Academy ensures a high-quality educational experience that aligns with athletic goals.",
+              ].map((item, i) => (
+                <li key={i} className="font-oswald text-foreground/60 leading-relaxed" style={{ fontSize: 22 }}>{item}</li>
+              ))}
+            </ul>
           </div>
-          <p className="font-oswald text-xs text-foreground/40 text-center">Athletic Director | Principal | LPA Head Coach</p>
-        </div>
-      </div>
-    </div>
-  </SlideWrapper>
-);
-
-// Slide 8: Phase 1 Goals Remaining
-const Slide8GoalsRemaining = () => (
-  <SlideWrapper>
-    <div className="absolute inset-0 bg-gradient-to-b from-background via-card/30 to-background" />
-    <div className="absolute top-16 left-12 right-12 h-px bg-primary/60" />
-    <div className="absolute bottom-16 left-12 right-12 h-px bg-primary/60" />
-    <div className="relative z-10 max-w-5xl mx-auto px-12 w-full">
-      <h2 className="font-bebas text-4xl md:text-5xl lg:text-6xl uppercase leading-[0.88] mb-12">
-        <span className="text-primary">Phase 1</span> <span className="text-foreground/40">|</span> Goals Remaining
-      </h2>
-      <div className="grid grid-cols-3 gap-8">
-        <div>
-          <Users className="w-12 h-12 text-foreground/60 mb-4" />
-          <h3 className="font-bebas text-xl uppercase text-foreground mb-4">Student Athletes</h3>
-          <p className="font-oswald text-sm text-foreground/50 leading-relaxed">
-            Currently at 65 players with plans to reach 100+ players by Q1 2027. Secure athletic scholarship fund for financially eligible student.
-          </p>
-        </div>
-        <div>
-          <Home className="w-12 h-12 text-foreground/60 mb-4" />
-          <h3 className="font-bebas text-xl uppercase text-foreground mb-4">Housing (Phase 1)</h3>
-          <p className="font-oswald text-sm text-foreground/50 leading-relaxed">
-            Rent a 4 to 5 bedroom house to host 8-10 high level out of state players with a on-site live-in coach.
-          </p>
-        </div>
-        <div>
-          <Trophy className="w-12 h-12 text-foreground/60 mb-4" />
-          <h3 className="font-bebas text-xl uppercase text-foreground mb-4">Recognition</h3>
-          <p className="font-oswald text-sm text-foreground/50 leading-relaxed mb-3">Players signed and committed:</p>
-          <ul className="space-y-1 font-oswald text-sm text-foreground/50">
-            {["Coastal Carolina", "Ole Miss", "Texas Tech", "Utah Valley", "New Mexico State", "Youngstown State"].map((s) => (
-              <li key={s}>{s}</li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </div>
-  </SlideWrapper>
-);
-
-// Slide 9: Phase 2 - Mini Campus
-const Slide9Phase2 = () => (
-  <SlideWrapper>
-    <div className="absolute inset-0 bg-gradient-to-b from-background via-card/30 to-background" />
-    <div className="relative z-10 max-w-5xl mx-auto px-12 w-full">
-      <h2 className="font-bebas text-4xl md:text-5xl lg:text-6xl uppercase leading-[0.88] mb-2">
-        <span className="text-primary">Phase 2</span> <span className="text-foreground/40">|</span> Baseball/Softball Mini Campus
-      </h2>
-      <div className="w-full h-px bg-foreground/20 mb-12" />
-      <div className="grid grid-cols-3 gap-8">
-        <div>
-          <Building2 className="w-12 h-12 text-foreground/60 mb-4" />
-          <h3 className="font-bebas text-xl uppercase text-foreground mb-4">New Facility Expansion</h3>
-          <p className="font-oswald text-sm text-foreground/50 leading-relaxed">
-            Larger athletic center accommodating 150 baseball and 150 softball players. Access to professional-grade fields for practice and games. On site baseball and softball stadium with individual club house access.
-          </p>
-        </div>
-        <div>
-          <Building2 className="w-12 h-12 text-foreground/60 mb-4" />
-          <h3 className="font-bebas text-xl uppercase text-foreground mb-4">Housing Expansion</h3>
-          <p className="font-oswald text-sm text-foreground/50 leading-relaxed">
-            Dorm style apartments for baseball and softball team. Out-of-state players create pipeline for broader reach.
-          </p>
-        </div>
-        <div>
-          <Target className="w-12 h-12 text-foreground/60 mb-4" />
-          <h3 className="font-bebas text-xl uppercase text-foreground mb-4">National Recognition</h3>
-          <p className="font-oswald text-sm text-foreground/50 leading-relaxed">
-            Compete in national tournaments. Build ranked teams securing D1 scholarships, NIL deals, and MLB draft opportunities.
-          </p>
-        </div>
-      </div>
-      <div className="w-full h-px bg-primary/60 mt-12" />
-    </div>
-  </SlideWrapper>
-);
-
-// Slide 10: Phase 2 Facility Vision
-const Slide10FacilityVision = () => (
-  <SlideWrapper>
-    <div className="absolute inset-0 bg-gradient-to-b from-background via-card/20 to-background" />
-    <div className="relative z-10 max-w-5xl mx-auto px-12 w-full text-center">
-      <h2 className="font-bebas text-4xl md:text-5xl lg:text-6xl uppercase leading-[0.88] mb-10">
-        <span className="text-primary">Phase 2</span> <span className="text-foreground/40">|</span> The Vision
-      </h2>
-      <div className="grid grid-cols-2 gap-4">
-        <div className="relative aspect-[4/3] overflow-hidden border border-foreground/20 bg-card/40">
-          <img src="/action-30.jpg" alt="Future stadium" className="w-full h-full object-cover opacity-60" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-          <p className="absolute bottom-4 left-4 font-bebas text-lg text-foreground uppercase">Professional-Grade Fields</p>
-        </div>
-        <div className="relative aspect-[4/3] overflow-hidden border border-foreground/20 bg-card/40">
-          <img src="/action-25.jpg" alt="Future complex" className="w-full h-full object-cover opacity-60" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-          <p className="absolute bottom-4 left-4 font-bebas text-lg text-foreground uppercase">Full Campus Complex</p>
-        </div>
-      </div>
-      <p className="font-oswald text-sm text-foreground/40 mt-6 uppercase tracking-wider">Construction Partner: Pono Construction</p>
-    </div>
-  </SlideWrapper>
-);
-
-// Slide 11: Pono Construction - GCU Reference Photos
-const Slide11PonoVision = () => (
-  <SlideWrapper>
-    <div className="absolute inset-0 bg-gradient-to-b from-background via-card/20 to-background" />
-    <div className="relative z-10 max-w-6xl mx-auto px-12 w-full">
-      <h2 className="font-bebas text-4xl md:text-5xl lg:text-6xl uppercase leading-[0.88] mb-8">
-        <span className="text-primary">Phase 2</span> <span className="text-foreground/40">|</span> Construction Vision
-      </h2>
-      <div className="grid grid-cols-3 gap-3 mb-6">
-        {[
-          { label: "Stadium Aerial", img: "/action-35.jpg" },
-          { label: "Athletic Center", img: "/action-36.jpg" },
-          { label: "Player Lounge", img: "/action-37.jpg" },
-        ].map((item) => (
-          <div key={item.label} className="relative aspect-[4/3] overflow-hidden border border-foreground/20">
-            <img src={item.img} alt={item.label} className="w-full h-full object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-            <p className="absolute bottom-3 left-3 font-bebas text-sm text-foreground uppercase">{item.label}</p>
+          <div className="flex flex-col items-center justify-center" style={{ width: 320, gap: 20 }}>
+            <div className="bg-card/40 border border-border/20 flex items-center justify-center" style={{ width: 220, height: 220 }}>
+              <GraduationCap className="text-primary/40" style={{ width: 100, height: 100 }} />
+            </div>
+            <p className="font-oswald text-foreground/40 text-center" style={{ fontSize: 16 }}>Athletic Director | Principal | LPA Head Coach</p>
           </div>
-        ))}
-      </div>
-      <div className="grid grid-cols-2 gap-3">
-        <div className="relative aspect-[16/9] overflow-hidden border border-foreground/20">
-          <img src="/action-38.jpg" alt="Facility entrance" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-        </div>
-        <div className="relative aspect-[16/9] overflow-hidden border border-foreground/20">
-          <img src="/action-39.jpg" alt="Full stadium" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
         </div>
       </div>
-      <p className="font-oswald text-sm text-primary mt-6 uppercase tracking-wider text-right">Construction Partner: Pono Construction, LLC</p>
     </div>
-  </SlideWrapper>
+  </S>
 );
 
-// Slide 12: Phase 2 Budget
-const Slide12Budget = () => {
-  const budgetItems = [
-    { num: 1, desc: "Cafeteria", amount: "$2,900,000" },
-    { num: 2, desc: "Housing", amount: "$9,300,000" },
-    { num: 3, desc: "Executive Offices", amount: "$800,000" },
-    { num: 4, desc: "Medical", amount: "$500,000" },
-    { num: 5, desc: "Education", amount: "$1,400,000" },
-    { num: 6, desc: "Performance/Gym", amount: "$1,225,000" },
-    { num: 7, desc: "Personal Care", amount: "$350,000" },
-    { num: 8, desc: "Recovery", amount: "$525,000" },
-    { num: 9, desc: "Player Lounge/Locker Room", amount: "$2,100,000" },
-    { num: 10, desc: "Indoor Cages", amount: "$1,575,000" },
-    { num: 11, desc: "Sport Science/Research Center", amount: "$370,000" },
-    { num: 12, desc: "Equipment Room/Laundry", amount: "$600,000" },
-    { num: 13, desc: "Team Store", amount: "$500,000" },
-    { num: 14, desc: "Baseball Field", amount: "$3,910,000" },
-    { num: 15, desc: "Softball Field", amount: "$3,200,000" },
-    { num: 16, desc: "Half Fields", amount: "$3,300,000" },
-    { num: 17, desc: "Turf Field Soccer/Lacrosse", amount: "$1,700,000" },
-    { num: 18, desc: "Parking", amount: "$710,000" },
-    { num: 19, desc: "Site Infrastructure", amount: "$5,000,000" },
-  ];
-
-  return (
-    <SlideWrapper>
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-card/20 to-background" />
-      <div className="relative z-10 max-w-5xl mx-auto px-12 w-full">
-        <h2 className="font-bebas text-3xl md:text-4xl lg:text-5xl uppercase leading-[0.88] mb-8">
-          Legendary Prep Academy <span className="text-primary">Budget</span>
+// ── SLIDE 8: Phase 1 Goals Remaining ──
+const Slide8 = () => (
+  <S>
+    <div className="absolute inset-0 bg-gradient-to-b from-background via-card/30 to-background" />
+    <div className="absolute bg-primary/60" style={{ top: 80, left: 80, right: 80, height: 1 }} />
+    <div className="absolute bg-primary/60" style={{ bottom: 80, left: 80, right: 80, height: 1 }} />
+    <div className="absolute inset-0 flex items-center justify-center">
+      <div style={{ width: 1400, padding: "0 60px" }}>
+        <h2 className="font-bebas uppercase leading-[0.88]" style={{ fontSize: 90, marginBottom: 60 }}>
+          <span className="text-primary">Phase 1</span> <span className="text-foreground/40">|</span> Goals Remaining
         </h2>
-        <div className="grid grid-cols-2 gap-x-6 gap-y-0">
-          {budgetItems.map((item) => (
-            <div key={item.num} className="flex justify-between items-center py-1.5 border-b border-border/20">
-              <span className="font-oswald text-xs text-foreground/60">{item.num}. {item.desc}</span>
-              <span className="font-bebas text-sm text-foreground">{item.amount}</span>
+        <div className="grid grid-cols-3" style={{ gap: 50 }}>
+          <div>
+            <Users className="text-foreground/60" style={{ width: 56, height: 56, marginBottom: 20 }} />
+            <h3 className="font-bebas uppercase text-foreground" style={{ fontSize: 30, marginBottom: 16 }}>Student Athletes</h3>
+            <p className="font-oswald text-foreground/50 leading-relaxed" style={{ fontSize: 20 }}>
+              Currently at 65 players with plans to reach 100+ players by Q1 2027. Secure athletic scholarship fund for financially eligible student.
+            </p>
+          </div>
+          <div>
+            <Home className="text-foreground/60" style={{ width: 56, height: 56, marginBottom: 20 }} />
+            <h3 className="font-bebas uppercase text-foreground" style={{ fontSize: 30, marginBottom: 16 }}>Housing (Phase 1)</h3>
+            <p className="font-oswald text-foreground/50 leading-relaxed" style={{ fontSize: 20 }}>
+              Rent a 4 to 5 bedroom house to host 8-10 high level out of state players with a on-site live-in coach.
+            </p>
+          </div>
+          <div>
+            <Trophy className="text-foreground/60" style={{ width: 56, height: 56, marginBottom: 20 }} />
+            <h3 className="font-bebas uppercase text-foreground" style={{ fontSize: 30, marginBottom: 16 }}>Recognition</h3>
+            <p className="font-oswald text-foreground/50 leading-relaxed" style={{ fontSize: 20, marginBottom: 12 }}>Players signed and committed:</p>
+            <ul className="font-oswald text-foreground/50" style={{ fontSize: 20, display: "flex", flexDirection: "column", gap: 4 }}>
+              {["Coastal Carolina", "Ole Miss", "Texas Tech", "Utah Valley", "New Mexico State", "Youngstown State"].map((s) => (
+                <li key={s}>{s}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </S>
+);
+
+// ── SLIDE 9: Phase 2 Mini Campus ──
+const Slide9 = () => (
+  <S>
+    <div className="absolute inset-0 bg-gradient-to-b from-background via-card/30 to-background" />
+    <div className="absolute inset-0 flex items-center justify-center">
+      <div style={{ width: 1400, padding: "0 60px" }}>
+        <h2 className="font-bebas uppercase leading-[0.88]" style={{ fontSize: 90, marginBottom: 8 }}>
+          <span className="text-primary">Phase 2</span> <span className="text-foreground/40">|</span> Baseball/Softball Mini Campus
+        </h2>
+        <div className="bg-foreground/20" style={{ width: "100%", height: 1, marginBottom: 60 }} />
+        <div className="grid grid-cols-3" style={{ gap: 50 }}>
+          {[
+            { icon: <Building2 style={{ width: 56, height: 56 }} />, title: "New Facility Expansion", desc: "Larger athletic center accommodating 150 baseball and 150 softball players. Access to professional-grade fields for practice and games. On site baseball and softball stadium with individual club house access." },
+            { icon: <Building2 style={{ width: 56, height: 56 }} />, title: "Housing Expansion", desc: "Dorm style apartments for baseball and softball team. Out-of-state players create pipeline for broader reach." },
+            { icon: <Target style={{ width: 56, height: 56 }} />, title: "National Recognition", desc: "Compete in national tournaments. Build ranked teams securing D1 scholarships, NIL deals, and MLB draft opportunities." },
+          ].map((item) => (
+            <div key={item.title}>
+              <div className="text-foreground/60" style={{ marginBottom: 20 }}>{item.icon}</div>
+              <h3 className="font-bebas uppercase text-foreground" style={{ fontSize: 30, marginBottom: 16 }}>{item.title}</h3>
+              <p className="font-oswald text-foreground/50 leading-relaxed" style={{ fontSize: 20 }}>{item.desc}</p>
             </div>
           ))}
         </div>
-        <div className="flex justify-between items-center mt-6 pt-4 border-t-2 border-primary">
-          <span className="font-bebas text-xl uppercase text-foreground">Construction Hard Cost Total</span>
-          <span className="font-bebas text-2xl text-primary">$39,965,000</span>
-        </div>
-        <p className="font-oswald text-xs text-foreground/30 mt-4 uppercase tracking-wider">Pono Construction, LLC</p>
+        <div className="bg-primary/60" style={{ width: "100%", height: 1, marginTop: 60 }} />
       </div>
-    </SlideWrapper>
+    </div>
+  </S>
+);
+
+// ── SLIDE 10: Phase 2 Vision ──
+const Slide10 = () => (
+  <S>
+    <div className="absolute inset-0 bg-gradient-to-b from-background via-card/20 to-background" />
+    <div className="absolute inset-0 flex items-center justify-center">
+      <div className="text-center" style={{ width: 1400, padding: "0 60px" }}>
+        <h2 className="font-bebas uppercase leading-[0.88]" style={{ fontSize: 90, marginBottom: 50 }}>
+          <span className="text-primary">Phase 2</span> <span className="text-foreground/40">|</span> The Vision
+        </h2>
+        <div className="grid grid-cols-2" style={{ gap: 24 }}>
+          {[
+            { img: "/action-30.jpg", label: "Professional-Grade Fields" },
+            { img: "/action-25.jpg", label: "Full Campus Complex" },
+          ].map((item) => (
+            <div key={item.label} className="relative overflow-hidden border border-foreground/20 bg-card/40" style={{ aspectRatio: "4/3" }}>
+              <img src={item.img} alt={item.label} className="w-full h-full object-cover opacity-60" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+              <p className="absolute font-bebas text-foreground uppercase" style={{ bottom: 20, left: 20, fontSize: 26 }}>{item.label}</p>
+            </div>
+          ))}
+        </div>
+        <p className="font-oswald text-foreground/40 uppercase tracking-wider" style={{ fontSize: 20, marginTop: 30 }}>Construction Partner: Pono Construction</p>
+      </div>
+    </div>
+  </S>
+);
+
+// ── SLIDE 11: Pono Construction Vision ──
+const Slide11 = () => (
+  <S>
+    <div className="absolute inset-0 bg-gradient-to-b from-background via-card/20 to-background" />
+    <div className="absolute inset-0 flex items-center justify-center">
+      <div style={{ width: 1680, padding: "0 60px" }}>
+        <h2 className="font-bebas uppercase leading-[0.88]" style={{ fontSize: 80, marginBottom: 40 }}>
+          <span className="text-primary">Phase 2</span> <span className="text-foreground/40">|</span> Construction Vision
+        </h2>
+        <div className="grid grid-cols-3" style={{ gap: 16, marginBottom: 16 }}>
+          {[
+            { label: "Stadium Aerial", img: "/action-35.jpg" },
+            { label: "Athletic Center", img: "/action-36.jpg" },
+            { label: "Player Lounge", img: "/action-37.jpg" },
+          ].map((item) => (
+            <div key={item.label} className="relative overflow-hidden border border-foreground/20" style={{ aspectRatio: "4/3" }}>
+              <img src={item.img} alt={item.label} className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+              <p className="absolute font-bebas text-foreground uppercase" style={{ bottom: 16, left: 16, fontSize: 22 }}>{item.label}</p>
+            </div>
+          ))}
+        </div>
+        <div className="grid grid-cols-2" style={{ gap: 16 }}>
+          {["/action-38.jpg", "/action-39.jpg"].map((img) => (
+            <div key={img} className="relative overflow-hidden border border-foreground/20" style={{ aspectRatio: "16/9" }}>
+              <img src={img} alt="" className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+            </div>
+          ))}
+        </div>
+        <p className="font-oswald text-primary uppercase tracking-wider text-right" style={{ fontSize: 20, marginTop: 24 }}>Construction Partner: Pono Construction, LLC</p>
+      </div>
+    </div>
+  </S>
+);
+
+// ── SLIDE 12: Budget ──
+const Slide12 = () => {
+  const items = [
+    { n: 1, d: "Cafeteria", a: "$2,900,000" }, { n: 2, d: "Housing", a: "$9,300,000" },
+    { n: 3, d: "Executive Offices", a: "$800,000" }, { n: 4, d: "Medical", a: "$500,000" },
+    { n: 5, d: "Education", a: "$1,400,000" }, { n: 6, d: "Performance/Gym", a: "$1,225,000" },
+    { n: 7, d: "Personal Care", a: "$350,000" }, { n: 8, d: "Recovery", a: "$525,000" },
+    { n: 9, d: "Player Lounge/Locker Room", a: "$2,100,000" }, { n: 10, d: "Indoor Cages", a: "$1,575,000" },
+    { n: 11, d: "Sport Science/Research Center", a: "$370,000" }, { n: 12, d: "Equipment Room/Laundry", a: "$600,000" },
+    { n: 13, d: "Team Store", a: "$500,000" }, { n: 14, d: "Baseball Field", a: "$3,910,000" },
+    { n: 15, d: "Softball Field", a: "$3,200,000" }, { n: 16, d: "Half Fields", a: "$3,300,000" },
+    { n: 17, d: "Turf Field Soccer/Lacrosse", a: "$1,700,000" }, { n: 18, d: "Parking", a: "$710,000" },
+    { n: 19, d: "Site Infrastructure", a: "$5,000,000" },
+  ];
+  return (
+    <S>
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-card/20 to-background" />
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div style={{ width: 1400, padding: "0 60px" }}>
+          <h2 className="font-bebas uppercase leading-[0.88]" style={{ fontSize: 72, marginBottom: 40 }}>
+            Legendary Prep Academy <span className="text-primary">Budget</span>
+          </h2>
+          <div className="grid grid-cols-2" style={{ gap: "0 40px" }}>
+            {items.map((item) => (
+              <div key={item.n} className="flex justify-between items-center border-b border-border/20" style={{ padding: "10px 0" }}>
+                <span className="font-oswald text-foreground/60" style={{ fontSize: 20 }}>{item.n}. {item.d}</span>
+                <span className="font-bebas text-foreground" style={{ fontSize: 22 }}>{item.a}</span>
+              </div>
+            ))}
+          </div>
+          <div className="flex justify-between items-center border-t-2 border-primary" style={{ marginTop: 30, paddingTop: 20 }}>
+            <span className="font-bebas uppercase text-foreground" style={{ fontSize: 32 }}>Construction Hard Cost Total</span>
+            <span className="font-bebas text-primary" style={{ fontSize: 38 }}>$39,965,000</span>
+          </div>
+          <p className="font-oswald text-foreground/30 uppercase tracking-wider" style={{ fontSize: 16, marginTop: 16 }}>Pono Construction, LLC</p>
+        </div>
+      </div>
+    </S>
   );
 };
 
-// Slide 13: Lohmeier Architecture - Site Plan
-const Slide13Architecture = () => (
-  <SlideWrapper>
+// ── SLIDE 13: Architecture Site Plan ──
+const Slide13 = () => (
+  <S>
     <div className="absolute inset-0 bg-gradient-to-b from-background via-card/10 to-background" />
-    <div className="relative z-10 max-w-5xl mx-auto px-12 w-full text-center">
-      <h2 className="font-bebas text-4xl md:text-5xl lg:text-6xl uppercase leading-[0.88] mb-2">
-        <span className="text-primary">L</span>ohmeier<span className="text-primary">A</span>rchitecture
-      </h2>
-      <p className="font-oswald text-sm text-foreground/40 mb-10 uppercase tracking-wider">Campus Master Plan</p>
-      <div className="relative aspect-[16/9] bg-card/30 border border-border/30 overflow-hidden mb-6">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center">
-            <Building2 className="w-16 h-16 text-primary/30 mx-auto mb-4" />
-            <p className="font-bebas text-xl text-foreground/30 uppercase">3D Site Plan Rendering</p>
-            <p className="font-oswald text-xs text-foreground/20 mt-2">Baseball Fields • Softball Fields • Training Center • Housing</p>
+    <div className="absolute inset-0 flex items-center justify-center">
+      <div className="text-center" style={{ width: 1400, padding: "0 60px" }}>
+        <h2 className="font-bebas uppercase leading-[0.88]" style={{ fontSize: 90, marginBottom: 12 }}>
+          <span className="text-primary">L</span>ohmeier<span className="text-primary">A</span>rchitecture
+        </h2>
+        <p className="font-oswald text-foreground/40 uppercase tracking-wider" style={{ fontSize: 22, marginBottom: 50 }}>Campus Master Plan</p>
+        <div className="relative bg-card/30 border border-border/30 overflow-hidden" style={{ aspectRatio: "16/9", marginBottom: 30 }}>
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="text-center">
+              <Building2 className="text-primary/30 mx-auto" style={{ width: 80, height: 80, marginBottom: 20 }} />
+              <p className="font-bebas text-foreground/30 uppercase" style={{ fontSize: 32 }}>3D Site Plan Rendering</p>
+              <p className="font-oswald text-foreground/20" style={{ fontSize: 18, marginTop: 12 }}>Baseball Fields • Softball Fields • Training Center • Housing</p>
+            </div>
           </div>
         </div>
+        <p className="font-oswald text-foreground/40" style={{ fontSize: 18 }}>Full athletic campus with multiple fields, indoor training facilities, and student housing</p>
       </div>
-      <p className="font-oswald text-xs text-foreground/40">Full athletic campus with multiple fields, indoor training facilities, and student housing</p>
     </div>
-  </SlideWrapper>
+  </S>
 );
 
-// Slide 14: Lohmeier Architecture - Renderings
-const Slide14Renderings = () => (
-  <SlideWrapper>
+// ── SLIDE 14: Architecture Renderings ──
+const Slide14 = () => (
+  <S>
     <div className="absolute inset-0 bg-gradient-to-b from-background via-card/10 to-background" />
-    <div className="relative z-10 max-w-6xl mx-auto px-12 w-full">
-      <h2 className="font-bebas text-3xl md:text-4xl lg:text-5xl uppercase leading-[0.88] mb-8 text-center">
-        <span className="text-primary">L</span>ohmeier<span className="text-primary">A</span>rchitecture
-      </h2>
-      <div className="grid grid-cols-3 gap-3 mb-3">
-        {["Main Building Exterior", "Aerial Campus View", "Field Complex"].map((label, i) => (
-          <div key={label} className="relative aspect-[4/3] overflow-hidden border border-foreground/20 bg-card/30">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <p className="font-bebas text-sm text-foreground/20 uppercase">{label}</p>
+    <div className="absolute inset-0 flex items-center justify-center">
+      <div style={{ width: 1680, padding: "0 60px" }}>
+        <h2 className="font-bebas uppercase leading-[0.88] text-center" style={{ fontSize: 72, marginBottom: 40 }}>
+          <span className="text-primary">L</span>ohmeier<span className="text-primary">A</span>rchitecture
+        </h2>
+        <div className="grid grid-cols-3" style={{ gap: 16, marginBottom: 16 }}>
+          {["Main Building Exterior", "Aerial Campus View", "Field Complex"].map((label) => (
+            <div key={label} className="relative overflow-hidden border border-foreground/20 bg-card/30 flex items-center justify-center" style={{ aspectRatio: "4/3" }}>
+              <p className="font-bebas text-foreground/20 uppercase" style={{ fontSize: 22 }}>{label}</p>
             </div>
-          </div>
-        ))}
-      </div>
-      <div className="grid grid-cols-3 gap-3">
-        {["Campus Walkway", "Indoor Training Center", "Weight Room"].map((label) => (
-          <div key={label} className="relative aspect-[4/3] overflow-hidden border border-foreground/20 bg-card/30">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <p className="font-bebas text-sm text-foreground/20 uppercase">{label}</p>
+          ))}
+        </div>
+        <div className="grid grid-cols-3" style={{ gap: 16 }}>
+          {["Campus Walkway", "Indoor Training Center", "Weight Room"].map((label) => (
+            <div key={label} className="relative overflow-hidden border border-foreground/20 bg-card/30 flex items-center justify-center" style={{ aspectRatio: "4/3" }}>
+              <p className="font-bebas text-foreground/20 uppercase" style={{ fontSize: 22 }}>{label}</p>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
-  </SlideWrapper>
+  </S>
 );
 
-// Slide 15: Financial Model
-const Slide15Financials = () => {
+// ── SLIDE 15: Financial Model ──
+const Slide15 = () => {
   const incomeItems = [
-    { label: "Legendary Prep Academy (300 Students)", amount: "$10,500,000" },
-    { label: "Premier Prep Academy", amount: "$1,050,000" },
+    { l: "Legendary Prep Academy (300 Students)", a: "$10,500,000" },
+    { l: "Premier Prep Academy", a: "$1,050,000" },
   ];
-  const expenseItemsLeft = [
-    { label: "CEO", amount: "$200,000" },
-    { label: "COO", amount: "$150,000" },
-    { label: "CFO", amount: "$150,000" },
-    { label: "CTO", amount: "$150,000" },
-    { label: "Athletic Director", amount: "$100,000" },
-    { label: "1 HS Baseball Coach", amount: "$80,000" },
-    { label: "1 MS Baseball Coach", amount: "$60,000" },
-    { label: "1 HS Softball Coach", amount: "$80,000" },
-    { label: "1 MS Softball Coach", amount: "$60,000" },
-    { label: "9 Assistant Baseball Coaches", amount: "$315,000" },
-    { label: "9 Assistant Softball Coaches", amount: "$315,000" },
-    { label: "2 Academic Advisors", amount: "$120,000" },
-    { label: "3 Academic Teachers (3 each sport)", amount: "$240,000" },
-    { label: "Director of Strength & Conditioning", amount: "$120,000" },
-    { label: "3 Assistant Strength Coaches", amount: "$120,000" },
-    { label: "1 Director of Athletic Training", amount: "$120,000" },
+  const expLeft = [
+    { l: "CEO", a: "$200,000" }, { l: "COO", a: "$150,000" }, { l: "CFO", a: "$150,000" },
+    { l: "CTO", a: "$150,000" }, { l: "Athletic Director", a: "$100,000" },
+    { l: "1 HS Baseball Coach", a: "$80,000" }, { l: "1 MS Baseball Coach", a: "$60,000" },
+    { l: "1 HS Softball Coach", a: "$80,000" }, { l: "1 MS Softball Coach", a: "$60,000" },
+    { l: "9 Assistant Baseball Coaches", a: "$315,000" }, { l: "9 Assistant Softball Coaches", a: "$315,000" },
+    { l: "2 Academic Advisors", a: "$120,000" }, { l: "3 Academic Teachers (3 each sport)", a: "$240,000" },
+    { l: "Director of Strength & Conditioning", a: "$120,000" }, { l: "3 Assistant Strength Coaches", a: "$120,000" },
+    { l: "1 Director of Athletic Training", a: "$120,000" },
   ];
-  const expenseItemsRight = [
-    { label: "4 Assistant Athletic Training", amount: "$160,000" },
-    { label: "Head of Security", amount: "$100,000" },
-    { label: "Admin/Aux Staff (30 staff)", amount: "$600,000" },
-    { label: "Media Production Team (25 staff)", amount: "$1,000,000" },
-    { label: "Land Leasing", amount: "$1,700,000" },
-    { label: "Equipment/Apparel (Wilson, etc)", amount: "$1,000,000" },
-    { label: "Insurance, Electrical, Internet, etc", amount: "$800,000" },
-    { label: "Food Cost", amount: "$1,000,000" },
+  const expRight = [
+    { l: "4 Assistant Athletic Training", a: "$160,000" }, { l: "Head of Security", a: "$100,000" },
+    { l: "Admin/Aux Staff (30 staff)", a: "$600,000" }, { l: "Media Production Team (25 staff)", a: "$1,000,000" },
+    { l: "Land Leasing", a: "$1,700,000" }, { l: "Equipment/Apparel (Wilson, etc)", a: "$1,000,000" },
+    { l: "Insurance, Electrical, Internet, etc", a: "$800,000" }, { l: "Food Cost", a: "$1,000,000" },
   ];
-
   return (
-    <SlideWrapper>
+    <S>
       <div className="absolute inset-0 bg-gradient-to-b from-background via-card/20 to-background" />
-      <div className="relative z-10 max-w-6xl mx-auto px-8 w-full">
-        <div className="grid grid-cols-2 gap-8">
-          {/* Left Column */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="grid grid-cols-2" style={{ width: 1680, padding: "0 60px", gap: 50 }}>
           <div>
-            <div className="bg-primary/20 border border-primary/40 px-4 py-2 mb-3">
-              <h3 className="font-bebas text-lg text-primary uppercase tracking-wider">Money In (Estimated Annually)</h3>
+            <div className="bg-primary/20 border border-primary/40" style={{ padding: "10px 20px", marginBottom: 16 }}>
+              <h3 className="font-bebas text-primary uppercase tracking-wider" style={{ fontSize: 24 }}>Money In (Estimated Annually)</h3>
             </div>
             {incomeItems.map((item) => (
-              <div key={item.label} className="flex justify-between py-1.5 border-b border-border/20">
-                <span className="font-oswald text-xs text-foreground/60 uppercase">{item.label}</span>
-                <span className="font-bebas text-sm text-foreground">{item.amount}</span>
+              <div key={item.l} className="flex justify-between border-b border-border/20" style={{ padding: "8px 0" }}>
+                <span className="font-oswald text-foreground/60 uppercase" style={{ fontSize: 18 }}>{item.l}</span>
+                <span className="font-bebas text-foreground" style={{ fontSize: 20 }}>{item.a}</span>
               </div>
             ))}
-            <div className="flex justify-between py-2 border-t border-primary/60 mt-2">
-              <span className="font-bebas text-base text-foreground uppercase">Total Income</span>
-              <span className="font-bebas text-base text-primary">$11,550,000</span>
+            <div className="flex justify-between border-t border-primary/60" style={{ padding: "12px 0", marginTop: 8 }}>
+              <span className="font-bebas text-foreground uppercase" style={{ fontSize: 24 }}>Total Income</span>
+              <span className="font-bebas text-primary" style={{ fontSize: 24 }}>$11,550,000</span>
             </div>
-
-            <div className="bg-primary/20 border border-primary/40 px-4 py-2 mt-6 mb-3">
-              <h3 className="font-bebas text-lg text-primary uppercase tracking-wider">Money Out (Estimated Operating Cost)</h3>
+            <div className="bg-primary/20 border border-primary/40" style={{ padding: "10px 20px", marginTop: 30, marginBottom: 16 }}>
+              <h3 className="font-bebas text-primary uppercase tracking-wider" style={{ fontSize: 24 }}>Money Out (Estimated Operating Cost)</h3>
             </div>
-            {expenseItemsLeft.map((item) => (
-              <div key={item.label} className="flex justify-between py-1 border-b border-border/20">
-                <span className="font-oswald text-[10px] text-foreground/60 uppercase">{item.label}</span>
-                <span className="font-bebas text-xs text-foreground">{item.amount}</span>
+            {expLeft.map((item) => (
+              <div key={item.l} className="flex justify-between border-b border-border/20" style={{ padding: "5px 0" }}>
+                <span className="font-oswald text-foreground/60 uppercase" style={{ fontSize: 16 }}>{item.l}</span>
+                <span className="font-bebas text-foreground" style={{ fontSize: 18 }}>{item.a}</span>
               </div>
             ))}
           </div>
-
-          {/* Right Column */}
-          <div className="pt-10">
-            {expenseItemsRight.map((item) => (
-              <div key={item.label} className="flex justify-between py-1.5 border-b border-border/20">
-                <span className="font-oswald text-xs text-foreground/60 uppercase">{item.label}</span>
-                <span className="font-bebas text-sm text-foreground">{item.amount}</span>
+          <div style={{ paddingTop: 50 }}>
+            {expRight.map((item) => (
+              <div key={item.l} className="flex justify-between border-b border-border/20" style={{ padding: "8px 0" }}>
+                <span className="font-oswald text-foreground/60 uppercase" style={{ fontSize: 18 }}>{item.l}</span>
+                <span className="font-bebas text-foreground" style={{ fontSize: 20 }}>{item.a}</span>
               </div>
             ))}
-            <div className="flex justify-between py-3 border-t border-primary/60 mt-4">
-              <span className="font-bebas text-base text-primary uppercase">Total Expenses</span>
-              <span className="font-bebas text-base text-primary">$8,740,000</span>
+            <div className="flex justify-between border-t border-primary/60" style={{ padding: "16px 0", marginTop: 20 }}>
+              <span className="font-bebas text-primary uppercase" style={{ fontSize: 24 }}>Total Expenses</span>
+              <span className="font-bebas text-primary" style={{ fontSize: 24 }}>$8,740,000</span>
             </div>
-            <div className="flex justify-between py-3 border-t-2 border-primary mt-6 bg-primary/10 px-4">
-              <span className="font-bebas text-xl text-foreground uppercase">Income Minus Expenses</span>
-              <span className="font-bebas text-xl text-primary">$2,810,000</span>
+            <div className="flex justify-between border-t-2 border-primary bg-primary/10" style={{ marginTop: 30, padding: "16px 24px" }}>
+              <span className="font-bebas text-foreground uppercase" style={{ fontSize: 32 }}>Income Minus Expenses</span>
+              <span className="font-bebas text-primary" style={{ fontSize: 32 }}>$2,810,000</span>
             </div>
           </div>
         </div>
       </div>
-    </SlideWrapper>
+    </S>
   );
 };
 
-// Slide 16: Projected Profit Margin
-const Slide16ProfitMargin = () => (
-  <SlideWrapper>
+// ── SLIDE 16: Projected Profit Margin ──
+const Slide16 = () => (
+  <S>
     <div className="absolute inset-0 bg-gradient-to-r from-background via-card/20 to-background" />
-    <div className="relative z-10 max-w-5xl mx-auto px-12 w-full">
-      <div className="grid grid-cols-2 gap-12 items-center">
+    <div className="absolute inset-0 flex items-center justify-center">
+      <div className="grid grid-cols-2 items-center" style={{ width: 1400, padding: "0 60px", gap: 80 }}>
         <div>
-          <h2 className="font-bebas text-3xl md:text-4xl lg:text-5xl uppercase leading-[0.88] mb-2">
+          <h2 className="font-bebas uppercase leading-[0.88]" style={{ fontSize: 72, marginBottom: 12 }}>
             Projected <span className="text-primary">Profit Margin</span> For LPA
           </h2>
-          <div className="w-24 h-1 bg-primary mb-8" />
-          <div className="space-y-6">
-            <p className="font-oswald text-sm text-foreground/60 leading-relaxed">
+          <div className="bg-primary" style={{ width: 120, height: 4, marginBottom: 40 }} />
+          <div style={{ display: "flex", flexDirection: "column", gap: 28 }}>
+            <p className="font-oswald text-foreground/60 leading-relaxed" style={{ fontSize: 22 }}>
               LPA projects a target profit margin of 30–40%, reflecting its unique offerings and demand for growth.
             </p>
-            <p className="font-oswald text-sm text-foreground/60 leading-relaxed">
+            <p className="font-oswald text-foreground/60 leading-relaxed" style={{ fontSize: 22 }}>
               With an updated total revenue of $11.55M and total expenses of $8.74M, LPA anticipates a profit margin of 24.3% in its initial phase. While slightly below the ideal range, this margin still supports reinvestment and sustainable growth.
             </p>
-            <p className="font-oswald text-sm text-foreground/60 leading-relaxed">
+            <p className="font-oswald text-foreground/60 leading-relaxed" style={{ fontSize: 22 }}>
               As LPA continues to scale operations, enhance enrollment, and optimize financial efficiency, it strives to reach the 30–40% profit margin benchmark, reinforcing its position as a top-tier athletic academy.
             </p>
           </div>
         </div>
-        <div className="flex flex-col items-center justify-center gap-6">
-          <div className="relative w-48 h-48 rounded-full border-4 border-primary/30 flex items-center justify-center">
+        <div className="flex flex-col items-center justify-center" style={{ gap: 30 }}>
+          <div className="rounded-full border-4 border-primary/30 flex items-center justify-center" style={{ width: 260, height: 260 }}>
             <div className="text-center">
-              <span className="font-bebas text-5xl text-primary">24.3%</span>
-              <p className="font-oswald text-xs text-foreground/40 uppercase">Initial Margin</p>
+              <span className="font-bebas text-primary" style={{ fontSize: 72 }}>24.3%</span>
+              <p className="font-oswald text-foreground/40 uppercase" style={{ fontSize: 18 }}>Initial Margin</p>
             </div>
           </div>
-          <div className="flex gap-4">
-            <div className="bg-card/40 border border-border/30 p-4 text-center">
-              <span className="font-bebas text-2xl text-foreground">30-40%</span>
-              <p className="font-oswald text-[10px] text-foreground/40 uppercase">Target Range</p>
-            </div>
+          <div className="bg-card/40 border border-border/30 text-center" style={{ padding: 24 }}>
+            <span className="font-bebas text-foreground" style={{ fontSize: 36 }}>30-40%</span>
+            <p className="font-oswald text-foreground/40 uppercase" style={{ fontSize: 16 }}>Target Range</p>
           </div>
         </div>
       </div>
     </div>
-  </SlideWrapper>
+  </S>
 );
 
-// Slide 17: Business Model / Revenue Strategy
-const Slide17BusinessModel = () => (
-  <SlideWrapper>
+// ── SLIDE 17: Business Model ──
+const Slide17 = () => (
+  <S>
     <div className="absolute inset-0 bg-gradient-to-r from-background via-card/20 to-background" />
-    <div className="relative z-10 max-w-5xl mx-auto px-12 w-full">
-      <div className="grid grid-cols-2 gap-12 items-start">
-        <div className="space-y-10">
+    <div className="absolute inset-0 flex items-center justify-center">
+      <div className="grid grid-cols-2 items-start" style={{ width: 1400, padding: "0 60px", gap: 80 }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: 50 }}>
           {[
             { num: "1", title: "Premium Tuition Model", desc: "LPA investment for a family is currently at $30,000 per year. Tuition will increase with new campus and on campus living." },
             { num: "2", title: "Mini Campus Efficiency", desc: "Initial phase aims for 36.41% profit margin, ideal for growth and reinvestment in the academy's facilities and programs." },
             { num: "3", title: "Full-Campus Expansion", desc: "Phase 3 involves expanding the campus size and adding other primary sports like golf, hockey, basketball, football, tennis, wrestling, etc." },
           ].map((item) => (
-            <div key={item.num} className="flex gap-4">
-              <div className="w-10 h-10 bg-primary/20 border border-primary/40 flex items-center justify-center flex-shrink-0">
-                <span className="font-bebas text-lg text-primary">{item.num}</span>
+            <div key={item.num} className="flex" style={{ gap: 20 }}>
+              <div className="bg-primary/20 border border-primary/40 flex items-center justify-center flex-shrink-0" style={{ width: 50, height: 50 }}>
+                <span className="font-bebas text-primary" style={{ fontSize: 26 }}>{item.num}</span>
               </div>
               <div>
-                <h3 className="font-bebas text-xl text-primary uppercase mb-2">{item.title}</h3>
-                <p className="font-oswald text-sm text-foreground/60 leading-relaxed">{item.desc}</p>
+                <h3 className="font-bebas text-primary uppercase" style={{ fontSize: 30, marginBottom: 10 }}>{item.title}</h3>
+                <p className="font-oswald text-foreground/60 leading-relaxed" style={{ fontSize: 22 }}>{item.desc}</p>
               </div>
             </div>
           ))}
         </div>
         <div className="flex items-center justify-center h-full">
-          <div className="relative aspect-square w-full max-w-md bg-card/20 border border-border/20 overflow-hidden">
+          <div className="relative overflow-hidden bg-card/20 border border-border/20" style={{ width: "100%", aspectRatio: "1/1" }}>
             <img src="/action-40.jpg" alt="Campus render" className="w-full h-full object-cover opacity-50" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
           </div>
         </div>
       </div>
     </div>
-  </SlideWrapper>
+  </S>
 );
 
-// Slide 18: Phase 3 - Flagship Campus
-const Slide18Phase3 = () => (
-  <SlideWrapper>
+// ── SLIDE 18: Phase 3 Flagship Campus ──
+const Slide18 = () => (
+  <S>
     <div className="absolute inset-0 bg-gradient-to-b from-card/30 via-background to-background" />
-    <div className="relative z-10 max-w-5xl mx-auto px-12 w-full">
-      <h2 className="font-bebas text-4xl md:text-5xl lg:text-6xl uppercase leading-[0.88] mb-10">
-        <span className="text-primary">Phase 3</span> : Flagship Campus
-      </h2>
-      <div className="grid grid-cols-2 gap-8">
-        {[
-          { icon: <Dumbbell className="w-10 h-10 text-foreground/60" />, title: "Player Development Center", desc: "SEC-level player development center with strength, conditioning, sports science and rehab." },
-          { icon: <Trophy className="w-10 h-10 text-foreground/60" />, title: "Full Spectrum Fields, Courts, and Gymnasium", desc: "Baseball, Softball, Football, Basketball, Soccer, Track n Field, Tennis, Volleyball etc." },
-          { icon: <Users className="w-10 h-10 text-foreground/60" />, title: "Programs & National Impact", desc: "Establish scholarship programs for ELITE talent, achieve national ranking, travel and compete with private ELITE schools." },
-          { icon: <Star className="w-10 h-10 text-foreground/60" />, title: "Housing", desc: "Dormitories or apartment living for all sports." },
-        ].map((item) => (
-          <div key={item.title} className="space-y-3">
-            {item.icon}
-            <h3 className="font-bebas text-xl uppercase text-foreground">{item.title}</h3>
-            <p className="font-oswald text-sm text-foreground/50 leading-relaxed">{item.desc}</p>
-          </div>
-        ))}
+    <div className="absolute inset-0 flex items-center justify-center">
+      <div style={{ width: 1400, padding: "0 60px" }}>
+        <h2 className="font-bebas uppercase leading-[0.88]" style={{ fontSize: 90, marginBottom: 50 }}>
+          <span className="text-primary">Phase 3</span> : Flagship Campus
+        </h2>
+        <div className="grid grid-cols-2" style={{ gap: 50 }}>
+          {[
+            { icon: <Dumbbell style={{ width: 50, height: 50 }} />, title: "Player Development Center", desc: "SEC-level player development center with strength, conditioning, sports science and rehab." },
+            { icon: <Trophy style={{ width: 50, height: 50 }} />, title: "Full Spectrum Fields, Courts, and Gymnasium", desc: "Baseball, Softball, Football, Basketball, Soccer, Track n Field, Tennis, Volleyball etc." },
+            { icon: <Users style={{ width: 50, height: 50 }} />, title: "Programs & National Impact", desc: "Establish scholarship programs for ELITE talent, achieve national ranking, travel and compete with private ELITE schools." },
+            { icon: <Star style={{ width: 50, height: 50 }} />, title: "Housing", desc: "Dormitories or apartment living for all sports." },
+          ].map((item) => (
+            <div key={item.title}>
+              <div className="text-foreground/60" style={{ marginBottom: 16 }}>{item.icon}</div>
+              <h3 className="font-bebas uppercase text-foreground" style={{ fontSize: 30, marginBottom: 12 }}>{item.title}</h3>
+              <p className="font-oswald text-foreground/50 leading-relaxed" style={{ fontSize: 22 }}>{item.desc}</p>
+            </div>
+          ))}
+        </div>
+        <div className="bg-primary" style={{ width: "100%", height: 4, marginTop: 50 }} />
       </div>
-      <div className="w-full h-1 bg-primary mt-10" />
     </div>
-  </SlideWrapper>
+  </S>
 );
 
-// Slide 19: The Path to Domination
-const Slide19PathToDomination = () => (
-  <SlideWrapper>
+// ── SLIDE 19: Path to Domination ──
+const Slide19 = () => (
+  <S>
     <div className="absolute inset-0 bg-gradient-to-r from-card/30 via-background to-background" />
-    <div className="relative z-10 max-w-5xl mx-auto px-12 w-full">
-      <div className="grid grid-cols-2 gap-12 items-center">
-        <div className="flex flex-col items-center gap-3">
-          <div className="relative w-full aspect-[3/4] overflow-hidden border border-foreground/20">
-            <img src="/action-45.jpg" alt="LPA athlete" className="w-full h-full object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-          </div>
+    <div className="absolute inset-0 flex items-center justify-center">
+      <div className="grid grid-cols-2 items-center" style={{ width: 1400, padding: "0 60px", gap: 80 }}>
+        <div className="relative overflow-hidden border border-foreground/20" style={{ aspectRatio: "3/4" }}>
+          <img src="/action-45.jpg" alt="LPA athlete" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
         </div>
         <div>
-          <h2 className="font-bebas text-4xl md:text-5xl lg:text-6xl uppercase leading-[0.88] mb-10">
+          <h2 className="font-bebas uppercase leading-[0.88]" style={{ fontSize: 80, marginBottom: 40 }}>
             The <span className="text-primary">Path</span> to Domination
           </h2>
-          <div className="w-full h-px bg-foreground/20 mb-10" />
-          <div className="space-y-8">
+          <div className="bg-foreground/20" style={{ width: "100%", height: 1, marginBottom: 40 }} />
+          <div style={{ display: "flex", flexDirection: "column", gap: 36 }}>
             {[
               { num: "1", phase: "Phase 1", title: "Foundation", desc: "Elite coaching, partnerships, winning season." },
               { num: "2", phase: "Phase 2", title: "Mini Campus", desc: "Baseball & softball stadiums, housing, performance center, national recognition." },
               { num: "3", phase: "Phase 3", title: "Flagship Campus", desc: "SEC-level player development center, stadiums, housing. Addition of ALL primary high school sports. Football, basketball, soccer, track n field, etc." },
             ].map((item) => (
-              <div key={item.num} className="flex gap-4 items-start">
-                <div className="flex flex-col items-center gap-1 flex-shrink-0">
-                  <span className="font-bebas text-3xl text-foreground/30">{item.num}</span>
-                  <div className="w-px h-6 bg-primary/40" />
+              <div key={item.num} className="flex items-start" style={{ gap: 20 }}>
+                <div className="flex flex-col items-center flex-shrink-0" style={{ gap: 6 }}>
+                  <span className="font-bebas text-foreground/30" style={{ fontSize: 40 }}>{item.num}</span>
+                  <div className="bg-primary/40" style={{ width: 1, height: 30 }} />
                 </div>
                 <div>
-                  <h3 className="font-bebas text-lg uppercase">
+                  <h3 className="font-bebas uppercase" style={{ fontSize: 26 }}>
                     <span className="text-primary">{item.phase}:</span> {item.title}
                   </h3>
-                  <p className="font-oswald text-sm text-foreground/50 leading-relaxed">{item.desc}</p>
+                  <p className="font-oswald text-foreground/50 leading-relaxed" style={{ fontSize: 20 }}>{item.desc}</p>
                 </div>
               </div>
             ))}
           </div>
-          <div className="w-full h-px bg-foreground/20 mt-10" />
+          <div className="bg-foreground/20" style={{ width: "100%", height: 1, marginTop: 40 }} />
         </div>
       </div>
     </div>
-  </SlideWrapper>
+  </S>
 );
 
-// Slide 20: Traction and Milestones
-const Slide20Traction = () => (
-  <SlideWrapper>
+// ── SLIDE 20: Traction & Milestones ──
+const Slide20 = () => (
+  <S>
     <div className="absolute inset-0 bg-gradient-to-b from-background via-card/20 to-background" />
-    <div className="relative z-10 max-w-5xl mx-auto px-12 w-full">
-      <h2 className="font-bebas text-4xl md:text-5xl lg:text-6xl uppercase leading-[0.88] mb-10">
-        Traction and <span className="text-primary">Milestones</span>
-      </h2>
-      <div className="grid grid-cols-2 gap-6 mb-8">
-        <div className="bg-card/40 border border-border/30 p-6">
-          <h3 className="font-bebas text-xl uppercase text-foreground mb-4">Enrollment</h3>
-          <p className="font-oswald text-sm text-foreground/60 leading-relaxed">
-            Launched in August 2024 with 65 players enrolled currently. Expecting to have 100+ by Q1 2027.
+    <div className="absolute inset-0 flex items-center justify-center">
+      <div style={{ width: 1400, padding: "0 60px" }}>
+        <h2 className="font-bebas uppercase leading-[0.88]" style={{ fontSize: 90, marginBottom: 50 }}>
+          Traction and <span className="text-primary">Milestones</span>
+        </h2>
+        <div className="grid grid-cols-2" style={{ gap: 30, marginBottom: 30 }}>
+          <div className="bg-card/40 border border-border/30" style={{ padding: 30 }}>
+            <h3 className="font-bebas uppercase text-foreground" style={{ fontSize: 30, marginBottom: 16 }}>Enrollment</h3>
+            <p className="font-oswald text-foreground/60 leading-relaxed" style={{ fontSize: 22 }}>
+              Launched in August 2024 with 65 players enrolled currently. Expecting to have 100+ by Q1 2027.
+            </p>
+          </div>
+          <div className="bg-card/40 border border-border/30" style={{ padding: 30 }}>
+            <h3 className="font-bebas uppercase text-foreground" style={{ fontSize: 30, marginBottom: 16 }}>Partnerships</h3>
+            <p className="font-oswald text-foreground/60 leading-relaxed" style={{ fontSize: 22 }}>
+              Wilson, EvoShield, Louisville Slugger, Demarini, Under Armour, Spooner.
+            </p>
+          </div>
+        </div>
+        <div className="bg-card/40 border border-border/30" style={{ padding: 30 }}>
+          <h3 className="font-bebas uppercase text-foreground" style={{ fontSize: 30, marginBottom: 16 }}>Social Media</h3>
+          <p className="font-oswald text-foreground/60 leading-relaxed" style={{ fontSize: 22 }}>
+            431K views in 90 days, 7K interactions, 61K accounts reached, 768 New Followers in 90 Days, 8,060 profile visits in one month (100% organic).
           </p>
         </div>
-        <div className="bg-card/40 border border-border/30 p-6">
-          <h3 className="font-bebas text-xl uppercase text-foreground mb-4">Partnerships</h3>
-          <p className="font-oswald text-sm text-foreground/60 leading-relaxed">
-            Wilson, EvoShield, Louisville Slugger, Demarini, Under Armour, Spooner.
-          </p>
+        <div className="flex justify-end opacity-40" style={{ marginTop: 30, gap: 20 }}>
+          {["/sponsors/wilson.png", "/sponsors/demarini.png", "/sponsors/evoshield.png", "/sponsors/louisville-slugger.png", "/sponsors/spooner.png"].map((logo) => (
+            <img key={logo} src={logo} alt="" className="object-contain grayscale" style={{ height: 40 }} />
+          ))}
         </div>
-      </div>
-      <div className="bg-card/40 border border-border/30 p-6">
-        <h3 className="font-bebas text-xl uppercase text-foreground mb-4">Social Media</h3>
-        <p className="font-oswald text-sm text-foreground/60 leading-relaxed">
-          431K views in 90 days, 7K interactions, 61K accounts reached, 768 New Followers in 90 Days, 8,060 profile visits in one month (100% organic).
-        </p>
-      </div>
-      <div className="flex justify-end mt-6 gap-4 opacity-40">
-        {["/sponsors/wilson.png", "/sponsors/demarini.png", "/sponsors/evoshield.png", "/sponsors/louisville-slugger.png", "/sponsors/spooner.png"].map((logo) => (
-          <img key={logo} src={logo} alt="" className="h-8 object-contain grayscale" />
-        ))}
       </div>
     </div>
-  </SlideWrapper>
+  </S>
 );
 
-// Slide 21: Investment Tiers and Competitive Advantages
-const Slide21Investment = () => (
-  <SlideWrapper>
+// ── SLIDE 21: Investment Tiers ──
+const Slide21 = () => (
+  <S>
     <div className="absolute inset-0 bg-gradient-to-r from-card/30 via-background to-background" />
-    <div className="relative z-10 max-w-5xl mx-auto px-12 w-full">
-      <div className="grid grid-cols-2 gap-12 items-start">
-        <div className="relative aspect-[3/4] overflow-hidden border border-foreground/20">
+    <div className="absolute inset-0 flex items-center justify-center">
+      <div className="grid grid-cols-2 items-start" style={{ width: 1400, padding: "0 60px", gap: 80 }}>
+        <div className="relative overflow-hidden border border-foreground/20" style={{ aspectRatio: "3/4" }}>
           <img src="/action-50.jpg" alt="LPA athlete training" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/40" />
         </div>
         <div>
-          <h2 className="font-bebas text-3xl md:text-4xl lg:text-5xl uppercase leading-[0.88] mb-10">
+          <h2 className="font-bebas uppercase leading-[0.88]" style={{ fontSize: 72, marginBottom: 50 }}>
             Investment Tiers and Competitive <span className="text-primary">Advantages</span>
           </h2>
-
-          <div className="mb-10">
-            <span className="font-bebas text-5xl text-primary italic">$5M</span>
-            <div className="flex items-center gap-2 my-2">
-              <div className="flex-1 h-0.5 bg-foreground/30" />
-              <ChevronRight className="w-5 h-5 text-foreground/30" />
+          <div style={{ marginBottom: 50 }}>
+            <span className="font-bebas text-primary italic" style={{ fontSize: 72 }}>$5M</span>
+            <div className="flex items-center" style={{ gap: 10, margin: "10px 0" }}>
+              <div className="flex-1 bg-foreground/30" style={{ height: 2 }} />
+              <ChevronRight className="text-foreground/30" style={{ width: 24, height: 24 }} />
             </div>
-            <h3 className="font-bebas text-xl text-foreground uppercase mb-3">Initial Growth</h3>
-            <ul className="space-y-1">
+            <h3 className="font-bebas text-foreground uppercase" style={{ fontSize: 30, marginBottom: 16 }}>Initial Growth</h3>
+            <ul style={{ display: "flex", flexDirection: "column", gap: 6 }}>
               {[
                 "Renovate current building for female locker room and more equipment",
                 "Secure professional level field rentals and elite level tournament play",
@@ -761,29 +767,32 @@ const Slide21Investment = () => (
                 "Addition of administrative staff",
                 "New travel buses and multiple rented homes for out of state transfers",
               ].map((item, i) => (
-                <li key={i} className="font-oswald text-xs text-foreground/50 leading-relaxed">{item}</li>
+                <li key={i} className="font-oswald text-foreground/50 leading-relaxed" style={{ fontSize: 20 }}>{item}</li>
               ))}
             </ul>
           </div>
-
           <div>
-            <span className="font-bebas text-5xl text-primary italic">$40-50M</span>
-            <div className="flex items-center gap-2 my-2">
-              <div className="flex-1 h-0.5 bg-foreground/30" />
-              <ChevronRight className="w-5 h-5 text-foreground/30" />
+            <span className="font-bebas text-primary italic" style={{ fontSize: 72 }}>$40-50M</span>
+            <div className="flex items-center" style={{ gap: 10, margin: "10px 0" }}>
+              <div className="flex-1 bg-foreground/30" style={{ height: 2 }} />
+              <ChevronRight className="text-foreground/30" style={{ width: 24, height: 24 }} />
             </div>
-            <h3 className="font-bebas text-xl text-foreground uppercase mb-2">Mini Campus</h3>
-            <p className="font-oswald text-xs text-foreground/50">Phase 2 build details (slides 12)</p>
+            <h3 className="font-bebas text-foreground uppercase" style={{ fontSize: 30, marginBottom: 8 }}>Mini Campus</h3>
+            <p className="font-oswald text-foreground/50" style={{ fontSize: 20 }}>Phase 2 build details (slides 12)</p>
           </div>
         </div>
       </div>
     </div>
-  </SlideWrapper>
+  </S>
 );
 
-const slides = [Slide1Title, Slide2Foundation, Slide3Divider, Slide4Video, Slide5Facility, Slide6Coaching, Slide7Academics, Slide8GoalsRemaining, Slide9Phase2, Slide10FacilityVision, Slide11PonoVision, Slide12Budget, Slide13Architecture, Slide14Renderings, Slide15Financials, Slide16ProfitMargin, Slide17BusinessModel, Slide18Phase3, Slide19PathToDomination, Slide20Traction, Slide21Investment];
+// ── SLIDES ARRAY ──
+const slides = [Slide1, Slide2, Slide3, Slide4, Slide5, Slide6, Slide7, Slide8, Slide9, Slide10, Slide11, Slide12, Slide13, Slide14, Slide15, Slide16, Slide17, Slide18, Slide19, Slide20, Slide21];
 
+// ── MAIN COMPONENT ──
 const PitchDeck = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const scale = useSlideScale(containerRef);
   const [current, setCurrent] = useState(0);
   const [displayed, setDisplayed] = useState(0);
   const [transitioning, setTransitioning] = useState(false);
@@ -804,7 +813,6 @@ const PitchDeck = () => {
   const next = useCallback(() => {
     if (current < slides.length - 1) goTo(current + 1, "next");
   }, [current, goTo]);
-
   const prev = useCallback(() => {
     if (current > 0) goTo(current - 1, "prev");
   }, [current, goTo]);
@@ -834,20 +842,36 @@ const PitchDeck = () => {
     else document.exitFullscreen?.();
   };
 
+  // Touch/swipe support
+  const touchStart = useRef<number | null>(null);
+  const handleTouchStart = (e: React.TouchEvent) => { touchStart.current = e.touches[0].clientX; };
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStart.current === null) return;
+    const diff = touchStart.current - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) { diff > 0 ? next() : prev(); }
+    touchStart.current = null;
+  };
+
   const CurrentSlide = slides[displayed];
 
   const slideStyle: React.CSSProperties = {
     transition: "opacity 0.4s ease, transform 0.4s ease",
     opacity: transitioning ? 0 : 1,
-    transform: transitioning
-      ? `translateX(${direction === "next" ? "40px" : "-40px"})`
-      : "translateX(0)",
+    transform: transitioning ? `translateX(${direction === "next" ? "30px" : "-30px"})` : "translateX(0)",
   };
 
   return (
-    <div className="fixed inset-0 bg-background select-none">
-      <div className="absolute inset-0" style={slideStyle}>
-        <CurrentSlide />
+    <div
+      ref={containerRef}
+      className="fixed inset-0 bg-black select-none overflow-hidden"
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+    >
+      {/* Scaled slide */}
+      <div style={slideStyle}>
+        <SlideFrame scale={scale}>
+          <CurrentSlide />
+        </SlideFrame>
       </div>
 
       {/* Click navigation zones */}
@@ -858,32 +882,37 @@ const PitchDeck = () => {
       </div>
 
       {/* Bottom controls */}
-      <div className="absolute bottom-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-gradient-to-t from-black/60 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300">
-        <div className="flex items-center gap-4">
+      <div className="absolute bottom-0 left-0 right-0 z-50 flex items-center justify-between bg-gradient-to-t from-black/60 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" style={{ padding: "16px 24px" }}>
+        <div className="flex items-center" style={{ gap: 16 }}>
           <button onClick={prev} disabled={current === 0} className="text-foreground/50 hover:text-foreground disabled:opacity-20 transition-colors">
-            <ChevronLeft className="w-6 h-6" />
+            <ChevronLeft style={{ width: 24, height: 24 }} />
           </button>
-          <span className="font-bebas text-sm text-foreground/50 tracking-wider">
+          <span className="font-bebas text-foreground/50 tracking-wider" style={{ fontSize: 16 }}>
             {current + 1} / {slides.length}
           </span>
           <button onClick={next} disabled={current === slides.length - 1} className="text-foreground/50 hover:text-foreground disabled:opacity-20 transition-colors">
-            <ChevronRight className="w-6 h-6" />
+            <ChevronRight style={{ width: 24, height: 24 }} />
           </button>
         </div>
 
-        <div className="flex-1 mx-8 h-0.5 bg-foreground/10 rounded-full overflow-hidden">
+        <div className="flex-1 bg-foreground/10 rounded-full overflow-hidden" style={{ height: 3, margin: "0 32px" }}>
           <div className="h-full bg-primary transition-all duration-300" style={{ width: `${((current + 1) / slides.length) * 100}%` }} />
         </div>
 
         <button onClick={toggleFullscreen} className="text-foreground/50 hover:text-foreground transition-colors">
-          {isFullscreen ? <Minimize className="w-5 h-5" /> : <Maximize className="w-5 h-5" />}
+          {isFullscreen ? <Minimize style={{ width: 20, height: 20 }} /> : <Maximize style={{ width: 20, height: 20 }} />}
         </button>
       </div>
 
-      {/* Slide indicators */}
-      <div className="absolute bottom-16 left-1/2 -translate-x-1/2 z-50 flex gap-1.5 opacity-0 hover:opacity-100 transition-opacity">
+      {/* Dot indicators */}
+      <div className="absolute left-1/2 -translate-x-1/2 z-50 flex opacity-0 hover:opacity-100 transition-opacity" style={{ bottom: 56, gap: 6 }}>
         {slides.map((_, i) => (
-          <button key={i} onClick={() => setCurrent(i)} className={`w-2 h-2 rounded-full transition-all ${i === current ? "bg-primary w-6" : "bg-foreground/20 hover:bg-foreground/40"}`} />
+          <button
+            key={i}
+            onClick={() => { if (i !== current) goTo(i, i > current ? "next" : "prev"); }}
+            className="rounded-full transition-all"
+            style={{ width: i === current ? 24 : 8, height: 8, background: i === current ? "hsl(var(--primary))" : "hsl(var(--foreground) / 0.2)" }}
+          />
         ))}
       </div>
     </div>
