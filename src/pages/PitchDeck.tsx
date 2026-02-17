@@ -7,11 +7,28 @@ import sportsMedImg from "@/assets/facility-sports-medicine.jpg";
 
 // ── Slide wrapper: fills viewport, vertically centers, scrollable on overflow ──
 const S = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => {
-  const ref = useRef<HTMLDivElement>(null);
-  useEffect(() => { ref.current?.scrollTo(0, 0); });
+  const containerRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const [shouldCenter, setShouldCenter] = useState(true);
+
+  useEffect(() => {
+    const check = () => {
+      if (containerRef.current && contentRef.current) {
+        setShouldCenter(contentRef.current.scrollHeight <= containerRef.current.clientHeight);
+      }
+    };
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  });
+
+  useEffect(() => {
+    containerRef.current?.scrollTo(0, 0);
+  });
+
   return (
-    <div ref={ref} className={`w-full h-full bg-background overflow-y-auto flex flex-col justify-center ${className}`}>
-      <div className="flex-shrink-0">
+    <div ref={containerRef} className={`w-full h-full bg-background overflow-y-auto flex flex-col ${shouldCenter ? "justify-center" : "justify-start"} ${className}`}>
+      <div ref={contentRef} className="flex-shrink-0">
         {children}
       </div>
     </div>
