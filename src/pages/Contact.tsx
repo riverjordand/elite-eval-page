@@ -83,6 +83,8 @@ const Contact = () => {
             email: validated.email,
             parent_guardian_name: validated.parentGuardianName || "",
             notes: validated.notes || "",
+            consent_sms: validated.consentSms ? "Yes" : "No",
+            consent_marketing: validated.consentMarketing ? "Yes" : "No",
           },
         },
       }).catch((err) => console.error("GHL webhook error:", err));
