@@ -10,7 +10,7 @@ const commitments = [
   { name: "Utah Valley University", logo: "/colleges/utah-valley.png?v=3" },
   { name: "New Mexico St. University", logo: "/colleges/new-mexico-state.png?v=2" },
   { name: "Glendale CC", logo: "/colleges/glendale-cc.png?v=2" },
-  { name: "Justice University", logo: "/colleges/justice-university.png" },
+  { name: "Justice University", logo: "/colleges/justice-university.png?v=2" },
   { name: "Youngstown St. University", logo: "/colleges/youngstown-state.png?v=2" },
 ];
 
