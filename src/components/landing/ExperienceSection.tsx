@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Crown, Shield, Shirt, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import lockerRoomImg from "@/assets/experience-locker-room.jpg";
+const lockerRoomImg = "https://xhqqxukgsaxabyvbfinn.supabase.co/storage/v1/object/public/video/Pro-GradeLockerRoom";
 const equipmentImg = "https://xhqqxukgsaxabyvbfinn.supabase.co/storage/v1/object/public/video/Pro-GradeEquipment";
 import attireImg from "@/assets/experience-attire.jpg";
 
