@@ -11,7 +11,7 @@ const commitments = [
   { name: "New Mexico St. University", logo: "/colleges/new-mexico-state.png" },
   { name: "Glendale CC", logo: "/colleges/glendale-cc.png" },
   { name: "Justice University", logo: "/colleges/justice-university.png" },
-  { name: "Youngstown St. University", logo: "/colleges/youngstown-state.png" },
+  { name: "Youngstown St. University", logo: "/colleges/youngstown-state.png?v=2" },
 ];
 
 const CommitmentsGrid = () => {
