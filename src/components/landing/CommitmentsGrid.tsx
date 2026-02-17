@@ -1,18 +1,46 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 
-const commitments = [
+// Alternating rows: 4 - 3 - 4
+const row1 = [
   { name: "Ole Miss", logo: "/colleges/ole-miss.png" },
   { name: "Coastal Carolina", logo: "/colleges/coastal-carolina.png" },
   { name: "Texas Tech University", logo: "/colleges/texas-tech.png" },
   { name: "University of Mary", logo: "/colleges/university-of-mary.png" },
+];
+
+const row2 = [
   { name: "Utah Valley University", logo: "/colleges/utah-valley.png?v=3" },
   { name: "New Mexico St. University", logo: "/colleges/new-mexico-state.png?v=2" },
   { name: "Youngstown St. University", logo: "/colleges/youngstown-state.png?v=2" },
+];
+
+const row3 = [
   { name: "Southwestern College", logo: "/colleges/southwestern-college.png?v=2" },
   { name: "Scottsdale CC", logo: "/colleges/scottsdale-cc.png?v=2" },
   { name: "Glendale CC", logo: "/colleges/glendale-cc.png?v=2" },
   { name: "Justice University", logo: "/colleges/justice-university.png?v=2" },
 ];
+
+const allRows = [row1, row2, row3];
+
+const LogoItem = ({ school, visible, delay }: { school: { name: string; logo: string }; visible: boolean; delay: number }) => (
+  <div
+    className="flex flex-col items-center gap-3 group transition-all duration-500"
+    style={{ opacity: visible ? 1 : 0, transitionDelay: `${delay}ms` }}
+  >
+    <div className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+      <img
+        src={school.logo}
+        alt={school.name}
+        className="w-full h-full object-contain brightness-125 group-hover:scale-105 transition-all duration-300"
+        loading="lazy"
+      />
+    </div>
+    <span className="font-oswald text-[8px] md:text-[9px] text-foreground/40 uppercase tracking-wider text-center leading-tight group-hover:text-foreground/70 transition-colors max-w-[80px]">
+      {school.name}
+    </span>
+  </div>
+);
 
 const CommitmentsGrid = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -29,6 +57,8 @@ const CommitmentsGrid = () => {
     obs.observe(el);
     return () => obs.disconnect();
   }, [onIntersect]);
+
+  let globalIndex = 0;
 
   return (
     <section ref={ref} className="relative py-16 md:py-24 lg:py-28 border-y border-border/10">
@@ -49,28 +79,15 @@ const CommitmentsGrid = () => {
           </p>
         </div>
 
-        {/* Logo grid - uniform sizing, alternating rows */}
-        <div className="grid grid-cols-4 md:grid-cols-4 lg:grid-cols-6 gap-6 md:gap-8 lg:gap-10 items-center justify-items-center">
-          {commitments.map((school, i) => (
-            <div
-              key={school.name}
-              className="flex flex-col items-center gap-3 group transition-all duration-500"
-              style={{
-                opacity: visible ? 1 : 0,
-                transitionDelay: `${60 + i * 30}ms`,
-              }}
-            >
-              <div className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <img
-                  src={school.logo}
-                  alt={school.name}
-                  className="max-w-full max-h-full object-contain brightness-125 group-hover:scale-105 transition-all duration-300"
-                  loading="lazy"
-                />
-              </div>
-              <span className="font-oswald text-[8px] md:text-[9px] text-foreground/40 uppercase tracking-wider text-center leading-tight group-hover:text-foreground/70 transition-colors">
-                {school.name}
-              </span>
+        {/* Alternating rows: 4 - 3 - 4 */}
+        <div className="flex flex-col gap-10 md:gap-12">
+          {allRows.map((row, rowIdx) => (
+            <div key={rowIdx} className="flex justify-center gap-8 md:gap-12 lg:gap-16 flex-wrap">
+              {row.map((school) => {
+                const delay = 60 + globalIndex * 30;
+                globalIndex++;
+                return <LogoItem key={school.name} school={school} visible={visible} delay={delay} />;
+              })}
             </div>
           ))}
         </div>
