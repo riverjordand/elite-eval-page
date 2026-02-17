@@ -4,7 +4,21 @@ import Autoplay from 'embla-carousel-autoplay';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 
-const photos = Array.from({ length: 68 }, (_, i) => `/action-${String(i + 1).padStart(2, '0')}.jpg`);
+const STORAGE_BASE = "https://xhqqxukgsaxabyvbfinn.supabase.co/storage/v1/object/public/video";
+
+const photos = [
+  `${STORAGE_BASE}/DSC07434.png`,
+  `${STORAGE_BASE}/DSC07463.png`,
+  `${STORAGE_BASE}/DSC07526.png`,
+  `${STORAGE_BASE}/DSC07554.png`,
+  `${STORAGE_BASE}/DSC07595.png`,
+  `${STORAGE_BASE}/DSC07657.png`,
+  `${STORAGE_BASE}/DSC07711.png`,
+  `${STORAGE_BASE}/DSC07747.png`,
+  `${STORAGE_BASE}/DSC07747-2.png`,
+  `${STORAGE_BASE}/DSC07814.png`,
+  `${STORAGE_BASE}/DSC07814-2.png`,
+];
 
 const shuffleArray = <T,>(array: T[]): T[] => {
   const shuffled = [...array];
