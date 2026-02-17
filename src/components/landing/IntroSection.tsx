@@ -7,7 +7,7 @@ const IntroSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const { ref: parallaxRef, offset: imgOffset } = useParallax(0.15);
-  
+
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
@@ -42,7 +42,7 @@ const IntroSection = () => {
                 LPA is where the most driven middle and high school baseball athletes come to develop and maximize their potential.
               </p>
               <p className="font-oswald text-sm md:text-base text-foreground/50 leading-relaxed">
-                Our athletes train in a professional environment and system with coaches, scouts, and technology found at the most elite level of the game.
+                Our athletes train in a professional environment and system with coaches, scouts, technology found at the most elite level of the game.
               </p>
             </div>
             
@@ -57,12 +57,12 @@ const IntroSection = () => {
           {/* Image column */}
           <div className={`transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <div ref={parallaxRef as React.RefObject<HTMLDivElement>} className="relative aspect-[3/4] overflow-hidden">
-              <img 
-                src={welcomeAthlete} 
-                alt="LPA Athlete Training" 
+              <img
+                src={welcomeAthlete}
+                alt="LPA Athlete Training"
                 className="w-full h-full object-cover object-[center_20%] will-change-transform scale-110"
-                style={{ transform: `translateY(${imgOffset}px) scale(1.1)` }}
-              />
+                style={{ transform: `translateY(${imgOffset}px) scale(1.1)` }} />
+
               {/* Overlay gradient */}
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
               
@@ -75,18 +75,18 @@ const IntroSection = () => {
               
               {/* Outlaws logo */}
               <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
-                <img 
-                  src={outlawsLogo} 
-                  alt="LPA Outlaws" 
-                  className="w-28 md:w-36 object-contain opacity-80"
-                />
+                <img
+                  src={outlawsLogo}
+                  alt="LPA Outlaws"
+                  className="w-28 md:w-36 object-contain opacity-80" />
+
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 export default IntroSection;
