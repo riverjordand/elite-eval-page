@@ -6,9 +6,11 @@ import lockerRoomImg from "@/assets/experience-locker-room.jpg";
 import equipmentImg from "@/assets/experience-equipment.jpg";
 import attireImg from "@/assets/experience-attire.jpg";
 
+const RECRUITING_VIDEO_URL = `https://xhqqxukgsaxabyvbfinn.supabase.co/storage/v1/object/public/video/080824_player%20lounge.mp4`;
+
 const highlights = [
   { icon: Shield, title: "Pro-Grade Equipment", description: "Game bats, batting gloves, position-specific gloves, helmets, and training gear for each athlete.", image: equipmentImg },
-  { icon: Crown, title: "College & MLB Recruiting", description: "12 players committed in 18 months with MLB scouts and D1 connections on staff.", image: lockerRoomImg },
+  { icon: Crown, title: "College & MLB Recruiting", description: "12 players committed in 18 months with MLB scouts and D1 connections on staff.", image: lockerRoomImg, video: RECRUITING_VIDEO_URL },
   { icon: Shirt, title: "Pro-Grade Uniforms", description: "Game uniforms, practice gear, travel gear, and team apparel that builds identity.", image: attireImg },
 ];
 
@@ -51,7 +53,11 @@ const ExperienceSection = () => {
               className={`group relative aspect-[3/4] overflow-hidden cursor-default transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
               style={{ transitionDelay: `${200 + index * 150}ms` }}
             >
-              <img src={item.image} alt={item.title} className="absolute inset-0 w-full h-full object-cover scale-110 group-hover:scale-[1.13] transition-transform duration-700" loading="lazy" style={{ transform: `translateY(${index * 2}%) scale(1.1)` }} />
+              {item.video ? (
+                <video src={item.video} autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover scale-110 group-hover:scale-[1.13] transition-transform duration-700" style={{ transform: `translateY(${index * 2}%) scale(1.1)` }} />
+              ) : (
+                <img src={item.image} alt={item.title} className="absolute inset-0 w-full h-full object-cover scale-110 group-hover:scale-[1.13] transition-transform duration-700" loading="lazy" style={{ transform: `translateY(${index * 2}%) scale(1.1)` }} />
+              )}
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
 
               <div className="absolute top-4 left-4">
