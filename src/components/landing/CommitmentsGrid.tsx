@@ -1,26 +1,17 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 
 const commitments = [
-  { name: "North Carolina", logo: "/colleges/north-carolina.png" },
-  { name: "NC State", logo: "/colleges/nc-state.png" },
-  { name: "Vanderbilt", logo: "/colleges/vanderbilt.png" },
-  { name: "Duke", logo: "/colleges/duke.png" },
-  { name: "Wake Forest", logo: "/colleges/wake-forest.png" },
-  { name: "East Carolina", logo: "/colleges/east-carolina.png" },
-  { name: "High Point", logo: "/colleges/high-point.png" },
-  { name: "Appalachian State", logo: "/colleges/appalachian-state.png" },
-  { name: "Charleston Southern", logo: "/colleges/charleston-southern.png" },
-  { name: "Gardner Webb", logo: "/colleges/gardner-webb.png" },
-  { name: "Jacksonville", logo: "/colleges/jacksonville.png" },
-  { name: "Rice", logo: "/colleges/rice.png" },
-  { name: "UNC Wilmington", logo: "/colleges/unc-wilmington.png" },
-  { name: "Liberty", logo: "/colleges/liberty.png" },
-  { name: "George Washington", logo: "/colleges/george-washington.png" },
-  { name: "Penn State", logo: "/colleges/penn-state.png" },
-  { name: "Indiana", logo: "/colleges/indiana.png" },
-  { name: "USC Upstate", logo: "/colleges/usc-upstate.png" },
-  { name: "UNC Charlotte", logo: "/colleges/unc-charlotte.png" },
-  { name: "Old Dominion", logo: "/colleges/old-dominion.png" },
+  { name: "Scottsdale CC" },
+  { name: "Southwestern College" },
+  { name: "Texas Tech University" },
+  { name: "University of Mary" },
+  { name: "Coastal Carolina" },
+  { name: "Ole Miss" },
+  { name: "Utah Valley University" },
+  { name: "New Mexico St. University" },
+  { name: "Glendale CC" },
+  { name: "Justice University" },
+  { name: "Youngstown St. University" },
 ];
 
 const CommitmentsGrid = () => {
@@ -59,7 +50,7 @@ const CommitmentsGrid = () => {
         </div>
 
         {/* Logo grid - clean, evenly spaced */}
-        <div className="grid grid-cols-5 md:grid-cols-10 gap-y-10 gap-x-6">
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-y-8 gap-x-6">
           {commitments.map((school, i) => (
             <div
               key={school.name}
@@ -69,15 +60,10 @@ const CommitmentsGrid = () => {
                 transitionDelay: `${60 + i * 30}ms`,
               }}
             >
-              <div className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <img
-                  src={school.logo}
-                  alt={school.name}
-                  className="max-w-full max-h-full object-contain opacity-100 brightness-125 group-hover:scale-105 transition-all duration-300"
-                  loading="lazy"
-                />
+              <div className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 flex items-center justify-center rounded-full border border-border/30 bg-card/50 group-hover:border-primary/40 group-hover:scale-110 transition-all duration-300">
+                <span className="font-bebas text-lg md:text-xl lg:text-2xl text-primary">{school.name.charAt(0)}</span>
               </div>
-              <span className="font-oswald text-[8px] md:text-[9px] text-foreground/40 uppercase tracking-wider text-center leading-tight group-hover:text-foreground/70 transition-colors hidden md:block">
+              <span className="font-oswald text-[9px] md:text-[10px] text-foreground/50 uppercase tracking-wider text-center leading-tight group-hover:text-foreground/80 transition-colors">
                 {school.name}
               </span>
             </div>
