@@ -6,11 +6,17 @@ import strengthImg from "@/assets/facility-strength-conditioning.jpg";
 import sportsMedImg from "@/assets/facility-sports-medicine.jpg";
 
 // ── Slide wrapper: fills viewport, vertically centers, scrollable on overflow ──
-const S = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => (
-  <div className={`w-full h-full bg-background overflow-y-auto flex flex-col justify-center ${className}`}>
-    {children}
-  </div>
-);
+const S = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => { ref.current?.scrollTo(0, 0); });
+  return (
+    <div ref={ref} className={`w-full h-full bg-background overflow-y-auto flex flex-col justify-center ${className}`}>
+      <div className="flex-shrink-0">
+        {children}
+      </div>
+    </div>
+  );
+};
 
 // ── Inner container with fluid padding ──
 const Inner = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => (
