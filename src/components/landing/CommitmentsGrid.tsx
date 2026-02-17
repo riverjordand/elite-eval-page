@@ -4,7 +4,7 @@ const allSchools = [
   { name: "Ole Miss", logo: "/colleges/ole-miss.png" },
   { name: "Coastal Carolina", logo: "/colleges/coastal-carolina.png" },
   { name: "Texas Tech University", logo: "/colleges/texas-tech.png" },
-  { name: "University of Mary", logo: "/colleges/university-of-mary.png" },
+  { name: "University of Mary", logo: "/colleges/university-of-mary.png?v=2" },
   { name: "Utah Valley University", logo: "/colleges/utah-valley.png?v=3" },
   { name: "New Mexico St. University", logo: "/colleges/new-mexico-state.png?v=2", scale: 1.4 },
   { name: "Youngstown St. University", logo: "/colleges/youngstown-state.png?v=2", scale: 1.4 },
