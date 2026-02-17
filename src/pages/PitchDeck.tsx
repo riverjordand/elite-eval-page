@@ -7,7 +7,7 @@ import sportsMedImg from "@/assets/facility-sports-medicine.jpg";
 
 // ── Slide wrapper: fills viewport, vertically centers, scrollable on overflow ──
 const S = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => (
-  <div className={`w-full h-full bg-background overflow-y-auto flex flex-col md:justify-center ${className}`}>
+  <div className={`w-full h-full bg-background overflow-y-auto flex flex-col justify-center ${className}`}>
     {children}
   </div>
 );
