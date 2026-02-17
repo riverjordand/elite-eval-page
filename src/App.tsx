@@ -13,6 +13,7 @@ import Appointments from "./pages/Appointments";
 import Admin from "./pages/Admin";
 import Auth from "./pages/Auth";
 import Experience from "./pages/Experience";
+import PitchDeck from "./pages/PitchDeck";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -36,6 +37,7 @@ const App = () => (
           <Route path="/admin" element={<Admin />} />
           <Route path="/auth" element={<Auth />} />
           <Route path="/experience" element={<Experience />} />
+          <Route path="/the-blueprint" element={<PitchDeck />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
