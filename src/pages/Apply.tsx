@@ -170,6 +170,31 @@ const Apply = () => {
 
       if (error) throw error;
 
+      // Forward to GHL (fire-and-forget, don't block submission)
+      supabase.functions.invoke("ghl-webhook", {
+        body: {
+          form_type: "application",
+          data: {
+            first_name: validated.firstName,
+            last_name: validated.lastName,
+            phone: validated.phone,
+            email: validated.email,
+            date_of_birth: validated.dateOfBirth,
+            city: validated.city,
+            state: validated.state,
+            grade_level: validated.gradeLevel,
+            hs_grad_year: validated.hsGradYear,
+            current_school: validated.currentSchool,
+            primary_position: validated.primaryPosition,
+            secondary_position: validated.secondaryPosition,
+            guardian1_name: validated.guardian1Name,
+            guardian1_phone: validated.guardian1Phone,
+            guardian1_email: validated.guardian1Email,
+            sport: validated.sport,
+          },
+        },
+      }).catch((err) => console.error("GHL webhook error:", err));
+
       setSubmitted(true);
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (error) {
