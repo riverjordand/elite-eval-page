@@ -66,10 +66,16 @@ const IntroSection = () => {
               {/* Overlay gradient */}
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
               
-              {/* Committed badge */}
-              <div className="absolute top-4 right-4 lg:top-6 lg:right-6">
-                <div className="bg-primary text-primary-foreground font-bebas text-xs md:text-sm px-3 py-1.5 uppercase tracking-[0.2em]">
-                  Committed
+              {/* Athlete info */}
+              <div className="absolute top-4 left-4 lg:top-6 lg:left-6">
+                <div className="bg-primary text-primary-foreground font-bebas text-base md:text-lg px-3 py-1.5 uppercase tracking-[0.15em] leading-tight">
+                  AJ Juarez
+                </div>
+                <div className="bg-primary/90 text-primary-foreground font-oswald text-[10px] md:text-xs px-3 py-1 uppercase tracking-[0.2em] mt-0.5">
+                  2030 Grad
+                </div>
+                <div className="bg-primary/80 text-primary-foreground font-oswald text-[10px] md:text-xs px-3 py-1 uppercase tracking-[0.2em] mt-0.5">
+                  58th NTL – 3rd ST
                 </div>
               </div>
               
