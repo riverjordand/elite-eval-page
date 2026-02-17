@@ -7,7 +7,7 @@ const commitments = [
   { name: "University of Mary", logo: "/colleges/university-of-mary.png" },
   { name: "Coastal Carolina", logo: "/colleges/coastal-carolina.png" },
   { name: "Ole Miss", logo: "/colleges/ole-miss.png" },
-  { name: "Utah Valley University", logo: "/colleges/utah-valley.png?v=2" },
+  { name: "Utah Valley University", logo: "/colleges/utah-valley.png?v=3" },
   { name: "New Mexico St. University", logo: "/colleges/new-mexico-state.png" },
   { name: "Glendale CC", logo: "/colleges/glendale-cc.png" },
   { name: "Justice University", logo: "/colleges/justice-university.png" },
