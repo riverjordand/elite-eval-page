@@ -1,16 +1,13 @@
 import { useState, useRef, useCallback } from "react";
 import { Check, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import facilityTraining from "@/assets/facility-training-area.jpg";
-import facilityStrength from "@/assets/facility-strength-conditioning.jpg";
-import facilityVideo from "@/assets/facility-video-analysis.jpg";
-import facilitySports from "@/assets/facility-sports-medicine.jpg";
+const STORAGE_BASE = "https://xhqqxukgsaxabyvbfinn.supabase.co/storage/v1/object/public/video";
 
 const facilities = [
-  { title: "Baseball Training", subtitle: "Game Speed", tagline: "Every rep simulates game conditions", description: "Indoor turf, retractable hitting tunnels, real-time data feedback from elite-level equipment.", image: facilityTraining, features: ["Trackman", "HitTrax", "Rapsodo", "2K sq ft game simulation"], stat: "8K sq ft" },
-  { title: "Strength & Conditioning", subtitle: "Power", tagline: "Where raw potential becomes elite performance", description: "Built for rotational athletes with power platforms, athlete-specific machines, and sport-focused programming.", image: facilityStrength, features: ["Keiser PRT technology", "Rogue power racks", "VALD Forcedecks & speed lasers", "Kinvent speed sensors"], stat: "Weight Room" },
-  { title: "Classroom", subtitle: "Online Schooling", tagline: "Education built for athletes", description: "Dedicated classroom space where middle and high school student-athletes spend 2 hours per day ensuring grades are met with an advisor.", image: facilityVideo, features: ["NCAA-approved standards", "Fully accredited by Cognia", "Weekly grade checks", "College prep focused", "Flexible scheduling"], stat: "Academics" },
-  { title: "Recovery & Rehab", subtitle: "Injury Prevention", tagline: "Built-in recovery and rehab keeps athletes on the field", description: "Dedicated recovery area, arm care protocols, mobility focused, and onsite physical therapy by licensed PTs.", image: facilitySports, features: ["Spooner PT on-site (weekly)", "Soft tissue work", "Saunas & red-light therapy", "Hot & cold therapies"], stat: "Full Recovery" },
+  { title: "Baseball Training", subtitle: "Game Speed", tagline: "Every rep simulates game conditions", description: "Indoor turf, retractable hitting tunnels, real-time data feedback from elite-level equipment.", image: `${STORAGE_BASE}/BaseBallTraining`, features: ["Trackman", "HitTrax", "Rapsodo", "2K sq ft game simulation"], stat: "8K sq ft" },
+  { title: "Strength & Conditioning", subtitle: "Power", tagline: "Where raw potential becomes elite performance", description: "Built for rotational athletes with power platforms, athlete-specific machines, and sport-focused programming.", image: `${STORAGE_BASE}/Strengthandconditioning`, features: ["Keiser PRT technology", "Rogue power racks", "VALD Forcedecks & speed lasers", "Kinvent speed sensors"], stat: "Weight Room" },
+  { title: "Classroom", subtitle: "Online Schooling", tagline: "Education built for athletes", description: "Dedicated classroom space where middle and high school student-athletes spend 2 hours per day ensuring grades are met with an advisor.", image: `${STORAGE_BASE}/Classroom`, features: ["NCAA-approved standards", "Fully accredited by Cognia", "Weekly grade checks", "College prep focused", "Flexible scheduling"], stat: "Academics" },
+  { title: "Recovery & Rehab", subtitle: "Injury Prevention", tagline: "Built-in recovery and rehab keeps athletes on the field", description: "Dedicated recovery area, arm care protocols, mobility focused, and onsite physical therapy by licensed PTs.", image: `${STORAGE_BASE}/RecoveryandRehab`, features: ["Spooner PT on-site (weekly)", "Soft tissue work", "Saunas & red-light therapy", "Hot & cold therapies"], stat: "Full Recovery" },
 ];
 
 const FacilitySection = () => {
