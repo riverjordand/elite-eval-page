@@ -15,9 +15,7 @@ const photos = [
   `${STORAGE_BASE}/DSC07657.png`,
   `${STORAGE_BASE}/DSC07711.png`,
   `${STORAGE_BASE}/DSC07747.png`,
-  `${STORAGE_BASE}/DSC07747-2.png`,
   `${STORAGE_BASE}/DSC07814.png`,
-  `${STORAGE_BASE}/DSC07814-2.png`,
 ];
 
 const shuffleArray = <T,>(array: T[]): T[] => {
