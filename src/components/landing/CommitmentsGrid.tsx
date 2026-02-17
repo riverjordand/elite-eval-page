@@ -20,24 +20,27 @@ const row2 = [
 
 const allRows = [row1, row2];
 
-const LogoItem = ({ school, visible, delay }: { school: { name: string; logo: string }; visible: boolean; delay: number }) => (
-  <div
-    className="flex flex-col items-center gap-3 group transition-all duration-500"
-    style={{ opacity: visible ? 1 : 0, transitionDelay: `${delay}ms` }}
-  >
-    <div className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-      <img
-        src={school.logo}
-        alt={school.name}
-        className="w-full h-full object-contain brightness-125 group-hover:scale-105 transition-all duration-300"
-        loading="lazy"
-      />
-    </div>
+const LogoItem = ({ school, visible, delay, size }: { school: { name: string; logo: string }; visible: boolean; delay: number; size?: string }) => {
+  const sizeClass = size || "w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20";
+  return (
+    <div
+      className="flex flex-col items-center gap-3 group transition-all duration-500"
+      style={{ opacity: visible ? 1 : 0, transitionDelay: `${delay}ms` }}
+    >
+      <div className={`${sizeClass} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+        <img
+          src={school.logo}
+          alt={school.name}
+          className="w-full h-full object-contain brightness-125 group-hover:scale-105 transition-all duration-300"
+          loading="lazy"
+        />
+      </div>
     <span className="font-oswald text-[8px] md:text-[9px] text-foreground/40 uppercase tracking-wider text-center leading-tight group-hover:text-foreground/70 transition-colors max-w-[80px]">
       {school.name}
     </span>
   </div>
-);
+  );
+};
 
 const CommitmentsGrid = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -83,7 +86,8 @@ const CommitmentsGrid = () => {
               {row.map((school) => {
                 const delay = 60 + globalIndex * 30;
                 globalIndex++;
-                return <LogoItem key={school.name} school={school} visible={visible} delay={delay} />;
+                const bigSize = school.name === "New Mexico St. University" ? "w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28" : undefined;
+                return <LogoItem key={school.name} school={school} visible={visible} delay={delay} size={bigSize} />;
               })}
             </div>
           ))}
