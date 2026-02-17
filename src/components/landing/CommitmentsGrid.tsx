@@ -1,27 +1,24 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 
-// Alternating rows: 4 - 3 - 4
+// Alternating rows: 6 - 5
 const row1 = [
   { name: "Ole Miss", logo: "/colleges/ole-miss.png" },
   { name: "Coastal Carolina", logo: "/colleges/coastal-carolina.png" },
   { name: "Texas Tech University", logo: "/colleges/texas-tech.png" },
   { name: "University of Mary", logo: "/colleges/university-of-mary.png" },
+  { name: "Utah Valley University", logo: "/colleges/utah-valley.png?v=3" },
+  { name: "New Mexico St. University", logo: "/colleges/new-mexico-state.png?v=2" },
 ];
 
 const row2 = [
-  { name: "Utah Valley University", logo: "/colleges/utah-valley.png?v=3" },
-  { name: "New Mexico St. University", logo: "/colleges/new-mexico-state.png?v=2" },
   { name: "Youngstown St. University", logo: "/colleges/youngstown-state.png?v=2" },
-];
-
-const row3 = [
   { name: "Southwestern College", logo: "/colleges/southwestern-college.png?v=2" },
   { name: "Scottsdale CC", logo: "/colleges/scottsdale-cc.png?v=2" },
   { name: "Glendale CC", logo: "/colleges/glendale-cc.png?v=2" },
   { name: "Justice University", logo: "/colleges/justice-university.png?v=2" },
 ];
 
-const allRows = [row1, row2, row3];
+const allRows = [row1, row2];
 
 const LogoItem = ({ school, visible, delay }: { school: { name: string; logo: string }; visible: boolean; delay: number }) => (
   <div
