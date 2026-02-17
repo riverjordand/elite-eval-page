@@ -64,7 +64,7 @@ const CommitmentsGrid = () => {
                 <img
                   src={school.logo}
                   alt={school.name}
-                  className="max-w-full max-h-full object-contain brightness-125 mix-blend-screen group-hover:scale-105 transition-all duration-300"
+                  className="max-w-full max-h-full object-contain brightness-125 group-hover:scale-105 transition-all duration-300"
                   loading="lazy"
                 />
               </div>
