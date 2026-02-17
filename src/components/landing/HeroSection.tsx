@@ -55,15 +55,10 @@ const HeroSection = () => {
           Arizona's Premier Baseball Development Academy for Middle and High School Athletes
         </p>
 
-        <div className={`flex flex-col sm:flex-row gap-3 transition-all duration-700 delay-[800ms] ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+        <div className={`flex justify-center transition-all duration-700 delay-[800ms] ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
           <Link to="/appointments">
             <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-[0.2em] text-sm md:text-base px-10 py-5 h-auto transition-all duration-300">
               Apply Now <ArrowRight className="ml-2 w-4 h-4" />
-            </Button>
-          </Link>
-          <Link to="/experience">
-            <Button size="lg" variant="ghost" className="font-bebas uppercase tracking-[0.2em] text-sm md:text-base px-10 py-5 h-auto text-foreground/60 hover:text-foreground hover:bg-foreground/5 transition-all duration-300">
-              Explore the Academy
             </Button>
           </Link>
         </div>
