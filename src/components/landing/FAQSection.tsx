@@ -5,7 +5,7 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const faqs = [
   { q: "Who do we play?", a: "Spring: LPA competes in the National Academies Association (NAA). Fall: LPA plays a heavy college and high school circuit. Summer: The team stays active with training, development, and club/high-school tournaments." },
-  { q: "When does the school year start and end?", a: "The first day of school is August 5th and the official last day of school is May 2nd. For detailed dates and breaks, refer to the Premier Prep academic calendar — our online school partner." },
+  { q: "When does the school year start and end?", a: "The academic year runs from August to May. Players remain active throughout the entire year training and competing. Please contact us for detailed dates and breaks." },
   { q: "What does the summer schedule look like?", a: "Summer at LPA focuses on continued training and development. The program includes various tournaments — usually club or high-school-level events — spaced throughout the summer to maintain competitive play and skill building." },
   { q: "What does the curriculum look like with Premier Prep?", a: "LPA partners with Premier Prep, an online charter high school that specializes in working with student-athletes. The curriculum is flexible, rigorous, and designed with the student-athlete in mind." },
   { q: "What does a typical day at LPA look like?", a: "LPA's schedule is designed to mirror a college athletics experience. Report times typically start around 7:00 AM, with a combination of academic work and athletic training sessions throughout the day." },
