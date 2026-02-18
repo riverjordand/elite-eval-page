@@ -54,7 +54,7 @@ const FooterSection = () => {
             <div>
               <h4 className="font-bebas text-fluid-xs text-foreground/30 uppercase tracking-[0.3em] mb-4">Links</h4>
               <ul className="space-y-2.5">
-                {[{ to: "/appointments", label: "Book a Tour" }, { to: "/apply", label: "Apply" }, { to: "/schedule", label: "Schedule" }, { to: "/staff", label: "Staff" }, { to: "/contact", label: "Contact" }, { to: "/terms-of-service", label: "Terms of Service" }, { to: "/privacy-policy", label: "Privacy Policy" }].map(link => (
+                {[{ to: "/appointments", label: "Book a Tour" }, { to: "/apply", label: "Apply" }, { to: "/schedule", label: "Schedule" }, { to: "/staff", label: "Staff" }, { to: "/contact", label: "Contact" }, { to: "/terms-of-service", label: "Terms of Service" }, { to: "/privacy-policy", label: "Privacy Policy" }, { to: "/liability-waiver", label: "Liability Waiver" }].map(link => (
                   <li key={link.to}><Link to={link.to} className="font-oswald text-fluid-xs text-foreground/25 hover:text-primary transition-colors">{link.label}</Link></li>
                 ))}
               </ul>
