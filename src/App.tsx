@@ -15,6 +15,7 @@ import Auth from "./pages/Auth";
 import Experience from "./pages/Experience";
 import PitchDeck from "./pages/PitchDeck";
 import NotFound from "./pages/NotFound";
+import TermsOfService from "./pages/TermsOfService";
 import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
@@ -38,6 +39,7 @@ const App = () => (
           <Route path="/auth" element={<Auth />} />
           <Route path="/experience" element={<Experience />} />
           <Route path="/the-blueprint" element={<PitchDeck />} />
+          <Route path="/terms-of-service" element={<TermsOfService />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

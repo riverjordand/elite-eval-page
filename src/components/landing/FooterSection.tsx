@@ -72,7 +72,7 @@ const FooterSection = () => {
             <p className="font-oswald text-fluid-xs text-foreground/15 uppercase tracking-wider">© 2024 Legendary Prep Academy</p>
             <div className="flex gap-6">
               <a href="#" className="font-oswald text-fluid-xs text-foreground/15 hover:text-primary uppercase tracking-wider transition-colors">Privacy</a>
-              <a href="#" className="font-oswald text-fluid-xs text-foreground/15 hover:text-primary uppercase tracking-wider transition-colors">Terms</a>
+              <Link to="/terms-of-service" className="font-oswald text-fluid-xs text-foreground/15 hover:text-primary uppercase tracking-wider transition-colors">Terms</Link>
             </div>
           </div>
         </div>
