@@ -5,6 +5,7 @@ import { Menu, X } from "lucide-react";
 import logoBadge from "@/assets/lpa-badge-seafoam.png";
 
 const navLinks = [
+{ to: "/", label: "Home" },
 { to: "/experience", label: "The LPA Experience" },
 { to: "/staff", label: "Meet The Staff" },
 { to: "/schedule", label: "Schedule" },
