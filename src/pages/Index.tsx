@@ -8,7 +8,7 @@ import FacilitySection from "@/components/landing/FacilitySection";
 import ExperienceSection from "@/components/landing/ExperienceSection";
 import MediaSection from "@/components/landing/MediaSection";
 import TestimonialsSection from "@/components/landing/TestimonialsSection";
-import ResultsSection from "@/components/landing/ResultsSection";
+
 import FAQSection from "@/components/landing/FAQSection";
 import FooterSection from "@/components/landing/FooterSection";
 
@@ -25,7 +25,6 @@ const Index = () => {
       <ExperienceSection />
       <MediaSection />
       <TestimonialsSection />
-      <ResultsSection />
       <FAQSection />
       <FooterSection />
     </main>
