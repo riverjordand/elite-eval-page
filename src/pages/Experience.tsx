@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import Navigation from "@/components/Navigation";
 import FooterSection from "@/components/landing/FooterSection";
-import lockerRoomImg from "@/assets/experience-locker-room.jpg";
-import equipmentImg from "@/assets/experience-equipment.jpg";
+const lockerRoomImg = "https://xhqqxukgsaxabyvbfinn.supabase.co/storage/v1/object/public/video/Pro-GradeLockerRoom";
+const equipmentImg = "https://xhqqxukgsaxabyvbfinn.supabase.co/storage/v1/object/public/video/Pro-GradeEquipment";
 import attireImg from "@/assets/experience-attire.jpg";
 
 const developmentPillars = [
