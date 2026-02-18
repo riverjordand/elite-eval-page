@@ -5,8 +5,15 @@ import facilityImg from "@/assets/facility-interior.jpg";
 import strengthImg from "@/assets/facility-strength-conditioning.jpg";
 import sportsMedImg from "@/assets/facility-sports-medicine.jpg";
 
+// ── Watermark logo shown on all non-title slides ──
+const SlideWatermark = () => (
+  <div className="absolute bottom-4 right-4 z-20 pointer-events-none opacity-10">
+    <img src={lpaBadge} alt="LPA" className="w-[clamp(2.5rem,5vw,5rem)] h-auto" />
+  </div>
+);
+
 // ── Slide wrapper: fills viewport, vertically centers, scrollable on overflow ──
-const S = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => {
+const S = ({ children, className = "", watermark = true }: { children: React.ReactNode; className?: string; watermark?: boolean }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const [shouldCenter, setShouldCenter] = useState(true);
@@ -31,6 +38,7 @@ const S = ({ children, className = "" }: { children: React.ReactNode; className?
       <div ref={contentRef} className="flex-shrink-0">
         {children}
       </div>
+      {watermark && <SlideWatermark />}
     </div>
   );
 };
@@ -44,7 +52,7 @@ const Inner = ({ children, className = "" }: { children: React.ReactNode; classN
 
 // ── SLIDE 1: Title ──
 const Slide1 = () => (
-  <S className="relative">
+  <S className="relative" watermark={false}>
     <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover opacity-30">
       <source src="/hero-training.mp4" type="video/mp4" />
     </video>
@@ -870,7 +878,9 @@ const PitchDeck = () => {
 
       {/* Bottom controls */}
       <div className="relative z-50 flex items-center justify-between bg-black/80 border-t border-border/20 px-fluid-container-px py-2">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-3">
+          <img src={lpaBadge} alt="LPA" className="h-6 w-auto opacity-60" />
+          <div className="w-px h-4 bg-border/40" />
           <button onClick={prev} disabled={current === 0} className="text-foreground/50 hover:text-foreground disabled:opacity-20 transition-colors">
             <ChevronLeft className="w-5 h-5" />
           </button>
