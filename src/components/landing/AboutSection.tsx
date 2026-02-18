@@ -48,7 +48,6 @@ const advantages: Advantage[] = [
     features: [
       "NCAA-approved standards",
       "Fully accredited by Cognia",
-      "Weekly grade checks",
       "College prep focused",
       "Flexible scheduling",
     ],
