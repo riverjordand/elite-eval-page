@@ -10,8 +10,8 @@ const attireImg = "https://xhqqxukgsaxabyvbfinn.supabase.co/storage/v1/object/pu
 
 const highlights = [
   { icon: Shield, title: "Pro-Grade Equipment", description: "Game bats, batting gloves, position-specific gloves, helmets, and more.", image: equipmentImg },
-  { icon: Crown, title: "Pro-Grade Locker Room", description: "12 players committed in 18 months with MLB scouts and D1 connections on staff.", image: lockerRoomImg },
   { icon: Shirt, title: "Pro-Grade Uniforms", description: "Game uniforms, practice gear, travel gear, and team apparel that builds identity.", image: attireImg },
+  { icon: Crown, title: "Pro-Grade Locker Room", description: "12 players committed in 18 months with MLB scouts and D1 connections on staff.", image: lockerRoomImg },
 ];
 
 const ExperienceSection = () => {
