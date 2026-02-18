@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const faqs = [
-  { q: "Who do we play?", a: "Spring: LPA competes in Division II of the Canyon Athletic Association (CAA). Fall: LPA plays a heavy JUCO circuit and participates in various college scrimmages. Summer: The team stays active with training, development, and club/high-school tournaments." },
+  { q: "Who do we play?", a: "Spring: LPA competes in the National Academies Association (NAA). Fall: LPA plays a heavy college and high school circuit. Summer: The team stays active with training, development, and club/high-school tournaments." },
   { q: "When does the school year start and end?", a: "The first day of school is August 5th and the official last day of school is May 2nd. For detailed dates and breaks, refer to the Premier Prep academic calendar — our online school partner." },
   { q: "What does the summer schedule look like?", a: "Summer at LPA focuses on continued training and development. The program includes various tournaments — usually club or high-school-level events — spaced throughout the summer to maintain competitive play and skill building." },
   { q: "What does the curriculum look like with Premier Prep?", a: "LPA partners with Premier Prep, an online charter high school that specializes in working with student-athletes. The curriculum is flexible, rigorous, and designed with the student-athlete in mind." },
