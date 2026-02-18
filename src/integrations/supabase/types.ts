@@ -248,6 +248,69 @@ export type Database = {
         }
         Relationships: []
       }
+      liability_waivers: {
+        Row: {
+          athlete_email: string
+          athlete_first_name: string
+          athlete_last_name: string
+          athlete_phone: string
+          coach_instructor_name: string | null
+          consent_marketing: boolean
+          created_at: string
+          date_of_birth: string
+          id: string
+          other_usage_type: string | null
+          parent_guardian_email: string | null
+          parent_guardian_name: string | null
+          parent_guardian_phone: string | null
+          primary_position: string
+          signature: string
+          state: string
+          team_org_name: string | null
+          usage_type: string
+        }
+        Insert: {
+          athlete_email: string
+          athlete_first_name: string
+          athlete_last_name: string
+          athlete_phone: string
+          coach_instructor_name?: string | null
+          consent_marketing?: boolean
+          created_at?: string
+          date_of_birth: string
+          id?: string
+          other_usage_type?: string | null
+          parent_guardian_email?: string | null
+          parent_guardian_name?: string | null
+          parent_guardian_phone?: string | null
+          primary_position: string
+          signature: string
+          state: string
+          team_org_name?: string | null
+          usage_type: string
+        }
+        Update: {
+          athlete_email?: string
+          athlete_first_name?: string
+          athlete_last_name?: string
+          athlete_phone?: string
+          coach_instructor_name?: string | null
+          consent_marketing?: boolean
+          created_at?: string
+          date_of_birth?: string
+          id?: string
+          other_usage_type?: string | null
+          parent_guardian_email?: string | null
+          parent_guardian_name?: string | null
+          parent_guardian_phone?: string | null
+          primary_position?: string
+          signature?: string
+          state?: string
+          team_org_name?: string | null
+          usage_type?: string
+        }
+        Relationships: []
+      }
       tour_bookings: {
         Row: {
           address: string | null
