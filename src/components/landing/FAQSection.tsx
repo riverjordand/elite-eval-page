@@ -1,15 +1,15 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
-const faqs = [
+const faqs: { q: string; a: React.ReactNode }[] = [
   { q: "Who do we play?", a: "Spring: LPA competes in the National Academies Association (NAA). Fall: LPA plays a heavy college and high school circuit. Summer: The team stays active with training, development, and club/high-school tournaments." },
   { q: "When does the school year start and end?", a: "The academic year runs from August to May. Players remain active throughout the entire year training and competing. Please contact us for detailed dates and breaks." },
   { q: "What does the summer schedule look like?", a: "Summer at LPA focuses on continued training and development. The program includes various tournaments — usually club or high-school-level events — spaced throughout the summer to maintain competitive play and skill building." },
   { q: "What does the curriculum look like with Premier Prep?", a: "LPA partners with Premier Prep, an online charter high school that specializes in working with student-athletes. The curriculum is flexible, rigorous, and designed with the student-athlete in mind." },
   { q: "What does a typical day at LPA look like?", a: "Report times typically start around 8:00 AM. Athletes spend 2 hours in the classroom focused on academics and the rest of the day allocated to baseball skills training, strength, and speed work." },
-  { q: "How can I learn more or apply?", a: "Book a tour to see the facilities and meet the staff in person. Our team can walk you through the application process and answer any remaining questions." },
+  { q: "How can I learn more or apply?", a: <><Link to="/appointments" className="text-primary hover:text-primary/80 transition-colors">Book a tour</Link> to see the facilities and meet the staff in person. Our team can walk you through the application process and answer any remaining questions.</> },
 ];
 
 const FAQSection = () => {
