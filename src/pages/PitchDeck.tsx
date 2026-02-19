@@ -197,8 +197,8 @@ const Slide6 = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-fluid-xs">
             {staff.map((s) => (
               <div key={s.name} className="bg-card/40 border border-border/30 p-fluid-xs">
-                <h3 className="font-bebas text-foreground uppercase leading-tight text-fluid-lg">{s.name}</h3>
-                <p className="font-oswald text-primary uppercase tracking-wider text-fluid-xs mb-2">{s.title}</p>
+                <p className="font-oswald text-primary uppercase tracking-wider text-fluid-xs mb-1">{s.title}</p>
+                <h3 className="font-bebas text-foreground uppercase leading-tight text-fluid-lg mb-2">{s.name}</h3>
                 <ul className="flex flex-col gap-1">
                   {s.creds.map((c, i) => (
                     <li key={i} className="flex items-start gap-2">
