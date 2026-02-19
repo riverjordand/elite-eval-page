@@ -18,8 +18,8 @@ const FooterSection = () => {
               <p className="font-oswald text-fluid-sm text-primary-foreground/60">Take the first step toward elite development.</p>
             </div>
             <div className="flex flex-col sm:flex-row gap-3">
-              <Link to="/appointments">
-                <Button className="bg-black text-white hover:bg-black/80 font-bebas uppercase tracking-[0.2em] text-fluid-sm px-fluid-md py-5 h-auto transition-all duration-300">
+              <Link to="/apply">
+                <Button className="bg-white text-black hover:bg-white/90 font-bebas uppercase tracking-[0.2em] text-fluid-sm px-fluid-md py-5 h-auto transition-all duration-300">
                   Apply Now <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </Link>

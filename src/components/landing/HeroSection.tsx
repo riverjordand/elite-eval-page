@@ -58,8 +58,8 @@ const HeroSection = () => {
         </p>
 
         <div className={`flex justify-center transition-all duration-700 delay-[800ms] ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-          <Link to="/appointments">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-[0.2em] text-sm md:text-base px-10 py-5 h-auto transition-all duration-300">
+          <Link to="/apply">
+            <Button size="lg" className="bg-white text-black hover:bg-white/90 font-bebas uppercase tracking-[0.2em] text-sm md:text-base px-10 py-5 h-auto transition-all duration-300">
               Apply Now <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
           </Link>
