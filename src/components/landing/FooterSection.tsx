@@ -46,8 +46,12 @@ const FooterSection = () => {
                 Arizona's premier baseball development academy. Transforming serious athletes into college-ready players.
               </p>
               <div className="flex gap-4">
-                {[Instagram, Facebook, Youtube].map((Icon, i) => (
-                  <a key={i} href="#" className="text-foreground/20 hover:text-primary transition-colors"><Icon className="w-4 h-4" /></a>
+                {[
+                  { Icon: Instagram, href: "https://www.instagram.com/legendaryprepacademy/" },
+                  { Icon: Facebook, href: "#" },
+                  { Icon: Youtube, href: "#" },
+                ].map(({ Icon, href }, i) => (
+                  <a key={i} href={href} target="_blank" rel="noopener noreferrer" className="text-foreground/20 hover:text-primary transition-colors"><Icon className="w-4 h-4" /></a>
                 ))}
               </div>
             </div>
