@@ -290,45 +290,43 @@ const Slide7 = () => (
   </S>
 );
 
-// ── SLIDE 8: Phase 1 Goals Remaining ──
-const Slide8 = () => (
-  <S>
-    <div className="absolute inset-0 bg-gradient-to-b from-background via-card/30 to-background" />
-    <div className="relative z-10">
-      <Inner>
-        <h2 className="font-bebas uppercase leading-[0.88] text-fluid-4xl mb-fluid-md">
-          <span className="text-primary">Phase 1</span> <span className="text-foreground/40">|</span> Goals Remaining
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-fluid-md">
-          <div>
-            <Users className="text-foreground/60 w-[clamp(2rem,5vw,3.5rem)] h-[clamp(2rem,5vw,3.5rem)] mb-fluid-xs" />
-            <h3 className="font-bebas uppercase text-foreground text-fluid-xl mb-2">Student Athletes</h3>
-            <p className="font-oswald text-foreground/50 leading-relaxed text-fluid-xs">
-              Currently at 65 players with plans to reach 100+ players by Q1 2027. Secure athletic scholarship fund for financially eligible student.
-            </p>
+// ── SLIDE 8: Signed and Committed ──
+const Slide8 = () => {
+  const schools = [
+    { name: "Ole Miss", logo: "/colleges/ole-miss.png" },
+    { name: "Coastal Carolina", logo: "/colleges/coastal-carolina.png" },
+    { name: "Texas Tech University", logo: "/colleges/texas-tech.png" },
+    { name: "University of Mary", logo: "/colleges/university-of-mary.png?v=2" },
+    { name: "Utah Valley University", logo: "/colleges/utah-valley.png?v=3" },
+    { name: "New Mexico St. University", logo: "/colleges/new-mexico-state.png?v=2" },
+    { name: "Youngstown St. University", logo: "/colleges/youngstown-state.png?v=2" },
+    { name: "Southwestern College", logo: "/colleges/southwestern-college.png?v=2" },
+    { name: "Scottsdale CC", logo: "/colleges/scottsdale-cc.png?v=2" },
+    { name: "Glendale CC", logo: "/colleges/glendale-cc.png?v=2" },
+    { name: "Justice University", logo: "/colleges/justice-university.png?v=2" },
+  ];
+  return (
+    <S>
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-card/20 to-background" />
+      <div className="relative z-10">
+        <Inner className="text-center">
+          <h2 className="font-bebas uppercase text-foreground text-fluid-4xl mb-2">Signed & <span className="text-primary">Committed</span></h2>
+          <p className="font-oswald text-foreground/50 uppercase tracking-wider text-fluid-sm mb-fluid-md">11 players at the next level in 1.5 years</p>
+          <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-fluid-sm place-items-center">
+            {schools.map((s) => (
+              <div key={s.name} className="flex flex-col items-center gap-2">
+                <div className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 flex items-center justify-center">
+                  <img src={s.logo} alt={s.name} className="w-full h-full object-contain brightness-125" loading="lazy" />
+                </div>
+                <span className="font-oswald text-[8px] md:text-[10px] text-foreground/40 uppercase tracking-wider text-center leading-tight max-w-[80px]">{s.name}</span>
+              </div>
+            ))}
           </div>
-          <div>
-            <Home className="text-foreground/60 w-[clamp(2rem,5vw,3.5rem)] h-[clamp(2rem,5vw,3.5rem)] mb-fluid-xs" />
-            <h3 className="font-bebas uppercase text-foreground text-fluid-xl mb-2">Housing (Phase 1)</h3>
-            <p className="font-oswald text-foreground/50 leading-relaxed text-fluid-xs">
-              Rent a 4 to 5 bedroom house to host 8-10 high level out of state players with a on-site live-in coach.
-            </p>
-          </div>
-          <div>
-            <Trophy className="text-foreground/60 w-[clamp(2rem,5vw,3.5rem)] h-[clamp(2rem,5vw,3.5rem)] mb-fluid-xs" />
-            <h3 className="font-bebas uppercase text-foreground text-fluid-xl mb-2">Recognition</h3>
-            <p className="font-oswald text-foreground/50 leading-relaxed text-fluid-xs mb-2">Players signed and committed:</p>
-            <ul className="font-oswald text-foreground/50 text-fluid-xs flex flex-col gap-0.5">
-              {["Coastal Carolina", "Ole Miss", "Texas Tech", "Utah Valley", "New Mexico State", "Youngstown State"].map((s) => (
-                <li key={s}>{s}</li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </Inner>
-    </div>
-  </S>
-);
+        </Inner>
+      </div>
+    </S>
+  );
+};
 
 // ── SLIDE 9: Phase 2 Mini Campus ──
 const Slide9 = () => (
