@@ -108,16 +108,20 @@ const Slide2 = () => (
   </S>
 );
 
-// ── SLIDE 3: Divider ──
-const Slide3 = () => (
-  <S className="relative">
-    <div className="absolute inset-0 bg-gradient-to-b from-background via-card/30 to-background" />
-    <div className="absolute top-fluid-lg left-fluid-container-px right-fluid-container-px h-px bg-primary/60" />
-    <div className="absolute bottom-fluid-lg left-fluid-container-px right-fluid-container-px h-px bg-primary/60" />
+// ── SLIDE: YouTube Video ──
+const SlideYouTube = () => (
+  <S className="relative bg-black">
     <div className="relative z-10 flex items-center justify-center min-h-full px-fluid-container-px">
-      <h2 className="font-bebas uppercase leading-[0.88] text-center text-fluid-5xl">
-        <span className="text-primary">Phase 1</span> <span className="text-foreground/40">|</span> What We Have Built…
-      </h2>
+      <div className="relative w-full max-w-5xl bg-card/20 border border-border/30 overflow-hidden" style={{ aspectRatio: "16/9" }}>
+        <iframe
+          src="https://www.youtube.com/embed/4LEe2Oftvug?autoplay=0&rel=0"
+          title="LPA Video"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          className="w-full h-full absolute inset-0"
+          style={{ border: "none" }}
+        />
+      </div>
     </div>
   </S>
 );
@@ -787,7 +791,7 @@ const Slide21 = () => (
 );
 
 // ── SLIDES ARRAY ──
-const slides = [Slide1, Slide2, Slide5, Slide6, Slide7, Slide8, Slide9, Slide10, Slide11, Slide12, Slide13, Slide14, Slide15, Slide16, Slide17, Slide18, Slide19, Slide20, Slide21];
+const slides = [Slide1, Slide2, SlideYouTube, Slide5, Slide6, Slide7, Slide8, Slide9, Slide10, Slide11, Slide12, Slide13, Slide14, Slide15, Slide16, Slide17, Slide18, Slide19, Slide20, Slide21];
 
 // ── MAIN COMPONENT ──
 const PitchDeck = () => {
