@@ -48,7 +48,7 @@ const FooterSection = () => {
               <div className="flex gap-4">
                 {[
                   { Icon: Instagram, href: "https://www.instagram.com/legendaryprepacademy/" },
-                  { Icon: Facebook, href: "#" },
+                  { Icon: Facebook, href: "https://www.facebook.com/profile.php?id=61583024716504" },
                   { Icon: Youtube, href: "#" },
                 ].map(({ Icon, href }, i) => (
                   <a key={i} href={href} target="_blank" rel="noopener noreferrer" className="text-foreground/20 hover:text-primary transition-colors"><Icon className="w-4 h-4" /></a>
