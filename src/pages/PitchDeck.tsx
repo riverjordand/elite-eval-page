@@ -216,6 +216,44 @@ const Slide6 = () => {
   );
 };
 
+// ── SLIDE 6B: Leadership ──
+const Slide6B = () => {
+  const leaders = [
+    { name: "Will Armijo", title: "CEO & Co-Founder", creds: [] as string[] },
+    { name: "RJ Etchebarren", title: "COO", creds: [] as string[] },
+    { name: "Andy Leonard", title: "CFO", creds: [] as string[] },
+    { name: "Tyler Thorne", title: "Legal Counsel", creds: ["Attorney", "Outside General Counsel", "Stanford Alumni"] },
+  ];
+  return (
+    <S>
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-card/20 to-background" />
+      <div className="relative z-10">
+        <Inner>
+          <h2 className="font-bebas uppercase text-foreground text-fluid-3xl mb-fluid-sm">Executive <span className="text-primary">Leadership</span></h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-fluid-xs">
+            {leaders.map((s) => (
+              <div key={s.name} className="bg-card/40 border border-border/30 p-fluid-xs">
+                <p className="font-oswald text-primary uppercase tracking-wider text-fluid-xs mb-1">{s.title}</p>
+                <h3 className="font-bebas text-foreground uppercase leading-tight text-fluid-lg mb-2">{s.name}</h3>
+                {s.creds.length > 0 && (
+                  <ul className="flex flex-col gap-1">
+                    {s.creds.map((c, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <div className="bg-primary rounded-full flex-shrink-0 w-1.5 h-1.5 mt-1.5" />
+                        <span className="font-oswald text-foreground/50 leading-relaxed text-fluid-xs">{c}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            ))}
+          </div>
+        </Inner>
+      </div>
+    </S>
+  );
+};
+
 // ── SLIDE 7: Academic Excellence ──
 const Slide7 = () => (
   <S>
@@ -790,7 +828,7 @@ const Slide21 = () => (
 );
 
 // ── SLIDES ARRAY ──
-const slides = [Slide1, Slide2, SlideYouTube, Slide5, Slide6, Slide7, Slide8, Slide9, Slide10, Slide11, Slide12, Slide13, Slide14, Slide15, Slide16, Slide17, Slide18, Slide19, Slide20, Slide21];
+const slides = [Slide1, Slide2, SlideYouTube, Slide5, Slide6, Slide6B, Slide7, Slide8, Slide9, Slide10, Slide11, Slide12, Slide13, Slide14, Slide15, Slide16, Slide17, Slide18, Slide19, Slide20, Slide21];
 
 // ── MAIN COMPONENT ──
 const PitchDeck = () => {
