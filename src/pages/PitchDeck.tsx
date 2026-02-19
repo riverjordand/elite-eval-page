@@ -1,10 +1,8 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { ChevronLeft, ChevronRight, Maximize, Minimize, Users, Home, Trophy, Building2, GraduationCap, Target, Dumbbell, Star } from "lucide-react";
 import lpaBadge from "@/assets/lpa-badge-cactus.png";
-import facilityTraining from "@/assets/facility-training-area.jpg";
-import facilityStrength from "@/assets/facility-strength-conditioning.jpg";
-import facilityVideo from "@/assets/facility-video-analysis.jpg";
-import facilitySports from "@/assets/facility-sports-medicine.jpg";
+
+const STORAGE_URL = `https://xhqqxukgsaxabyvbfinn.supabase.co/storage/v1/object/public/video`;
 
 // ── Watermark logo shown on all non-title slides ──
 const SlideWatermark = () => (
@@ -151,10 +149,10 @@ const Slide5 = () => (
       <Inner>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-fluid-xs mb-fluid-sm">
           {[
-            { img: facilityTraining, label: "Training Area" },
-            { img: facilityStrength, label: "Strength Conditioning" },
-            { img: facilityVideo, label: "Video Analysis" },
-            { img: facilitySports, label: "Sports Medicine" },
+            { img: `${STORAGE_URL}/BaseBallTraining`, label: "Training Area" },
+            { img: `${STORAGE_URL}/Strengthandconditioning`, label: "Strength Conditioning" },
+            { img: `${STORAGE_URL}/Classroom`, label: "Classroom" },
+            { img: `${STORAGE_URL}/RecoveryandRehab`, label: "Recovery & Rehab" },
           ].map((f) => (
             <div key={f.label} className="relative overflow-hidden border border-foreground/20" style={{ aspectRatio: "3/4" }}>
               <img src={f.img} alt={f.label} className="w-full h-full object-cover" />
