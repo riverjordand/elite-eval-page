@@ -92,7 +92,7 @@ const Slide2 = () => (
             { num: "1", title: "Secure Funding", desc: "$1M raised to kickstart our vision and build a cost-efficient facility." },
             { num: "2", title: "Build Elite Staff", desc: "5 Pro-Level coaches\nMLB scout (Houston Astro's)\nRecruiting Director\nAdministrative staff\nExecutive staff" },
             { num: "3", title: "Establish Partnerships", desc: "Wilson, EvoShield, Louisville Slugger, DeMarini, Under Armour secured contracts." },
-            { num: "4", title: "Field First Team", desc: "65 enrolled players\n2030 class | 6 state ranked\n2029 class | 2 state ranked\n2028 class | 2 state ranked" },
+            { num: "4", title: "4 Elite Teams", desc: "65 Enrolled players as of 2/19/26\n13U - 14U - JV - Varsity\n10 State Ranked Players\n7 Nationally Ranked\n12 Signed and Committed players" },
           ].map((item) => (
             <div key={item.num} className="bg-card/60 border border-border/30 flex gap-fluid-gap p-fluid-sm">
               <span className="font-bebas text-foreground/20 flex-shrink-0 text-fluid-3xl">{item.num}</span>
