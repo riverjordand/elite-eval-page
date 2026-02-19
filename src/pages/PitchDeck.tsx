@@ -114,7 +114,7 @@ const SlideYouTube = () => (
     <div className="relative z-10 flex items-center justify-center min-h-full px-fluid-container-px">
       <div className="relative w-full max-w-5xl bg-card/20 border border-border/30 overflow-hidden" style={{ aspectRatio: "16/9" }}>
         <iframe
-          src="https://www.youtube.com/embed/4LEe2Oftvug?autoplay=0&rel=0"
+          src="https://www.youtube.com/embed/4LEe2Oftvug?autoplay=1&mute=1&rel=0"
           title="LPA Video"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
