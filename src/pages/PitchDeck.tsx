@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from "react";
-import { ChevronLeft, ChevronRight, Maximize, Minimize, Users, Home, Trophy, Building2, GraduationCap, Target, Dumbbell, Star } from "lucide-react";
+import { ChevronLeft, ChevronRight, Maximize, Minimize, Users, Home, Trophy, Building2, GraduationCap, Target, Dumbbell, Star, Shield } from "lucide-react";
 import lpaBadge from "@/assets/lpa-badge-cactus.png";
 
 const STORAGE_URL = `https://xhqqxukgsaxabyvbfinn.supabase.co/storage/v1/object/public/video`;
@@ -328,30 +328,51 @@ const Slide8 = () => {
   );
 };
 
-// ── SLIDE 9: Phase 2 Mini Campus ──
+// ── SLIDE 9: Campus Expansion ──
 const Slide9 = () => (
   <S>
     <div className="absolute inset-0 bg-gradient-to-b from-background via-card/30 to-background" />
     <div className="relative z-10">
       <Inner>
-        <h2 className="font-bebas uppercase leading-[0.88] text-fluid-3xl mb-1">
-          <span className="text-primary">Phase 2</span> <span className="text-foreground/40">|</span> Baseball/Softball Mini Campus
-        </h2>
-        <div className="bg-foreground/20 w-full h-px mb-fluid-md" />
+        <h2 className="font-bebas uppercase text-foreground text-fluid-4xl mb-fluid-md">Campus <span className="text-primary">Expansion</span></h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-fluid-md">
-          {[
-            { icon: <Building2 className="w-[clamp(2rem,5vw,3.5rem)] h-[clamp(2rem,5vw,3.5rem)]" />, title: "New Facility Expansion", desc: "Larger athletic center accommodating 150 baseball and 150 softball players. Access to professional-grade fields for practice and games. On site baseball and softball stadium with individual club house access." },
-            { icon: <Building2 className="w-[clamp(2rem,5vw,3.5rem)] h-[clamp(2rem,5vw,3.5rem)]" />, title: "Housing Expansion", desc: "Dorm style apartments for baseball and softball team. Out-of-state players create pipeline for broader reach." },
-            { icon: <Target className="w-[clamp(2rem,5vw,3.5rem)] h-[clamp(2rem,5vw,3.5rem)]" />, title: "National Recognition", desc: "Compete in national tournaments. Build ranked teams securing D1 scholarships, NIL deals, and MLB draft opportunities." },
-          ].map((item) => (
-            <div key={item.title}>
-              <div className="text-foreground/60 mb-fluid-xs">{item.icon}</div>
-              <h3 className="font-bebas uppercase text-foreground text-fluid-xl mb-2">{item.title}</h3>
-              <p className="font-oswald text-foreground/50 leading-relaxed text-fluid-xs">{item.desc}</p>
-            </div>
-          ))}
+          <div>
+            <Building2 className="text-foreground/60 w-[clamp(2rem,5vw,3.5rem)] h-[clamp(2rem,5vw,3.5rem)] mb-fluid-xs" />
+            <h3 className="font-bebas uppercase text-foreground text-fluid-xl mb-2">Player Development Center</h3>
+            <ul className="flex flex-col gap-1">
+              {["Baseball stadium & clubhouse", "Softball stadium & clubhouse", "Practice fields", "Executive & coaches offices"].map((item, i) => (
+                <li key={i} className="flex items-start gap-2">
+                  <div className="bg-primary rounded-full flex-shrink-0 w-1.5 h-1.5 mt-1.5" />
+                  <span className="font-oswald text-foreground/50 leading-relaxed text-fluid-xs">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <Home className="text-foreground/60 w-[clamp(2rem,5vw,3.5rem)] h-[clamp(2rem,5vw,3.5rem)] mb-fluid-xs" />
+            <h3 className="font-bebas uppercase text-foreground text-fluid-xl mb-2">Housing Expansion</h3>
+            <ul className="flex flex-col gap-1">
+              {["Male dorms", "Female dorms", "Cafeteria and classrooms", "Student parking"].map((item, i) => (
+                <li key={i} className="flex items-start gap-2">
+                  <div className="bg-primary rounded-full flex-shrink-0 w-1.5 h-1.5 mt-1.5" />
+                  <span className="font-oswald text-foreground/50 leading-relaxed text-fluid-xs">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <Shield className="text-foreground/60 w-[clamp(2rem,5vw,3.5rem)] h-[clamp(2rem,5vw,3.5rem)] mb-fluid-xs" />
+            <h3 className="font-bebas uppercase text-foreground text-fluid-xl mb-2">Closed Campus</h3>
+            <ul className="flex flex-col gap-1">
+              {["Gated campus with security entrance", "24/7 security and surveillance", "Resource officer on campus"].map((item, i) => (
+                <li key={i} className="flex items-start gap-2">
+                  <div className="bg-primary rounded-full flex-shrink-0 w-1.5 h-1.5 mt-1.5" />
+                  <span className="font-oswald text-foreground/50 leading-relaxed text-fluid-xs">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-        <div className="bg-primary/60 w-full h-px mt-fluid-md" />
       </Inner>
     </div>
   </S>
