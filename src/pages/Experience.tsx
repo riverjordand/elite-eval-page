@@ -1,4 +1,5 @@
 import { Trophy, Shield, Shirt, Dumbbell, Utensils, Scissors, Lock, Zap, ChevronRight, Play } from "lucide-react";
+import dailyMealsImg from "@/assets/daily-meals.jpg";
 
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -25,7 +26,7 @@ const developmentPillars = [
 ];
 
 const lifestylePerks = [
-  { icon: Utensils, title: "Daily Meals", description: "Athletes are fed daily — fueling performance with proper nutrition so they can focus on development.", image: "/action-10.jpg" },
+  { icon: Utensils, title: "Daily Meals", description: "Athletes are fed daily — fueling performance with proper nutrition so they can focus on development.", image: dailyMealsImg },
   { icon: Scissors, title: "On-Site Barber", description: "Look good, play good. Our on-site barber keeps athletes sharp and camera-ready for game day and showcases.", image: "/action-15.jpg" },
   { icon: Shirt, title: "Gear & Swag Drops", description: "Seasonal branded apparel drops — custom jerseys, practice gear, travel fits, and exclusive LPA merch.", image: attireImg },
   { icon: Lock, title: "Personal Locker Room", description: "Every athlete gets their own assigned locker — a professional home base that builds routine and accountability.", image: lockerRoomImg },
