@@ -1,5 +1,5 @@
 import { Trophy, Shield, Shirt, Dumbbell, Utensils, Scissors, Lock, Zap, ChevronRight, Play } from "lucide-react";
-import facilitySports from "@/assets/facility-sports-medicine.jpg";
+
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -30,7 +30,7 @@ const lifestylePerks = [
   { icon: Shirt, title: "Gear & Swag Drops", description: "Seasonal branded apparel drops — custom jerseys, practice gear, travel fits, and exclusive LPA merch.", image: attireImg },
   { icon: Lock, title: "Personal Locker Room", description: "Every athlete gets their own assigned locker — a professional home base that builds routine and accountability.", image: lockerRoomImg },
   { icon: Shield, title: "Pro-Grade Equipment", description: "Game bats, HitTrax, Rapsodo, weighted balls — the same tools used at the collegiate and professional level.", image: equipmentImg },
-  { icon: Zap, title: "Recovery & Arm Care", description: "Dedicated recovery protocols, arm care programming, and injury prevention built into every training day.", image: facilitySports },
+  { icon: Zap, title: "Recovery & Arm Care", description: "Dedicated recovery protocols, arm care programming, and injury prevention built into every training day.", image: "https://xhqqxukgsaxabyvbfinn.supabase.co/storage/v1/object/public/video/RecoveryandRehab" },
 ];
 
 const SectionReveal = ({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) => {
