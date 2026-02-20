@@ -185,7 +185,7 @@ const Experience = () => {
               <SectionReveal key={index} delay={index * 100}>
                 <div className="group relative bg-background/60 border border-border/20 overflow-hidden hover:border-primary/40 transition-all duration-300 h-full">
                   <div className="relative h-40 md:h-48 overflow-hidden">
-                    <img src={perk.image} alt={perk.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                    <img src={perk.image} alt={perk.title} className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ${perk.title === 'Recovery & Arm Care' ? 'object-bottom' : ''}`} loading="lazy" />
                     <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
                     <div className="absolute top-3 left-3">
                       <div className="w-8 h-8 bg-primary/90 flex items-center justify-center">
