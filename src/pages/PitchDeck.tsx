@@ -872,7 +872,7 @@ const Slide21 = () => (
 );
 
 // ── SLIDES ARRAY ──
-const slides = [Slide1, Slide2, SlideYouTube, Slide5, Slide6, Slide6B, Slide7, Slide8, Slide9, Slide10, Slide11, Slide12, Slide13, Slide14, Slide15, Slide16, Slide17, Slide18, Slide19, Slide20, Slide21];
+const slides = [Slide1, Slide2, SlideYouTube, Slide5, Slide6, Slide6B, Slide7, Slide8, Slide9, Slide12, Slide15, Slide16, Slide18, Slide19, Slide21];
 
 // ── MAIN COMPONENT ──
 const PitchDeck = () => {
