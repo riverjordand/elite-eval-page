@@ -817,13 +817,12 @@ const Slide21 = () => (
     <div className="relative z-10">
       <Inner>
         <div className="grid grid-cols-1 md:grid-cols-2 items-start gap-fluid-md">
-          <div className="relative overflow-hidden border border-foreground/20 hidden md:block" style={{ aspectRatio: "3/4" }}>
-            <img src="/action-50.jpg" alt="LPA athlete training" className="w-full h-full object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/40" />
+          <div className="relative overflow-hidden border border-foreground/20 hidden md:flex items-center justify-center bg-[#f5f0e8]" style={{ aspectRatio: "3/4" }}>
+            <img src="/outlaws-logo-official.jpg" alt="Legendary Prep Academy Outlaws official logo" className="w-full h-full object-contain" />
           </div>
           <div>
             <h2 className="font-bebas uppercase leading-[0.88] text-fluid-3xl mb-fluid-sm">
-              Investment Tiers and Competitive <span className="text-primary">Advantages</span>
+              Partnership Opportunities <span className="text-primary">with LPA</span>
             </h2>
             <div className="mb-fluid-sm">
               <span className="font-bebas text-primary italic text-fluid-4xl">$5M</span>
@@ -851,8 +850,19 @@ const Slide21 = () => (
                 <div className="flex-1 bg-foreground/30 h-px" />
                 <ChevronRight className="text-foreground/30 w-4 h-4" />
               </div>
-              <h3 className="font-bebas text-foreground uppercase text-fluid-xl mb-1">Mini Campus</h3>
-              <p className="font-oswald text-foreground/50 text-fluid-xs">Phase 2 build details (slides 12)</p>
+              <h3 className="font-bebas text-foreground uppercase text-fluid-xl mb-2">LPA Mini Campus</h3>
+              <ul className="flex flex-col gap-1">
+                {[
+                  "Securing land partners",
+                  "Baseball | Softball stadium",
+                  "Player development Center",
+                  "Academic hall & executive offices",
+                  "Male & Female dorms",
+                  "Closed campus design with 24/7 security",
+                ].map((item, i) => (
+                  <li key={i} className="font-oswald text-foreground/50 leading-relaxed text-fluid-xs">{item}</li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
