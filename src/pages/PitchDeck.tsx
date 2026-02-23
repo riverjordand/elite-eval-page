@@ -318,11 +318,11 @@ const Slide8 = () => {
         <Inner className="text-center">
           <h2 className="font-bebas uppercase text-foreground text-fluid-4xl mb-2">Signed & <span className="text-primary">Committed</span></h2>
           <p className="font-oswald text-foreground/50 uppercase tracking-wider text-fluid-sm mb-fluid-md">11 players at the next level in 1.5 years</p>
-          <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-fluid-sm place-items-center">
+          <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-fluid-sm place-items-center overflow-visible">
             {schools.map((s) => (
-              <div key={s.name} className="flex flex-col items-center gap-2">
+              <div key={s.name} className="flex flex-col items-center gap-2 overflow-visible">
                 <div className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 flex items-center justify-center relative overflow-visible">
-                  <img src={s.logo} alt={s.name} className={`object-contain brightness-125 ${(s as any).large ? 'absolute w-[250%] h-[250%]' : 'w-full h-full'}`} loading="lazy" />
+                  <img src={s.logo} alt={s.name} className={`object-contain brightness-125 ${(s as any).large ? 'absolute w-[250%] h-[250%] pointer-events-none' : 'w-full h-full'}`} loading="lazy" />
                 </div>
                 <span className="font-oswald text-[8px] md:text-[10px] text-foreground/40 uppercase tracking-wider text-center leading-tight max-w-[80px]">{s.name}</span>
               </div>
