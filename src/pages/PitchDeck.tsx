@@ -321,8 +321,8 @@ const Slide8 = () => {
           <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-fluid-sm place-items-center">
             {schools.map((s) => (
               <div key={s.name} className="flex flex-col items-center gap-2">
-                <div className={`flex items-center justify-center relative overflow-visible ${(s as any).large ? 'w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40' : 'w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24'}`}>
-                  <img src={s.logo} alt={s.name} className="w-full h-full object-contain brightness-125" loading="lazy" />
+                <div className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 flex items-center justify-center relative overflow-visible">
+                  <img src={s.logo} alt={s.name} className={`object-contain brightness-125 ${(s as any).large ? 'absolute w-[250%] h-[250%]' : 'w-full h-full'}`} loading="lazy" />
                 </div>
                 <span className="font-oswald text-[8px] md:text-[10px] text-foreground/40 uppercase tracking-wider text-center leading-tight max-w-[80px]">{s.name}</span>
               </div>
