@@ -382,7 +382,7 @@ const Slide9 = () => (
           </div>
         </div>
         <div>
-          <img src="/campus-expansion.jpg" alt="LPA Campus Expansion" className="w-full max-h-[35vh] object-cover rounded border border-border/20" />
+          <img src="/campus-expansion.jpg" alt="LPA Campus Expansion" className="w-full object-contain rounded border border-border/20" />
         </div>
       </Inner>
     </div>
