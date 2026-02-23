@@ -306,7 +306,7 @@ const Slide8 = () => {
     { name: "Utah Valley University", logo: "/colleges/utah-valley.png?v=3" },
     { name: "New Mexico St. University", logo: "/colleges/new-mexico-state.png?v=2" },
     { name: "Youngstown St. University", logo: "/colleges/youngstown-state.png?v=2" },
-    { name: "Southwestern College", logo: "/colleges/southwestern-college.png?v=2" },
+    { name: "Southwestern College", logo: "/colleges/southwestern-college.png?v=2", large: true },
     { name: "Scottsdale CC", logo: "/colleges/scottsdale-cc.png?v=2" },
     { name: "Glendale CC", logo: "/colleges/glendale-cc.png?v=2" },
     { name: "Justice University", logo: "/colleges/justice-university.png?v=2" },
@@ -321,7 +321,7 @@ const Slide8 = () => {
           <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-fluid-sm place-items-center">
             {schools.map((s) => (
               <div key={s.name} className="flex flex-col items-center gap-2">
-                <div className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 flex items-center justify-center">
+                <div className={`flex items-center justify-center ${(s as any).large ? 'w-24 h-24 md:w-32 md:h-32 lg:w-36 lg:h-36' : 'w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24'}`}>
                   <img src={s.logo} alt={s.name} className="w-full h-full object-contain brightness-125" loading="lazy" />
                 </div>
                 <span className="font-oswald text-[8px] md:text-[10px] text-foreground/40 uppercase tracking-wider text-center leading-tight max-w-[80px]">{s.name}</span>
