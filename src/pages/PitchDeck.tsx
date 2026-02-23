@@ -285,8 +285,8 @@ const Slide7 = () => (
               ))}
             </ul>
           </div>
-          <div className="flex flex-col items-center justify-center gap-fluid-xs md:w-64">
-            <div className="bg-card/40 border border-border/20 flex items-center justify-center w-[clamp(10rem,22vw,18rem)] h-[clamp(10rem,22vw,18rem)] p-4">
+          <div className="flex items-center justify-center md:w-80">
+            <div className="bg-card/40 border border-border/20 flex items-center justify-center w-[clamp(14rem,28vw,22rem)] h-[clamp(14rem,28vw,22rem)] p-6">
               <img src="/premier-prep-logo.png" alt="Premier Prep Online Academy" className="w-full h-full object-contain" />
             </div>
           </div>
