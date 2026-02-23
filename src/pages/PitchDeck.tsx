@@ -159,7 +159,7 @@ const Slide5 = () => (
             { img: `${STORAGE_URL}/BaseBallTraining`, label: "Training Area" },
             { img: `${STORAGE_URL}/Strengthandconditioning`, label: "Strength Conditioning" },
             { img: `${STORAGE_URL}/Classroom`, label: "Classroom" },
-            { img: `${STORAGE_URL}/RecoveryandRehab`, label: "Recovery & Rehab" },
+            { img: "/recovery-rehab-ai.png", label: "Recovery & Rehab" },
           ].map((f) => (
             <div key={f.label} className="relative overflow-hidden border border-foreground/20" style={{ aspectRatio: "3/4" }}>
               <img src={f.img} alt={f.label} className="w-full h-full object-cover" />
