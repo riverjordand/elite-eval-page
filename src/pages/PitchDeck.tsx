@@ -15,11 +15,7 @@ const SlideHeader = () => (
 );
 
 // ── Watermark logo shown on all non-title slides ──
-const SlideWatermark = () => (
-  <div className="absolute bottom-4 right-4 z-20 pointer-events-none opacity-10">
-    <img src={lpaBadge} alt="LPA" className="w-[clamp(2.5rem,5vw,5rem)] h-auto" />
-  </div>
-);
+const SlideWatermark = () => null;
 
 // ── Slide wrapper: fills viewport, vertically centers, scrollable on overflow ──
 const S = ({ children, className = "", watermark = true }: { children: React.ReactNode; className?: string; watermark?: boolean }) => {
