@@ -472,7 +472,7 @@ const Slide12 = () => {
       <div className="relative z-10">
         <Inner>
           <h2 className="font-bebas uppercase leading-[0.88] text-fluid-3xl mb-fluid-sm">
-            Legendary Prep Academy <span className="text-primary">Budget</span>
+            LPA Mini Campus <span className="text-primary">Construction Budget</span>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-fluid-md">
             {items.map((item) => (
