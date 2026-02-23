@@ -4,6 +4,16 @@ import lpaBadge from "@/assets/lpa-badge-cactus.png";
 
 const STORAGE_URL = `https://xhqqxukgsaxabyvbfinn.supabase.co/storage/v1/object/public/video`;
 
+// ── Persistent header bar with LPA logo (shown on all non-title slides) ──
+const SlideHeader = () => (
+  <div className="absolute top-0 left-0 right-0 z-30 pointer-events-none">
+    <div className="flex items-center justify-between px-fluid-container-px py-3">
+      <img src={lpaBadge} alt="LPA" className="w-[clamp(2rem,4vw,3.5rem)] h-auto" />
+      <span className="font-bebas text-foreground/15 uppercase tracking-[0.4em] text-fluid-xs">LPA</span>
+    </div>
+  </div>
+);
+
 // ── Watermark logo shown on all non-title slides ──
 const SlideWatermark = () => (
   <div className="absolute bottom-4 right-4 z-20 pointer-events-none opacity-10">
@@ -37,6 +47,7 @@ const S = ({ children, className = "", watermark = true }: { children: React.Rea
       <div ref={contentRef} className="flex-shrink-0">
         {children}
       </div>
+      {watermark && <SlideHeader />}
       {watermark && <SlideWatermark />}
     </div>
   );
