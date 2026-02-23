@@ -720,8 +720,8 @@ const Slide18 = () => (
             </div>
           ))}
         </div>
-        <div className="relative overflow-hidden border border-foreground/20" style={{ aspectRatio: "16/7" }}>
-          <img src="/campus-expansion-v2.jpg" alt="LPA Flagship Campus Rendering" className="w-full h-full object-cover" />
+        <div className="relative overflow-hidden border border-foreground/20">
+          <img src="/campus-expansion-v2.jpg" alt="LPA Flagship Campus Rendering" className="w-full h-auto object-contain" />
         </div>
       </Inner>
     </div>
