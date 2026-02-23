@@ -173,7 +173,7 @@ const Slide5 = () => (
             { text: "Our academy offers", hl: "over 18,000 sq. ft. of dedicated space", after: "for baseball training." },
             { text: "Advanced weight room with", hl: "$250,000 of equipment", after: "for athletic enhancement." },
             { text: "Dedicated classroom space and", hl: "academic advisor", after: "for online school work." },
-            { text: "Weekly visits from", hl: "Spooner Physical Therapy", after: "experts for injury prevention." },
+            { text: "Features", hl: "cutting-edge recovery tools", after: "like hot/cold contrast therapy, infrared saunas and light." },
           ].map((item, i) => (
             <p key={i} className="font-oswald text-foreground/60 leading-relaxed uppercase text-fluid-xs">
               {item.text} <span className="text-primary">{item.hl}</span> {item.after}
