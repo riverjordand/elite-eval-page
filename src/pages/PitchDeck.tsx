@@ -702,16 +702,12 @@ const Slide17 = () => (
 const Slide18 = () => (
   <S>
     <div className="absolute inset-0 bg-gradient-to-b from-card/30 via-background to-background" />
-    <div className="absolute inset-0">
-      <img src="/campus-expansion-v2.jpg" alt="LPA Flagship Campus Rendering - aerial view of full campus with stadiums, dorms, and player development center" className="w-full h-full object-cover" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20" />
-    </div>
-    <div className="relative z-10 flex flex-col justify-end h-full">
+    <div className="relative z-10">
       <Inner>
-        <h2 className="font-bebas uppercase leading-[0.88] text-fluid-4xl mb-fluid-xs">
+        <h2 className="font-bebas uppercase leading-[0.88] text-fluid-4xl mb-fluid-sm">
           <span className="text-primary">Phase 3</span> : Flagship Campus
         </h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-fluid-sm">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-fluid-sm mb-fluid-sm">
           {[
             { icon: <Dumbbell className="w-[clamp(1.25rem,3vw,2.5rem)] h-[clamp(1.25rem,3vw,2.5rem)]" />, title: "Player Development Center" },
             { icon: <Trophy className="w-[clamp(1.25rem,3vw,2.5rem)] h-[clamp(1.25rem,3vw,2.5rem)]" />, title: "Fields, Courts & Gymnasium" },
@@ -720,9 +716,12 @@ const Slide18 = () => (
           ].map((item) => (
             <div key={item.title} className="text-center">
               <div className="text-primary mb-1 flex justify-center">{item.icon}</div>
-              <h3 className="font-bebas uppercase text-white text-fluid-base">{item.title}</h3>
+              <h3 className="font-bebas uppercase text-foreground text-fluid-base">{item.title}</h3>
             </div>
           ))}
+        </div>
+        <div className="relative overflow-hidden border border-foreground/20" style={{ aspectRatio: "16/7" }}>
+          <img src="/campus-expansion-v2.jpg" alt="LPA Flagship Campus Rendering" className="w-full h-full object-cover" />
         </div>
       </Inner>
     </div>
