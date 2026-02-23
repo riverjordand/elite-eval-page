@@ -343,47 +343,45 @@ const Slide9 = () => (
         <h2 className="font-bebas uppercase text-foreground text-fluid-4xl mb-fluid-sm">
           <span className="text-primary">Phase 2</span> <span className="text-foreground/40">|</span> Mini Campus Expansion
         </h2>
-        <div className="flex flex-col md:flex-row gap-fluid-md items-start">
-          <div className="md:w-1/2">
-            <img src="/campus-expansion.jpg" alt="LPA Campus Expansion" className="w-full rounded border border-border/20" />
+        <div className="mb-fluid-md">
+          <img src="/campus-expansion.jpg" alt="LPA Campus Expansion" className="w-full max-h-[40vh] object-cover rounded border border-border/20" />
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-fluid-md">
+          <div>
+            <Building2 className="text-foreground/60 w-[clamp(2rem,5vw,3.5rem)] h-[clamp(2rem,5vw,3.5rem)] mb-fluid-xs" />
+            <h3 className="font-bebas uppercase text-foreground text-fluid-xl mb-2">Player Development Center</h3>
+            <ul className="flex flex-col gap-1">
+              {["Baseball stadium & clubhouse", "Softball stadium & clubhouse", "Practice fields", "Executive & coaches offices"].map((item, i) => (
+                <li key={i} className="flex items-start gap-2">
+                  <div className="bg-primary rounded-full flex-shrink-0 w-1.5 h-1.5 mt-1.5" />
+                  <span className="font-oswald text-foreground/50 leading-relaxed text-fluid-xs">{item}</span>
+                </li>
+              ))}
+            </ul>
           </div>
-          <div className="md:w-1/2 grid grid-cols-1 gap-fluid-sm">
-            <div>
-              <Building2 className="text-foreground/60 w-[clamp(1.5rem,4vw,2.5rem)] h-[clamp(1.5rem,4vw,2.5rem)] mb-1" />
-              <h3 className="font-bebas uppercase text-foreground text-fluid-lg mb-1">Player Development Center</h3>
-              <ul className="flex flex-col gap-1">
-                {["Baseball stadium & clubhouse", "Softball stadium & clubhouse", "Practice fields", "Executive & coaches offices"].map((item, i) => (
-                  <li key={i} className="flex items-start gap-2">
-                    <div className="bg-primary rounded-full flex-shrink-0 w-1.5 h-1.5 mt-1.5" />
-                    <span className="font-oswald text-foreground/50 leading-relaxed text-fluid-xs">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <Home className="text-foreground/60 w-[clamp(1.5rem,4vw,2.5rem)] h-[clamp(1.5rem,4vw,2.5rem)] mb-1" />
-              <h3 className="font-bebas uppercase text-foreground text-fluid-lg mb-1">Housing Expansion</h3>
-              <ul className="flex flex-col gap-1">
-                {["Male dorms", "Female dorms", "Cafeteria and classrooms", "Student parking"].map((item, i) => (
-                  <li key={i} className="flex items-start gap-2">
-                    <div className="bg-primary rounded-full flex-shrink-0 w-1.5 h-1.5 mt-1.5" />
-                    <span className="font-oswald text-foreground/50 leading-relaxed text-fluid-xs">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <Shield className="text-foreground/60 w-[clamp(1.5rem,4vw,2.5rem)] h-[clamp(1.5rem,4vw,2.5rem)] mb-1" />
-              <h3 className="font-bebas uppercase text-foreground text-fluid-lg mb-1">Closed Campus</h3>
-              <ul className="flex flex-col gap-1">
-                {["Gated campus with security entrance", "24/7 security and surveillance", "Resource officer on campus"].map((item, i) => (
-                  <li key={i} className="flex items-start gap-2">
-                    <div className="bg-primary rounded-full flex-shrink-0 w-1.5 h-1.5 mt-1.5" />
-                    <span className="font-oswald text-foreground/50 leading-relaxed text-fluid-xs">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div>
+            <Home className="text-foreground/60 w-[clamp(2rem,5vw,3.5rem)] h-[clamp(2rem,5vw,3.5rem)] mb-fluid-xs" />
+            <h3 className="font-bebas uppercase text-foreground text-fluid-xl mb-2">Housing Expansion</h3>
+            <ul className="flex flex-col gap-1">
+              {["Male dorms", "Female dorms", "Cafeteria and classrooms", "Student parking"].map((item, i) => (
+                <li key={i} className="flex items-start gap-2">
+                  <div className="bg-primary rounded-full flex-shrink-0 w-1.5 h-1.5 mt-1.5" />
+                  <span className="font-oswald text-foreground/50 leading-relaxed text-fluid-xs">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <Shield className="text-foreground/60 w-[clamp(2rem,5vw,3.5rem)] h-[clamp(2rem,5vw,3.5rem)] mb-fluid-xs" />
+            <h3 className="font-bebas uppercase text-foreground text-fluid-xl mb-2">Closed Campus</h3>
+            <ul className="flex flex-col gap-1">
+              {["Gated campus with security entrance", "24/7 security and surveillance", "Resource officer on campus"].map((item, i) => (
+                <li key={i} className="flex items-start gap-2">
+                  <div className="bg-primary rounded-full flex-shrink-0 w-1.5 h-1.5 mt-1.5" />
+                  <span className="font-oswald text-foreground/50 leading-relaxed text-fluid-xs">{item}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </Inner>
