@@ -877,6 +877,9 @@ const slides = [Slide1, Slide2, SlideYouTube, Slide5, Slide6, Slide6B, Slide7, S
 
 // ── MAIN COMPONENT ──
 const PitchDeck = () => {
+  const [authenticated, setAuthenticated] = useState(false);
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(false);
   const [current, setCurrent] = useState(0);
   const [displayed, setDisplayed] = useState(0);
   const [transitioning, setTransitioning] = useState(false);
@@ -943,6 +946,29 @@ const PitchDeck = () => {
     opacity: transitioning ? 0 : 1,
     transform: transitioning ? `translateX(${direction === "next" ? "30px" : "-30px"})` : "translateX(0)",
   };
+
+  if (!authenticated) {
+    return (
+      <div className="fixed inset-0 bg-black flex items-center justify-center">
+        <div className="flex flex-col items-center gap-6 p-8">
+          <img src={lpaBadge} alt="LPA" className="h-16 w-auto opacity-60" />
+          <h2 className="font-bebas text-foreground/60 text-2xl uppercase tracking-[0.3em]">Enter Password</h2>
+          <form onSubmit={(e) => { e.preventDefault(); if (password === "lpa2025") { setAuthenticated(true); setError(false); } else { setError(true); } }} className="flex flex-col items-center gap-3">
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => { setPassword(e.target.value); setError(false); }}
+              className="bg-foreground/10 border border-foreground/20 text-foreground font-oswald px-4 py-2.5 text-center tracking-widest focus:outline-none focus:border-primary transition-colors"
+              placeholder="••••••••"
+              autoFocus
+            />
+            {error && <p className="font-oswald text-red-500 text-sm">Incorrect password</p>}
+            <button type="submit" className="font-bebas uppercase tracking-[0.2em] text-primary hover:text-primary/80 transition-colors text-sm">Enter</button>
+          </form>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div
