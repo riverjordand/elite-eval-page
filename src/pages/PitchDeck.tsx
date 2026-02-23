@@ -192,7 +192,7 @@ const Slide6 = () => {
     { name: "Eric Smith", title: "Recruiting Coordinator | Assistant Coach", creds: ["Former Division 1 baseball player at the University of Rhode Island", "Drafted 2nd round by Arizona Diamondbacks", "6 years of professional baseball experience"] },
     { name: "Terrell Hudson", title: "Assistant & Pitching Coach", creds: ["Former Division 1 baseball player at the University of New Mexico", "Extensive experience in training and managing ELITE youth baseball"] },
     { name: "Joe Dunigan", title: "Hitting Coordinator | Astro's Scout", creds: ["Former Division 1 baseball player at Oklahoma", "Drafted 41st round by the Montreal Expos", "Drafted 5th round by the Seattle Mariners", "10 years of professional baseball experience", "Current Area Scout for the Houston Astros"] },
-    { name: "Isaac Parra", title: "Head Middle School Coach", creds: ["Credentials coming soon"] },
+    { name: "Isaac Parra", title: "Head Middle School Coach", creds: ["4-year Arizona college career", "National Gold Glove Winner", "Best Shortstop in the Nation for JC in 2016", "Savannah Bananas - Banana Ball from 2024-2025"] },
     { name: "Josh Garcia", title: "Head Strength & Conditioning", creds: ["Bachelor of Science in Kinesiology", "Certified S&C Specialist (CSCS)", "Performance Enhancement Specialist (PES)", "EXOS Performance Specialist (XPS)", "16 years of experience as a performance coach"] },
   ];
   return (
