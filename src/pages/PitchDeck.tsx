@@ -119,13 +119,13 @@ const SlideYouTube = () => (
   <S className="relative bg-black">
     <div className="relative z-10 flex items-center justify-center min-h-full px-fluid-container-px">
       <div className="relative w-full max-w-5xl bg-card/20 border border-border/30 overflow-hidden" style={{ aspectRatio: "16/9" }}>
-        <iframe
-          src="https://www.youtube.com/embed/4LEe2Oftvug?autoplay=1&mute=1&rel=0"
-          title="LPA Video"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          className="w-full h-full absolute inset-0"
-          style={{ border: "none" }}
+        <video
+          src="https://xhqqxukgsaxabyvbfinn.supabase.co/storage/v1/object/public/video/lpa_drone fly through.MP4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full h-full absolute inset-0 object-cover"
         />
       </div>
     </div>
