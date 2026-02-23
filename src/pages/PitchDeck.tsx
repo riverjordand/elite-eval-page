@@ -286,10 +286,9 @@ const Slide7 = () => (
             </ul>
           </div>
           <div className="flex flex-col items-center justify-center gap-fluid-xs md:w-64">
-            <div className="bg-card/40 border border-border/20 flex items-center justify-center w-[clamp(6rem,15vw,12rem)] h-[clamp(6rem,15vw,12rem)]">
-              <GraduationCap className="text-primary/40 w-[clamp(3rem,8vw,6rem)] h-[clamp(3rem,8vw,6rem)]" />
+            <div className="bg-card/40 border border-border/20 flex items-center justify-center w-[clamp(6rem,15vw,12rem)] h-[clamp(6rem,15vw,12rem)] p-4">
+              <img src="/premier-prep-logo.png" alt="Premier Prep Online Academy" className="w-full h-full object-contain" />
             </div>
-            <p className="font-oswald text-foreground/40 text-center text-fluid-xs">Athletic Director | Principal | LPA Head Coach</p>
           </div>
         </div>
       </Inner>
