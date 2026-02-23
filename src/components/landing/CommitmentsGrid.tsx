@@ -34,7 +34,7 @@ const LogoItem = ({ school, visible, delay }: { school: School; visible: boolean
       <img
         src={school.logo}
         alt={school.name}
-        className="w-full h-full object-contain brightness-125 group-hover:scale-105 transition-all duration-300"
+        className="w-full h-full object-contain brightness-150 group-hover:scale-105 transition-all duration-300"
         style={{
           ...(school.scale ? { transform: `scale(${school.scale})${school.offsetY ? ` translateY(${school.offsetY}px)` : ''}` } : {}),
           ...(!school.scale && school.offsetY ? { transform: `translateY(${school.offsetY}px)` } : {}),
