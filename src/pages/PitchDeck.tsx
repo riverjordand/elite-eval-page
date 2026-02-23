@@ -322,7 +322,7 @@ const Slide8 = () => {
             {schools.map((s) => (
               <div key={s.name} className="flex flex-col items-center gap-2">
                 <div className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 flex items-center justify-center relative">
-                  <img src={s.logo} alt={s.name} className={`object-contain brightness-125 ${(s as any).large ? 'w-[200%] h-[200%] absolute' : 'w-full h-full'}`} loading="lazy" />
+                  <img src={s.logo} alt={s.name} className={`object-contain brightness-125 ${(s as any).large ? 'w-[300%] h-[300%] absolute' : 'w-full h-full'}`} loading="lazy" />
                 </div>
                 <span className="font-oswald text-[8px] md:text-[10px] text-foreground/40 uppercase tracking-wider text-center leading-tight max-w-[80px]">{s.name}</span>
               </div>
