@@ -269,7 +269,7 @@ const Slide7 = () => (
       <Inner>
         <h2 className="font-bebas uppercase leading-[0.88] text-fluid-4xl mb-1">Academic Excellence:</h2>
         <h2 className="font-bebas uppercase leading-[0.88] text-primary text-fluid-3xl mb-fluid-md">Simplified</h2>
-        <div className="flex flex-col md:flex-row gap-fluid-md">
+        <div className="flex flex-col md:flex-row items-center gap-fluid-md">
           <div className="flex-1">
             <p className="font-bebas text-foreground uppercase text-fluid-sm mb-1">Key Benefits of Our Streamlined</p>
             <p className="font-bebas text-primary uppercase text-fluid-sm mb-fluid-sm">Academic Program</p>
