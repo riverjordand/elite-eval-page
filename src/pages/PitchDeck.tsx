@@ -8,8 +8,8 @@ const STORAGE_URL = `https://xhqqxukgsaxabyvbfinn.supabase.co/storage/v1/object/
 const SlideHeader = () => (
   <div className="absolute top-0 left-0 right-0 z-30 pointer-events-none">
     <div className="flex items-center justify-between px-fluid-container-px py-3">
-      <img src={lpaBadge} alt="LPA" className="w-[clamp(2rem,4vw,3.5rem)] h-auto opacity-40" />
-      <span className="font-bebas text-foreground/30 uppercase tracking-[0.4em] text-fluid-xs">LPA</span>
+      <img src={lpaBadge} alt="LPA" className="w-[clamp(2rem,4vw,3.5rem)] h-auto opacity-60" />
+      <span className="font-bebas text-foreground/50 uppercase tracking-[0.4em] text-fluid-xs">LPA</span>
     </div>
   </div>
 );
