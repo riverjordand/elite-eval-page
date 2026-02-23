@@ -735,7 +735,7 @@ const Slide19 = () => (
       <Inner>
         <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-fluid-md">
           <div className="relative overflow-hidden border border-foreground/20 hidden md:block" style={{ aspectRatio: "3/4" }}>
-            <img src="/outlaw-spirit.jpg" alt="The Outlaw Spirit - LPA athletes in Outlaws uniforms" className="w-full h-full object-cover" />
+            <img src="/outlaw-spirit.jpg" alt="The Outlaw Spirit - LPA athletes in Outlaws uniforms" className="w-full h-full object-contain" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
           </div>
           <div>
