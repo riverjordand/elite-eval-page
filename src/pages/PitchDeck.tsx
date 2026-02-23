@@ -574,6 +574,10 @@ const Slide15 = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-background via-card/20 to-background" />
       <div className="relative z-10">
         <Inner>
+          <h2 className="font-bebas uppercase leading-[0.88] text-fluid-3xl mb-1">
+            LPA Annual <span className="text-primary">Cash Flow Projections</span>
+          </h2>
+          <p className="font-oswald text-foreground/50 uppercase tracking-widest text-fluid-sm mb-fluid-sm">Year 1 Mini Campus</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-fluid-md">
             <div>
               <div className="bg-primary/20 border border-primary/40 px-3 py-1.5 mb-2">
@@ -607,7 +611,7 @@ const Slide15 = () => {
             </div>
           </div>
           <div className="flex justify-between border-t-2 border-primary bg-primary/10 mt-fluid-sm p-fluid-xs">
-            <span className="font-bebas text-foreground uppercase text-fluid-xl">Income Minus Expenses</span>
+            <span className="font-bebas text-foreground uppercase text-fluid-xl">Annual Net Profit</span>
             <span className="font-bebas text-primary text-fluid-xl">$2,810,000</span>
           </div>
         </Inner>
