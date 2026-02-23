@@ -629,9 +629,9 @@ const Slide16 = () => (
         <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-fluid-md">
           <div>
             <h2 className="font-bebas uppercase leading-[0.88] text-fluid-3xl mb-1">
-              Projected <span className="text-primary">Profit Margin</span> For LPA
+              Projected <span className="text-primary">Profit Margin</span>
             </h2>
-            <div className="bg-primary w-20 h-1 mb-fluid-sm" />
+            <p className="font-oswald text-foreground/50 uppercase tracking-widest text-fluid-sm mb-fluid-sm">Year 1 LPA Mini Campus</p>
             <div className="flex flex-col gap-fluid-xs">
               <p className="font-oswald text-foreground/60 leading-relaxed text-fluid-sm">
                 LPA projects a target profit margin of 30–40%, reflecting its unique offerings and demand for growth.
