@@ -337,10 +337,15 @@ const Slide8 = () => {
 // ── SLIDE 9: Campus Expansion ──
 const Slide9 = () => (
   <S>
-    <div className="absolute inset-0 bg-gradient-to-b from-background via-card/30 to-background" />
+    <div className="absolute inset-0">
+      <img src="/campus-expansion.jpg" alt="LPA Campus Expansion" className="w-full h-full object-cover opacity-30" />
+      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/60" />
+    </div>
     <div className="relative z-10">
       <Inner>
-        <h2 className="font-bebas uppercase text-foreground text-fluid-4xl mb-fluid-md">Campus <span className="text-primary">Expansion</span></h2>
+        <h2 className="font-bebas uppercase text-foreground text-fluid-4xl mb-fluid-md">
+          <span className="text-primary">Phase 2</span> <span className="text-foreground/40">|</span> Mini Campus Expansion
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-fluid-md">
           <div>
             <Building2 className="text-foreground/60 w-[clamp(2rem,5vw,3.5rem)] h-[clamp(2rem,5vw,3.5rem)] mb-fluid-xs" />
