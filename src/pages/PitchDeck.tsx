@@ -702,26 +702,28 @@ const Slide17 = () => (
 const Slide18 = () => (
   <S>
     <div className="absolute inset-0 bg-gradient-to-b from-card/30 via-background to-background" />
-    <div className="relative z-10">
+    <div className="absolute inset-0">
+      <img src="/campus-expansion-v2.jpg" alt="LPA Flagship Campus Rendering - aerial view of full campus with stadiums, dorms, and player development center" className="w-full h-full object-cover" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20" />
+    </div>
+    <div className="relative z-10 flex flex-col justify-end h-full">
       <Inner>
-        <h2 className="font-bebas uppercase leading-[0.88] text-fluid-4xl mb-fluid-sm">
+        <h2 className="font-bebas uppercase leading-[0.88] text-fluid-4xl mb-fluid-xs">
           <span className="text-primary">Phase 3</span> : Flagship Campus
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-fluid-md">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-fluid-sm">
           {[
-            { icon: <Dumbbell className="w-[clamp(1.5rem,4vw,3rem)] h-[clamp(1.5rem,4vw,3rem)]" />, title: "Player Development Center", desc: "SEC-level player development center with strength, conditioning, sports science and rehab." },
-            { icon: <Trophy className="w-[clamp(1.5rem,4vw,3rem)] h-[clamp(1.5rem,4vw,3rem)]" />, title: "Full Spectrum Fields, Courts, and Gymnasium", desc: "Baseball, Softball, Football, Basketball, Soccer, Track n Field, Tennis, Volleyball etc." },
-            { icon: <Users className="w-[clamp(1.5rem,4vw,3rem)] h-[clamp(1.5rem,4vw,3rem)]" />, title: "Programs & National Impact", desc: "Establish scholarship programs for ELITE talent, achieve national ranking, travel and compete with private ELITE schools." },
-            { icon: <Star className="w-[clamp(1.5rem,4vw,3rem)] h-[clamp(1.5rem,4vw,3rem)]" />, title: "Housing", desc: "Dormitories or apartment living for all sports." },
+            { icon: <Dumbbell className="w-[clamp(1.25rem,3vw,2.5rem)] h-[clamp(1.25rem,3vw,2.5rem)]" />, title: "Player Development Center" },
+            { icon: <Trophy className="w-[clamp(1.25rem,3vw,2.5rem)] h-[clamp(1.25rem,3vw,2.5rem)]" />, title: "Fields, Courts & Gymnasium" },
+            { icon: <Users className="w-[clamp(1.25rem,3vw,2.5rem)] h-[clamp(1.25rem,3vw,2.5rem)]" />, title: "National Impact" },
+            { icon: <Star className="w-[clamp(1.25rem,3vw,2.5rem)] h-[clamp(1.25rem,3vw,2.5rem)]" />, title: "Housing for All Sports" },
           ].map((item) => (
-            <div key={item.title}>
-              <div className="text-foreground/60 mb-fluid-xs">{item.icon}</div>
-              <h3 className="font-bebas uppercase text-foreground text-fluid-xl mb-1">{item.title}</h3>
-              <p className="font-oswald text-foreground/50 leading-relaxed text-fluid-sm">{item.desc}</p>
+            <div key={item.title} className="text-center">
+              <div className="text-primary mb-1 flex justify-center">{item.icon}</div>
+              <h3 className="font-bebas uppercase text-white text-fluid-base">{item.title}</h3>
             </div>
           ))}
         </div>
-        <div className="bg-primary w-full h-1 mt-fluid-sm" />
       </Inner>
     </div>
   </S>
