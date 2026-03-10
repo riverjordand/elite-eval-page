@@ -157,6 +157,7 @@ const executiveStaff: StaffMember[] = [
   {
     name: "RJ Etchebarren",
     title: "COO",
+    image: staffRJ,
     credentials: [
       "Former GCU baseball player, 39th-round Diamondbacks draft pick",
       "Holds MBA and BS in Sports Management",
