@@ -23,16 +23,13 @@ const HeroSection = () => {
   return (
     <section ref={sectionRef} className="relative h-screen flex flex-col overflow-hidden">
       {/* Parallax video — moves slower than scroll */}
-      <video
-        autoPlay loop muted playsInline
-        poster="/action-01.jpg"
+      {/* Hero background image */}
+      <img
+        src="/action-01.jpg"
+        alt="Legendary Prep Academy baseball training"
         className="absolute inset-0 w-full h-full object-cover will-change-transform"
         style={{ transform: `translateY(${scrollY * 0.35}px) scale(1.15)` }}
-        ref={(el) => { if (el) el.play().catch(() => {}); }}
-      >
-        <source src="https://xhqqxukgsaxabyvbfinn.supabase.co/storage/v1/object/public/video/lpa.mp4" type="video/mp4" />
-        
-      </video>
+      />
       <div className="absolute inset-0 bg-black/55" />
       <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-black/40" />
 
