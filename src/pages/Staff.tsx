@@ -14,6 +14,7 @@ import staffMartin from "@/assets/staff-martin-jacquez.jpg";
 import staffBilly from "@/assets/staff-billy-armijo.jpg";
 import staffRiver from "@/assets/staff-river-demson.jpg";
 import staffDiego from "@/assets/staff-diego-chavez.jpg";
+import staffRJ from "@/assets/staff-rj-etchebarren.jpg";
 
 interface StaffMember {
   name: string;
@@ -156,6 +157,7 @@ const executiveStaff: StaffMember[] = [
   {
     name: "RJ Etchebarren",
     title: "COO",
+    image: staffRJ,
     credentials: [
       "Former GCU baseball player, 39th-round Diamondbacks draft pick",
       "Holds MBA and BS in Sports Management",
