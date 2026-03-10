@@ -65,6 +65,7 @@ const coachingStaff: StaffMember[] = [
   {
     name: "Isaac Para",
     title: "Coach",
+    image: staffIsaac,
     credentials: [
       "4-year Arizona college career",
       "National Gold Glove Winner",
@@ -75,6 +76,7 @@ const coachingStaff: StaffMember[] = [
   {
     name: "Josh Garcia",
     title: "Director of Strength & Conditioning",
+    image: staffJosh,
     credentials: [
       "Certified Strength and Conditioning Specialist (CSCS)",
       "Performance Enhancement Specialist (PES)",
@@ -89,6 +91,7 @@ const administrationStaff: StaffMember[] = [
   {
     name: "Martin Jacquez",
     title: "Administration",
+    image: staffMartin,
     credentials: [
       "17+ year U.S. Coast Guard veteran",
       "Operational leadership in counter-drug and rescue missions",
@@ -100,6 +103,7 @@ const administrationStaff: StaffMember[] = [
   {
     name: "Billy Armijo",
     title: "Facilities & Transportation Manager",
+    image: staffBilly,
     credentials: [
       "22 years Gallup Fire Department",
       "10 years Scottsdale Fire Department",
@@ -112,6 +116,7 @@ const administrationStaff: StaffMember[] = [
   {
     name: "River Demson",
     title: "Director of Media Production",
+    image: staffRiver,
     credentials: [
       "Emmy Award-winning sports videographer",
       "12+ years of professional production experience",
@@ -122,6 +127,7 @@ const administrationStaff: StaffMember[] = [
   {
     name: "Diego Chavez",
     title: "Operations Intern",
+    image: staffDiego,
     credentials: [
       "Bio coming soon",
     ],
@@ -133,7 +139,7 @@ const executiveStaff: StaffMember[] = [
   {
     name: "Will Armijo",
     title: "CEO & Co-Founder",
-    image: coachWill,
+    image: staffWill,
     credentials: [
       "Former Division 2 baseball player",
       "Holds an MBA",
