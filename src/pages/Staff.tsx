@@ -131,7 +131,11 @@ const administrationStaff: StaffMember[] = [
     title: "Operations Intern",
     image: staffDiego,
     credentials: [
-      "Bio coming soon",
+      "Four-time State Wrestling Champion and Valedictorian",
+      "Division I athlete at ASU",
+      "ASU Barrett Honors College",
+      "ASU W. P. Carey School of Business (3.75 GPA)",
+      "Flinn Scholar",
     ],
   },
   { name: "Todd", title: "Administration" },
