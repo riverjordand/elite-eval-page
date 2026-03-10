@@ -4,10 +4,17 @@ import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import FooterSection from "@/components/landing/FooterSection";
 import coachMarcus from "@/assets/coach-marcus.webp";
-import coachJoe from "@/assets/coach-joe.webp";
-import coachEric from "@/assets/coach-eric.webp";
-import coachTerrell from "@/assets/coach-terrell.webp";
+import coachJoe from "@/assets/staff-joe-dunigan.jpg";
+import coachEric from "@/assets/staff-eric-smith.jpg";
+import coachTerrell from "@/assets/staff-terrell-hudson.jpg";
 import coachWill from "@/assets/coach-neil.webp";
+import staffIsaac from "@/assets/staff-isaac-para.jpg";
+import staffJosh from "@/assets/staff-josh-garcia.jpg";
+import staffMartin from "@/assets/staff-martin-jacquez.jpg";
+import staffBilly from "@/assets/staff-billy-armijo.jpg";
+import staffRiver from "@/assets/staff-river-demson.jpg";
+import staffDiego from "@/assets/staff-diego-chavez.jpg";
+import staffRJ from "@/assets/staff-rj-etchebarren.jpg";
 
 interface StaffMember {
   name: string;
