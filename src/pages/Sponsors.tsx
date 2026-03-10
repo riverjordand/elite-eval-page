@@ -7,7 +7,7 @@ const sponsors = [
     logo: "/sponsors/wilson.png",
     benefits: [
       "Custom Wilson A2000 gloves per player.",
-      "Two-way players receive 2 gloves.",
+      
       "Baseballs for game play, practice, and in hitting cages.",
     ],
   },
