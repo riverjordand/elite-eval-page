@@ -317,7 +317,7 @@ const Staff = () => {
             <div className="flex flex-col lg:flex-row bg-card border border-white/5 overflow-hidden">
               {selectedMember.image ? (
                 <div className="relative w-full lg:w-2/5 aspect-[3/4] lg:aspect-auto lg:min-h-[500px] flex-shrink-0">
-                  <img src={selectedMember.image} alt={selectedMember.name} className="absolute inset-0 w-full h-full object-cover" />
+                  <img src={selectedMember.image} alt={selectedMember.name} className={`absolute inset-0 w-full h-full object-cover ${selectedMember.imagePositionClass ?? "object-center"}`} />
                   <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-card via-card/50 to-transparent" />
                 </div>
               ) : (
