@@ -19,6 +19,7 @@ interface StaffMember {
   name: string;
   title: string;
   image?: string;
+  imagePositionClass?: string;
   credentials?: string[];
 }
 
@@ -57,6 +58,7 @@ const coachingStaff: StaffMember[] = [
     name: "Terrell Hudson",
     title: "Assistant Coach",
     image: coachTerrell,
+    imagePositionClass: "object-[center_62%]",
     credentials: [
       "Former Division 1 baseball player at the University of New Mexico",
       "Extensive experience in training and managing elite youth baseball",
