@@ -24,7 +24,7 @@ const LandingHero = ({
         playsInline
         className="absolute inset-0 w-full h-full object-cover scale-105"
       >
-        <source src="https://xhqqxukgsaxabyvbfinn.supabase.co/storage/v1/object/public/video/hero-training.mov" type="video/quicktime" />
+        <source src="https://xhqqxukgsaxabyvbfinn.supabase.co/storage/v1/object/public/video/LPA" type="video/mp4" />
         <source src="/hero-training.mp4" type="video/mp4" />
       </video>
       
