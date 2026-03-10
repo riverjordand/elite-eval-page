@@ -58,7 +58,7 @@ const coachingStaff: StaffMember[] = [
     name: "Terrell Hudson",
     title: "Assistant Coach",
     image: coachTerrell,
-    imagePositionClass: "object-[center_62%]",
+    imagePositionClass: "object-[center_42%]",
     credentials: [
       "Former Division 1 baseball player at the University of New Mexico",
       "Extensive experience in training and managing elite youth baseball",
