@@ -262,9 +262,13 @@ const Staff = () => {
             <div className="w-8 h-px bg-primary" />
             <span className="font-oswald text-fluid-xs text-accent uppercase tracking-[0.4em]">Administration Staff</span>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-fluid-gap-lg">
             {administrationStaff.map((member, index) => (
-              <StaffCard key={index} member={member} size="compact" />
+              member.credentials ? (
+                <StaffCard key={index} member={member} onClick={() => setSelectedMember(member)} />
+              ) : (
+                <StaffCard key={index} member={member} size="compact" />
+              )
             ))}
           </div>
         </div>
