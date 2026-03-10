@@ -49,7 +49,7 @@ const coachingStaff: StaffMember[] = [
   {
     name: "Eric Smith",
     title: "Pitching Coordinator",
-    image: coachEric,
+    image: staffIsaac,
     credentials: [
       "Former Division 1 baseball player at the University of Rhode Island",
       "6 years of professional baseball experience",
@@ -68,7 +68,7 @@ const coachingStaff: StaffMember[] = [
   {
     name: "Isaac Para",
     title: "Coach",
-    image: staffIsaac,
+    image: coachEric,
     credentials: [
       "4-year Arizona college career",
       "National Gold Glove Winner",
