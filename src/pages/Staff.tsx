@@ -57,42 +57,94 @@ const coachingStaff: StaffMember[] = [
     ],
   },
   {
-    name: "Isaac",
+    name: "Isaac Para",
     title: "Coach",
     credentials: [
-      "Bio coming soon",
+      "4-year Arizona college career",
+      "National Gold Glove Winner",
+      "Best Shortstop in the Nation for JC in 2016",
+      "Savannah Bananas — Banana Ball from 2024–2025",
     ],
   },
   {
     name: "Josh Garcia",
-    title: "Coach",
+    title: "Director of Strength & Conditioning",
     credentials: [
-      "Bio coming soon",
+      "Certified Strength and Conditioning Specialist (CSCS)",
+      "Performance Enhancement Specialist (PES)",
+      "EXOS Performance Specialist (XPS)",
+      "Precision Nutrition Level 1 Coach (Pn1)",
+      "16 years experience as a performance coach",
     ],
   },
 ];
 
 const administrationStaff: StaffMember[] = [
-  { name: "Diego", title: "Administration" },
-  { name: "Martin", title: "Administration" },
-  { name: "Billy", title: "Administration" },
+  {
+    name: "Martin Jacquez",
+    title: "Administration",
+    credentials: [
+      "17+ year U.S. Coast Guard veteran",
+      "Operational leadership in counter-drug and rescue missions",
+      "Barrett Honors College student, Arizona State University",
+      "Double major in Political Science and Public Policy",
+      "Minor in Sports Business",
+    ],
+  },
+  {
+    name: "Billy Armijo",
+    title: "Facilities & Transportation Manager",
+    credentials: [
+      "22 years Gallup Fire Department",
+      "10 years Scottsdale Fire Department",
+      "Former TRT, Hazmat, airport Team",
+      "Former paramedic & EMT",
+      "Former Police Reserve (New Mexico)",
+      "CDL certified",
+    ],
+  },
+  {
+    name: "River Demson",
+    title: "Director of Media Production",
+    credentials: [
+      "Emmy Award-winning sports videographer",
+      "12+ years of professional production experience",
+      "Former content producer for the NBA (Phoenix Suns)",
+      "Former content producer for the NHL (Arizona Coyotes)",
+    ],
+  },
+  {
+    name: "Diego Chavez",
+    title: "Operations Intern",
+    credentials: [
+      "Bio coming soon",
+    ],
+  },
   { name: "Todd", title: "Administration" },
-  { name: "River", title: "Administration" },
 ];
 
 const executiveStaff: StaffMember[] = [
   {
     name: "Will Armijo",
-    title: "CEO",
+    title: "CEO & Co-Founder",
     image: coachWill,
     credentials: [
       "Former Division 2 baseball player",
       "Holds an MBA",
-      "Corporate & Entrepreneur experience",
+      "15 years of entrepreneur experience",
       "Founder of 6 companies",
     ],
   },
-  { name: "RJ Etchebarren", title: "COO" },
+  {
+    name: "RJ Etchebarren",
+    title: "COO",
+    credentials: [
+      "Former GCU baseball player, 39th-round Diamondbacks draft pick",
+      "Holds MBA and BS in Sports Management",
+      "Directed student-athlete success initiatives at GCU",
+      "14+ years corporate and operational leadership experience",
+    ],
+  },
   { name: "Andy Leonard", title: "CFO" },
   { name: "Tyler Thorne", title: "CLO" },
 ];
