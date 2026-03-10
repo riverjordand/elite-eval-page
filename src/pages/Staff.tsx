@@ -3,7 +3,7 @@ import { ArrowLeft, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import FooterSection from "@/components/landing/FooterSection";
-import coachMarcus from "@/assets/coach-marcus.webp";
+import staffMark from "@/assets/staff-mark-karaviotis.jpg";
 import coachJoe from "@/assets/staff-joe-dunigan.jpg";
 import coachEric from "@/assets/staff-eric-smith.jpg";
 import coachTerrell from "@/assets/staff-terrell-hudson.jpg";
@@ -28,7 +28,7 @@ const coachingStaff: StaffMember[] = [
   {
     name: "Mark Karaviotis",
     title: "Head Coach",
-    image: coachMarcus,
+    image: staffMark,
     credentials: [
       "Former Division 1 baseball player at Oregon",
       "2016 Hillsboro Hops batting champion",
