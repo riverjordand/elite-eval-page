@@ -183,7 +183,6 @@ const StaffCard = ({ member, onClick, size = "large" }: { member: StaffMember; o
         {member.image ? (
           <div className="relative w-full sm:w-2/5 aspect-[3/4] sm:aspect-auto sm:min-h-[300px] lg:min-h-[340px] flex-shrink-0">
             <img src={member.image} alt={member.name} className={`absolute inset-0 w-full h-full object-cover ${member.imagePositionClass ?? "object-center"} group-hover:scale-105 transition-transform duration-700`} />
-            <div className="absolute inset-0 bg-gradient-to-t sm:bg-gradient-to-r from-card via-card/40 to-transparent" />
           </div>
         ) : (
           <div className="relative w-full sm:w-2/5 sm:min-h-[300px] lg:min-h-[340px] flex-shrink-0 bg-card/80 flex items-center justify-center">
