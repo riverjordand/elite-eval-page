@@ -4,10 +4,16 @@ import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import FooterSection from "@/components/landing/FooterSection";
 import coachMarcus from "@/assets/coach-marcus.webp";
-import coachJoe from "@/assets/coach-joe.webp";
-import coachEric from "@/assets/coach-eric.webp";
-import coachTerrell from "@/assets/coach-terrell.webp";
-import coachWill from "@/assets/coach-neil.webp";
+import coachJoe from "@/assets/staff-joe-dunigan.jpg";
+import coachEric from "@/assets/staff-eric-smith.jpg";
+import coachTerrell from "@/assets/staff-terrell-hudson.jpg";
+import staffWill from "@/assets/staff-will-armijo.jpg";
+import staffIsaac from "@/assets/staff-isaac-para.jpg";
+import staffJosh from "@/assets/staff-josh-garcia.jpg";
+import staffMartin from "@/assets/staff-martin-jacquez.jpg";
+import staffBilly from "@/assets/staff-billy-armijo.jpg";
+import staffRiver from "@/assets/staff-river-demson.jpg";
+import staffDiego from "@/assets/staff-diego-chavez.jpg";
 
 interface StaffMember {
   name: string;
@@ -59,6 +65,7 @@ const coachingStaff: StaffMember[] = [
   {
     name: "Isaac Para",
     title: "Coach",
+    image: staffIsaac,
     credentials: [
       "4-year Arizona college career",
       "National Gold Glove Winner",
@@ -69,6 +76,7 @@ const coachingStaff: StaffMember[] = [
   {
     name: "Josh Garcia",
     title: "Director of Strength & Conditioning",
+    image: staffJosh,
     credentials: [
       "Certified Strength and Conditioning Specialist (CSCS)",
       "Performance Enhancement Specialist (PES)",
@@ -83,6 +91,7 @@ const administrationStaff: StaffMember[] = [
   {
     name: "Martin Jacquez",
     title: "Administration",
+    image: staffMartin,
     credentials: [
       "17+ year U.S. Coast Guard veteran",
       "Operational leadership in counter-drug and rescue missions",
@@ -94,6 +103,7 @@ const administrationStaff: StaffMember[] = [
   {
     name: "Billy Armijo",
     title: "Facilities & Transportation Manager",
+    image: staffBilly,
     credentials: [
       "22 years Gallup Fire Department",
       "10 years Scottsdale Fire Department",
@@ -106,6 +116,7 @@ const administrationStaff: StaffMember[] = [
   {
     name: "River Demson",
     title: "Director of Media Production",
+    image: staffRiver,
     credentials: [
       "Emmy Award-winning sports videographer",
       "12+ years of professional production experience",
@@ -116,6 +127,7 @@ const administrationStaff: StaffMember[] = [
   {
     name: "Diego Chavez",
     title: "Operations Intern",
+    image: staffDiego,
     credentials: [
       "Bio coming soon",
     ],
@@ -127,7 +139,7 @@ const executiveStaff: StaffMember[] = [
   {
     name: "Will Armijo",
     title: "CEO & Co-Founder",
-    image: coachWill,
+    image: staffWill,
     credentials: [
       "Former Division 2 baseball player",
       "Holds an MBA",
@@ -250,9 +262,13 @@ const Staff = () => {
             <div className="w-8 h-px bg-primary" />
             <span className="font-oswald text-fluid-xs text-accent uppercase tracking-[0.4em]">Administration Staff</span>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-fluid-gap-lg">
             {administrationStaff.map((member, index) => (
-              <StaffCard key={index} member={member} size="compact" />
+              member.credentials ? (
+                <StaffCard key={index} member={member} onClick={() => setSelectedMember(member)} />
+              ) : (
+                <StaffCard key={index} member={member} size="compact" />
+              )
             ))}
           </div>
         </div>
