@@ -19,6 +19,7 @@ interface StaffMember {
   name: string;
   title: string;
   image?: string;
+  imagePositionClass?: string;
   credentials?: string[];
 }
 
@@ -57,6 +58,7 @@ const coachingStaff: StaffMember[] = [
     name: "Terrell Hudson",
     title: "Assistant Coach",
     image: coachTerrell,
+    imagePositionClass: "object-[center_62%]",
     credentials: [
       "Former Division 1 baseball player at the University of New Mexico",
       "Extensive experience in training and managing elite youth baseball",
@@ -180,7 +182,7 @@ const StaffCard = ({ member, onClick, size = "large" }: { member: StaffMember; o
       <div className="flex flex-col sm:flex-row">
         {member.image ? (
           <div className="relative w-full sm:w-2/5 aspect-[3/4] sm:aspect-auto sm:min-h-[300px] lg:min-h-[340px] flex-shrink-0">
-            <img src={member.image} alt={member.name} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <img src={member.image} alt={member.name} className={`absolute inset-0 w-full h-full object-cover ${member.imagePositionClass ?? "object-center"} group-hover:scale-105 transition-transform duration-700`} />
             <div className="absolute inset-0 bg-gradient-to-t sm:bg-gradient-to-r from-card via-card/40 to-transparent" />
           </div>
         ) : (
@@ -315,7 +317,7 @@ const Staff = () => {
             <div className="flex flex-col lg:flex-row bg-card border border-white/5 overflow-hidden">
               {selectedMember.image ? (
                 <div className="relative w-full lg:w-2/5 aspect-[3/4] lg:aspect-auto lg:min-h-[500px] flex-shrink-0">
-                  <img src={selectedMember.image} alt={selectedMember.name} className="absolute inset-0 w-full h-full object-cover" />
+                  <img src={selectedMember.image} alt={selectedMember.name} className={`absolute inset-0 w-full h-full object-cover ${selectedMember.imagePositionClass ?? "object-center"}`} />
                   <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-card via-card/50 to-transparent" />
                 </div>
               ) : (
