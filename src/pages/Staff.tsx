@@ -68,7 +68,7 @@ const coachingStaff: StaffMember[] = [
   {
     name: "Isaac Para",
     title: "Coach",
-    image: staffIsaac,
+    image: coachEric,
     credentials: [
       "4-year Arizona college career",
       "National Gold Glove Winner",
