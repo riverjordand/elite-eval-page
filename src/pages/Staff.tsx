@@ -78,7 +78,7 @@ const coachingStaff: StaffMember[] = [
   {
     name: "Josh Garcia",
     title: "Director of Strength & Conditioning",
-    image: staffJosh,
+    image: staffMartin,
     credentials: [
       "Certified Strength and Conditioning Specialist (CSCS)",
       "Performance Enhancement Specialist (PES)",
@@ -93,7 +93,7 @@ const administrationStaff: StaffMember[] = [
   {
     name: "Martin Jacquez",
     title: "Administration",
-    image: staffMartin,
+    image: staffJosh,
     credentials: [
       "17+ year U.S. Coast Guard veteran",
       "Operational leadership in counter-drug and rescue missions",
