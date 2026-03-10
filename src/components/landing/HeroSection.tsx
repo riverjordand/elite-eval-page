@@ -30,6 +30,7 @@ const HeroSection = () => {
         style={{ transform: `translateY(${scrollY * 0.35}px) scale(1.15)` }}
         ref={(el) => { if (el) el.play().catch(() => {}); }}
       >
+        <source src="https://xhqqxukgsaxabyvbfinn.supabase.co/storage/v1/object/public/video/hero-training.mov" type="video/quicktime" />
         <source src="/hero-training.mp4" type="video/mp4" />
       </video>
       <div className="absolute inset-0 bg-black/55" />

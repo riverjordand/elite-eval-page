@@ -5,6 +5,7 @@ const Hero = () => {
       {/* Background Video with Overlay */}
       <div className="absolute inset-0">
         <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
+          <source src="https://xhqqxukgsaxabyvbfinn.supabase.co/storage/v1/object/public/video/hero-training.mov" type="video/quicktime" />
           <source src="/hero-training.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/60" />
