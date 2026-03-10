@@ -31,7 +31,7 @@ const HeroSection = () => {
         ref={(el) => { if (el) el.play().catch(() => {}); }}
       >
         <source src="https://xhqqxukgsaxabyvbfinn.supabase.co/storage/v1/object/public/video/lpa.mp4" type="video/mp4" />
-        <source src="/hero-training.mp4" type="video/mp4" />
+        
       </video>
       <div className="absolute inset-0 bg-black/55" />
       <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-black/40" />
