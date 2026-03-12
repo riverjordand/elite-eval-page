@@ -139,7 +139,6 @@ const administrationStaff: StaffMember[] = [
       "Flinn Scholar",
     ],
   },
-  { name: "Todd", title: "Administration" },
 ];
 
 const executiveStaff: StaffMember[] = [
