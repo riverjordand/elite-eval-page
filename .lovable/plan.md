@@ -1,18 +1,40 @@
+## Summer Camp Landing Page
 
-## Make "Apply Now" Button White with Black Text + Fix Link
+Build a new standalone landing page at `/camps` for LPA's summer camp program. Follows LPA's landing-page rules: distraction-free, no main nav, no footer links beyond legal text, conversion-focused.
 
-### Changes
+### Page structure (top to bottom)
 
-**1. Footer CTA Band** (`src/components/landing/FooterSection.tsx`)
-- Change the "Apply Now" button styling from `bg-black text-white` to `bg-white text-black hover:bg-white/90` for a clean white button with black lettering
-- Change the link from `/appointments` to `/apply` so it goes to the student-athlete application page
-- Keep the "Schedule a Tour" button pointing to `/appointments` (the tour booking page)
+1. **Minimal header** — LPA badge logo only (no nav links).
+2. **Hero + YouTube video**
+   - Bold Bebas headline ("Legendary Summer Camps" / "Built Different. Play Different.")
+   - Short subhead aimed at parents + athletes
+   - Embedded YouTube video (responsive 16:9 iframe) — placeholder video ID
+   - Primary CTA button: "Register Now" (smooth-scrolls to form section)
+3. **Section 1 — Camp Dates**
+   - Section heading + intro line
+   - Grid of camp date cards (3–4 placeholder sessions): session name, date range, age group, location, price
+4. **Section 2 — The Camp Experience**
+   - Section heading + intro
+   - Feature grid (4–6 items with icons): elite coaching, velocity/mechanics work, strength & mobility, college-readiness guidance, facility access, culture
+   - Optional photo strip placeholder
+5. **Section 3 — Registration Form**
+   - GHL iframe embed (placeholder form ID — easy to swap later)
+   - Styled to match the Apply page card treatment
+6. **Minimal footer** — copyright + Privacy / Terms links only
 
-**2. Hero Section** (`src/components/landing/HeroSection.tsx`)
-- Change the "Apply Now" button styling to `bg-white text-black hover:bg-white/90` for consistency
-- Change the link from `/appointments` to `/apply`
+### Technical details
 
-### Technical Details
-- Footer "Apply Now" button (line 21-25): Update `Link to="/apply"` and classes to `bg-white text-black hover:bg-white/90`
-- Hero "Apply Now" button (line 61-65): Update `Link to="/apply"` and classes to `bg-white text-black hover:bg-white/90`
-- All other styling (font, tracking, padding) stays the same
+- New file: `src/pages/Camps.tsx`
+- New route in `src/App.tsx`: `<Route path="/camps" element={<Camps />} />` (above catch-all)
+- Reuse existing design tokens, Bebas/Oswald typography, dark cinematic styling — match Apply.tsx visual language for the form card
+- Load GHL embed script (`https://link.msgsndr.com/js/form_embed.js`) the same way Apply.tsx does
+- YouTube embed via standard `<iframe>` with `aspect-video` Tailwind wrapper; placeholder video ID `dQw4w9WgXcQ` (swap later)
+- Placeholders clearly marked with comments for: YouTube video ID, camp date entries, GHL form URL/ID
+- Page is NOT linked from main Navigation or FooterSection (standalone landing-page rule)
+- Add SEO: page `<title>` and meta description via a small head update (or simple document.title effect)
+
+### Out of scope
+
+- Real video, real dates, real form ID (placeholders, you swap in later)
+- Backend / database changes
+- Adding the page to site navigation
