@@ -13,10 +13,11 @@ const GHL_FORM_ID = "inline-bpdA0rL08AwKaoECkka5";
 
 // PLACEHOLDER camp sessions
 const campSessions = [
-  { name: "Session I", dates: "June 9 – June 13, 2026", ages: "Ages 12–14", location: "LPA Facility, AZ", price: "$495" },
-  { name: "Session II", dates: "June 23 – June 27, 2026", ages: "Ages 14–16", location: "LPA Facility, AZ", price: "$525" },
-  { name: "Session III", dates: "July 14 – July 18, 2026", ages: "Ages 15–18", location: "LPA Facility, AZ", price: "$595" },
-  { name: "Elite Showcase", dates: "July 28 – Aug 1, 2026", ages: "HS Varsity", location: "LPA Facility, AZ", price: "$695" },
+  { id: "session-i", name: "Session I", dates: "June 9 – June 13, 2026", ages: "Ages 12–14", location: "LPA Facility, AZ", price: "$495" },
+  { id: "session-i-duplicate", name: "Session I", dates: "June 9 – June 13, 2026", ages: "Ages 12–14", location: "LPA Facility, AZ", price: "$495" },
+  { id: "session-ii", name: "Session II", dates: "June 23 – June 27, 2026", ages: "Ages 14–16", location: "LPA Facility, AZ", price: "$525" },
+  { id: "session-iii", name: "Session III", dates: "July 14 – July 18, 2026", ages: "Ages 15–18", location: "LPA Facility, AZ", price: "$595" },
+  { id: "elite-showcase", name: "Elite Showcase", dates: "July 28 – Aug 1, 2026", ages: "HS Varsity", location: "LPA Facility, AZ", price: "$695" },
 ];
 
 const experienceFeatures = [
@@ -113,7 +114,7 @@ const Camps = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
             {campSessions.map((s) => (
               <div
-                key={s.name}
+                key={s.id}
                 className="group rounded-2xl border border-border/20 bg-card/30 p-6 hover:border-primary/40 hover:bg-card/50 transition-all"
               >
                 <div className="flex items-center gap-2 mb-4 text-primary">
