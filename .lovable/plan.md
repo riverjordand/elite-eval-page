@@ -1,40 +1,31 @@
-## Summer Camp Landing Page
+## Camps page + homepage banner updates
 
-Build a new standalone landing page at `/camps` for LPA's summer camp program. Follows LPA's landing-page rules: distraction-free, no main nav, no footer links beyond legal text, conversion-focused.
+Store URL used everywhere a "Register for Camp" button appears:
+`https://app.gohighlevel.com/v2/preview/VpToE9H2KPIT69WLTP2x?notrack=true`
 
-### Page structure (top to bottom)
+### 1. `src/pages/Camps.tsx` — simplify
 
-1. **Minimal header** — LPA badge logo only (no nav links).
-2. **Hero + YouTube video**
-   - Bold Bebas headline ("Legendary Summer Camps" / "Built Different. Play Different.")
-   - Short subhead aimed at parents + athletes
-   - Embedded YouTube video (responsive 16:9 iframe) — placeholder video ID
-   - Primary CTA button: "Register Now" (smooth-scrolls to form section)
-3. **Section 1 — Camp Dates**
-   - Section heading + intro line
-   - Grid of camp date cards (3–4 placeholder sessions): session name, date range, age group, location, price
-4. **Section 2 — The Camp Experience**
-   - Section heading + intro
-   - Feature grid (4–6 items with icons): elite coaching, velocity/mechanics work, strength & mobility, college-readiness guidance, facility access, culture
-   - Optional photo strip placeholder
-5. **Section 3 — Registration Form**
-   - GHL iframe embed (placeholder form ID — easy to swap later)
-   - Styled to match the Apply page card treatment
-6. **Minimal footer** — copyright + Privacy / Terms links only
+- **Remove** the entire Section 3 registration form (GHL iframe block, browser-style wrapper, `#register` section, the `form_embed.js` script effect, `GHL_FORM_URL`/`GHL_FORM_ID` constants).
+- **Replace** the `campSessions` array with 5 entries (placeholders for dates/times/price):
+  - May Camp
+  - June Camp
+  - July 2-Day Camp — "Two Wednesdays in July"
+  - July 3-Day Camp — "Three Wednesdays in July"
+  - July 5-Day Camp — "All Five Wednesdays in July"
+  - Each card shows: name, dates (placeholder), times (placeholder), `Ages 8–14`, price (placeholder).
+- **Remove** the per-card "Register →" button. Cards become purely informational.
+- **Replace** hero "Register Now" button + section heading "Pick Your Session" CTA flow:
+  - Hero button text → **"Register for Camp"**, links (new tab) to the store URL.
+  - Add a large centered CTA block at the bottom of the Camp Dates section (above the Experience section) with heading + **"Register for Camp"** button → store URL (new tab, `rel="noopener noreferrer"`).
+- Keep all existing styling, fonts, colors, header, footer, hero video, and Experience section unchanged.
 
-### Technical details
+### 2. Homepage banner
 
-- New file: `src/pages/Camps.tsx`
-- New route in `src/App.tsx`: `<Route path="/camps" element={<Camps />} />` (above catch-all)
-- Reuse existing design tokens, Bebas/Oswald typography, dark cinematic styling — match Apply.tsx visual language for the form card
-- Load GHL embed script (`https://link.msgsndr.com/js/form_embed.js`) the same way Apply.tsx does
-- YouTube embed via standard `<iframe>` with `aspect-video` Tailwind wrapper; placeholder video ID `dQw4w9WgXcQ` (swap later)
-- Placeholders clearly marked with comments for: YouTube video ID, camp date entries, GHL form URL/ID
-- Page is NOT linked from main Navigation or FooterSection (standalone landing-page rule)
-- Add SEO: page `<title>` and meta description via a small head update (or simple document.title effect)
+- **New component** `src/components/CampBanner.tsx`: thin full-width bar, primary/copper background, white Bebas/Oswald text "Camp Registration Now Open" with a small arrow icon, entire bar is a `<Link to="/camps">`. Responsive (smaller text + padding on mobile).
+- **Mount** in `src/pages/Index.tsx` directly above the existing Hero/landing content (below the nav, above hero), so it only appears on the homepage as requested.
 
 ### Out of scope
 
-- Real video, real dates, real form ID (placeholders, you swap in later)
-- Backend / database changes
-- Adding the page to site navigation
+- No design system, color, or typography changes.
+- No edits to other pages, nav, or footer.
+- No backend / GHL form configuration changes.
