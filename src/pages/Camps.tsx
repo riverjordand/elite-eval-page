@@ -13,8 +13,8 @@ const GHL_FORM_ID = "inline-bpdA0rL08AwKaoECkka5";
 
 // PLACEHOLDER camp sessions
 const campSessions = [
-  { id: "session-i", name: "Session I", dates: "June 9 – June 13, 2026", ages: "Ages 12–14", location: "LPA Facility, AZ", price: "$495" },
-  { id: "session-i-duplicate", name: "Session I", dates: "June 9 – June 13, 2026", ages: "Ages 12–14", location: "LPA Facility, AZ", price: "$495" },
+  { id: "session-i", name: "FULL DAY SESSIONS", dates: "ANY 5 WEDNESDAYS IN JULY", ages: "Ages 8-14\n\n", location: "LPA Facility, AZ", price: "$775 (Save $150)" },
+  { id: "session-i-duplicate", name: "HALF DAY SESSIONS", dates: "ANY 5 WEDNESDAYS IN JULY", ages: "Ages 8-14\n\n", location: "LPA Facility, AZ", price: "$775 (Save $150)" },
   { id: "session-ii", name: "Session II", dates: "June 23 – June 27, 2026", ages: "Ages 14–16", location: "LPA Facility, AZ", price: "$525" },
   { id: "session-iii", name: "Session III", dates: "July 14 – July 18, 2026", ages: "Ages 15–18", location: "LPA Facility, AZ", price: "$595" },
   { id: "elite-showcase", name: "Elite Showcase", dates: "July 28 – Aug 1, 2026", ages: "HS Varsity", location: "LPA Facility, AZ", price: "$695" },
@@ -122,7 +122,7 @@ const Camps = () => {
                   <span className="font-oswald text-[10px] uppercase tracking-[0.3em]">{s.name}</span>
                 </div>
                 <h3 className="font-bebas text-2xl md:text-3xl uppercase leading-tight mb-4">{s.dates}</h3>
-                <div className="space-y-2 text-foreground/60 font-oswald text-sm">
+                <div className="space-y-2 text-foreground/60 font-oswald text-sm whitespace-pre-line">
                   <div className="flex items-center gap-2"><Users className="w-3.5 h-3.5 text-primary/70" />{s.ages}</div>
                   <div className="flex items-center gap-2"><MapPin className="w-3.5 h-3.5 text-primary/70" />{s.location}</div>
                 </div>
