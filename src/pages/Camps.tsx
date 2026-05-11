@@ -1,23 +1,22 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Calendar, MapPin, Users, Dumbbell, GraduationCap, Trophy, Activity, Flame } from "lucide-react";
+import { ArrowRight, Calendar, Clock, Users, Dumbbell, GraduationCap, Trophy, Activity, Flame } from "lucide-react";
 import logoBadge from "@/assets/lpa-badge-seafoam.png";
 
 // PLACEHOLDER — swap with real YouTube video ID
 const YOUTUBE_VIDEO_ID = "dQw4w9WgXcQ";
 
-// PLACEHOLDER — swap with real GHL form embed URL + ID
-const GHL_FORM_URL = "https://api.leadconnectorhq.com/widget/form/bpdA0rL08AwKaoECkka5";
-const GHL_FORM_ID = "inline-bpdA0rL08AwKaoECkka5";
+// GoHighLevel storefront — all "Register for Camp" CTAs link here
+const STORE_URL = "https://app.gohighlevel.com/v2/preview/VpToE9H2KPIT69WLTP2x?notrack=true";
 
-// PLACEHOLDER camp sessions
+// PLACEHOLDER camp sessions — fill in real dates / times / prices
 const campSessions = [
-  { id: "session-i", name: "FULL DAY SESSIONS", dates: "ANY 5 WEDNESDAYS IN JULY", ages: "Ages 8-14\n\n", location: "LPA Facility, AZ", price: "$775 (Save $150)" },
-  { id: "session-i-duplicate", name: "HALF DAY SESSIONS", dates: "ANY 5 WEDNESDAYS IN JULY", ages: "Ages 8-14\n\n", location: "LPA Facility, AZ", price: "$775 (Save $150)" },
-  { id: "session-ii", name: "Session II", dates: "June 23 – June 27, 2026", ages: "Ages 14–16", location: "LPA Facility, AZ", price: "$525" },
-  { id: "session-iii", name: "Session III", dates: "July 14 – July 18, 2026", ages: "Ages 15–18", location: "LPA Facility, AZ", price: "$595" },
-  { id: "elite-showcase", name: "Elite Showcase", dates: "July 28 – Aug 1, 2026", ages: "HS Varsity", location: "LPA Facility, AZ", price: "$695" },
+  { id: "may", name: "May Camp", dates: "Dates TBA", times: "Times TBA", ages: "Ages 8–14", price: "TBA" },
+  { id: "june", name: "June Camp", dates: "Dates TBA", times: "Times TBA", ages: "Ages 8–14", price: "TBA" },
+  { id: "july-2", name: "July 2-Day Camp", dates: "Two Wednesdays in July", times: "Times TBA", ages: "Ages 8–14", price: "TBA" },
+  { id: "july-3", name: "July 3-Day Camp", dates: "Three Wednesdays in July", times: "Times TBA", ages: "Ages 8–14", price: "TBA" },
+  { id: "july-5", name: "July 5-Day Camp", dates: "All Five Wednesdays in July", times: "Times TBA", ages: "Ages 8–14", price: "TBA" },
 ];
 
 const experienceFeatures = [
@@ -35,19 +34,7 @@ const Camps = () => {
     const meta = document.querySelector('meta[name="description"]');
     const content = "Register for Legendary Prep Academy's elite summer baseball camps in Arizona. Velocity work, mechanics, strength training, and college-readiness coaching.";
     if (meta) meta.setAttribute("content", content);
-
-    const script = document.createElement("script");
-    script.src = "https://link.msgsndr.com/js/form_embed.js";
-    script.async = true;
-    document.body.appendChild(script);
-    return () => {
-      if (script.parentNode) document.body.removeChild(script);
-    };
   }, []);
-
-  const scrollToForm = () => {
-    document.getElementById("register")?.scrollIntoView({ behavior: "smooth" });
-  };
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -87,11 +74,13 @@ const Camps = () => {
             </div>
 
             <Button
+              asChild
               size="lg"
-              onClick={scrollToForm}
               className="bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-[0.2em] text-sm md:text-base px-10 py-5 h-auto"
             >
-              Register Now <ArrowRight className="ml-2 w-4 h-4" />
+              <a href={STORE_URL} target="_blank" rel="noopener noreferrer">
+                Register for Camp <ArrowRight className="ml-2 w-4 h-4" />
+              </a>
             </Button>
           </div>
         </div>
@@ -115,28 +104,41 @@ const Camps = () => {
             {campSessions.map((s) => (
               <div
                 key={s.id}
-                className="group rounded-2xl border border-border/20 bg-card/30 p-6 hover:border-primary/40 hover:bg-card/50 transition-all"
+                className="rounded-2xl border border-border/20 bg-card/30 p-6 hover:border-primary/40 hover:bg-card/50 transition-all"
               >
                 <div className="flex items-center gap-2 mb-4 text-primary">
                   <Calendar className="w-4 h-4" />
                   <span className="font-oswald text-[10px] uppercase tracking-[0.3em]">{s.name}</span>
                 </div>
                 <h3 className="font-bebas text-2xl md:text-3xl uppercase leading-tight mb-4">{s.dates}</h3>
-                <div className="space-y-2 text-foreground/60 font-oswald text-sm whitespace-pre-line">
+                <div className="space-y-2 text-foreground/60 font-oswald text-sm">
+                  <div className="flex items-center gap-2"><Clock className="w-3.5 h-3.5 text-primary/70" />{s.times}</div>
                   <div className="flex items-center gap-2"><Users className="w-3.5 h-3.5 text-primary/70" />{s.ages}</div>
-                  <div className="flex items-center gap-2"><MapPin className="w-3.5 h-3.5 text-primary/70" />{s.location}</div>
                 </div>
-                <div className="mt-5 pt-5 border-t border-border/10 flex items-center justify-between">
+                <div className="mt-5 pt-5 border-t border-border/10">
                   <span className="font-bebas text-2xl text-primary">{s.price}</span>
-                  <button
-                    onClick={scrollToForm}
-                    className="font-oswald text-[11px] uppercase tracking-[0.25em] text-foreground/70 hover:text-primary transition-colors"
-                  >
-                    Register →
-                  </button>
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Main registration CTA */}
+          <div className="mt-16 md:mt-20 text-center">
+            <h3 className="font-bebas text-3xl md:text-5xl uppercase leading-[0.9] mb-4">
+              Ready to <span className="text-primary">Register?</span>
+            </h3>
+            <p className="font-oswald text-sm md:text-base text-foreground/50 max-w-xl mx-auto mb-8">
+              Secure your spot through our camp store. Registration details and payment are handled there.
+            </p>
+            <Button
+              asChild
+              size="lg"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground font-bebas uppercase tracking-[0.2em] text-base md:text-lg px-12 py-6 h-auto"
+            >
+              <a href={STORE_URL} target="_blank" rel="noopener noreferrer">
+                Register for Camp <ArrowRight className="ml-2 w-5 h-5" />
+              </a>
+            </Button>
           </div>
         </div>
       </section>
@@ -169,50 +171,6 @@ const Camps = () => {
                 <p className="font-oswald text-sm text-foreground/60 leading-relaxed">{desc}</p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Section 3 — Registration Form */}
-      <section id="register" className="py-16 md:py-24">
-        <div className="container mx-auto px-6 lg:px-16">
-          <div className="flex items-center gap-3 mb-5">
-            <div className="w-8 h-px bg-primary" />
-            <span className="font-oswald text-[10px] text-accent uppercase tracking-[0.4em]">Registration</span>
-          </div>
-          <h2 className="font-bebas text-4xl md:text-6xl lg:text-7xl uppercase leading-[0.9] mb-4">
-            Reserve Your <span className="text-primary">Spot</span>
-          </h2>
-          <p className="font-oswald text-sm md:text-base text-foreground/50 max-w-xl mb-10">
-            Complete the form below to secure your camp registration. Our team will follow up with confirmation and next steps.
-          </p>
-
-          <div className="rounded-2xl overflow-hidden border border-border/20 shadow-2xl shadow-black/40 bg-card/30">
-            <div className="bg-card/60 border-b border-border/20 px-5 py-3 flex items-center gap-2.5">
-              <div className="w-2.5 h-2.5 rounded-full bg-primary/60" />
-              <div className="w-2.5 h-2.5 rounded-full bg-foreground/10" />
-              <div className="w-2.5 h-2.5 rounded-full bg-foreground/10" />
-              <span className="font-oswald text-[10px] text-foreground/20 uppercase tracking-widest ml-2">Summer Camp Registration</span>
-            </div>
-            <div className="p-4 md:p-8 bg-background/40">
-              <iframe
-                src={GHL_FORM_URL}
-                style={{ width: "100%", height: "4075px", border: "none", borderRadius: "3px", display: "block" }}
-                id={GHL_FORM_ID}
-                data-layout='{"id":"INLINE"}'
-                data-trigger-type="alwaysShow"
-                data-trigger-value=""
-                data-activation-type="alwaysActivated"
-                data-activation-value=""
-                data-deactivation-type="neverDeactivate"
-                data-deactivation-value=""
-                data-form-name="Summer Camp Registration"
-                data-height="4075"
-                data-layout-iframe-id={GHL_FORM_ID}
-                data-form-id="camp-registration"
-                title="Summer Camp Registration"
-              />
-            </div>
           </div>
         </div>
       </section>
