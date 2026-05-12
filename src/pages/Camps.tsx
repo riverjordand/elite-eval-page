@@ -9,13 +9,10 @@ const YOUTUBE_VIDEO_ID = "NZij_Sarm8o";
 // GoHighLevel storefront — all "Register for Camp" CTAs link here
 const STORE_URL = "https://app.gohighlevel.com/v2/preview/VpToE9H2KPIT69WLTP2x?notrack=true";
 
-// PLACEHOLDER camp sessions — fill in real dates / times / prices
 const campSessions = [
-  { id: "may", name: "May Camp", dates: "Dates TBA", times: "Times TBA", ages: "Ages 8–14", price: "TBA" },
-  { id: "june", name: "June Camp", dates: "Dates TBA", times: "Times TBA", ages: "Ages 8–14", price: "TBA" },
-  { id: "july-2", name: "July 2-Day Camp", dates: "Two Wednesdays in July", times: "Times TBA", ages: "Ages 8–14", price: "TBA" },
-  { id: "july-3", name: "July 3-Day Camp", dates: "Three Wednesdays in July", times: "Times TBA", ages: "Ages 8–14", price: "TBA" },
-  { id: "july-5", name: "July 5-Day Camp", dates: "All Five Wednesdays in July", times: "Times TBA", ages: "Ages 8–14", price: "TBA" },
+  { id: "may", name: "May Camp", dates: "May 28th & 29th", times: "9am – 12pm", ages: "Ages 8–14", price: "TBA" },
+  { id: "june", name: "June Camp", dates: "June 17th & 18th", times: "9am – 12pm", ages: "Ages 8–14", price: "TBA" },
+  { id: "july", name: "July Camp", dates: "July 1st, 8th, 15th, 22nd, & 29th", times: "9am – 2pm", ages: "Ages 8–14", price: "TBA" },
 ];
 
 const experienceFeatures = [
@@ -99,7 +96,7 @@ const Camps = () => {
             Limited spots per session. Reserve early — camps fill fast.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {campSessions.map((s) => (
               <div
                 key={s.id}
