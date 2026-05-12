@@ -12,7 +12,7 @@ const STORE_URL = "https://app.gohighlevel.com/v2/preview/VpToE9H2KPIT69WLTP2x?n
 const campSessions = [
   { id: "may", name: "May Camp", dates: "May 28th & 29th", times: "9am – 12pm", ages: "Ages 8–14", price: "$299" },
   { id: "june", name: "June Camp", dates: "June 17th & 18th", times: "9am – 12pm", ages: "Ages 8–14", price: "$299" },
-  { id: "july", name: "July Camp", dates: "July 1st, 8th, 15th, 22nd, & 29th", times: "9am – 2pm", ages: "Ages 8–14", price: "$299" },
+  { id: "july", name: "July Camp", dates: "July 1st, 8th, 15th, 22nd, & 29th", times: "9am – 2pm", ages: "Ages 8–14", price: "Price Varies" },
 ];
 
 const experienceFeatures = [
