@@ -36,7 +36,7 @@ const Camps = () => {
     <div className="min-h-screen bg-background text-foreground">
       {/* Minimal header — logo only, no nav */}
       <header className="absolute top-0 left-0 right-0 z-50 py-5 px-6 lg:px-16">
-        <Link to="/camps" className="inline-block">
+        <Link to="/" className="inline-block">
           <img src={logoBadge} alt="Legendary Prep Academy" className="h-12 md:h-14 w-auto" />
         </Link>
       </header>
