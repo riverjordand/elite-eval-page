@@ -7,7 +7,7 @@ import logoBadge from "@/assets/lpa-badge-seafoam.png";
 const YOUTUBE_VIDEO_ID = "NZij_Sarm8o";
 
 // GoHighLevel storefront — all "Register for Camp" CTAs link here
-const STORE_URL = "https://app.gohighlevel.com/v2/preview/VpToE9H2KPIT69WLTP2x?notrack=true";
+const STORE_URL = "https://store.legendaryprepacademy.com/camps";
 
 const campSessions = [
   { id: "may", name: "May Camp", dates: "May 28th & 29th", times: "9am – 12pm", ages: "Ages 8–14", price: "$299" },
