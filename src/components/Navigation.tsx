@@ -19,7 +19,7 @@ const Navigation = () => {
   const location = useLocation();
 
   return (
-    <nav className="fixed top-[40px] md:top-[44px] left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/30">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/30">
       <div className="w-full px-fluid-container-px py-3 md:py-4 lg:py-5">
         <div className="flex items-center justify-between max-w-[1800px] mx-auto">
           <Link to="/" onClick={() => setMobileOpen(false)}>
