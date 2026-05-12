@@ -4,8 +4,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Calendar, Clock, Users, Dumbbell, GraduationCap, Trophy, Activity, Flame } from "lucide-react";
 import logoBadge from "@/assets/lpa-badge-seafoam.png";
 
-// PLACEHOLDER — swap with real YouTube video ID
-const YOUTUBE_VIDEO_ID = "dQw4w9WgXcQ";
+const YOUTUBE_VIDEO_ID = "NZij_Sarm8o";
 
 // GoHighLevel storefront — all "Register for Camp" CTAs link here
 const STORE_URL = "https://app.gohighlevel.com/v2/preview/VpToE9H2KPIT69WLTP2x?notrack=true";
