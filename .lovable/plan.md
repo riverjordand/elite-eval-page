@@ -1,5 +1,6 @@
-Update only the July Camp card price in `src/pages/Camps.tsx`:
+Isaac Para appears only in src/pages/Staff.tsx. Two edits needed:
 
-- Change the `july` entry's `price` from `"$299"` to `"Price Varies"`.
-- Leave May and June cards unchanged at `"$299"`.
-- No other changes.
+1. Remove the Isaac Para object (name: "Isaac Para", title: "Coach", image: coachEric) from the coachingStaff array.
+2. Remove the now-unused coachEric import from the imports block.
+
+The staffIsaac import stays because it is used by Eric Smith's entry.

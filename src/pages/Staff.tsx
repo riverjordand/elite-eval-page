@@ -5,7 +5,6 @@ import Navigation from "@/components/Navigation";
 import FooterSection from "@/components/landing/FooterSection";
 import staffMark from "@/assets/staff-mark-karaviotis.jpg";
 import coachJoe from "@/assets/staff-joe-dunigan.jpg";
-import coachEric from "@/assets/staff-eric-smith.jpg";
 import coachTerrell from "@/assets/staff-terrell-hudson.jpg";
 import staffWill from "@/assets/staff-will-armijo.jpg";
 import staffIsaac from "@/assets/staff-isaac-para.jpg";
@@ -63,17 +62,6 @@ const coachingStaff: StaffMember[] = [
     credentials: [
       "Former Division 1 baseball player at the University of New Mexico",
       "Extensive experience in training and managing elite youth baseball",
-    ],
-  },
-  {
-    name: "Isaac Para",
-    title: "Coach",
-    image: coachEric,
-    credentials: [
-      "4-year Arizona college career",
-      "National Gold Glove Winner",
-      "Best Shortstop in the Nation for JC in 2016",
-      "Savannah Bananas — Banana Ball from 2024–2025",
     ],
   },
   {
