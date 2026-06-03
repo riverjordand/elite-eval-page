@@ -73,28 +73,35 @@ const LiabilityWaiver = () => {
             </div>
 
             <div>
-              <h3 className="font-bebas text-xl text-foreground/80 mb-2">4. Safety</h3>
+              <h3 className="font-bebas text-xl text-foreground/80 mb-2">4. Image, Likeness, and Media Release</h3>
+              <p>
+                I, or Parent/Guardian on behalf of participant, hereby grant the Academy and its designees a perpetual, irrevocable, royalty-free, worldwide, transferable license to use, reproduce, modify, distribute, display, and create derivative works from my name, image, likeness, voice, biographical information, and performance (collectively, "Media") in any medium now known or hereafter devised, for any lawful purpose, including but not limited to promotional materials, social media, advertising, fundraising, streaming, and broadcasting. I, or Parent/Guardian, waive(s) any right to inspect, approve, or receive compensation for any use of the Media. I, or Parent/Guardian, release(s) and hold(s) harmless the Released Parties from any claims arising from the use or manipulation of the Media.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="font-bebas text-xl text-foreground/80 mb-2">5. Safety</h3>
               <p>
                 LPA may prescribe safety guidelines and instructions. I agree to comply with all of LPA's safety rules, procedures and requirements, including but not limited to wearing protective gear. I understand that failure to comply may result LPA's terminating my use of the facilities, training services, and equipment and requiring me to leave the premises, at LPA's sole and absolute discretion.
               </p>
             </div>
 
             <div>
-              <h3 className="font-bebas text-xl text-foreground/80 mb-2">5. Governing Law, Venue and Jurisdiction</h3>
+              <h3 className="font-bebas text-xl text-foreground/80 mb-2">6. Governing Law, Venue and Jurisdiction</h3>
               <p>
                 The undersigned understands and agrees that this Waiver of Liability Agreement is intended to be as broad and inclusive as permitted under applicable law and shall be governed by Arizona law, without giving effect to choice of law principles that would require the application of any other jurisdiction's law. In the event a Participant/Minor Participant is not a resident of the State of Arizona, such Participant/Minor Participant, and such Minor Participant's parent(s) or guardian(s) expressly consent to the application of Arizona law and to the exclusive venue and jurisdiction of the Courts as set forth in this Section. In the event of a dispute, the exclusive venue and jurisdiction for any lawsuit arising out of such dispute shall be the Superior Court of the State of Arizona in and for the County of Maricopa.
               </p>
             </div>
 
             <div>
-              <h3 className="font-bebas text-xl text-foreground/80 mb-2">6. Severability</h3>
+              <h3 className="font-bebas text-xl text-foreground/80 mb-2">7. Severability</h3>
               <p>
                 If any provision of this Waiver of Liability Agreement is determined to be invalid for any reason, such invalidity shall not affect the validity of any of the other provisions, which other provisions shall remain in full force and effect as if this document has been executed with the invalid provision eliminated.
               </p>
             </div>
 
             <div>
-              <h3 className="font-bebas text-xl text-foreground/80 mb-2">7. Further Acknowledgement of Understanding</h3>
+              <h3 className="font-bebas text-xl text-foreground/80 mb-2">8. Further Acknowledgement of Understanding</h3>
               <p>
                 I have read this Waiver of Liability Agreement. I fully understand its terms. <strong className="text-foreground/80">I UNDERSTAND THAT BY SIGNING THIS WAIVER OF LIABILITY AGREEMENT THAT I AM GIVING UP SUBSTANTIAL RIGHTS, INCLUDING MY RIGHT TO SUE.</strong> I acknowledge that I am signing this waiver of liability agreement freely, and voluntarily, and that I <strong className="text-foreground/80">INTEND BY MY SIGNATURE, FOR THIS TO BE A COMPLETE AND UNCONDITIONAL RELEASE OF ALL LIABILITY</strong> to the greatest extent allowed by law.
               </p>
