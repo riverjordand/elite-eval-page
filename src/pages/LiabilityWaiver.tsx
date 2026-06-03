@@ -66,7 +66,7 @@ const LiabilityWaiver = () => {
             </div>
 
             <div>
-              <h3 className="font-bebas text-xl text-foreground/80 mb-2">3. Image, Likeness, and Media Release</h3>
+              <h3 className="font-bebas text-xl text-foreground/80 mb-2">3. IMAGE, LIKENESS, AND MEDIA RELEASE</h3>
               <p>
                 I, or Parent/Guardian on behalf of participant, hereby grant the Academy and its designees a perpetual, irrevocable, royalty-free, worldwide, transferable license to use, reproduce, modify, distribute, display, and create derivative works from my name, image, likeness, voice, biographical information, and performance (collectively, "Media") in any medium now known or hereafter devised, for any lawful purpose, including but not limited to promotional materials, social media, advertising, fundraising, streaming, and broadcasting. I, or Parent/Guardian, waive(s) any right to inspect, approve, or receive compensation for any use of the Media. I, or Parent/Guardian, release(s) and hold(s) harmless the Released Parties from any claims arising from the use or manipulation of the Media.
               </p>
