@@ -66,6 +66,13 @@ const LiabilityWaiver = () => {
             </div>
 
             <div>
+              <h3 className="font-bebas text-xl text-foreground/80 mb-2">3. Image, Likeness, and Media Release</h3>
+              <p>
+                I, or Parent/Guardian on behalf of participant, hereby grant the Academy and its designees a perpetual, irrevocable, royalty-free, worldwide, transferable license to use, reproduce, modify, distribute, display, and create derivative works from my name, image, likeness, voice, biographical information, and performance (collectively, "Media") in any medium now known or hereafter devised, for any lawful purpose, including but not limited to promotional materials, social media, advertising, fundraising, streaming, and broadcasting. I, or Parent/Guardian, waive(s) any right to inspect, approve, or receive compensation for any use of the Media. I, or Parent/Guardian, release(s) and hold(s) harmless the Released Parties from any claims arising from the use or manipulation of the Media.
+              </p>
+            </div>
+
+            <div>
               <h3 className="font-bebas text-xl text-foreground/80 mb-2">4. Indemnification and Hold Harmless</h3>
               <p>
                 I agree to <strong className="text-foreground/80">INDEMNIFY AND HOLD LPA AND THE LPA PARTIES HARMLESS</strong> from any and all claims, actions, suits, procedures, costs, expenses, damages and liabilities, including attorney's fees, brought minors of whom I am the parent or guardian or have responsibility for and guests accompanying me, or any players, coaches or other third party, as a result of my actions or the actions of minors of whom I am the parent or guardian or have responsibility for or guests accompanying me, including their use of LPA provided facilities, training services, weight room, exercise room, or equipment of any kind or nature. As part of this indemnification agreement, I acknowledge and agree that I am responsible for conduct and behavior of all minors and guests that accompany me regardless of whether or not they use the facilities, training services, or equipment. I agree to reimburse LPA for all costs, expenses or fees or damages incurred by LPA, including damages to the facility and equipment, arising out of my conduct or the conduct of any minors, players, coaches, and guests that accompany me.
