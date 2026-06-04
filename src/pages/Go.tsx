@@ -25,7 +25,7 @@ import {
 } from "lucide-react";
 import logoBadge from "@/assets/lpa-badge-seafoam.png";
 import heroImg from "@/assets/hero-training.jpg";
-import facilityImg from "@/assets/facility-training-area.jpg";
+import facilityImg from "@/assets/welcome-athlete-batting.jpg";
 import athleteImg from "@/assets/athlete-on-field.jpg";
 
 const CAMP_DATE = new Date("2026-06-15T09:00:00-07:00");
