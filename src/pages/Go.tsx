@@ -29,6 +29,7 @@ import facilityImg from "@/assets/facility-training-area.jpg";
 import athleteImg from "@/assets/athlete-on-field.jpg";
 
 const CAMP_DATE = new Date("2026-06-15T09:00:00-07:00");
+const YOUTUBE_VIDEO_ID = "NZij_Sarm8o";
 
 const US_STATES = [
   "AL","AK","AZ","AR","CA","CO","CT","DE","FL","GA","HI","ID","IL","IN","IA",
@@ -403,6 +404,24 @@ const Go = () => {
 
       {/* What you get */}
       <section className="py-16 md:py-20 border-b border-border/10">
+        <div className="container mx-auto px-6 lg:px-16 mb-16">
+          <div className="flex items-center gap-3 mb-5">
+            <div className="w-8 h-px bg-primary" />
+            <span className="font-oswald text-[10px] text-accent uppercase tracking-[0.4em]">See It In Action</span>
+          </div>
+          <h2 className="font-bebas text-4xl md:text-5xl uppercase leading-[0.9] mb-8">
+            Inside An <span className="text-primary">LPA Camp</span>
+          </h2>
+          <div className="relative aspect-video w-full max-w-4xl mx-auto rounded-2xl overflow-hidden border border-border/20 shadow-2xl shadow-black/40">
+            <iframe
+              className="absolute inset-0 w-full h-full"
+              src={`https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}`}
+              title="LPA Summer Camps"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        </div>
         <div className="container mx-auto px-6 lg:px-16">
           <div className="flex items-center gap-3 mb-5">
             <div className="w-8 h-px bg-primary" />
