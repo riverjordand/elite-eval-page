@@ -15,6 +15,7 @@ import Auth from "./pages/Auth";
 import Experience from "./pages/Experience";
 import PitchDeck from "./pages/PitchDeck";
 import Camps from "./pages/Camps";
+import Go from "./pages/Go";
 import NotFound from "./pages/NotFound";
 import TermsOfService from "./pages/TermsOfService";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
@@ -43,6 +44,7 @@ const App = () => (
           <Route path="/experience" element={<Experience />} />
           <Route path="/the-blueprint" element={<PitchDeck />} />
           <Route path="/camps" element={<Camps />} />
+          <Route path="/go" element={<Go />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/liability-waiver" element={<LiabilityWaiver />} />
