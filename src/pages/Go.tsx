@@ -29,6 +29,7 @@ import facilityImg from "@/assets/facility-training-area.jpg";
 import athleteImg from "@/assets/athlete-on-field.jpg";
 
 const CAMP_DATE = new Date("2026-06-15T09:00:00-07:00");
+const YOUTUBE_VIDEO_ID = "NZij_Sarm8o";
 
 const US_STATES = [
   "AL","AK","AZ","AR","CA","CO","CT","DE","FL","GA","HI","ID","IL","IN","IA",
