@@ -44,6 +44,15 @@ serve(async (req) => {
       await response.text(); // consume body
     }
 
+    // Also notify Slack for camp leads
+    if (form_type === 'camp_lead_june15') {
+      try {
+        await postToSlack(data);
+      } catch (slackErr) {
+        console.error('Slack notify failed:', slackErr);
+      }
+    }
+
     return new Response(JSON.stringify({ success: true }), {
       status: 200,
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
@@ -57,3 +66,41 @@ serve(async (req) => {
     });
   }
 });
+
+async function postToSlack(data: Record<string, any>) {
+  const LOVABLE_API_KEY = Deno.env.get('LOVABLE_API_KEY');
+  const SLACK_API_KEY = Deno.env.get('SLACK_API_KEY');
+  if (!LOVABLE_API_KEY || !SLACK_API_KEY) {
+    console.warn('Slack not configured');
+    return;
+  }
+
+  const channel = '#new-leads';
+  const fields = Object.entries(data)
+    .filter(([, v]) => v !== undefined && v !== null && v !== '')
+    .map(([k, v]) => `*${k}:* ${typeof v === 'string' ? v : JSON.stringify(v)}`)
+    .join('\n');
+
+  const text = `:baseball: *New LPA Camp Lead (June 15)*\n${fields}`;
+
+  const res = await fetch('https://connector-gateway.lovable.dev/slack/api/chat.postMessage', {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${LOVABLE_API_KEY}`,
+      'X-Connection-Api-Key': SLACK_API_KEY,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ channel, text, unfurl_links: false }),
+  });
+  const body = await res.text();
+  if (!res.ok) {
+    console.error(`Slack postMessage HTTP ${res.status}: ${body}`);
+    return;
+  }
+  try {
+    const json = JSON.parse(body);
+    if (!json.ok) console.error(`Slack API error: ${json.error}`);
+  } catch {
+    console.error(`Slack non-JSON response: ${body.slice(0, 300)}`);
+  }
+}
