@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Calendar, Clock, Users, Dumbbell, GraduationCap, Trophy, Activity, Flame } from "lucide-react";
 import logoBadge from "@/assets/lpa-badge-seafoam.png";
 
-const YOUTUBE_VIDEO_ID = "NZij_Sarm8o";
+const YOUTUBE_VIDEO_ID = "HqhgUta-pRE";
 
 // GoHighLevel storefront — all "Register for Camp" CTAs link here
 const STORE_URL = "https://store.legendaryprepacademy.com/camps";
