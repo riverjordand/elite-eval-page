@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Calendar, Clock, Users, Dumbbell, GraduationCap, Trophy, Activity, Flame } from "lucide-react";
-import logoBadge from "@/assets/lpa-badge-seafoam.png";
+import Navigation from "@/components/Navigation";
 
 const YOUTUBE_VIDEO_ID = "HqhgUta-pRE";
 
@@ -34,12 +34,7 @@ const Camps = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      {/* Minimal header — logo only, no nav */}
-      <header className="absolute top-0 left-0 right-0 z-50 py-5 px-6 lg:px-16">
-        <Link to="/" className="inline-block">
-          <img src={logoBadge} alt="Legendary Prep Academy" className="h-12 md:h-14 w-auto" />
-        </Link>
-      </header>
+      <Navigation />
 
       {/* Hero + Video */}
       <section className="relative pt-28 md:pt-36 pb-16 md:pb-20 overflow-hidden border-b border-border/10">
