@@ -14,6 +14,8 @@ import staffBilly from "@/assets/staff-billy-armijo.jpg";
 import staffRiver from "@/assets/staff-river-demson.jpg";
 import staffDiego from "@/assets/staff-diego-chavez.jpg";
 import staffRJ from "@/assets/staff-rj-etchebarren.jpg";
+import staffMikeAsset from "@/assets/staff-mike-gonzalez.png.asset.json";
+const staffMike = staffMikeAsset.url;
 
 interface StaffMember {
   name: string;
@@ -154,6 +156,17 @@ const executiveStaff: StaffMember[] = [
   },
   { name: "Andy Leonard", title: "CFO" },
   { name: "Tyler Thorne", title: "CLO" },
+  {
+    name: "Mike Gonzalez",
+    title: "Director of Operations",
+    image: staffMike,
+    credentials: [
+      "Arizona Licensed Naturopathic Medical Doctor",
+      "Environmental Medicine and Lifestyle Medicine Specialist",
+      "Primary care provider",
+      "Owner of Concierge Doctors of Arizona",
+    ],
+  },
 ];
 
 const StaffCard = ({ member, onClick, size = "large" }: { member: StaffMember; onClick?: () => void; size?: "large" | "compact" }) => {
