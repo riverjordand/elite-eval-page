@@ -85,6 +85,7 @@ const coachingStaff: StaffMember[] = [
     name: "Taylor Hubbell",
     title: "Middle School Head Coach",
     image: staffTaylor,
+    credentials: ["Bio Coming Soon"],
   },
 ];
 
