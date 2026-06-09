@@ -16,6 +16,8 @@ import staffDiego from "@/assets/staff-diego-chavez.jpg";
 import staffRJ from "@/assets/staff-rj-etchebarren.jpg";
 import staffMikeAsset from "@/assets/staff-mike-gonzalez.png.asset.json";
 const staffMike = staffMikeAsset.url;
+import staffTaylorAsset from "@/assets/staff-taylor-hubbell.png.asset.json";
+const staffTaylor = staffTaylorAsset.url;
 
 interface StaffMember {
   name: string;
@@ -77,6 +79,11 @@ const coachingStaff: StaffMember[] = [
       "Precision Nutrition Level 1 Coach (Pn1)",
       "16 years experience as a performance coach",
     ],
+  },
+  {
+    name: "Taylor Hubbell",
+    title: "Middle School Head Coach",
+    image: staffTaylor,
   },
 ];
 
