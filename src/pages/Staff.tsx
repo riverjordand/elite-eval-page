@@ -165,15 +165,14 @@ const executiveStaff: StaffMember[] = [
   { name: "Andy Leonard", title: "CFO" },
   { name: "Tyler Thorne", title: "CLO" },
   {
-    name: "Mike Gonzalaz",
-    title: "Director of Operations",
+    name: "Mike Gonzales, NMD",
+    title: "Seasoned Clinic Director & Entrepreneur",
     image: staffMike,
     credentials: [
-      "Arizona Licensed Naturopathic Medical Doctor",
-      "Environmental Medicine and Lifestyle Medicine Specialist",
-      "Primary care provider",
-      "Owner of Concierge Doctors of Arizona",
+      "Holds a Doctorate in Naturopathic Medicine",
+      "7+ years operational experience",
     ],
+    bio: "Dr. Mike Gonzales is a highly skilled operations professional with a background in leadership, team management, and organizational growth. Originally trained as a naturopathic doctor, he transitioned into business operations and has spent the past several years helping clinics and service-based organizations improve systems, strengthen communication, and build effective teams.\n\nSince 2018, Mike has owned and operated multiple businesses while leading operations in fast-paced environments. His experience includes staff leadership, process improvement, strategic planning, and operational development.\n\nOutside of work, he enjoys playing golf, growing in his faith, and spending time with family and friends.",
   },
 ];
 
