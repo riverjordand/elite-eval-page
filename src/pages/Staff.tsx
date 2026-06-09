@@ -25,6 +25,7 @@ interface StaffMember {
   image?: string;
   imagePositionClass?: string;
   credentials?: string[];
+  bio?: string;
 }
 
 const coachingStaff: StaffMember[] = [
