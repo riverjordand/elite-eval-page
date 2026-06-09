@@ -157,7 +157,7 @@ const executiveStaff: StaffMember[] = [
   { name: "Andy Leonard", title: "CFO" },
   { name: "Tyler Thorne", title: "CLO" },
   {
-    name: "Mike Gonzalez",
+    name: "Mike Gonzalaz",
     title: "Director of Operations",
     image: staffMike,
     credentials: [
