@@ -350,6 +350,15 @@ const Staff = () => {
                     ))}
                   </ul>
                 )}
+                {selectedMember.bio && (
+                  <div className="mt-6 space-y-3">
+                    {selectedMember.bio.split("\n\n").map((para, i) => (
+                      <p key={i} className="font-oswald text-sm lg:text-base text-foreground/80 leading-relaxed">
+                        {para}
+                      </p>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
 
