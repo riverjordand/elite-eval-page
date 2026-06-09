@@ -166,7 +166,7 @@ const executiveStaff: StaffMember[] = [
   { name: "Tyler Thorne", title: "CLO" },
   {
     name: "Mike Gonzales, NMD",
-    title: "Seasoned Clinic Director & Entrepreneur",
+    title: "Director of Operations",
     image: staffMike,
     credentials: [
       "Holds a Doctorate in Naturopathic Medicine",
