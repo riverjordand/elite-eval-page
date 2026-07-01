@@ -33,8 +33,8 @@ const HeroSection = () => {
       >
         <source src="https://xhqqxukgsaxabyvbfinn.supabase.co/storage/v1/object/public/video/hero-video.mp4" type="video/mp4" />
       </video>
-      <div className="absolute inset-0 bg-black/55" />
-      <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-black/40" />
+      <div className="absolute inset-0 bg-black/55 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-black/40 pointer-events-none" />
 
       {/* Content — moves slightly opposite for depth */}
       <div
