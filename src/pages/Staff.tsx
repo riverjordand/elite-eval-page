@@ -14,7 +14,7 @@ import staffBilly from "@/assets/staff-billy-armijo.jpg";
 import staffRiver from "@/assets/staff-river-demson.jpg";
 import staffDiego from "@/assets/staff-diego-chavez.jpg";
 import staffRJ from "@/assets/staff-rj-etchebarren.jpg";
-import staffMikeAsset from "@/assets/staff-mike-gonzalez.png.asset.json";
+import staffMikeAsset from "@/assets/staff-mike-gonzales.jpg.asset.json";
 const staffMike = staffMikeAsset.url;
 import staffTaylorAsset from "@/assets/staff-taylor-hubbell.png.asset.json";
 const staffTaylor = staffTaylorAsset.url;
