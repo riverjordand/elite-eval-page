@@ -1,7 +1,19 @@
 import Navigation from "@/components/Navigation";
 import FooterSection from "@/components/landing/FooterSection";
+import { useEffect } from "react";
 
 const Appointments = () => {
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://link.msgsndr.com/js/form_embed.js";
+    script.type = "text/javascript";
+    script.async = true;
+    document.body.appendChild(script);
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -36,10 +48,10 @@ const Appointments = () => {
             </div>
             <div className="bg-background/40">
               <iframe
-                src="https://outlook.office.com/book/LPATour@legendaryprepacademy.com/"
-                style={{ border: 0, width: "100%", height: "100vh", display: "block" }}
-                scrolling="yes"
-                frameBorder={0}
+                src="https://api.leadconnectorhq.com/widget/booking/W6vchSCuO8X4sCvRnyvN"
+                style={{ width: "100%", border: "none", overflow: "hidden", minHeight: "100vh", display: "block" }}
+                scrolling="no"
+                id="W6vchSCuO8X4sCvRnyvN_1782944118937"
                 title="Book a Tour – Legendary Prep Academy"
               />
             </div>
