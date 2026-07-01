@@ -11,8 +11,6 @@ import staffIsaac from "@/assets/staff-isaac-para.jpg";
 import staffJosh from "@/assets/staff-josh-garcia.jpg";
 import staffMartin from "@/assets/staff-martin-jacquez.jpg";
 import staffBilly from "@/assets/staff-billy-armijo.jpg";
-import staffRiver from "@/assets/staff-river-demson.jpg";
-import staffDiego from "@/assets/staff-diego-chavez.jpg";
 import staffRJ from "@/assets/staff-rj-etchebarren.jpg";
 import staffMikeAsset from "@/assets/staff-mike-gonzales.jpg.asset.json";
 const staffMike = staffMikeAsset.url;
@@ -113,29 +111,6 @@ const administrationStaff: StaffMember[] = [
       "Former paramedic & EMT",
       "Former Police Reserve (New Mexico)",
       "CDL certified",
-    ],
-  },
-  {
-    name: "River Demson",
-    title: "Director of Media Production",
-    image: staffRiver,
-    credentials: [
-      "Emmy Award-winning sports videographer",
-      "12+ years of professional production experience",
-      "Former content producer for the NBA (Phoenix Suns)",
-      "Former content producer for the NHL (Arizona Coyotes)",
-    ],
-  },
-  {
-    name: "Diego Chavez",
-    title: "Operations Intern",
-    image: staffDiego,
-    credentials: [
-      "Four-time State Wrestling Champion and Valedictorian",
-      "Division I athlete at ASU",
-      "ASU Barrett Honors College",
-      "ASU W. P. Carey School of Business (3.75 GPA)",
-      "Flinn Scholar",
     ],
   },
 ];
