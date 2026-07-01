@@ -27,7 +27,6 @@ const HeroSection = () => {
       <video
         autoPlay loop muted playsInline
         preload="auto"
-        poster="/action-01.jpg"
         className="absolute inset-0 w-full h-full object-cover will-change-transform"
         style={{ transform: `translateY(${scrollY * 0.35}px) scale(1.15)` }}
         ref={(el) => { if (el) el.play().catch(() => {}); }}
