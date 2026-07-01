@@ -38,7 +38,7 @@ const HeroSection = () => {
 
       {/* Content — moves slightly opposite for depth */}
       <div
-        className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6 will-change-transform"
+        className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6 pt-[120px] md:pt-[140px] lg:pt-[160px] will-change-transform"
         style={{ transform: `translateY(${scrollY * -0.08}px)` }}
       >
 
