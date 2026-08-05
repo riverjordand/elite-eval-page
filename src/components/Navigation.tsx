@@ -4,11 +4,12 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import logoBadge from "@/assets/lpa-badge-seafoam.png";
 
-const navLinks = [
+const navLinks: { to: string; label: string; external?: boolean }[] = [
 { to: "/", label: "Home" },
 { to: "/experience", label: "The LPA Experience" },
 { to: "/staff", label: "Meet The Staff" },
 { to: "/schedule", label: "Schedule" },
+{ to: "https://legendaryprepacademy.com/parent-hub", label: "Parent Hub", external: true },
 { to: "/sponsors", label: "Sponsors" },
 { to: "/apply", label: "Apply" },
 { to: "/contact", label: "Contact Us" }];
@@ -32,6 +33,13 @@ const Navigation = () => {
           {/* Desktop Nav */}
           <div className="hidden lg:flex items-center gap-fluid-gap">
             {navLinks.map((link) =>
+            link.external ?
+            <a
+              key={link.to}
+              href={link.to}
+              className="font-bebas text-fluid-sm uppercase tracking-wider transition-colors text-foreground/80 hover:text-primary">
+                {link.label}
+              </a> :
             <Link
               key={link.to}
               to={link.to}
@@ -73,6 +81,14 @@ const Navigation = () => {
       <div className="lg:hidden bg-background/95 backdrop-blur-lg border-t border-border/30">
           <div className="flex flex-col px-fluid-md py-4 space-y-1">
             {navLinks.map((link) =>
+          link.external ?
+          <a
+            key={link.to}
+            href={link.to}
+            onClick={() => setMobileOpen(false)}
+            className="font-bebas text-fluid-xl uppercase tracking-wider py-3 border-b border-border/10 transition-colors text-foreground/80">
+                {link.label}
+              </a> :
           <Link
             key={link.to}
             to={link.to}
