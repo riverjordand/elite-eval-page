@@ -9,7 +9,7 @@ const navLinks: { to: string; label: string; external?: boolean }[] = [
 { to: "/experience", label: "The LPA Experience" },
 { to: "/staff", label: "Meet The Staff" },
 { to: "/schedule", label: "Schedule" },
-{ to: "https://legendaryprepacademy.com/parent-hub", label: "Parent Hub", external: true },
+{ to: "https://legendaryprepacademy.com/parenthub", label: "Parent Hub", external: true },
 { to: "/sponsors", label: "Sponsors" },
 { to: "/apply", label: "Apply" },
 { to: "/contact", label: "Contact Us" }];
