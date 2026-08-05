@@ -1,5 +1,4 @@
 import Navigation from "@/components/Navigation";
-import CampBanner from "@/components/CampBanner";
 import HeroSection from "@/components/landing/HeroSection";
 import CommitmentsGrid from "@/components/landing/CommitmentsGrid";
 import StatsSection from "@/components/landing/StatsSection";
@@ -17,7 +16,6 @@ const Index = () => {
   return (
     <main className="min-h-screen bg-background">
       <Navigation />
-      <CampBanner />
       <HeroSection />
       <StatsSection />
       <IntroSection />
