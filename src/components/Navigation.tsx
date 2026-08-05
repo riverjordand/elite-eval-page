@@ -4,7 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import logoBadge from "@/assets/lpa-badge-seafoam.png";
 
-const navLinks = [
+const navLinks: { to: string; label: string; external?: boolean }[] = [
 { to: "/", label: "Home" },
 { to: "/experience", label: "The LPA Experience" },
 { to: "/staff", label: "Meet The Staff" },
